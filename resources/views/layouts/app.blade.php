@@ -28,6 +28,19 @@
                 max-width: 1000px !important;
             }
         }
+
+        /*!*Computer*!*/
+        /*@media(min-width: 768px) {*/
+        /*body{*/
+        /*background-color: rgba(236,239,241, 0.05)*/
+        /*}*/
+        /*}*/
+        /*!*Mobile*!*/
+        /*@media(max-width: 768px) {*/
+        /*body{*/
+        /*background-color: #ffffff;*/
+        /*}*/
+        /*}*/
     </style>
 </head>
 <body>

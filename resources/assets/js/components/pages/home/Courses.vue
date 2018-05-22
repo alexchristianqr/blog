@@ -36,8 +36,9 @@
                             <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
                         </div>
                         <div class="card-body w-50 mx-auto">
-                            <a href="#"><img class="card-img-top"
-                                             :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt=""></a>
+                            <a href="#">
+                                <img class="card-img-top" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
+                            </a>
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -45,8 +46,7 @@
                                     <a href="#" class="btn btn-outline-primary">Learn More</a>
                                 </div>
                                 <div class="col-6 my-auto text-right">
-                                    <strong class="h5 text-muted">{{ dataCourse[dataPaginate.page -1].price.usa
-                                        }}</strong>
+                                    <strong class="h5 text-muted">{{ dataCourse[dataPaginate.page -1].price.usa }}</strong>
                                 </div>
                             </div>
                         </div>
@@ -56,20 +56,20 @@
         </template>
         <!-- Pagination -->
         <div class="col-12">
-            <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                <ul class="pagination justify-content-center mb-4">
-                    <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
-                    </li>
-                    <li class="page-item disabled">
-                        <span class="page-link text-muted">{{ dataPaginate.page }} of {{ dataPaginate.total }}</span>
-                    </li>
-                    <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
-                    </li>
-                </ul>
+                <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                        <ul class="pagination justify-content-center mb-4">
+                            <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                                <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
+                            </li>
+                            <li class="page-item disabled">
+                                <span class="page-link text-muted">{{ dataPaginate.page }} of {{ dataPaginate.total }}</span>
+                            </li>
+                            <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                                <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
+                            </li>
+                        </ul>
+                    </div>
             </div>
-        </div>
     </div>
 </template>
 

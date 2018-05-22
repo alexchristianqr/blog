@@ -13972,7 +13972,10 @@ var render = function() {
       _c("div", { staticClass: "col-12" }, [
         _c(
           "div",
-          { staticClass: "col-md-6 offset-md-3 col-lg-4 offset-lg-4" },
+          {
+            staticClass:
+              "col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4"
+          },
           [
             _c(
               "ul",
@@ -14126,7 +14129,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14137,10 +14140,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
 //
 //
 //
@@ -14261,12 +14260,15 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "page-link", on: { click: _vm.back } },
-                  [_vm._v("← Older")]
+                  [
+                    _c("i", { staticClass: "fa fa-angle-left mr-3" }),
+                    _vm._v("Back")
+                  ]
                 )
               ]
             ),
             _vm._v(" "),
-            _c("li", { staticClass: "page-item" }, [
+            _c("li", { staticClass: "page-item disabled" }, [
               _c("span", { staticClass: "page-link text-muted" }, [
                 _vm._v(
                   _vm._s(_vm.dataPaginate.page) +
@@ -14283,7 +14285,10 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "page-link", on: { click: _vm.next } },
-                  [_vm._v("Newer →")]
+                  [
+                    _vm._v("Next"),
+                    _c("i", { staticClass: "fa fa-angle-right ml-3" })
+                  ]
                 )
               ]
             )
@@ -14301,21 +14306,19 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "col-lg-6 col-sm-6 portfolio-item",
+        staticClass: "col-lg-6 col-sm-12 portfolio-item",
         attrs: { id: "isMobile" }
       },
       [
         _c("div", { staticClass: "card h-100" }, [
-          _c("div", { staticClass: "card-body p-0 text-center my-1 mx-1" }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: { src: "images/search.png", alt: "" }
-              })
-            ])
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: "images/search.png", alt: "" }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "card-body bg-light" }, [
             _c("h4", { staticClass: "card-title" }, [
               _c("a", { attrs: { href: "#" } }, [_vm._v("App Gmail Hibrida")])
             ]),
@@ -14337,21 +14340,19 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "col-lg-6 col-sm-6 portfolio-item",
+        staticClass: "col-lg-6 col-sm-12 portfolio-item",
         attrs: { id: "isDefault" }
       },
       [
         _c("div", { staticClass: "card h-100" }, [
-          _c("div", { staticClass: "card-body p-0 text-center my-1 mx-1" }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: { src: "images/search.png", alt: "" }
-              })
-            ])
+          _c("a", { attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: "images/search.png", alt: "" }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "card-body bg-light" }, [
             _c("h4", { staticClass: "card-title" }, [
               _c("a", { attrs: { href: "#" } }, [
                 _vm._v("Web Portal Autoatención")

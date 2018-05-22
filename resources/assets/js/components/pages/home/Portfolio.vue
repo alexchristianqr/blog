@@ -1,12 +1,10 @@
 <template>
     <div class="row">
         <!-- Portfolio -->
-        <div id="isMobile" class="col-lg-6 col-sm-6 portfolio-item">
+        <div id="isMobile" class="col-lg-6 col-sm-12 portfolio-item">
             <div class="card h-100">
-                <div class="card-body p-0 text-center my-1 mx-1">
-                    <a href="#"><img class="card-img-top" src="images/search.png" alt=""></a>
-                </div>
-                <div class="card-body">
+                <a href="#"><img class="card-img-top" src="images/search.png" alt=""></a>
+                <div class="card-body bg-light">
                     <h4 class="card-title">
                         <a href="#">App Gmail Hibrida</a>
                     </h4>
@@ -16,12 +14,10 @@
                 </div>
             </div>
         </div>
-        <div id="isDefault" class="col-lg-6 col-sm-6 portfolio-item">
+        <div id="isDefault" class="col-lg-6 col-sm-12 portfolio-item">
             <div class="card h-100">
-                <div class="card-body p-0 text-center my-1 mx-1">
-                    <a href="#"><img class="card-img-top" src="images/search.png" alt=""></a>
-                </div>
-                <div class="card-body">
+                <a href="#"><img class="card-img-top" src="images/search.png" alt=""></a>
+                <div class="card-body bg-light">
                     <h4 class="card-title">
                         <a href="#">Web Portal Autoatención</a>
                     </h4>
@@ -38,13 +34,13 @@
             <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
                 <ul class="pagination justify-content-center mb-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="back">&larr; Older</button>
+                        <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
                     </li>
-                    <li class="page-item">
+                    <li class="page-item disabled">
                         <span class="page-link text-muted">{{ dataPaginate.page }} of {{ dataPaginate.total }}</span>
                     </li>
                     <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="next">Newer &rarr;</button>
+                        <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
                     </li>
                 </ul>
             </div>
