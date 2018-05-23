@@ -44,6 +44,7 @@
     </style>
 </head>
 <body>
+<div id="app">
 <!-- Navigation -->
 @include('layouts.nav')
 
@@ -53,6 +54,7 @@
 
 <!-- Footer -->
 @include('layouts.footer')
+</div>
 @if(env('APP_ENV') == 'local')
     <script src="{{ asset('node_modules/jquery/dist/jquery.js') }}"></script>
     <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}"></script>

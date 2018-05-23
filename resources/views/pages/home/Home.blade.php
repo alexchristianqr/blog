@@ -40,8 +40,7 @@
             </a>
         </div>
     </header>
-
-    <div id="app" class="container">
+    <div class="container">
         <div class="row mt-5">
             <div class="col-6 my-auto">
                 <h2>Courses</h2>
