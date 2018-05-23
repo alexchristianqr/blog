@@ -14139,8 +14139,7 @@ var render = function() {
         _c(
           "div",
           {
-            staticClass:
-              "col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4"
+            staticClass: "col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4"
           },
           [
             _c(
@@ -14413,10 +14412,7 @@ var render = function() {
     _c("div", { staticClass: "col-12" }, [
       _c(
         "div",
-        {
-          staticClass:
-            "col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4"
-        },
+        { staticClass: "col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4" },
         [
           _c("ul", { staticClass: "pagination justify-content-center mb-4" }, [
             _c(
@@ -14826,7 +14822,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14838,6 +14834,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utility__ = __webpack_require__(55);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14903,22 +14904,19 @@ var render = function() {
       _vm.util.getStorage("data_screen").isComputer
         ? [
             _c("div", { staticClass: "row" }, [
-              _vm._m(0),
-              _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "col-sm-6 col-md-4 col-lg-4 my-auto text-center"
+                  staticClass: "col-sm-3 col-md-4 col-lg-4 my-auto text-center"
                 },
                 [
                   _c("span", { staticClass: "text-muted" }, [
-                    _vm._v(
-                      "Copyright © @acqrdeveloper " +
-                        _vm._s(new Date().getFullYear())
-                    )
+                    _vm._v("Copyright © " + _vm._s(new Date().getFullYear()))
                   ])
                 ]
               ),
+              _vm._v(" "),
+              _vm._m(0),
               _vm._v(" "),
               _vm._m(1)
             ])
@@ -14928,20 +14926,13 @@ var render = function() {
       _vm.util.getStorage("data_screen").isTablet
         ? [
             _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-6 col-md-4 col-lg-4 my-auto text-center"
-                },
-                [
-                  _c("span", { staticClass: "text-muted" }, [
-                    _vm._v(
-                      "Copyright © @acqrdeveloper " +
-                        _vm._s(new Date().getFullYear())
-                    )
-                  ])
-                ]
-              )
+              _c("div", { staticClass: "col-sm-6 my-auto text-center" }, [
+                _c("span", { staticClass: "text-muted" }, [
+                  _vm._v("Copyright © " + _vm._s(new Date().getFullYear()))
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
             ])
           ]
         : _vm._e(),
@@ -14949,16 +14940,13 @@ var render = function() {
       _vm.util.getStorage("data_screen").isMobile
         ? [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-6 text-center" }, [
+              _c("div", { staticClass: "col-6 text-center my-auto" }, [
                 _c("span", { staticClass: "text-muted" }, [
-                  _vm._v(
-                    "Copyright © @acqrdeveloper " +
-                      _vm._s(new Date().getFullYear())
-                  )
+                  _vm._v("Copyright © " + _vm._s(new Date().getFullYear()))
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(3)
             ])
           ]
         : _vm._e()
@@ -14973,8 +14961,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-sm-3 col-md-4 col-lg-4 my-auto text-center" },
-      [_c("span", [_vm._v("1")])]
+      { staticClass: "col-sm-6 col-md-4 col-lg-4 my-auto text-center" },
+      [_c("i", { staticClass: "fa fa-github fa-2x text-muted" })]
     )
   },
   function() {
@@ -14984,15 +14972,29 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "col-sm-3 col-md-4 col-lg-4 my-auto text-center" },
-      [_c("span", [_vm._v("2")])]
+      [
+        _c("i", { staticClass: "fa fa-facebook-square fa-2x text-muted" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fa fa-twitter-square fa-2x text-muted" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "fa fa-youtube-play fa-2x text-muted" })
+      ]
     )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6 text-center" }, [
-      _c("span", [_c("i", { staticClass: "fa fa-github fa-2x" })])
+    return _c("div", { staticClass: "col-sm-6 my-auto text-center" }, [
+      _c("i", { staticClass: "fa fa-github fa-2x text-muted" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6 text-center my-auto" }, [
+      _c("i", { staticClass: "fa fa-github fa-2x text-muted" })
     ])
   }
 ]

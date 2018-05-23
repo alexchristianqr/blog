@@ -3,30 +3,35 @@
         <template v-if="util.getStorage('data_screen').isComputer">
             <div class="row">
                 <div class="col-sm-3 col-md-4 col-lg-4 my-auto text-center">
-                    <span>1</span>
+                    <span class="text-muted">Copyright &copy; {{new Date().getFullYear()}}</span>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-auto text-center">
-                    <span class="text-muted">Copyright &copy; @acqrdeveloper {{new Date().getFullYear()}}</span>
+                    <i class="fa fa-github fa-2x text-muted"></i>
                 </div>
                 <div class="col-sm-3 col-md-4 col-lg-4 my-auto text-center">
-                    <span>2</span>
+                    <i class="fa fa-facebook-square fa-2x text-muted"></i>
+                    <i class="fa fa-twitter-square fa-2x text-muted"></i>
+                    <i class="fa fa-youtube-play fa-2x text-muted"></i>
                 </div>
             </div>
         </template>
         <template v-if="util.getStorage('data_screen').isTablet">
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-4 my-auto text-center">
-                    <span class="text-muted">Copyright &copy; @acqrdeveloper {{new Date().getFullYear()}}</span>
+                <div class="col-sm-6 my-auto text-center">
+                    <span class="text-muted">Copyright &copy; {{new Date().getFullYear()}}</span>
+                </div>
+                <div class="col-sm-6 my-auto text-center">
+                    <i class="fa fa-github fa-2x text-muted"></i>
                 </div>
             </div>
         </template>
         <template v-if="util.getStorage('data_screen').isMobile">
             <div class="row">
-                <div class="col-sm-6 text-center">
-                    <span class="text-muted">Copyright &copy; @acqrdeveloper {{new Date().getFullYear()}}</span>
+                <div class="col-6 text-center my-auto">
+                    <span class="text-muted">Copyright &copy; {{new Date().getFullYear()}}</span>
                 </div>
-                <div class="col-sm-6 text-center">
-                    <span><i class="fa fa-github fa-2x"></i></span>
+                <div class="col-6 text-center my-auto">
+                    <i class="fa fa-github fa-2x text-muted"></i>
                 </div>
             </div>
         </template>

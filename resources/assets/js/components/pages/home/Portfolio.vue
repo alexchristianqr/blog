@@ -31,7 +31,7 @@
         </div>
         <!-- Pagination -->
         <div class="col-12">
-            <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
                 <ul class="pagination justify-content-center mb-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
                         <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>

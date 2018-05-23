@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="{{route('route.home')}}"><strong class="mr-1">Alex Christian</strong><span class="text-muted small">@acqrdeveloper</span></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Toggle navigation" style="outline: none !important;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
