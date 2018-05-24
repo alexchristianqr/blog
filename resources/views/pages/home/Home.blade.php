@@ -60,8 +60,7 @@
                 <h2>Portfolio</h2>
             </div>
             <div class="col-6 my-auto">
-                <a href="{{route('route.portfolio')}}" class="btn btn-outline-primary pull-right">See More <i
-                            class="fa fa-long-arrow-right"></i></a>
+                <a href="{{route('route.portfolio')}}" class="btn btn-outline-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
             </div>
         </div>
         <hr>
@@ -106,7 +105,7 @@
         <!-- Call to Action Section -->
         <div class="row mt-5 mb-5">
             <div class="col-md-6">
-                <p>Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
+                <p class="text-muted">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
             <div class="col-md-6 my-auto">
                 <form action="">

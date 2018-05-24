@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -93,7 +93,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10465,16 +10465,16 @@ return jQuery;
 
 /***/ }),
 
-/***/ 48:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(12);
-module.exports = __webpack_require__(49);
+__webpack_require__(13);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
 
-/***/ 49:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -10483,7 +10483,7 @@ module.exports = __webpack_require__(49);
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(12)) :
+   true ? factory(exports, __webpack_require__(13)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
   (factory((global.bootstrap = {}),global.jQuery));
 }(this, (function (exports,$) { 'use strict';

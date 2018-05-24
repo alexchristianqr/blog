@@ -4,55 +4,67 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
  */
 body {
-  padding-top: 54px;
+    padding-top: 54px;
 }
 
 @media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+    body {
+        padding-top: 56px;
+    }
 }
 
 @media (max-width: 768px) {
-  #lineSeparate{
-    display: none;
-  }
+    #lineSeparate {
+        display: none;
+    }
 }
 
 .carousel-item {
-  height: calc(100vh - 55px);
-  /*min-height: 500px;*/
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: calc(100vh - 55px);
+    /*min-height: 500px;*/
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .portfolio-item {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .fixed-top {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding-top: 0px;
-  }
-  .fixed-top {
-    position: relative;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1030;
-  }
-  #isDefault{
-    display: none;
-  }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 0px;
+    }
+
+    .fixed-top {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    #isDefault {
+        display: none;
+    }
+}
+
+.w-35 {
+    width: 35% !important;
+}
+.w-40 {
+    width: 40% !important;
+}
+.w-45 {
+    width: 45% !important;
 }
