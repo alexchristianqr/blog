@@ -14200,8 +14200,7 @@ var render = function() {
                   _c(
                     "ul",
                     {
-                      staticClass:
-                        "pagination justify-content-center mb-4 ml-2 mr-2"
+                      staticClass: "pagination justify-content-center ml-2 mr-2"
                     },
                     [
                       _c(
@@ -14300,8 +14299,7 @@ var render = function() {
                   _c(
                     "ul",
                     {
-                      staticClass:
-                        "pagination justify-content-center mb-4 mr-2 ml-2"
+                      staticClass: "pagination justify-content-center mr-2 ml-2"
                     },
                     [
                       _c(
@@ -14454,7 +14452,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14466,6 +14464,20 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utility__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14591,7 +14603,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row position-relative" },
+    { staticClass: "row" },
     [
       _vm.util.getStorage("data_screen").isComputer
         ? [
@@ -14674,47 +14686,71 @@ var render = function() {
       _vm._v(" "),
       _vm.util.getStorage("data_screen").isSmall
         ? [
-            _c(
-              "div",
-              {
-                staticClass: "table-responsive",
-                staticStyle: { display: "-webkit-box" }
-              },
-              [
-                _vm._l(4, function(n) {
-                  return _c(
-                    "div",
-                    { staticClass: "col-lg-6 col-sm-12 portfolio-item" },
-                    [_vm._m(2, true)]
+            _c("table", { staticClass: "w-100" }, [
+              _c("tr", [
+                _c("td", [
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "pagination justify-content-center ml-2 mr-2"
+                    },
+                    [
+                      _c(
+                        "li",
+                        {
+                          class: _vm.disabledBack
+                            ? "page-item disabled"
+                            : "page-item"
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              class: _vm.disabledBack
+                                ? "page-link"
+                                : "page-link border-primary",
+                              on: { click: _vm.back }
+                            },
+                            [_c("i", { staticClass: "fa fa-angle-left" })]
+                          )
+                        ]
+                      )
+                    ]
                   )
-                }),
+                ]),
                 _vm._v(" "),
-                _c("div", {
-                  staticStyle: {
-                    position: "absolute",
-                    top: "0",
-                    right: "0",
-                    bottom: "0",
-                    width: "18px",
-                    background:
-                      "linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0))"
-                  }
-                }),
+                _vm._m(2),
                 _vm._v(" "),
-                _c("div", {
-                  staticStyle: {
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    bottom: "0",
-                    width: "18px",
-                    background:
-                      "linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0))"
-                  }
-                })
-              ],
-              2
-            )
+                _c("td", [
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "pagination justify-content-center mr-2 ml-2"
+                    },
+                    [
+                      _c(
+                        "li",
+                        {
+                          class: _vm.disabledNext
+                            ? "page-item disabled"
+                            : "page-item"
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "page-link border-primary",
+                              on: { click: _vm.next }
+                            },
+                            [_c("i", { staticClass: "fa fa-angle-right" })]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
           ]
         : _vm._e()
     ],
@@ -14780,23 +14816,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card h-100" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          staticClass: "card-img-top",
-          attrs: { src: "images/search.png", alt: "" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body bg-light" }, [
-        _c("h4", { staticClass: "card-title" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Web Portal Autoatención")])
+    return _c("td", [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("a", { attrs: { href: "#" } }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: { src: "images/search.png", alt: "" }
+          })
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra\n                        euismod odio, gravida pellentesque urna varius vitae Lorem ipsum dolor sit amet, consectetur\n                        adipisicing elit. Accusantium ad aliquam consequuntur cupiditate dolores dolorum ducimus\n                        earum esse est eveniet excepturi, facere facilis hic incidunt iure labore officiis,\n                        repudiandae ullam."
-          )
+        _c("div", { staticClass: "card-body bg-light" }, [
+          _c("h4", { staticClass: "card-title" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Web Portal Autoatención")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra\n                                euismod odio, consectetur\n                                adipisicing elit."
+            )
+          ])
         ])
       ])
     ])

@@ -44,48 +44,48 @@
         <!-- is Mobile -->
         <template v-if="util.getStorage('data_screen').isSmall">
             <table class="w-100">
-                    <tr>
-                        <td>
-                            <ul class="pagination justify-content-center mb-4 ml-2 mr-2">
-                                <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                                    <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            <div class="w-100" :style="(showLoading) ? 'opacity:0.55' : ''">
-                                <div class="card h-100 bg-light">
-                                    <h4 class="card-header">{{dataCourse[dataPaginate.page -1].title}}</h4>
-                                    <div class="card-body h-75">
-                                        <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+            <tr>
+                <td>
+                    <ul class="pagination justify-content-center ml-2 mr-2">
+                        <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                            <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="w-100" :style="(showLoading) ? 'opacity:0.55' : ''">
+                        <div class="card h-100 bg-light">
+                            <h4 class="card-header">{{dataCourse[dataPaginate.page -1].title}}</h4>
+                            <div class="card-body h-75">
+                                <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+                            </div>
+                            <div class="card-body w-50 mx-auto">
+                                <a href="#">
+                                    <img class="card-img-top" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="#" class="btn btn-outline-primary">Learn More</a>
                                     </div>
-                                    <div class="card-body w-50 mx-auto">
-                                        <a href="#">
-                                            <img class="card-img-top" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <a href="#" class="btn btn-outline-primary">Learn More</a>
-                                            </div>
-                                            <div class="col-6 my-auto text-right">
-                                                <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
-                                            </div>
-                                        </div>
+                                    <div class="col-6 my-auto text-right">
+                                        <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                        <td>
-                            <ul class="pagination justify-content-center mb-4 mr-2 ml-2">
-                                <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                                    <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <ul class="pagination justify-content-center mr-2 ml-2">
+                        <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                            <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
         </template>
     </div>
 </template>
