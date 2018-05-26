@@ -62,8 +62,8 @@
                     </div>
                 </div>
             </div>
-                <div style="position: absolute; top:0; right:0; bottom:0; width:32px; background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
-                <div style="position: absolute; top:0; left:0; bottom:0; width:32px; background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
+                <div style="position: absolute; top:0; right:0; bottom:0; width:18px; background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
+                <div style="position: absolute; top:0; left:0; bottom:0; width:18px; background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
             </div>
         </template>
     </div>

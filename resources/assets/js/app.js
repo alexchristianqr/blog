@@ -2,6 +2,7 @@ import Vue          from 'vue'
 import Courses      from './components/pages/home/Courses.vue'
 import Portfolio    from './components/pages/home/Portfolio.vue'
 import FooterLayout from './components/layouts/FooterLayout'
+import NavLayout from './components/layouts/NavLayout'
 import Util         from './utility'
 
 new Vue({
@@ -19,10 +20,8 @@ new Vue({
       isMobile: isMobile,
     })
   },
-  components: {Courses, Portfolio,FooterLayout},
+  components: {Courses, Portfolio,FooterLayout,NavLayout},
   mounted(){
     console.log(Util.getStorage('data_screen'))
-  },
-  created(){
   },
 }).$mount('#app')

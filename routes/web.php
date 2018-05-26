@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'web'], function ($route) {
 
+Route::group(['middleware' => 'web'], function ($route) {
   $route->get('/', function () {
     return view('pages.home.Home');
   })->name('route.home');

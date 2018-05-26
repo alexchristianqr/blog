@@ -11360,6 +11360,14 @@ body {
     z-index: 1030;
 }
 
+.relative-top {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
 @media (max-width: 768px) {
     body {
         padding-top: 0px;

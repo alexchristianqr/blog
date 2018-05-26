@@ -1,6 +1,6 @@
 <template>
     <!-- Courses -->
-    <div class="row position-relative">
+    <div class="row">
         <!-- is Computer -->
         <template v-if="util.getStorage('data_screen').isComputer">
             <div v-for="(v,k) in dataCourse" :id="(k == 0) ? 'isMobile' : 'isDefault'" class="col-lg-4 mb-4">
@@ -43,31 +43,49 @@
         </template>
         <!-- is Mobile -->
         <template v-if="util.getStorage('data_screen').isSmall">
-            <div class="table-responsive" style="display: -webkit-box">
-                <div v-for="(v,k) in dataCourse" class="col-lg-4 mb-4">
-                    <div class="card h-100 bg-light">
-                        <h4 class="card-header">{{v.title}}</h4>
-                        <div class="card-body h-75">
-                            <p class="card-text">{{v.description}}</p>
-                        </div>
-                        <div class="card-body w-45 mx-auto">
-                            <a href="#"><img class="card-img-top" :src="'images/400x400/'+v.image" alt=""></a>
-                        </div>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a href="#" class="btn btn-outline-primary">Learn More</a>
-                                </div>
-                                <div class="col-6 my-auto text-right">
-                                    <strong class="h5 text-muted">{{v.price.usa}}</strong>
+            <table class="w-100">
+                    <tr>
+                        <td>
+                            <ul class="pagination justify-content-center mb-4 ml-2 mr-2">
+                                <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                                    <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="w-100" :style="(showLoading) ? 'opacity:0.55' : ''">
+                                <div class="card h-100 bg-light">
+                                    <h4 class="card-header">{{dataCourse[dataPaginate.page -1].title}}</h4>
+                                    <div class="card-body h-75">
+                                        <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+                                    </div>
+                                    <div class="card-body w-50 mx-auto">
+                                        <a href="#">
+                                            <img class="card-img-top" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <a href="#" class="btn btn-outline-primary">Learn More</a>
+                                            </div>
+                                            <div class="col-6 my-auto text-right">
+                                                <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="position: absolute; top:0; right:0; bottom:0; width:45px; background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
-                <div style="position: absolute; top:0; left:0; bottom:0; width:45px; background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));"></div>
-            </div>
+                        </td>
+                        <td>
+                            <ul class="pagination justify-content-center mb-4 mr-2 ml-2">
+                                <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                                    <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
         </template>
     </div>
 </template>
