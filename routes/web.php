@@ -13,27 +13,27 @@
 
 Route::group(['middleware' => 'web'], function ($route) {
   $route->get('/', function () {
-    return view('pages.home.Home');
+    return view('pages.home');
   })->name('route.home');
 
   $route->get('/blog', function () {
-    return view('pages.blog.Blog');
+    return view('pages.blog');
   })->name('route.blog');
 
   $route->get('/portfolio', function () {
-    return view('pages.portfolio.Portfolio');
+    return view('pages.portfolio');
   })->name('route.portfolio');
 
   $route->get('/about', function () {
-    return view('pages.portfolio.Portfolio');
+    return view('pages.portfolio');
   })->name('route.about');
 
   $route->get('/service', function () {
-    return view('pages.portfolio.Portfolio');
+    return view('pages.portfolio');
   })->name('route.service');
 
   $route->get('/contact', function () {
-    return view('pages.portfolio.Portfolio');
+    return view('pages.portfolio');
   })->name('route.contact');
 
 });

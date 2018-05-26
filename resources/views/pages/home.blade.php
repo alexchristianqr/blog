@@ -1,5 +1,6 @@
 @extends('layouts.app',['myTitle'=>'Home'])
 @section('content')
+    <!-- Page Content -->
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -40,6 +41,7 @@
             </a>
         </div>
     </header>
+
     <div class="container">
         <div class="row mt-5">
             <div class="col-6 my-auto">
@@ -50,9 +52,9 @@
             </div>
         </div>
         <hr>
+
         <!-- Marketing Icons Section -->
         <courses></courses>
-        <!-- /.row -->
 
         <!-- Portfolio Section -->
         <div class="row mt-5">
@@ -64,9 +66,9 @@
             </div>
         </div>
         <hr>
+
         <!-- Marketing Icons Section -->
         <portfolio></portfolio>
-        <!-- /.row -->
 
         <!-- Features Section -->
         <div class="row mt-5">
@@ -99,8 +101,6 @@
                 <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
             </div>
         </div>
-        <!-- /.row -->
-            {{--<hr>--}}
 
         <!-- Call to Action Section -->
         <div class="row mt-5 mb-5">
@@ -118,5 +118,7 @@
                 </form>
             </div>
         </div>
+
     </div>
+    <!-- /.container -->
 @endsection

@@ -14452,7 +14452,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -14464,8 +14464,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utility__ = __webpack_require__(2);
-//
-//
 //
 //
 //
@@ -14613,67 +14611,52 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-12" }, [
               _c(
-                "div",
-                {
-                  staticClass:
-                    "col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4"
-                },
+                "ul",
+                { staticClass: "pagination justify-content-center mb-4" },
                 [
                   _c(
-                    "ul",
-                    { staticClass: "pagination justify-content-center mb-4" },
+                    "li",
+                    {
+                      class: _vm.disabledBack
+                        ? "page-item disabled"
+                        : "page-item"
+                    },
                     [
                       _c(
-                        "li",
-                        {
-                          class: _vm.disabledBack
-                            ? "page-item disabled"
-                            : "page-item"
-                        },
+                        "button",
+                        { staticClass: "page-link", on: { click: _vm.back } },
                         [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "page-link",
-                              on: { click: _vm.back }
-                            },
-                            [
-                              _c("i", { staticClass: "fa fa-angle-left mr-3" }),
-                              _vm._v("Back")
-                            ]
-                          )
+                          _c("i", { staticClass: "fa fa-angle-left mr-3" }),
+                          _vm._v("Back")
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item disabled" }, [
-                        _c("span", { staticClass: "page-link text-muted" }, [
-                          _vm._v(
-                            _vm._s(_vm.dataPaginate.page) +
-                              " of " +
-                              _vm._s(_vm.dataPaginate.total)
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "page-item disabled" }, [
+                    _c("span", { staticClass: "page-link text-muted" }, [
+                      _vm._v(
+                        _vm._s(_vm.dataPaginate.page) +
+                          " of " +
+                          _vm._s(_vm.dataPaginate.total)
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      class: _vm.disabledNext
+                        ? "page-item disabled"
+                        : "page-item"
+                    },
+                    [
                       _c(
-                        "li",
-                        {
-                          class: _vm.disabledNext
-                            ? "page-item disabled"
-                            : "page-item"
-                        },
+                        "button",
+                        { staticClass: "page-link", on: { click: _vm.next } },
                         [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "page-link",
-                              on: { click: _vm.next }
-                            },
-                            [
-                              _vm._v("Next"),
-                              _c("i", { staticClass: "fa fa-angle-right ml-3" })
-                            ]
-                          )
+                          _vm._v("Next"),
+                          _c("i", { staticClass: "fa fa-angle-right ml-3" })
                         ]
                       )
                     ]

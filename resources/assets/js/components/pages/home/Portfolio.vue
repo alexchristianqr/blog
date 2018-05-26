@@ -31,8 +31,7 @@
             </div>
             <!-- Pagination -->
             <div class="col-12">
-                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                    <ul class="pagination justify-content-center mb-4">
+                <ul class="pagination justify-content-center mb-4">
                         <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
                             <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
                         </li>
@@ -43,7 +42,6 @@
                             <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
                         </li>
                     </ul>
-                </div>
             </div>
         </template>
         <!-- is Mobile -->
