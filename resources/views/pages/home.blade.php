@@ -48,7 +48,7 @@
                 <h2>Courses</h2>
             </div>
             <div class="col-6 my-auto">
-                <a href="{{route('route.blog')}}" class="btn btn-outline-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
+                <a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
             </div>
         </div>
         <hr>
@@ -62,7 +62,7 @@
                 <h2>Portfolio</h2>
             </div>
             <div class="col-6 my-auto">
-                <a href="{{route('route.portfolio')}}" class="btn btn-outline-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
+                <a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
             </div>
         </div>
         <hr>

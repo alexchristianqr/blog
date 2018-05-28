@@ -12,28 +12,41 @@
 */
 
 Route::group(['middleware' => 'web'], function ($route) {
+
+  // Home
   $route->get('/', function () {
     return view('pages.home');
   })->name('route.home');
 
-  $route->get('/blog', function () {
-    return view('pages.blog');
-  })->name('route.blog');
+  // Blog
+  $route->get('/blog','BlogController@viewBlog')->name('route.blog');
+  $route->get('/blog/search','BlogController@viewBlogSearch')->name('route.blog.search');
 
+  // Blog Category
+  $route->get('/blog/category/{param_category}', 'BlogController@viewBlogCategory')->name('route.blog.category');
+
+  // Blog Post
+  $route->get('/blog/post/{param_post}', 'BlogController@viewBlogPost')->name('route.blog.post');
+  $route->get('/blog/post/{param_post}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
+
+  // Portfolio
   $route->get('/portfolio', function () {
     return view('pages.portfolio');
   })->name('route.portfolio');
 
+  // About
   $route->get('/about', function () {
-    return view('pages.portfolio');
+    return view('pages.about');
   })->name('route.about');
 
+  // Service
   $route->get('/service', function () {
-    return view('pages.portfolio');
+    return view('pages.service');
   })->name('route.service');
 
+  // Contact
   $route->get('/contact', function () {
-    return view('pages.portfolio');
+    return view('pages.contact');
   })->name('route.contact');
 
 });

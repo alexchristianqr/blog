@@ -46,20 +46,21 @@
         </template>
         <!-- is Mobile -->
         <template v-if="util.getStorage('data_screen').isSmall" >
-            <table class="w-100">
-                <tr>
-                    <td>
-                        <ul class="pagination justify-content-center ml-2 mr-2">
-                            <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                                <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
+            <!--<table class="w-100">-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<ul class="pagination justify-content-center ml-1 mr-1">-->
+                            <!--<li :class="disabledBack ? 'page-item disabled' : 'page-item'">-->
+                                <!--<button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <div class="col-sm-12 col-lg-6 portfolio-item mb-0">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src="images/search.png" alt=""></a>
                             <div class="card-body bg-light">
-                                <h4 class="card-title">
+                                <h4 class="card-title my-auto">
                                     <a href="#">Web Portal Autoatención</a>
                                 </h4>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
@@ -67,16 +68,17 @@
                                     adipisicing elit.</p>
                             </div>
                         </div>
-                    </td>
-                    <td>
-                        <ul class="pagination justify-content-center mr-2 ml-2">
-                            <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                                <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<ul class="pagination justify-content-center mr-1 ml-1">-->
+                            <!--<li :class="disabledNext ? 'page-item disabled' : 'page-item'">-->
+                                <!--<button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
         </template>
     </div>
 </template>

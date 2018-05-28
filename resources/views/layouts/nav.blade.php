@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  " style="background-color: #24292e !important;color:rgba(255,255,255,0.75) !important;">
     <div class="container">
-        <a class="navbar-brand" href="{{route('route.home')}}"><strong class="mr-1">Alex Christian</strong><span class="text-muted small">@acqrdeveloper</span></a>
+        <a class="navbar-brand" href="{{route('route.home')}}">
+            <strong class="mr-1">Alex Christian</strong><span class="text-muted small">developer</span>
+        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation" style="outline: none !important;">

@@ -70,9 +70,45 @@ body {
 .w-35 {
     width: 35% !important;
 }
+
 .w-40 {
     width: 40% !important;
 }
+
 .w-45 {
     width: 45% !important;
+}
+
+.border-1 {
+    border: 1px solid;
+}
+
+.border-top-1 {
+    border-top: 1px solid;
+}
+
+.text-app {
+    color: #6c757d;
+}
+
+.bg-app {
+    background: #6c757d;
+}
+
+.border-default {
+    color: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px !important;
+    }
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #898989;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(55, 55, 55, 0.25);
 }

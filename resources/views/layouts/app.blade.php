@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>acqrdeveloper | {{isset($myTitle)?$myTitle:''}}</title>
 
@@ -19,29 +18,8 @@
         <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}">
     @else
         <link rel="stylesheet" href="{{asset("dist/css/main.css")}}">
-@endif
+    @endif
 
-<!-- Custom styles for this template -->
-    <style>
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1000px !important;
-            }
-        }
-
-        /*!*Computer*!*/
-        /*@media(min-width: 768px) {*/
-        /*body{*/
-        /*background-color: rgba(236,239,241, 0.05)*/
-        /*}*/
-        /*}*/
-        /*!*Mobile*!*/
-        /*@media(max-width: 768px) {*/
-        /*body{*/
-        /*background-color: #ffffff;*/
-        /*}*/
-        /*}*/
-    </style>
 </head>
 <body>
 <div id="app">
@@ -61,6 +39,7 @@
     <script src="{{ asset('dist/js/app.js') }}"></script>
 @else
     <script src="{{ asset('dist/js/main.js') }}"></script>
+    <script src="{{ asset('dist/js/app.js') }}"></script>
 @endif
 </body>
 </html>

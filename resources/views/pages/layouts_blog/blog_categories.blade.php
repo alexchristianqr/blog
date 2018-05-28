@@ -1,10 +1,10 @@
-@extends('layouts.app',['myTitle'=>'Blog'])
+@extends('layouts.app')
 @section('content')
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading -->
-        <h1 class="mt-4 mb-3">Blog</h1>
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Categories</h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
@@ -12,11 +12,21 @@
         <!-- Content Row -->
         <div class="row">
 
-            <!-- Blog Entries Column -->
-            <div class="col-md-8 col-lg-8">
+            <!-- Sidebar Column -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item active">Web Design</a>
+                    <a href="about.html" class="list-group-item">Desarrollo Full Stack</a>
+                    <a href="services.html" class="list-group-item">Desarollo Movil</a>
+                    <a href="contact.html" class="list-group-item">Frameworks Javascript</a>
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="col-md-8 col-lg-9 mb-4">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<3; $i++)
+                @for($i=0; $i<5; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
@@ -24,7 +34,8 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                                 aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                                 animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a href="{{route('route.blog.post',['param-title-post'])}}" class="btn btn-primary my-auto">Read More <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="{{route('route.blog.post',['param-title-post'])}}" class="btn btn-primary my-auto">Read
+                                More <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                         <div class="card-footer text-muted">
                             Posted on January 1, 2017 by
@@ -34,7 +45,7 @@
                 @endfor
 
                 <!-- Pagination -->
-                <ul class="pagination justify-content-center mb-4">
+                <ul class="pagination justify-content-center mb-0">
                     <li class="page-item">
                         <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>
                     </li>
@@ -42,26 +53,6 @@
                         <a class="page-link" href="#">Next<i class="fa fa-angle-right ml-2"></i></a>
                     </li>
                 </ul>
-
-            </div>
-
-            <!-- Sidebar Widgets Column -->
-            <div class="col-md-4 col-lg-4">
-
-                <!-- Search Component -->
-                @include('components.search',$config=['route'=>route('route.blog.search')])
-
-                <!-- Categories Component -->
-                @include('components.categories')
-
-                <!-- Side Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Side Widget</h5>
-                    <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature
-                        the new Bootstrap 4 card containers!
-                    </div>
-                </div>
 
             </div>
 
