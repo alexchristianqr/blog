@@ -12,21 +12,11 @@
         <!-- Content Row -->
         <div class="row">
 
-            <!-- Sidebar Column -->
-            <div class="col-md-4 col-lg-3 mb-4">
-                <div class="list-group">
-                    <a href="index.html" class="list-group-item active">Web Design</a>
-                    <a href="about.html" class="list-group-item">Desarrollo Full Stack</a>
-                    <a href="services.html" class="list-group-item">Desarollo Movil</a>
-                    <a href="contact.html" class="list-group-item">Frameworks Javascript</a>
-                </div>
-            </div>
-
             <!-- Content Column -->
-            <div class="col-md-8 col-lg-9 mb-4">
+            <div class="col-md-8 col-lg-8">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<5; $i++)
+                @for($i=0; $i<1; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
@@ -44,8 +34,8 @@
                     </div>
                 @endfor
 
-                <!-- Pagination -->
-                <ul class="pagination justify-content-center mb-0">
+            <!-- Pagination -->
+                <ul class="pagination justify-content-center mb-4">
                     <li class="page-item">
                         <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>
                     </li>
@@ -54,6 +44,16 @@
                     </li>
                 </ul>
 
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="col-md-4 col-lg-4 mb-4">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item active">Web Design</a>
+                    <a href="about.html" class="list-group-item">Desarrollo Full Stack</a>
+                    <a href="services.html" class="list-group-item">Desarollo Movil</a>
+                    <a href="contact.html" class="list-group-item">Frameworks Javascript</a>
+                </div>
             </div>
 
         </div>

@@ -16,7 +16,7 @@
             <div class="col-md-8 col-lg-8">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<3; $i++)
+                @for($i=0; $i<1; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
@@ -43,7 +43,7 @@
                     </li>
                 </ul>
 
-            </div>
+             </div>
 
             <!-- Sidebar Widgets Column -->
             <div class="col-md-4 col-lg-4">
@@ -55,7 +55,7 @@
                 @include('components.categories')
 
                 <!-- Side Widget -->
-                <div class="card my-4">
+                <div class="card mb-4">
                     <h5 class="card-header">Side Widget</h5>
                     <div class="card-body">
                         You can put anything you want inside of these side widgets. They are easy to use, and feature
@@ -63,10 +63,10 @@
                     </div>
                 </div>
 
-            </div>
+             </div>
 
-        </div>
-        <!-- /.row -->
+         </div>
+         <!-- /.row -->
 
     </div>
     <!-- /.container -->

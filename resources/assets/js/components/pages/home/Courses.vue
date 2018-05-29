@@ -43,29 +43,29 @@
         </template>
         <!-- is Mobile -->
         <template v-if="util.getStorage('data_screen').isSmall">
-            <table class="w-100">
-            <tr>
-                <td>
-                    <div class="ml-1 mr-1">
-                    <ul class="pagination justify-content-center">
-                        <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                            <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
-                        </li>
-                    </ul>
-                    </div>
-                </td>
-                <td>
-                    <div class="ml-0 mr-0">
-                        <div class="w-100" :style="(showLoading) ? 'opacity:0.55' : ''">
+            <!--<table class="w-100">-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--<div class="ml-1 mr-1">-->
+                    <!--<ul class="pagination justify-content-center">-->
+                        <!--<li :class="disabledBack ? 'page-item disabled' : 'page-item'">-->
+                            <!--<button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<div class="ml-0 mr-0">-->
+                        <div class="col-sm-12" :style="(showLoading) ? 'opacity:0.55' : ''">
                             <div class="card h-100 bg-light">
                                 <div class="card-header"><h4 class="my-auto">{{dataCourse[dataPaginate.page -1].title}}</h4></div>
                                 <!--<div class="card-body h-75">-->
                                 <!--</div>-->
                                 <div class="card-body">
                                     <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
-                                    <div class="w-50 mx-auto">
+                                    <div class="w-50 mx-auto text-center">
                                         <a href="#">
-                                            <img class="card-img-top" style="max-width: 100px" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
+                                            <img class="card-img-top w-75" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
                                         </a>
                                     </div>
                                 </div>
@@ -80,20 +80,32 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="ml-1 mr-1">
-                        <ul class="pagination justify-content-center">
-                            <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                                <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        </table>
+                        <div class="col-12">
+                            <ul class="pagination justify-content-center mt-3">
+                                <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                                    <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
+                                </li>
+                                <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                                    <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+
+                    <!--</div>-->
+                <!--</td>-->
+                <!--<td>-->
+                    <!--<div class="ml-1 mr-1">-->
+                        <!--<ul class="pagination justify-content-center">-->
+                            <!--<li :class="disabledNext ? 'page-item disabled' : 'page-item'">-->
+                                <!--<button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
         </template>
     </div>
 </template>

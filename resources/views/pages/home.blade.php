@@ -1,7 +1,7 @@
 @extends('layouts.app',['myTitle'=>'Home'])
 @section('content')
     <!-- Page Content -->
-    <header>
+    <header hidden>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -43,35 +43,34 @@
     </header>
 
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-4 mb-3">
             <div class="col-6 my-auto">
-                <h2>Courses</h2>
+                <h1>Courses</h1>
             </div>
             <div class="col-6 my-auto">
-                <a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
+                <a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>
             </div>
         </div>
-        <hr>
-
-        <!-- Marketing Icons Section -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
+        <!-- Courses Component -->
         <courses></courses>
 
         <!-- Portfolio Section -->
-        <div class="row mt-5">
+        <div class="row mt-4 mb-3">
             <div class="col-6 my-auto">
                 <h2>Portfolio</h2>
             </div>
             <div class="col-6 my-auto">
-                <a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More <i class="fa fa-long-arrow-right"></i></a>
+                <a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More</a>
             </div>
         </div>
-        <hr>
+        {{--<hr>--}}
 
         <!-- Marketing Icons Section -->
         <portfolio></portfolio>
 
         <!-- Features Section -->
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col-lg-6">
                 <h2>Welcome to my Website</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que sientan una atracción por la tecnología.</p>
@@ -103,7 +102,7 @@
         </div>
 
         <!-- Call to Action Section -->
-        <div class="row mt-5 mb-5">
+        <div class="row mt-4 mb-4">
             <div class="col-md-6">
                 <p class="text-muted">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
