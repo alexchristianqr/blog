@@ -16,7 +16,7 @@
             <div class="col-md-8 col-lg-8">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<1; $i++)
+                @for($i=0; $i<2; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
