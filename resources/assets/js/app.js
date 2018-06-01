@@ -1,5 +1,6 @@
 import Vue          from 'vue'
 import Courses      from './components/pages/home/Courses.vue'
+import Posts      from './components/pages/home/Posts.vue'
 import Portfolio    from './components/pages/home/Portfolio.vue'
 import FooterLayout from './components/layouts/FooterLayout'
 import NavLayout    from './components/layouts/NavLayout'
@@ -21,7 +22,7 @@ new Vue({
       isMobile: isMobile,
     })
   },
-  components: {Courses, Portfolio, FooterLayout, NavLayout,InputSearch},
+  components: {Courses, Portfolio, FooterLayout, NavLayout,InputSearch,Posts},
   mounted () {
     console.log(Util.getStorage('data_screen'))
   },

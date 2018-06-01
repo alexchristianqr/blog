@@ -3,9 +3,9 @@
     <div class="row">
         <!-- is Computer -->
         <template v-if="util.getStorage('data_screen').isComputer">
-            <div v-for="(v,k) in dataCourse" :id="(k == 0) ? 'isMobile' : 'isDefault'" class="col-lg-4 mb-4">
+            <div v-for="(v,k) in dataCourse" class="col-lg-4 mb-4">
                 <div class="card h-100">
-                    <h4 class="card-header">{{v.title}}</h4>
+                    <h4 class="card-header text-dark">{{v.title}}</h4>
                     <div class="card-body h-75">
                         <p class="card-text">{{v.description}}</p>
                     </div>
@@ -26,8 +26,7 @@
             </div>
             <!-- Pagination -->
             <div class="col-12">
-                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                    <ul class="pagination justify-content-center mb-4">
+                <ul class="pagination justify-content-center mb-4">
                         <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
                             <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
                         </li>
@@ -38,68 +37,112 @@
                             <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
                         </li>
                     </ul>
-                </div>
             </div>
         </template>
-        <!-- is Mobile -->
-        <template v-if="util.getStorage('data_screen').isSmall">
-            <table class="w-100">
-            <tr>
-                <td>
-                    <div class="ml-1 mr-1">
-                    <ul class="pagination justify-content-center">
-                        <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                            <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left"></i></button>
-                        </li>
-                    </ul>
+        <!-- is Tablet -->
+        <template v-if="util.getStorage('data_screen').isTablet">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header my-auto text-dark">{{dataCourse[dataPaginate.page -1].title}}</h4>
+                    <div class="card-body">
+                        <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+                        <div class="w-50 mx-auto text-center">
+                            <a href="#">
+                                <img class="card-img-top w-100" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt=""/>
+                            </a>
+                        </div>
                     </div>
-                </td>
-                <td>
-                    <div class="ml-0 mr-0">
-                        <div class="w-100" :style="(showLoading) ? 'opacity:0.55' : ''">
-                            <div class="card h-100 bg-light">
-                                <div class="card-header"><h4 class="my-auto">{{dataCourse[dataPaginate.page -1].title}}</h4></div>
-                                <!--<div class="card-body h-75">-->
-                                <!--</div>-->
-                                <div class="card-body">
-                                    <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
-                                    <div class="w-50 mx-auto">
-                                        <a href="#">
-                                            <img class="card-img-top" style="max-width: 100px" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt="" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a href="#" class="btn btn-primary">Learn More</a>
-                                        </div>
-                                        <div class="col-6 my-auto text-right">
-                                            <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="col-6 my-auto text-right">
+                                <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
                             </div>
                         </div>
                     </div>
-                </td>
-                <td>
-                    <div class="ml-1 mr-1">
-                        <ul class="pagination justify-content-center">
-                            <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                                <button class="page-link border-primary" @click="next"><i class="fa fa-angle-right"></i></button>
-                            </li>
-                        </ul>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <h4 class="card-header my-auto text-dark">{{dataCourse[dataPaginate.page -1].title}}</h4>
+                    <div class="card-body">
+                        <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+                        <div class="w-50 mx-auto text-center">
+                            <a href="#">
+                                <img class="card-img-top w-100" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt=""/>
+                            </a>
+                        </div>
                     </div>
-                </td>
-            </tr>
-        </table>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="col-6 my-auto text-right">
+                                <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-12">
+                <ul class="pagination justify-content-center mb-4">
+                        <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                            <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link text-muted">{{ dataPaginate.page }} of {{ dataPaginate.total }}</span>
+                        </li>
+                        <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                            <button class="page-link" @click="next">Next<i class="fa fa-angle-right ml-3"></i></button>
+                        </li>
+                    </ul>
+            </div>
+        </template>
+        <!-- is Mobile -->
+        <template v-if="util.getStorage('data_screen').isMobile">
+            <div class="col-sm-12" :style="(showLoading) ? 'opacity:0.55' : ''">
+                <div class="card h-100">
+                    <h4 class="card-header my-auto text-dark">{{dataCourse[dataPaginate.page -1].title}}</h4>
+                    <div class="card-body">
+                        <p class="card-text">{{dataCourse[dataPaginate.page -1].description}}</p>
+                        <div class="w-50 mx-auto text-center">
+                            <a href="#">
+                                <img class="card-img-top w-100" :src="'images/400x400/'+dataCourse[dataPaginate.page -1].image" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="col-6 my-auto text-right">
+                                <strong class="h5 text-muted">{{dataCourse[dataPaginate.page -1].price.usa}}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-12">
+                <ul class="pagination justify-content-center mt-4">
+                    <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
+                        <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-left mr-2"></i>Back</button>
+                    </li>
+                    <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
+                        <button class="page-link border-primary" @click="next">Next<i class="fa fa-angle-right ml-2"></i></button>
+                    </li>
+                </ul>
+            </div>
         </template>
     </div>
 </template>
 
 <script>
-  import axios from 'axios'
   import Util  from '../../../utility'
 
   export default {
@@ -113,7 +156,7 @@
       dataCourse: [
         {
           title: 'Angular 6',
-          description: 'Angular is a platform that makes it easy to build applications with the web.',
+          description: 'Angular is a platform that makes it easy to build applications with the web. Provee funcionalidades para el equipamiento de moviles hibridos con una potencia impresionante.',
           price: {
             per: '10',
             usa: '$18',
@@ -178,11 +221,6 @@
             return false
           }
         }, 500)
-      },
-      getData () {
-        axios.get('https://httpbin.org/get').then(r => {
-          console.log(r)
-        })
       },
     },
   }
