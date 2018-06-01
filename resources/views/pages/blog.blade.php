@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3">Blog</h1>
+        <h1 class="mt-4 mb-3 text-dark">Blog</h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
@@ -20,7 +20,7 @@
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
-                            <h2 class="card-title">Productividad en Frameworks</h2>
+                            <h2 class="card-title text-dark">Productividad en Frameworks</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                                 aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                                 animi vero voluptate voluptatibus possimus, veniam magni quis!</p>

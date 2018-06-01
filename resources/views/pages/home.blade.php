@@ -41,45 +41,57 @@
             </a>
         </div>
     </header>
-
     <div class="container">
-        <div class="row mt-4 mb-3">
-            <div class="col-6 my-auto">
-                <h1>Courses</h1>
-            </div>
-            <div class="col-6 my-auto">
-                <a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>
-            </div>
-        </div>
+
+        {{--<div class="row mt-4 mb-3">--}}
+            {{--<div class="col-6 my-auto">--}}
+        <h1 class="mt-4 mb-3 text-dark">Home</h1>
+        <h2 class="mt-4 mb-3 text-dark">Latest Posts</h2>
+            {{--</div>--}}
+            {{--<div class="col-6 my-auto">--}}
+                {{--<a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam, atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
+        <!-- Courses Component -->
+        <posts></posts>
+
+        {{--<div class="row mt-4 mb-3">--}}
+            {{--<div class="col-6 my-auto">--}}
+                <h2 class="mt-4 mb-3 text-dark">Favorites Courses</h2>
+            {{--</div>--}}
+            {{--<div class="col-6 my-auto">--}}
+                {{--<a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Courses Component -->
         <courses></courses>
 
         <!-- Portfolio Section -->
-        <div class="row mt-4 mb-3">
-            <div class="col-6 my-auto">
-                <h2>Portfolio</h2>
-            </div>
-            <div class="col-6 my-auto">
-                <a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More</a>
-            </div>
-        </div>
-        {{--<hr>--}}
-
-        <!-- Marketing Icons Section -->
+        {{--<div class="row mt-4 mb-3">--}}
+            {{--<div class="col-6 my-auto">--}}
+                <h2 class="mt-4 mb-3 text-dark">Updated Portfolio</h2>
+            {{--</div>--}}
+            {{--<div class="col-6 my-auto">--}}
+                {{--<a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More</a>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
+        <!-- Portfolio component -->
         <portfolio></portfolio>
 
         <!-- Features Section -->
-        <div class="row mt-3">
+        <div class="row mt-4">
             <div class="col-lg-6">
-                <h2>Welcome to my Website</h2>
+                <h2 class="text-dark">Hi, This my Website</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <ul>
                             <li>Bootstrap v4</li>
-                            <li>jQuery</li>
+                            <li>JQuery</li>
                             <li>Font Awesome</li>
                             <li>Vue 2</li>
                             <li>Angular 6</li>
@@ -97,14 +109,14 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+                <img class="img-fluid rounded img-thumbnail" src="{{asset('images/dia.png')}}" alt="">
             </div>
         </div>
 
         <!-- Call to Action Section -->
         <div class="row mt-4 mb-4">
             <div class="col-md-6">
-                <p class="text-muted">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
+                <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
             <div class="col-md-6 my-auto">
                 <form action="">

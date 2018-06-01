@@ -7,7 +7,7 @@
         <div class="mt-4 mb-3">
             <div class="row">
                 <div class="col-sm-12 col-lg-6 my-auto">
-                    <h1>Search</h1>
+                    <h1 class="text-dark">Search</h1>
                 </div>
                 <div class="col-sm-12 col-lg-6 my-auto">
                     {!! Form::open(['url'=>$dataSearch['route'],'method'=>'GET','autocomplete'=>'off']) !!}
@@ -25,7 +25,7 @@
             <div class="card mb-4">
                 <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                 <div class="card-body">
-                    <h2 class="card-title">Productividad en Frameworks</h2>
+                    <h2 class="card-title text-dark">Productividad en Frameworks</h2>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                         aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                         animi vero voluptate voluptatibus possimus, veniam magni quis!</p>

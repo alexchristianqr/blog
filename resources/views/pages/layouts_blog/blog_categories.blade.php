@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Categories</h1>
+        <h1 class="mt-4 mb-3 text-dark">Categories</h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
@@ -16,11 +16,11 @@
             <div class="col-md-8 col-lg-8">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<1; $i++)
+                @for($i=0; $i<2; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
                         <div class="card-body">
-                            <h2 class="card-title">Productividad en Frameworks</h2>
+                            <h2 class="card-title text-dark">Productividad en Frameworks</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                                 aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                                 animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
@@ -36,10 +36,10 @@
 
             <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item">
+                    <li class="page-item disabled">
                         <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>
                     </li>
-                    <li class="page-item disabled">
+                    <li class="page-item">
                         <a class="page-link" href="#">Next<i class="fa fa-angle-right ml-2"></i></a>
                     </li>
                 </ul>
