@@ -12,7 +12,8 @@ yarn-error.log
 #.env
 
 # Configuration Developer
-public/node_modules/
+public/node_modules
 package-lock.json
 composer.lock
 public/dist/
+public/assets
