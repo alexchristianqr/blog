@@ -13,7 +13,7 @@
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-8 col-lg-8">
+            <div class="col-md-7 col-lg-8">
 
                 <!-- Blog Post -->
                 @for($i=0; $i<2; $i++)
@@ -46,7 +46,7 @@
              </div>
 
             <!-- Sidebar Widgets Column -->
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-5 col-lg-4">
 
                 <!-- Search Component -->
                 @include('components.search',$config=['route'=>route('route.blog.search')])

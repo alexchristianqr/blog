@@ -5,7 +5,7 @@
         <template v-if="util.getStorage('data_screen').isComputer">
             <div v-for="n in 2" class="col-lg-6 portfolio-item">
                 <div class="card">
-                    <a href="#"><img class="card-img-top mh-25" src="images/search.png" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="images/750x300/01.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Gmail Hibrida</a>
@@ -35,7 +35,7 @@
         <template v-if="util.getStorage('data_screen').isTablet" >
             <div class="col-md-6 portfolio-item mb-4">
                 <div class="card">
-                    <a href="#"><img class="card-img-top mh-25" src="images/search.png" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="images/750x300/01.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title my-auto">
                             <a href="#">Portal Autoatención</a>
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-6 portfolio-item mb-4">
                 <div class="card">
-                    <a href="#"><img class="card-img-top mh-25" src="images/search.png" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="images/750x300/blogin.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title my-auto">
                             <a href="#">Portal Autoatención</a>
@@ -78,7 +78,7 @@
         <template v-if="util.getStorage('data_screen').isMobile" >
             <div class="col-sm-12 portfolio-item mb-0">
                 <div class="card">
-                    <a href="#"><img class="card-img-top mh-25" src="images/search.png" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="images/750x300/01.jpg" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title my-auto">
                             <a href="#">Portal Autoatención</a>

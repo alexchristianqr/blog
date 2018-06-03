@@ -43,40 +43,19 @@
     </header>
     <div class="container">
 
-        {{--<div class="row mt-4 mb-3">--}}
-            {{--<div class="col-6 my-auto">--}}
         <h1 class="mt-4 mb-3 text-dark">Home</h1>
         <h2 class="mt-4 mb-3 text-dark">Latest Posts</h2>
-            {{--</div>--}}
-            {{--<div class="col-6 my-auto">--}}
-                {{--<a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam, atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
         <!-- Courses Component -->
         <posts></posts>
 
-        {{--<div class="row mt-4 mb-3">--}}
-            {{--<div class="col-6 my-auto">--}}
-                <h2 class="mt-4 mb-3 text-dark">Favorites Courses</h2>
-            {{--</div>--}}
-            {{--<div class="col-6 my-auto">--}}
-                {{--<a href="{{route('route.blog')}}" class="btn btn-primary pull-right">See More</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+        <h2 class="mt-4 mb-3 text-dark">Favorites Courses</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Courses Component -->
         <courses></courses>
 
         <!-- Portfolio Section -->
-        {{--<div class="row mt-4 mb-3">--}}
-            {{--<div class="col-6 my-auto">--}}
-                <h2 class="mt-4 mb-3 text-dark">Updated Portfolio</h2>
-            {{--</div>--}}
-            {{--<div class="col-6 my-auto">--}}
-                {{--<a href="{{route('route.portfolio')}}" class="btn btn-primary pull-right">See More</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+        <h2 class="mt-4 mb-3 text-dark">Updated Portfolio</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Portfolio component -->
         <portfolio></portfolio>

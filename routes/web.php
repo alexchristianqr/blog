@@ -15,7 +15,12 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // Home
   $route->get('/', function () {
-    return view('pages.home');
+    $dataChunk =[
+      ['id'=>1],
+      ['id'=>2],
+      ['id'=>3],
+    ];
+    return view('pages.home',compact('dataChunk'));
   })->name('route.home');
 
   // Blog
