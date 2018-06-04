@@ -35,10 +35,10 @@
 
                 <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item">
+                    <li class="page-item disabled">
                         <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>
                     </li>
-                    <li class="page-item disabled">
+                    <li class="page-item">
                         <a class="page-link" href="#">Next<i class="fa fa-angle-right ml-2"></i></a>
                     </li>
                 </ul>
@@ -54,14 +54,9 @@
                 <!-- Categories Component -->
                 @include('components.categories')
 
-                <!-- Side Widget -->
-                <div class="card mb-4">
-                    <h5 class="card-header">Side Widget</h5>
-                    <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature
-                        the new Bootstrap 4 card containers!
-                    </div>
-                </div>
+                <!-- Side Widget Component -->
+                @include('components.widget')
+                @include('components.cardDates')
 
              </div>
 

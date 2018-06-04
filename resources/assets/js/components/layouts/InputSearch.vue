@@ -5,7 +5,7 @@
             <button class="btn btn-secondary" type="button" @click="clean"><i class="fa fa-remove"></i></button>
         </div>
         <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button class="btn btn-outline-primary" type="submit">Search</button>
         </div>
     </div>
 </template>
