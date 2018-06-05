@@ -43,19 +43,19 @@
     </header>
     <div class="container">
 
-        <h1 class="mt-4 mb-3 text-dark">Home</h1>
-        <h2 class="mt-4 mb-3 text-dark">Latest Posts</h2>
+        {{--<h1 class="mt-4 mb-3 text-dark">@lang('home.title')</h1>--}}
+        <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam, atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
         <!-- Courses Component -->
         <posts></posts>
 
-        <h2 class="mt-4 mb-3 text-dark">Favorites Courses</h2>
+        <h2 class="mt-4 mb-3 text-dark">@lang('home.favorites_courses')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Courses Component -->
         <courses></courses>
 
         <!-- Portfolio Section -->
-        <h2 class="mt-4 mb-3 text-dark">Updated Portfolio</h2>
+        <h2 class="mt-4 mb-3 text-dark">@lang('home.updated_portfolio')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Portfolio component -->
         <portfolio></portfolio>
@@ -63,7 +63,7 @@
         <!-- Features Section -->
         <div class="row mt-4">
             <div class="col-lg-6">
-                <h2 class="text-dark">Hi, This my Website</h2>
+                <h2 class="text-dark">@lang('home.description')</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
                 <div class="row">

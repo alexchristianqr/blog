@@ -46,9 +46,6 @@
     data: () => ({
       util: Util,
     }),
-    created() {
-      console.log('aqui footer layout')
-    },
   }
 </script>
 

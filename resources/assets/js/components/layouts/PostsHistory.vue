@@ -3,20 +3,21 @@
         <div id="hrefYears">
             <ul class="list-group">
                 <!-- Years -->
+                <li class="list-group-item bg-light">
+                    <h5 class="text-dark my-auto">History Posts</h5>
+                </li>
                 <li v-for="dataYear in dataHistory" class="list-group-item">
-                    <a :href="'#hrefMonths'+dataYear.year" class="btn btn-link" data-toggle="collapse" aria-expanded="true">{{dataYear.year}}</a>
+                    <a :href="'#hrefMonths'+dataYear.year" class="btn btn-link w-100 h-100 text-left" data-toggle="collapse" aria-expanded="true">{{dataYear.year}}</a>
                     <div :id="'hrefMonths'+dataYear.year" class="collapse" data-parent="#hrefYears">
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush pl-2">
                             <!-- Months -->
-                            <li v-for="dataMonth in dataYear.months" class="list-group-item">
-                                <a :href="'#hrefMonth-'+dataMonth.month+'-'+dataYear.year" class="btn btn-link" data-toggle="collapse" aria-expanded="true">{{dataMonth.name}}</a>
+                            <li v-for="dataMonth in dataYear.months" class="list-group-item p-0">
+                                <a :href="'#hrefMonth-'+dataMonth.month+'-'+dataYear.year" class="btn btn-link w-100 h-100 text-left" data-toggle="collapse" aria-expanded="true">{{dataMonth.name}}</a>
                                 <div class="collapse" :id="'hrefMonth-'+dataMonth.month+'-'+dataYear.year" :data-parent="'#hrefMonths'+dataYear.year">
-                                    <ul class="list-group list-group-flush">
+                                    <ul class="list-group list-group-flush pl-4">
                                         <!-- Links -->
-                                        <li v-for="dataLink in dataMonth.links" class="list-group-item">
-                                            <a :href="dataLink.href" class="btn btn-link">
-                                                <div class="text-truncate"><i class="fa fa-angle-right fa-fw"></i>{{dataLink.title}}</div>
-                                            </a>
+                                        <li v-for="dataLink in dataMonth.links" class="list-group-item p-0 text-truncate">
+                                            <a :href="dataLink.href" class="btn btn-link text-muted w-100 h-100 text-left"><i class="fa fa-link fa-fw"></i>{{dataLink.title}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -40,7 +41,7 @@
               month: '1',
               name: 'Enero',
               links: [
-                {title: 'El Poderoso Laravel 5.5', href: '#'},
+                {title: 'El Poderoso Laravel 5.5', href: 'http://blog.acqrdeveloper.com/blog/post/param-title-post'},
                 {title: 'Reactivodad Vuejs de Javascript', href: '#'},
               ],
             },
@@ -80,66 +81,6 @@
         },
         {
           year: 2017, months: [
-            {
-              month: '1',
-              name: 'Enero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-            {
-              month: '2',
-              name: 'Febrero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-          ],
-        },
-        {
-          year: 2016, months: [
-            {
-              month: '1',
-              name: 'Enero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-            {
-              month: '2',
-              name: 'Febrero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-          ],
-        },
-        {
-          year: 2015, months: [
-            {
-              month: '1',
-              name: 'Enero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-            {
-              month: '2',
-              name: 'Febrero',
-              links: [
-                {title: 'title1', href: '#'},
-                {title: 'title2', href: '#'},
-              ],
-            },
-          ],
-        },
-        {
-          year: 2014, months: [
             {
               month: '1',
               name: 'Enero',

@@ -4,8 +4,8 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3 text-dark">Blog</h1>
-
+        <h1 class="mt-4 mb-3 text-dark">Blog<small class="ml-2 text-dark">Posts</small></h1>
+{{--<p>{{json_encode($dataPost)}}</p>--}}
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
 
@@ -16,34 +16,28 @@
             <div class="col-md-7 col-lg-8">
 
                 <!-- Blog Post -->
-                @for($i=0; $i<2; $i++)
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h2 class="card-title text-dark">Productividad en Frameworks</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                                aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
-                                animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a href="{{route('route.blog.post',['param-title-post'])}}" class="btn btn-primary my-auto">Read More <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Posted on January 1, 2017 by
-                            <a href="#">Alex Christian</a>
-                        </div>
+                @foreach($dataBlog as $k => $v)
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title text-dark">{{$v->name}}</h2>
+                        <p class="card-text">{{$v->description}}</p>
+                        <a href="{{route('route.blog.post',[$v->kind])}}" class="btn btn-primary my-auto">Read More <i class="fa fa-long-arrow-right"></i></a>
                     </div>
-                @endfor
+                    <div class="card-footer text-muted">
+                        Posted on January 1, 2017 by
+                        <a href="#">Alex Christian</a>
+                    </div>
+                </div>
+                @endforeach
 
                 <!-- Pagination -->
-                <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next<i class="fa fa-angle-right ml-2"></i></a>
-                    </li>
-                </ul>
+                <div class="mb-4">
+                    {{ $dataBlog->appends($_GET)->links('pagination::simple-bootstrap-4') }}
+                </div>
 
              </div>
+
 
             <!-- Sidebar Widgets Column -->
             <div class="col-md-5 col-lg-4">
@@ -54,9 +48,11 @@
                 <!-- Categories Component -->
                 @include('components.categories')
 
-                <!-- Side Widget Component -->
+                <!-- Widget Component -->
                 @include('components.widget')
-                @include('components.cardDates')
+
+                <!-- Posts History Component -->
+                @include('components.post-history')
 
              </div>
 

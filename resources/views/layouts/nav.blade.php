@@ -11,23 +11,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="{{ request()->url() == route('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-primary' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>About</a>
+                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-primary' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>@lang('pages.about')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.service') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.service') ? 'text-primary' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>Services</a>
+                    <a class="nav-link {{request()->url() == route('route.service') ? 'text-primary' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.contact') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.contact') ? 'text-primary' : ''}}" href="{{route('route.contact')}}"><i class="fa fa-phone fa-fw"></i>Contact</a>
+                    <a class="nav-link {{request()->url() == route('route.contact') ? 'text-primary' : ''}}" href="{{route('route.contact')}}"><i class="fa fa-phone fa-fw"></i>@lang('pages.contact')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.portfolio') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.portfolio') ? 'text-primary' : ''}}" href="{{route('route.portfolio')}}"><i class="fa fa-github fa-fw"></i>Portfolio</a>
+                    <a class="nav-link {{request()->url() == route('route.portfolio') ? 'text-primary' : ''}}" href="{{route('route.portfolio')}}"><i class="fa fa-github fa-fw"></i>@lang('pages.portfolio')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.blog') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.blog') ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>Blog</a>
+                    <a class="nav-link {{request()->url() == route('route.blog') ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
                 </li>
             </ul>
         </div>

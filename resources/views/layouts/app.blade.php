@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>acqrdeveloper | {{isset($myTitle)?$myTitle:''}}</title>
-    <!-- Scripts -->
+    <title>acqrdeveloper | {{isset($myTitle) ? $myTitle : ''}}</title>
     <!--
-    - Execute in console for changes in file .env
+        - Execute in console for changes in file .env
         > php artisan config:clear
     -->
     @if(env('APP_ENV') !== 'prod')

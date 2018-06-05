@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3 text-dark">Categories</h1>
+        <h1 class="mt-4 mb-3 text-dark">Blog<small class="ml-2 text-dark">Categories</small></h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
@@ -49,8 +49,8 @@
             <!-- Sidebar Column -->
             <div class="col-md-4 col-lg-4 mb-4">
                 <div class="list-group">
-                    <a href="index.html" class="list-group-item active">Web Design</a>
-                    <a href="about.html" class="list-group-item">Desarrollo Full Stack</a>
+                    <a href="{{route('route.blog.category',['web-design'])}}" class="list-group-item active">Web Design</a>
+                    <a href="{{route('route.blog.category',['full-stack'])}}" class="list-group-item">Desarrollo Full Stack</a>
                     <a href="services.html" class="list-group-item">Desarollo Movil</a>
                     <a href="contact.html" class="list-group-item">Frameworks Javascript</a>
                 </div>

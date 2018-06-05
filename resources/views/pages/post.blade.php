@@ -4,14 +4,10 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">Productividad en Frameworks
-            <small>by
-                <a href="#">Alex Christian</a>
-            </small>
-        </h1>
+        <h1 class="mt-4 mb-3 text-dark">Productividad en Frameworks<small class="ml-2">by<a href="#" class="ml-2">Alex Christian</a></small></h1>
 
         <!-- Breadcrumb Component -->
-        @includeIf('components.breadcrumbs', $dataBreadcrumb)
+        @include('components.breadcrumbs', $dataBreadcrumb)
 
         <div class="row">
 
@@ -22,10 +18,8 @@
                 <img class="img-fluid rounded" src="{{asset('images/900x300/01.png')}}" alt="">
 
                 <hr>
-
                 <!-- Date/Time -->
                 <p>Posted on January 1, 2017 at 12:00 PM</p>
-
                 <hr>
 
                 <!-- Post Content -->
@@ -83,37 +77,8 @@
                     </div>
                 </div>
 
-                <!-- Comment with nested comments -->
-                <div class="media mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                        <div class="media mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+               <!-- Coments Component -->
+                @include('components.coments')
 
             </div>
 
@@ -121,51 +86,16 @@
             <div class="col-sm-12 col-md-4 col-lg-4">
 
                 <!-- Search Component -->
-                @component('components.search', $dataSearch)@endcomponent
+                @include('components.search', $dataSearch)
 
                 <!-- Categories Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">Web Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">HTML</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Freebies</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">JavaScript</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">CSS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tutorials</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('components.categories')
 
-                <!-- Side Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Side Widget</h5>
-                    <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature
-                        the new Bootstrap 4 card containers!
-                    </div>
-                </div>
+                <!-- Widget Component -->
+                @include('components.widget')
+
+                <!-- Posts History Component -->
+                @include('components.post-history')
 
             </div>
 

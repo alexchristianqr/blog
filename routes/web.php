@@ -25,6 +25,7 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // Blog
   $route->get('/blog','BlogController@viewBlog')->name('route.blog');
+  $route->get('/get-blog','BlogController@getBlog');
   $route->get('/blog/search','BlogController@viewBlogSearch')->name('route.blog.search');
 
   // Blog Category
@@ -41,17 +42,17 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // About
   $route->get('/about', function () {
-    return view('pages.about');
+    return view('pages.portfolio');
   })->name('route.about');
 
   // Service
   $route->get('/service', function () {
-    return view('pages.service');
+    return view('pages.portfolio');
   })->name('route.service');
 
   // Contact
   $route->get('/contact', function () {
-    return view('pages.contact');
+    return view('pages.portfolio');
   })->name('route.contact');
 
 });
