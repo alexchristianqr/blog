@@ -203,7 +203,6 @@
       getBlog () {
         Axios.get('get-blog').then(r => {
           this.dataBlog = r.data
-          console.log(this.dataBlog)
         }).catch(e => {
           console.error(e)
         })

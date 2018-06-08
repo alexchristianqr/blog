@@ -13,8 +13,24 @@ use App\Post;
 
 class PostService
 {
-  function getPost()
+
+  function getPost($request)
   {
-    return Post::get();
+    if ($request->ajax()) {
+      return Post::where('status', 'A')->get();
+    } else {
+      return Post::where('status', 'A')->get();
+    }
   }
+
+  function create($request)
+  {
+    return Post::create($request->all());
+  }
+
+  function update($request)
+  {
+    return Post::where('id', $request->id)->update($request->all());
+  }
+
 }

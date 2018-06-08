@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\BlogService;
 use Illuminate\Http\Request;
+use Exception;
 
 class BlogController extends Controller
 {
@@ -66,7 +67,13 @@ class BlogController extends Controller
     return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
   }
 
-  function getBlog(Request $request){
-    return (new BlogService())->getBlog($request);
+  function getBlog(Request $request)
+  {
+    try {
+      return (new BlogService())->getBlog($request);
+    } catch (Exception $e) {
+      return $e->getMessage();
+    }
   }
+
 }

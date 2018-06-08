@@ -20,13 +20,15 @@
             <div class="col-12">
                 <ul class="pagination justify-content-center mb-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Back</button>
+                        <button class="page-link" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Previous
+                        </button>
                     </li>
                     <li class="page-item disabled">
                         <span class="page-link text-muted">{{ dataPaginate.to }} of {{ dataPaginate.total }}</span>
                     </li>
                     <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="next">Next<i class="fa fa-angle-double-right ml-2"></i></button>
+                        <button class="page-link" @click="next">Next<i class="fa fa-angle-double-right ml-2"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -69,7 +71,7 @@
             <div class="col-12">
                 <ul class="pagination justify-content-center mb-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Back</button>
+                        <button class="page-link" @click="back"><i class="fa fa-angle-left mr-3"></i>Previous</button>
                     </li>
                     <li class="page-item disabled">
                         <span class="page-link text-muted">{{ dataPaginate.page }} of {{ dataPaginate.total }}</span>
@@ -97,13 +99,13 @@
                 </div>
             </div>
             <!-- Pagination -->
-            <div class="col-12" >
+            <div class="col-12">
                 <ul class="pagination justify-content-center mt-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button :class="disabledBack ? 'page-link' : 'page-link border-primary'" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Back</button>
+                        <button class="page-link" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Previous</button>
                     </li>
                     <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                        <button  :class="disabledNext ? 'page-link' : 'page-link border-primary'"  @click="next">Next<i class="fa fa-angle-double-right ml-2"></i></button>
+                        <button class="page-link" @click="next">Next<i class="fa fa-angle-double-right ml-2"></i></button>
                     </li>
                 </ul>
             </div>
@@ -117,9 +119,6 @@
 
   export default {
     name: 'Posts',
-    props: {
-      dataProps: {},
-    },
     data: () => ({
       util: Util,
       showLoading: false,
@@ -134,13 +133,13 @@
       paginate: 1,
     }),
     created () {
-      if (Util.getStorage('data_screen').isTablet) {
-        this.paginate = 2
-        this.getBlog()
-      } else if (Util.getStorage('data_screen').isMobile) {
+      if (Util.getStorage('data_screen').isMobile) {
         this.paginate = 1
         this.getBlog()
-      } else if (Util.getStorage('data_screen').isComputer){
+      } else if (Util.getStorage('data_screen').isTablet) {
+        this.paginate = 2
+        this.getBlog()
+      } else if (Util.getStorage('data_screen').isComputer) {
         this.paginate = 2
         this.getBlog()
       }
@@ -151,51 +150,46 @@
           this.dataPosts = r.data.data
           this.dataPaginate.total = r.data.total
           this.dataPaginate.to = r.data.to
-          console.log(r)
         }).catch(e => {
           console.error(e)
         })
       },
       next () {
         this.showLoading = true
-        // setTimeout(() => {
-          if (this.dataPaginate.page < this.dataPaginate.total) {
-            this.dataPaginate.page = this.dataPaginate.page + 1
-            this.getBlog(this.dataPaginate.page)
-            if (this.dataPaginate.page > 1) {
-              this.disabledBack = false
-            }
-            this.showLoading = false
+        if (this.dataPaginate.page < this.dataPaginate.total) {
+          this.dataPaginate.page = this.dataPaginate.page + 1
+          this.getBlog(this.dataPaginate.page)
+          if (this.dataPaginate.page > 1) {
+            this.disabledBack = false
           }
-          if (Util.getStorage('data_screen').isMobile) {
-            if (this.dataPaginate.page == this.dataPaginate.total) {
-              this.disabledNext = true
-              return false
-            }
-          } else {
-            if (this.dataPaginate.page == this.dataPaginate.total / 2) {
-              this.disabledNext = true
-              return false
-            }
+          this.showLoading = false
+        }
+        if (Util.getStorage('data_screen').isMobile) {
+          if (this.dataPaginate.page == this.dataPaginate.total) {
+            this.disabledNext = true
+            return false
           }
-        // }, 500)
+        } else {
+          if (this.dataPaginate.page == this.dataPaginate.total / 2) {
+            this.disabledNext = true
+            return false
+          }
+        }
       },
       back () {
         this.showLoading = true
-        // setTimeout(() => {
-          if (this.dataPaginate.page > 1) {
-            this.dataPaginate.page = this.dataPaginate.page - 1
-            this.getBlog(this.dataPaginate.page)
-            if (this.dataPaginate.page < this.dataPaginate.total) {
-              this.disabledNext = false
-            }
-            this.showLoading = false
+        if (this.dataPaginate.page > 1) {
+          this.dataPaginate.page = this.dataPaginate.page - 1
+          this.getBlog(this.dataPaginate.page)
+          if (this.dataPaginate.page < this.dataPaginate.total) {
+            this.disabledNext = false
           }
-          if (this.dataPaginate.page == 1) {
-            this.disabledBack = true
-            return false
-          }
-        // }, 500)
+          this.showLoading = false
+        }
+        if (this.dataPaginate.page == 1) {
+          this.disabledBack = true
+          return false
+        }
       },
     },
   }

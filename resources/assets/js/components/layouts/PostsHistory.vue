@@ -101,22 +101,6 @@
         },
       ],
     }),
-    created () {
-      // console.log(this.dataHistory)
-      this.dataHistory.forEach((v, k) => {
-        if (v.year == 2018) {
-          console.log(v.year)
-          v.months.forEach((vv, kk) => {
-            if (vv.month == '1') {
-              console.log(vv.links)
-              vv.links.forEach((vvv, kkk) => {
-                console.log(vvv.title)
-              })
-            }
-          })
-        }
-      })
-    },
   }
 </script>
 
