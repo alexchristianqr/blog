@@ -15,24 +15,19 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // Home
   $route->get('/', function () {
-    $dataChunk =[
-      ['id'=>1],
-      ['id'=>2],
-      ['id'=>3],
-    ];
-    return view('pages.home',compact('dataChunk'));
+    return view('pages.home');
   })->name('route.home');
 
   // Blog
-  $route->get('/blog','BlogController@viewBlog')->name('route.blog');
-  $route->get('/get-blog','BlogController@getBlog');
+  $route->get('/blog/{blog_id}','BlogController@viewBlog')->name('route.blog');
   $route->get('/blog/search','BlogController@viewBlogSearch')->name('route.blog.search');
+  $route->get('/get-blog','BlogController@getBlog');
 
   // Blog Category
-  $route->get('/blog/category/{param_category}', 'BlogController@viewBlogCategory')->name('route.blog.category');
+  $route->get('/blog/{blog_id}/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
 
   // Blog Post
-  $route->get('/blog/post/{param_post}', 'BlogController@viewBlogPost')->name('route.blog.post');
+  $route->get('/blog/{blog_id}/post/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
   $route->get('/blog/post/{param_post}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
   // Portfolio
@@ -54,6 +49,5 @@ Route::group(['middleware' => 'web'], function ($route) {
   $route->get('/contact', function () {
     return view('pages.portfolio');
   })->name('route.contact');
-
 });
 

@@ -2,32 +2,18 @@
     <h5 class="card-header text-dark">Categories</h5>
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="{{route('route.blog.category',['web-design'])}}">Web Design</a>
-                    </li>
-                    <li>
-                        <a href="#">HTML</a>
-                    </li>
-                    <li>
-                        <a href="#">Freebies</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                        <a href="#">CSS</a>
-                    </li>
-                    <li>
-                        <a href="#">Tutorials</a>
-                    </li>
-                </ul>
-            </div>
+            @foreach($dataCategory->chunk(6) as $chunk)
+                <div class="col-lg-6">
+                    <ul class="list-unstyled mb-0">
+                        @foreach($chunk as $v)
+                            <li class="mb-2 text-truncate">
+                                <a title="{{$v->title}}" href="{{route('route.blog.category',[$blog_id,'web-design'])}}"
+                                   class="btn btn-link w-100 h-100 text-left"><span class="text-capitalize">{{$v->name}}</span></a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

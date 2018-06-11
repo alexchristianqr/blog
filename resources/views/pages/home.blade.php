@@ -1,4 +1,4 @@
-@extends('layouts.app',['myTitle'=>'Home'])
+@extends('layouts.app',['myTitle' => 'Home'])
 @section('content')
     <!-- Page Content -->
     <header hidden>
@@ -43,12 +43,16 @@
     </header>
     <div class="container">
 
-        {{--<h1 class="mt-4 mb-3 text-dark">@lang('home.title')</h1>--}}
+        <!-- Page Heading -->
+        <h1 class="mt-4 mb-3 text-dark">Community<small class="ml-2 text-dark">Developer</small></h1>
+
+        <!-- Posts Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam, atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
-        <!-- Courses Component -->
+        <!-- Posts Component -->
         <posts></posts>
 
+        <!-- Course Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.favorites_courses')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
         <!-- Courses Component -->

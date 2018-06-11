@@ -20,15 +20,13 @@
             <div class="col-12">
                 <ul class="pagination justify-content-center mb-4">
                     <li :class="disabledBack ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Previous
-                        </button>
+                        <button class="page-link" @click="back"><i class="fa fa-angle-double-left mr-2"></i>Previous</button>
                     </li>
                     <li class="page-item disabled">
                         <span class="page-link text-muted">{{ dataPaginate.to }} of {{ dataPaginate.total }}</span>
                     </li>
                     <li :class="disabledNext ? 'page-item disabled' : 'page-item'">
-                        <button class="page-link" @click="next">Next<i class="fa fa-angle-double-right ml-2"></i>
-                        </button>
+                        <button class="page-link" @click="next">Next<i class="fa fa-angle-double-right ml-2"></i></button>
                     </li>
                 </ul>
             </div>

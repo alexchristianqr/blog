@@ -1,7 +1,6 @@
-# webBlogLaravel
-Sitio Wen para la comunidad de Ingenieria de Sistemas.
-Permitiendoles acceder a articulos de informacion actualizado sobre las tecnologias modernas
-
+# Blog
+Sitio Web para la comunidad informática.
+Permitiendoles acceder a articulos de informacion actualizado sobre las tecnologias modernas.
 
 ## Download Repositories
 1. composer install
