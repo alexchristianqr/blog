@@ -7,8 +7,7 @@
                     <ul class="list-unstyled mb-0">
                         @foreach($chunk as $v)
                             <li class="mb-2 text-truncate">
-                                <a title="{{$v->title}}" href="{{route('route.blog.category',[$blog_id,'web-design'])}}"
-                                   class="btn btn-link w-100 h-100 text-left"><span class="text-capitalize">{{$v->name}}</span></a>
+                                <a title="{{$v->title}}" href="{{route('route.blog.category',['web-design'])}}" class="btn btn-link w-100 h-100 text-left"><span class="text-capitalize">{{$v->name}}</span></a>
                             </li>
                         @endforeach
                     </ul>

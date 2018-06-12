@@ -24,7 +24,7 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                                 aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                                 animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a href="{{route('route.blog.post',[$blog_id,'param-title-post'])}}" class="btn btn-primary my-auto">Read
+                            <a href="{{route('route.blog.post',[2018,6,'param-title-post'])}}" class="btn btn-primary my-auto">Read
                                 More <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                         <div class="card-footer text-muted">
@@ -49,8 +49,8 @@
             <!-- Sidebar Column -->
             <div class="col-md-4 col-lg-4 mb-4">
                 <div class="list-group">
-                    <a href="{{route('route.blog.category',[$blog_id,'web-design'])}}" class="list-group-item active">Web Design</a>
-                    <a href="{{route('route.blog.category',[$blog_id,'full-stack'])}}" class="list-group-item">Desarrollo Full Stack</a>
+                    <a href="{{route('route.blog.category',['web-design'])}}" class="list-group-item active">Web Design</a>
+                    <a href="{{route('route.blog.category',['full-stack'])}}" class="list-group-item">Desarrollo Full Stack</a>
                     <a href="services.html" class="list-group-item">Desarollo Movil</a>
                     <a href="contact.html" class="list-group-item">Frameworks Javascript</a>
                 </div>

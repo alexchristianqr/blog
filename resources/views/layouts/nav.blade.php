@@ -27,7 +27,7 @@
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.blog',['latest']) ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.blog',['latest']) ? 'text-primary' : ''}}" href="{{route('route.blog',['latest'])}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
+                    <a class="nav-link {{request()->url() == route('route.blog',['latest']) ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
                 </li>
             </ul>
         </div>

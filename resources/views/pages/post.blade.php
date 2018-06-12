@@ -88,7 +88,7 @@
                 @include('components.search', $dataSearch)
 
                 <!-- Categories Widget -->
-                @include('components.categories',[$dataCategory,$blog_id])
+                @include('components.categories',[$dataCategory])
 
                 <!-- Widget Component -->
                 @include('components.widget')

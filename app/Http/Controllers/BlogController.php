@@ -10,7 +10,7 @@ use Exception;
 
 class BlogController extends Controller
 {
-  function viewBlog($blog_id, Request $request)
+  function viewBlog(Request $request)
   {
     try {
       $dataBreadcrumb = [
@@ -18,7 +18,7 @@ class BlogController extends Controller
         ['title' => 'Blog', 'url' => null, 'status' => false],
       ];
       $dataCategory = (new CategoryService())->getCategory($request);
-      $dataPost = (new PostService())->getPostByBlogId($blog_id, $request);
+      $dataPost = (new PostService())->getPosts($request);
       return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'blog_id'));
     } catch (Exception $e) {
       echo $e->getMessage();
@@ -26,45 +26,45 @@ class BlogController extends Controller
     }
   }
 
-  function viewBlogSearch($blog_id)
+  function viewBlogSearch()
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
-      ['title' => 'Blog', 'url' => route('route.blog',[$blog_id]), 'status' => true],
+      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
       ['title' => 'Search', 'url' => null, 'status' => false],
     ];
     $dataSearch = ['route' => route('route.blog.search')];
     return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
   }
 
-    function viewBlogCategory($blog_id,Request $request)
+  function viewBlogCategory(Request $request)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
-      ['title' => 'Blog', 'url' => route('route.blog',[$blog_id]), 'status' => true],
+      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
       ['title' => 'Category', 'url' => null, 'status' => false],
     ];
-    return view('pages.categories', compact('dataBreadcrumb','blog_id'));
+    return view('pages.categories', compact('dataBreadcrumb'));
   }
 
-  function viewBlogPost($blog_id, $post_id, Request $request)
+  function viewBlogPost($year,$month,$post_id, Request $request)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
-      ['title' => 'Blog', 'url' => route('route.blog', [$blog_id]), 'status' => true],
+      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
       ['title' => 'Post', 'url' => null, 'status' => false],
     ];
-    $dataPost = (new PostService())->getPostById($post_id, $request);
+    $dataPost = (new PostService())->getPostById($year,$month,$post_id, $request);
     $dataCategory = (new CategoryService())->getCategory($request);
     $dataSearch = ['route' => route('route.blog.post.search', [$post_id])];
-    return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataSearch','blog_id'));
+    return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataSearch'));
   }
 
-  function viewBlogPostSearch($blog_id,$post_id)
+  function viewBlogPostSearch($post_id)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
-      ['title' => 'Blog', 'url' => route('route.blog',[$blog_id]), 'status' => true],
+      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
       ['title' => 'Post', 'url' => route('route.blog.post', ['post_id' => request('post_id')]), 'status' => true],
       ['title' => 'Search', 'url' => null, 'status' => false],
     ];
@@ -75,9 +75,9 @@ class BlogController extends Controller
   function getBlog(Request $request)
   {
     try {
-      return response()->json((new BlogService())->getBlog($request), OK);
+      return (new PostService())->getPosts($request);
     } catch (Exception $e) {
-      return response()->json($e->getMessage(), PRECONDITION_FAILED);
+      return $e->getMessage();
     }
   }
 

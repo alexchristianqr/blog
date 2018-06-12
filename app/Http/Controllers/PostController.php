@@ -20,7 +20,12 @@ class PostController extends Controller
   function create(Request $request)
   {
     try {
-      return (new PostService())->create($request);
+      (new PostService())->create($request);
+      if ($request->ajax()) {
+        return response()->json('created post', 200);
+      } else {
+        return 'created post';
+      }
     } catch (Exception $e) {
       if ($request->ajax()) {
         return response()->json($e->getMessage());

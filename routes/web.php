@@ -19,16 +19,16 @@ Route::group(['middleware' => 'web'], function ($route) {
   })->name('route.home');
 
   // Blog
-  $route->get('/blog/{blog_id}','BlogController@viewBlog')->name('route.blog');
+  $route->get('/blog','BlogController@viewBlog')->name('route.blog');
   $route->get('/blog/search','BlogController@viewBlogSearch')->name('route.blog.search');
   $route->get('/get-blog','BlogController@getBlog');
 
   // Blog Category
-  $route->get('/blog/{blog_id}/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
+  $route->get('/blog/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
 
   // Blog Post
-  $route->get('/blog/{blog_id}/post/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
-  $route->get('/blog/post/{param_post}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
+  $route->get('/blog/post/{year}/{month}/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
+  $route->get('/blog/post/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
   // Portfolio
   $route->get('/portfolio', function () {
