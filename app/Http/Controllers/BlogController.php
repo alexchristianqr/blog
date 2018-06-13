@@ -37,7 +37,7 @@ class BlogController extends Controller
     return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
   }
 
-  function viewBlogCategory(Request $request)
+  function viewBlogCategory()
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
@@ -47,28 +47,28 @@ class BlogController extends Controller
     return view('pages.categories', compact('dataBreadcrumb'));
   }
 
-  function viewBlogPost($year,$month,$post_id, Request $request)
+  function viewBlogPost($year, $month, $post_id, Request $request)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
       ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
       ['title' => 'Post', 'url' => null, 'status' => false],
     ];
-    $dataPost = (new PostService())->getPostById($year,$month,$post_id, $request);
+    $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
     $dataCategory = (new CategoryService())->getCategory($request);
-    $dataSearch = ['route' => route('route.blog.post.search', [$post_id])];
+    $dataSearch = ['route' => route('route.blog.post.search', [$year, $month, $post_id])];
     return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataSearch'));
   }
 
-  function viewBlogPostSearch($post_id)
+  function viewBlogPostSearch($year, $month, $post_id)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
       ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
-      ['title' => 'Post', 'url' => route('route.blog.post', ['post_id' => request('post_id')]), 'status' => true],
+      ['title' => 'Post', 'url' => route('route.blog.post', [$year, $month, $post_id]), 'status' => true],
       ['title' => 'Search', 'url' => null, 'status' => false],
     ];
-    $dataSearch = ['route' => route('route.blog.post.search', ['post_id' => request('post_id')])];
+    $dataSearch = ['route' => route('route.blog.post.search', [$year, $month, $post_id])];
     return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
   }
 

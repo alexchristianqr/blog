@@ -28,7 +28,7 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // Blog Post
   $route->get('/blog/post/{year}/{month}/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
-  $route->get('/blog/post/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
+  $route->get('/blog/post/{year}/{month}/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
   // Portfolio
   $route->get('/portfolio', function () {

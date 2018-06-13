@@ -29,7 +29,7 @@
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
                         aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis
                         animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a href="{{route('route.blog.post',['param-title-post'])}}" class="btn btn-primary my-auto">Read
+                    <a href="{{route('route.blog.post',[1,2,'param-title-post'])}}" class="btn btn-primary my-auto">Read
                         More <i class="fa fa-long-arrow-right"></i></a>
                 </div>
                 <div class="card-footer text-muted">
