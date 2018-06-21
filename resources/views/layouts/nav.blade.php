@@ -26,8 +26,8 @@
                     <a class="nav-link {{request()->url() == route('route.portfolio') ? 'text-primary' : ''}}" href="{{route('route.portfolio')}}"><i class="fa fa-github fa-fw"></i>@lang('pages.portfolio')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                <li class="{{ request()->url() == route('route.blog',['latest']) ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.blog',['latest']) ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
+                <li class="{{ request()->url() == route('route.blog') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
+                    <a class="nav-link {{request()->url() == route('route.blog') ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
                 </li>
             </ul>
         </div>

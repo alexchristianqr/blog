@@ -4,7 +4,9 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3 text-dark">Blog<small class="ml-2 text-dark">Posts</small></h1>
+        <h1 class="mt-4 mb-3 text-dark">Blog
+            <small class="text-dark">Posts</small>
+        </h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
@@ -22,8 +24,7 @@
                         <div class="card-body">
                             <h2 class="card-title text-dark">{{$v->name}}</h2>
                             <p class="card-text">{{$v->description}}</p>
-                            <a href="{{route('route.blog.post',[Carbon\Carbon::parse($v->published)->format('Y'),Carbon\Carbon::parse($v->published)->format('m'),$v->kind])}}" class="btn btn-primary my-auto">Read
-                                More <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="{{route('route.blog.post',[Carbon\Carbon::parse($v->published)->format('Y'),Carbon\Carbon::parse($v->published)->format('m'),$v->kind])}}" class="btn btn-primary my-auto">Read More <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                         <div class="card-footer text-muted">
                             <span>Posted </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="#">{{$v->user_name}}</a>

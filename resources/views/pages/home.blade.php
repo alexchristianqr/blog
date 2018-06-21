@@ -44,7 +44,9 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3 text-dark">Community<small class="ml-2 text-dark">Developer</small></h1>
+        <h1 class="mt-4 mb-3 text-dark">Community
+            <small class="text-dark">Developer</small>
+        </h1>
 
         <!-- Posts Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>

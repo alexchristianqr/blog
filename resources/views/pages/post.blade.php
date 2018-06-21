@@ -4,7 +4,11 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3 text-dark">Productividad en Frameworks<small class="ml-2">by<a href="#" class="ml-2">Alex Christian</a></small></h1>
+        <h1 class="mt-4 mb-3 text-dark">Productividad en Frameworks
+            <small class="text-dark">by
+                <a href="#">Alex Christian</a>
+            </small>
+        </h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs', $dataBreadcrumb)

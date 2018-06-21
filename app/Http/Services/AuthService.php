@@ -15,15 +15,14 @@ class AuthService
 {
   function getUserById($request)
   {
-    return User::where('id',$request->user_id)->first();
+    return User::where('id', $request->user_id)->first();
   }
 
   function verifyRole($request)
   {
-    return User::whereExists(
-      function ($query) use ($request) {
-        $query->where('id', $request->user_id);
-      })->first(['role_id'])->role_id;
+    return User::whereExists(function ($query) use ($request) {
+      $query->where('id', $request->user_id);
+    })->first(['role_id'])->role_id;
   }
 
   /**
