@@ -18,9 +18,9 @@
         </div>
 
         <!-- Breadcrumb Component -->
-    @include('components.breadcrumbs',$dataBreadcrumb)
+        @include('components.breadcrumbs',$dataBreadcrumb)
 
-    <!-- Blog Post -->
+        <!-- Blog Post -->
         @for($i=0; $i<1; $i++)
             <div class="card mb-4">
                 <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
@@ -37,9 +37,9 @@
                     <a href="#">Alex Christian</a>
                 </div>
             </div>
-    @endfor
+        @endfor
 
-    <!-- Pagination -->
+        <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
                 <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>

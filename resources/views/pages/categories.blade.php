@@ -36,7 +36,7 @@
                     </div>
                 @endfor
 
-            <!-- Pagination -->
+                <!-- Pagination -->
                 <ul class="pagination justify-content-center mb-4">
                     <li class="page-item disabled">
                         <a class="page-link" href="#"><i class="fa fa-angle-left mr-2"></i>Back</a>

@@ -17,15 +17,25 @@
         <link rel="stylesheet" href="{{asset("dist/css/main.css")}}">
     @endif
 
+    <style>
+        pre {
+            color: #646464 !important;
+            padding: 1rem !important;
+            background-color: #f5f5f5 !important;
+            border-radius: 0.25rem !important;
+            border: 1px solid rgba(0, 0, 0, 0.125) !important;
+            border-left: 5px solid #646464 !important;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
     <!-- Navigation -->
-@include('layouts.nav')
+    @include('layouts.nav')
 
-<!-- Page Content -->
-@yield('content')
-<!-- /.container -->
+    <!-- Page Content -->
+    @yield('content')
+    <!-- /.container -->
 
     <!-- Footer -->
     @include('layouts.footer')
