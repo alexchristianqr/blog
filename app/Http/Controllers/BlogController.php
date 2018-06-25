@@ -75,7 +75,11 @@ class BlogController extends Controller
   function getBlog(Request $request)
   {
     try {
-      return (new PostService())->getPosts($request);
+      if($request->ajax()){
+        return response()->json((new PostService())->getPosts($request),OK);
+      }else{
+        return (new PostService())->getPosts($request);
+      }
     } catch (Exception $e) {
       return $e->getMessage();
     }
