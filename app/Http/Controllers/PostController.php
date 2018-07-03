@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\PostService;
+use App\Post;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -42,6 +43,15 @@ class PostController extends Controller
       } else {
         return abort(PRECONDITION_FAILED);
       }
+    }
+  }
+
+  function getMonthsPosts()
+  {
+    try {
+      return response()->json((new PostService())->getMonthsPosts(),OK);
+    } catch (Exception $e) {
+      return response()->json($e->getMessage(),PRECONDITION_FAILED);
     }
   }
 }

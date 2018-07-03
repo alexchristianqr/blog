@@ -31,12 +31,15 @@
 </template>
 
 <script>
+  import Axios from 'axios'
+
   export default {
-    name: 'PostsHistory',
+    name: 'LayoutHistory',
     data: () => ({
       dataHistory: [
         {
-          year: 2018, months: [
+          year: 2018,
+          months: [
             {
               month: '1',
               name: 'Enero',
@@ -80,7 +83,8 @@
           ],
         },
         {
-          year: 2017, months: [
+          year: 2017,
+          months: [
             {
               month: '1',
               name: 'Enero',
@@ -100,7 +104,21 @@
           ],
         },
       ],
+      dataMonthsposts:[],
     }),
+    created(){
+      console.log(this.dataHistory)
+      this.getMonthsPosts()
+    },
+    methods:{
+      getMonthsPosts () {
+        Axios.get('api/get-months-posts').then(r => {
+          this.dataMonthsposts = r.data
+        }).catch((e) => {
+          console.error(e)
+        })
+      },
+    }
   }
 </script>
 

@@ -7,11 +7,11 @@
         <div class="mt-4 mb-3">
             <div class="row">
                 <div class="col-sm-12 col-lg-6 my-auto">
-                    <h1 class="text-dark">Search</h1>
+                    <h1 class="text-dark">Search <small class="text-dark">in Website</small></h1>
                 </div>
                 <div class="col-sm-12 col-lg-6 my-auto">
                     {!! Form::open(['url'=>$dataSearch['route'],'method'=>'GET','autocomplete'=>'off']) !!}
-                        <input-search :data-props="{param_request:'{{request('param_search')}}'}"></input-search>
+                        <layout-input-search :data-props="{param_request:'{{request('param_search')}}'}"></layout-input-search>
                     {!! Form::close() !!}
                 </div>
             </div>

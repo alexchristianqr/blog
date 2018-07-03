@@ -1,19 +1,17 @@
-import Vue          from 'vue'
-import Axios          from 'axios'
-import Courses      from './components/pages/home/Courses.vue'
-import Blog      from './components/pages/home/Blog.vue'
-import Posts        from './components/pages/home/Posts.vue'
-import Portfolio    from './components/pages/home/Portfolio.vue'
-import FooterLayout from './components/layouts/FooterLayout'
-import NavLayout    from './components/layouts/NavLayout'
-import InputSearch  from './components/layouts/InputSearch'
-import PostsHistory from './components/layouts/PostsHistory'
-import Util         from './utility'
+import Vue               from 'vue'
+import Axios             from 'axios'
+import Courses           from './components/web/pages/Courses.vue'
+import Blog              from './components/web/pages/Blog.vue'
+import Posts             from './components/web/pages/Posts.vue'
+import Portfolio         from './components/web/pages/Portfolio.vue'
+import LayoutFooter      from './components/web/layouts/LayoutFooter'
+import LayoutInputSearch from './components/web/layouts/LayoutInputSearch'
+import LayoutHistory     from './components/web/layouts/LayoutHistory'
+import Util              from './utility'
 
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 new Vue({
-  data: () => ({}),
   beforeMount () {
     Util.removeStorage('data_screen')
     let isLarge = (window.screen.availWidth > 768),
@@ -30,11 +28,10 @@ new Vue({
   components: {
     Courses,
     Portfolio,
-    FooterLayout,
-    NavLayout,
-    InputSearch,
     Posts,
     Blog,
-    PostsHistory,
+    LayoutFooter,
+    LayoutInputSearch,
+    LayoutHistory,
   },
 }).$mount('#app')

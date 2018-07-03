@@ -39,10 +39,10 @@
 </template>
 
 <script>
-  import Util from '../../utility'
+  import Util from '../../../utility'
 
   export default {
-    name: 'FooterLayout',
+    name: 'ComponentLayoutFooter',
     data: () => ({
       util: Util,
     }),

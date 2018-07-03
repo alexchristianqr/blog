@@ -53,9 +53,9 @@ class PostService
 
   function getPosts($request)
   {
-//    dd($this->getMonthsPosts());
+//    return $this->getHistory();
     $yearNow = Carbon::now()->format('Y');
-    $monthNow = Carbon::now()->format('m');
+    $monthNow = Carbon::now()->addMonth(-6)->format('m');
     $request->request->add(['isPaginate' => true, 'year' => $yearNow, 'month' => $monthNow]);
     return $this->dataModel($request);
   }
@@ -78,12 +78,52 @@ class PostService
 
   function getMonthsPosts()
   {
-//    dd($this->getLinksByMonths());
-    return Post::distinct()->select(DB::raw('MONTH(post.published) AS published_month'))->orderBy('post.published','ASC')->get()->toArray();
+    return Post::distinct()->select(DB::raw('MONTH(post.published) AS published_month'))->orderBy('post.published', 'ASC')->get()->toArray();
   }
 
   function getLinksByMonths()
   {
-    return Post::select([DB::raw('MONTH(post.published) AS published_month'),'post.kind'])->orderBy('post.published','ASC')->get()->toArray();
+    return Post::select([DB::raw('MONTH(post.published) AS published_month'), 'post.kind'])->orderBy('post.published', 'ASC')->get()->toArray();
+  }
+
+  function getHistory()
+  {
+    $newDataPostHistory = [];
+    $arrayMonths = [];
+    $months  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS post_year, MONTH(post.published) AS post_month'), 'post.kind')
+      ->groupBy('post_month')
+      ->orderBy('post.published', 'ASC')
+      ->get()->toArray();
+    dd($dataPostHistory);
+    $currentYear = 0;
+    $currentMonth = 0;
+    $dataMonths = ['Enero', 'Febrero', 'Marzo', 'Marzo'];
+
+    foreach ($dataPostHistory as $item) {
+      if ($currentYear == 0) {
+        $currentYear = $item->year;
+        $arrayMonths = [];
+      }
+
+      //Ciclo Year
+      if ($item->year == $currentYear) {
+        if($currentMonth == 0) {
+          $currentMonth = $item->month;
+        }
+        for ($i = 0; $i < count($months); $i++) {
+//          if($currentMonth == $months[$i]) {
+            $currentMonth = $months[$i];
+            array_push($arrayMonths ,$currentMonth);
+//            }
+        }
+        if($item->month != $currentMonth){
+          $currentMonth = 0;
+        }
+      }
+      $newDataPostHistory[$item->year] = $arrayMonths;
+    }
+    dd($newDataPostHistory);
+    return $dataPostHistory;
   }
 }

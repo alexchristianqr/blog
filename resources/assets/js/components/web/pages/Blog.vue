@@ -189,6 +189,7 @@
           image: 'react.svg',
         },
       ],
+      dataMonthsposts:[],
       dataPaginate: {
         total: 6,
         page: 1,
@@ -197,13 +198,22 @@
       disabledBack: true,
     }),
     created(){
+      this.getMonthsPosts()
       this.getBlog()
     },
     methods: {
+      getMonthsPosts () {
+        Axios.get('api/get-months-posts').then(r => {
+          this.dataMonthsposts = r.data
+          console.log(this.dataMonthsposts)
+        }).catch((e) => {
+          console.error(e)
+        })
+      },
       getBlog () {
         Axios.get('get-blog').then(r => {
           this.dataBlog = r.data
-        }).catch(e => {
+        }).catch((e) => {
           console.error(e)
         })
       },

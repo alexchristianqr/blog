@@ -37,17 +37,16 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // About
   $route->get('/about', function () {
-    return view('pages.portfolio');
+    return view('pages.about');
   })->name('route.about');
 
   // Service
   $route->get('/service', function () {
-    return view('pages.portfolio');
+    return view('pages.service');
   })->name('route.service');
 
   // Contact
   $route->get('/contact', function () {
-    return view('pages.portfolio');
+    return view('pages.contact');
   })->name('route.contact');
 });
-

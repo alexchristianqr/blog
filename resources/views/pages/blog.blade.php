@@ -9,7 +9,7 @@
         </h1>
 
         <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs',$dataBreadcrumb)
+        @include('components.breadcrumbs', $dataBreadcrumb)
 
         <!-- Content Row -->
         <div class="row">
@@ -53,7 +53,7 @@
             @include('components.widget')
 
             <!-- Posts History Component -->
-            @include('components.post-history')
+            @include('components.history')
 
             </div>
 

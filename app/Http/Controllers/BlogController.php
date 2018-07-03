@@ -12,18 +12,25 @@ class BlogController extends Controller
 {
   function viewBlog(Request $request)
   {
-    try {
+//    $this->util_create('Aldo Mariategui');
+//    $this->util_select();
+//    $this->util_edit('Deysi',5);
+//    $this->util_select();
+    $this->util_delete(5-1);
+    $this->util_select();
+    /*try {
       $dataBreadcrumb = [
         ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
         ['title' => 'Blog', 'url' => null, 'status' => false],
       ];
       $dataCategory = (new CategoryService())->getCategory($request);
       $dataPost = (new PostService())->getPosts($request);
-      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'blog_id'));
+      $dataMonthsPosts = (new PostService())->getMonthsPosts();
+      $dataLinksMonths = (new PostService())->getLinksByMonths();
+      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataMonthsPosts', 'dataLinksMonths'));
     } catch (Exception $e) {
-      echo $e->getMessage();
       return abort(NOT_FOUND);
-    }
+    }*/
   }
 
   function viewBlogSearch()

@@ -4,9 +4,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3 text-dark">Blog
-            <small class="text-dark">Categories</small>
-        </h1>
+        @include('components.heading',['title'=>'Category','subtitle'=>'of Blogs'])
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
