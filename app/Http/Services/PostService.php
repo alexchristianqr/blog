@@ -53,7 +53,6 @@ class PostService
 
   function getPosts($request)
   {
-//    return $this->getHistory();
     $yearNow = Carbon::now()->format('Y');
     $monthNow = Carbon::now()->addMonth(-6)->format('m');
     $request->request->add(['isPaginate' => true, 'year' => $yearNow, 'month' => $monthNow]);
@@ -90,40 +89,54 @@ class PostService
   {
     $newDataPostHistory = [];
     $arrayMonths = [];
-    $months  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS post_year, MONTH(post.published) AS post_month'), 'post.kind')
-      ->groupBy('post_month')
+    $arrayUrls = [];
+    $months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    $years = [2018, 2017, 2016, 2015];
+    $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name')
       ->orderBy('post.published', 'ASC')
-      ->get()->toArray();
-    dd($dataPostHistory);
+      ->get();
     $currentYear = 0;
     $currentMonth = 0;
-    $dataMonths = ['Enero', 'Febrero', 'Marzo', 'Marzo'];
+    $dataMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'];
 
+    //Ciclo Year
     foreach ($dataPostHistory as $item) {
-      if ($currentYear == 0) {
-        $currentYear = $item->year;
-        $arrayMonths = [];
+      if ($item->year != $currentYear) {
+        $currentYear = 0;//Reinicializar la variable del año
+        $arrayMonths = [];//Reinicializar el arreglo de meses que se encuentra en el año
       }
+      for ($k = 0; $k < count($years); $k++) {
+        if ($item->year == $years[$k]) {
+          $currentYear = $item->year;
 
-      //Ciclo Year
-      if ($item->year == $currentYear) {
-        if($currentMonth == 0) {
-          $currentMonth = $item->month;
-        }
-        for ($i = 0; $i < count($months); $i++) {
-//          if($currentMonth == $months[$i]) {
-            $currentMonth = $months[$i];
-            array_push($arrayMonths ,$currentMonth);
-//            }
-        }
-        if($item->month != $currentMonth){
-          $currentMonth = 0;
+          if ($item->month != $currentMonth) {
+            $currentMonth = 0;//Reinicializar la variable del mes
+          }
+
+          for ($i = 0; $i < count($months); $i++) {
+            if ($item->month == $months[$i]) {
+              $arrayUrlsTemp = $arrayUrls;//Cargar arreglo de links-temporales del arreglo de links
+              $arrayUrls = [];//Reinicializar el arreglo de links qu se encuentra en el mes
+
+              if ($currentMonth == $months[$i]) {
+                array_push($arrayUrlsTemp, (object)['kind'=>$item->kind,'name'=>$item->name]);
+                $arrayUrls = $arrayUrlsTemp;//Cargar arreglo de links del arreglo de links-temporales
+              } else {
+                $currentMonth = $item->month;
+                array_push($arrayUrls,  (object)['kind'=>$item->kind,'name'=>$item->name]);
+              }
+              $arrayMonths[$months[$i]] = $arrayUrls;//Almacenar links en el mes del ciclo
+
+            } else {
+              continue;
+            }
+          }
+        } else {
+          continue;
         }
       }
       $newDataPostHistory[$item->year] = $arrayMonths;
     }
-    dd($newDataPostHistory);
-    return $dataPostHistory;
+    return $newDataPostHistory;
   }
 }

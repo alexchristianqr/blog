@@ -48,8 +48,7 @@ trait Utility
     try{
       $pdo = $this->connect();
       $query = "update test set name = ? where id = ?";
-      $stmt = $pdo->prepare($query);
-      $stmt->execute([$set,$where]);
+      $pdo->prepare($query)->execute([$set,$where]);
     }catch (\Exception $e) {
       echo $e->getMessage();
     }

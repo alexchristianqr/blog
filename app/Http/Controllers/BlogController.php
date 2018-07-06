@@ -16,9 +16,9 @@ class BlogController extends Controller
 //    $this->util_select();
 //    $this->util_edit('Deysi',5);
 //    $this->util_select();
-    $this->util_delete(5-1);
-    $this->util_select();
-    /*try {
+//    $this->util_delete(5-1);
+//    $this->util_select();
+    try {
       $dataBreadcrumb = [
         ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
         ['title' => 'Blog', 'url' => null, 'status' => false],
@@ -27,10 +27,12 @@ class BlogController extends Controller
       $dataPost = (new PostService())->getPosts($request);
       $dataMonthsPosts = (new PostService())->getMonthsPosts();
       $dataLinksMonths = (new PostService())->getLinksByMonths();
-      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataMonthsPosts', 'dataLinksMonths'));
+      $dataHistory= (new PostService())->getHistory();
+//      dd($dataHistory);
+      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataMonthsPosts', 'dataLinksMonths','dataHistory'));
     } catch (Exception $e) {
       return abort(NOT_FOUND);
-    }*/
+    }
   }
 
   function viewBlogSearch()

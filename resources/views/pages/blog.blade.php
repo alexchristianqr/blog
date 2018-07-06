@@ -53,7 +53,7 @@
             @include('components.widget')
 
             <!-- Posts History Component -->
-            @include('components.history')
+            @include('components.history',[$dataHistory])
 
             </div>
 
