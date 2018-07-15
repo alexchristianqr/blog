@@ -24,6 +24,7 @@ mix.styles([
   'node_modules/bootstrap/dist/css/bootstrap.css',
   'node_modules/font-awesome/css/font-awesome.css',
   'resources/assets/css/modern-business.css',
+  'resources/assets/css/app.css',
 ], 'public/dist/css/main.css')
 
 mix.js([
