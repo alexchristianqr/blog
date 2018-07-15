@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => 'api'], function ($route) {
-    $route->get('get-months-posts','PostController@getMonthsPosts');
+Route::group(['middleware' => 'cors:api'], function ($route) {
+  //implement code here
 });
