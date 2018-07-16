@@ -15,5 +15,6 @@ yarn-error.log
 public/node_modules
 package-lock.json
 composer.lock
-public/dist/
+public/dist
+public/images
 public/assets
