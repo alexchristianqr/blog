@@ -8,7 +8,6 @@
 
 namespace App\Http\Services;
 
-
 use App\User;
 
 class AuthService

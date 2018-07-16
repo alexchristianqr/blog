@@ -6,21 +6,72 @@
 
 namespace App\Http\Services;
 
-
+use App\Http\Controllers\Utility;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class PostService
 {
+  use Utility;
+
   private function dataModel($request)
   {
     $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
       ->join('blog', 'blog.id', 'post.blog_id')
       ->join('path', 'path.id', 'post.path_id')
-      ->join('users', 'users.id', 'post.user_id')
-      ->whereYear('post.published', $request->year)
-      ->whereMonth('post.published', $request->month);
+      ->join('users', 'users.id', 'post.user_id');
+    //Validate exist request param year
+    if ($request->has('year')) {
+      $dataModel = $dataModel->whereYear('post.published', $request->year);
+    }
+    //Validate exist request param month
+    if ($request->has('month')) {
+      $dataModel = $dataModel->whereMonth('post.published', $request->month);
+    }
+    //Validate exist request param search
+    if ($request->has('param_search')) {
+      if (strpos($request->param_search, ' ') == true) {
+        $simbol = ' ';
+      } else if (strpos($request->param_search, '+') == true) {
+        $simbol = '+';
+      } else {
+        $simbol = ' ';
+      }
+      $research_text = explode($simbol, $request->param_search);
+      if (count($research_text) > 1) {
+        $dataModel = $dataModel->where(function ($query) use ($research_text) {
+
+          //Filtrar por el campo name del post
+          $query = $query->where('post.name', 'like', '%' . $research_text[0] . '%');
+          foreach ($research_text as $k => $v) {
+            if (isset($research_text[$k + 1])) {
+              $query = $query->orWhere('post.name', 'like', '%' . $research_text[$k + 1] . '%');
+            }
+          }
+          //Filtrar por el campo descripcion del post
+          $query = $query->orWhere('post.description', 'like', '%' . $research_text[0] . '%');
+          foreach ($research_text as $k => $v) {
+            if (isset($research_text[$k + 1])) {
+              $query = $query->orWhere('post.description', 'like', '%' . $research_text[$k + 1] . '%');
+            }
+          }
+          //Filtrar por el campo name del usuario
+          $query = $query->orWhere('users.name', 'like', '%' . $research_text[0] . '%');
+          foreach ($research_text as $k => $v) {
+            if (isset($research_text[$k + 1])) {
+              $query = $query->orWhere('users.name', 'like', '%' . $research_text[$k + 1] . '%');
+            }
+          }
+
+        });
+      } else {
+        $dataModel = $dataModel->where(function ($query) use ($request) {
+          $query->where('post.name', 'like', '%' . $request->param_search . '%');
+          $query->orWhere('users.name', 'like', '%' . $request->param_search . '%');
+        });
+      }
+    }
     //Validate exist request param user_id
     if ($request->has('user_id')) {
       $dataModel = $dataModel->where('users.id', $request->user_id);
@@ -40,7 +91,11 @@ class PostService
       if ($request->ajax()) {
         return $dataModel->paginate($request->paginate);
       } else {
-        return $dataModel->simplePaginate(2);
+        if ($request->has('simplePaginate')) {
+          return $dataModel->simplePaginate($request->paginate);
+        } else {
+          return $dataModel->paginate($request->paginate);
+        }
       }
     } else {
       if ($request->has('isFirst')) {
@@ -55,7 +110,15 @@ class PostService
   {
     $yearNow = Carbon::now()->format('Y');
     $monthNow = Carbon::now()->addMonth(-6)->format('m');
-    $request->request->add(['isPaginate' => true, 'year' => $yearNow, 'month' => $monthNow]);
+    $request->request->add(['isPaginate' => true, 'simplePaginate'=>true,'paginate' => isset($request->paginate)?$request->paginate:6,'year' => $yearNow, 'month' => $monthNow]);
+    return $this->dataModel($request);
+  }
+
+  function getPortafolios($request)
+  {
+    $yearNow = Carbon::now()->format('Y');
+    $monthNow = Carbon::now()->addMonth(-6)->format('m');
+    $request->request->add(['isPaginate' => true, 'paginate' => 6, 'year' => $yearNow, 'month' => $monthNow]);
     return $this->dataModel($request);
   }
 
@@ -75,29 +138,18 @@ class PostService
     return Post::where('post.id', $request->post_id)->update($request->all());
   }
 
-  function getMonthsPosts()
-  {
-    return Post::distinct()->select(DB::raw('MONTH(post.published) AS published_month'))->orderBy('post.published', 'ASC')->get()->toArray();
-  }
-
-  function getLinksByMonths()
-  {
-    return Post::select([DB::raw('MONTH(post.published) AS published_month'), 'post.kind'])->orderBy('post.published', 'ASC')->get()->toArray();
-  }
-
   function getHistory()
   {
     $newDataPostHistory = [];
     $arrayMonths = [];
     $arrayUrls = [];
     $months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    $years = [2018, 2017, 2016, 2015];
-    $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name')
+    $years = $this->generateYearsRange('2000-01-01', Carbon::now());
+    $dataPostHistory = Post::select([DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name'])
       ->orderBy('post.published', 'ASC')
       ->get();
     $currentYear = 0;
     $currentMonth = 0;
-    $dataMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto'];
 
     //Ciclo Year
     foreach ($dataPostHistory as $item) {
@@ -119,11 +171,11 @@ class PostService
               $arrayUrls = [];//Reinicializar el arreglo de links qu se encuentra en el mes
 
               if ($currentMonth == $months[$i]) {
-                array_push($arrayUrlsTemp, (object)['kind'=>$item->kind,'name'=>$item->name]);
+                array_push($arrayUrlsTemp, (object)['kind' => $item->kind, 'name' => $item->name]);
                 $arrayUrls = $arrayUrlsTemp;//Cargar arreglo de links del arreglo de links-temporales
               } else {
                 $currentMonth = $item->month;
-                array_push($arrayUrls,  (object)['kind'=>$item->kind,'name'=>$item->name]);
+                array_push($arrayUrls, (object)['kind' => $item->kind, 'name' => $item->name]);
               }
               $arrayMonths[$months[$i]] = $arrayUrls;//Almacenar links en el mes del ciclo
 
@@ -131,6 +183,7 @@ class PostService
               continue;
             }
           }
+
         } else {
           continue;
         }
@@ -138,5 +191,11 @@ class PostService
       $newDataPostHistory[$item->year] = $arrayMonths;
     }
     return $newDataPostHistory;
+  }
+
+  function getSearch($request)
+  {
+    $request->request->add(['isPaginate' => true, 'paginate' => 6]);
+    return $this->dataModel($request);
   }
 }

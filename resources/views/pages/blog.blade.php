@@ -33,9 +33,9 @@
             @endforeach
 
             <!-- Pagination -->
-                <div class="mb-4">
-                    {{ $dataPost->appends($_GET)->links('pagination::simple-bootstrap-4') }}
-                </div>
+            <div class="mb-4">
+                {{ $dataPost->appends($_GET)->links() }}
+            </div>
 
             </div>
 
@@ -44,7 +44,7 @@
             <div class="col-md-5 col-lg-4">
 
                 <!-- Search Component -->
-            @include('components.search',$config=['route'=>route('route.blog.search')])
+            @include('components.search',[$routeSearch])
 
             <!-- Categories Component -->
             @include('components.categories',[$dataCategory])
@@ -53,7 +53,7 @@
             @include('components.widget')
 
             <!-- Posts History Component -->
-            @include('components.history',[$dataHistory])
+            @include('components.history',[$dataHistory, $dataMonths])
 
             </div>
 

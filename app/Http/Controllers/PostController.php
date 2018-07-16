@@ -23,7 +23,7 @@ class PostController extends Controller
       if ($request->ajax()) {
         return response()->json($e->getMessage());
       } else {
-        return abort(412);
+        return abort(PRECONDITION_FAILED);
       }
     }
   }

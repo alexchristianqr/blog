@@ -8,12 +8,11 @@
 
 namespace App\Http\Services;
 
-
 use App\Category;
 
 class CategoryService
 {
-  function getCategory($request)
+  static function getCategory($request)
   {
     return Category::where('status', 'A')->get();
   }

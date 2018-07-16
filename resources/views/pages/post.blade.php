@@ -19,7 +19,7 @@
                 <hr>
 
                 <!-- Date/Time -->
-                <span>Posted on </span><span>{{Carbon\Carbon::parse($dataPost->published)->format('F d, Y')}} at {{Carbon\Carbon::parse($dataPost->published)->format(' H:i a')}}</span>
+                <span>Posted on </span><span>{{Carbon\Carbon::parse($dataPost->published)->format('F d, Y')}} at {{Carbon\Carbon::parse($dataPost->published)->format(' H:i')}}</span>
                 <hr>
 
                 <!-- Post Content -->
@@ -48,7 +48,7 @@
             <div class="col-sm-12 col-md-4 col-lg-4">
 
                 <!-- Search Component -->
-                @include('components.search', $dataSearch)
+                @include('components.search', [$routeSearch])
 
                 <!-- Categories Widget -->
                 @include('components.categories',[$dataCategory])
@@ -57,7 +57,8 @@
                 @include('components.widget')
 
                 <!-- Posts History Component -->
-                @include('components.history')
+                @include('components.history',[$dataHistory, $dataMonths])
+
 
             </div>
 

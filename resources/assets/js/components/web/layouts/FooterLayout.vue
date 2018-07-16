@@ -42,7 +42,7 @@
   import Util from '../../../utility'
 
   export default {
-    name: 'ComponentLayoutFooter',
+    name: 'FooterLayout',
     data: () => ({
       util: Util,
     }),

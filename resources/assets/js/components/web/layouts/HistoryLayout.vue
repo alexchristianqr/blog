@@ -34,7 +34,7 @@
   import Axios from 'axios'
 
   export default {
-    name: 'LayoutHistory',
+    name: 'HistoryLayout',
     data: () => ({
       dataHistory: [
         {

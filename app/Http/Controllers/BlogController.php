@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\BlogService;
 use App\Http\Services\CategoryService;
 use App\Http\Services\PostService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -12,12 +13,6 @@ class BlogController extends Controller
 {
   function viewBlog(Request $request)
   {
-//    $this->util_create('Aldo Mariategui');
-//    $this->util_select();
-//    $this->util_edit('Deysi',5);
-//    $this->util_select();
-//    $this->util_delete(5-1);
-//    $this->util_select();
     try {
       $dataBreadcrumb = [
         ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
@@ -25,25 +20,13 @@ class BlogController extends Controller
       ];
       $dataCategory = (new CategoryService())->getCategory($request);
       $dataPost = (new PostService())->getPosts($request);
-      $dataMonthsPosts = (new PostService())->getMonthsPosts();
-      $dataLinksMonths = (new PostService())->getLinksByMonths();
-      $dataHistory= (new PostService())->getHistory();
-//      dd($dataHistory);
-      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataMonthsPosts', 'dataLinksMonths','dataHistory'));
+      $dataHistory = (new PostService())->getHistory();
+      $dataMonths = $this->getMonths();
+      $routeSearch = route('route.blog.search');
+      return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch'));
     } catch (Exception $e) {
       return abort(NOT_FOUND);
     }
-  }
-
-  function viewBlogSearch()
-  {
-    $dataBreadcrumb = [
-      ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
-      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
-      ['title' => 'Search', 'url' => null, 'status' => false],
-    ];
-    $dataSearch = ['route' => route('route.blog.search')];
-    return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
   }
 
   function viewBlogCategory()
@@ -65,11 +48,25 @@ class BlogController extends Controller
     ];
     $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
     $dataCategory = (new CategoryService())->getCategory($request);
-    $dataSearch = ['route' => route('route.blog.post.search', [$year, $month, $post_id])];
-    return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataSearch'));
+    $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
+    $dataMonths = $this->getMonths();
+    $dataHistory = (new PostService())->getHistory();
+    return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory'));
   }
 
-  function viewBlogPostSearch($year, $month, $post_id)
+  function viewBlogSearch(Request $request)
+  {
+    $dataBreadcrumb = [
+      ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
+      ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
+      ['title' => 'Search', 'url' => null, 'status' => false],
+    ];
+    $routeSearch = route('route.blog.search');
+    $dataSearch = (new PostService())->getSearch($request);
+    return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
+  }
+
+  function viewBlogPostSearch($year, $month, $post_id, Request $request)
   {
     $dataBreadcrumb = [
       ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
@@ -77,16 +74,17 @@ class BlogController extends Controller
       ['title' => 'Post', 'url' => route('route.blog.post', [$year, $month, $post_id]), 'status' => true],
       ['title' => 'Search', 'url' => null, 'status' => false],
     ];
-    $dataSearch = ['route' => route('route.blog.post.search', [$year, $month, $post_id])];
-    return view('layouts.search', compact('dataBreadcrumb', 'dataSearch'));
+    $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
+    $dataSearch = (new PostService())->getSearch($request);
+    return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
   }
 
   function getBlog(Request $request)
   {
     try {
-      if($request->ajax()){
-        return response()->json((new PostService())->getPosts($request),OK);
-      }else{
+      if ($request->ajax()) {
+        return response()->json((new PostService())->getPosts($request), OK);
+      } else {
         return (new PostService())->getPosts($request);
       }
     } catch (Exception $e) {

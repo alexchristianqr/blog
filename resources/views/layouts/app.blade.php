@@ -13,20 +13,10 @@
         <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
         <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     @else
         <link rel="stylesheet" href="{{asset("dist/css/main.css")}}">
     @endif
-
-    <style>
-        pre {
-            color: #646464 !important;
-            padding: 1rem !important;
-            background-color: #f5f5f5 !important;
-            border-radius: 0.25rem !important;
-            border: 1px solid rgba(0, 0, 0, 0.125) !important;
-            border-left: 5px solid #646464 !important;
-        }
-    </style>
 </head>
 <body>
 <div id="app">

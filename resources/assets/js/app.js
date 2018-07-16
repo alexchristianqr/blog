@@ -1,15 +1,16 @@
 import Vue               from 'vue'
-import Axios             from 'axios'
+import Util              from './utility'
+//Modals
+import LoginModal        from './components/web/modals/LoginModal'
+import RegisterModal     from './components/web/modals/RegisterModal'
+//Layouts
+import InputSearchLayout from './components/web/layouts/InputSearchLayout'
+import FooterLayout      from './components/web/layouts/FooterLayout'
+//Pages
 import Courses           from './components/web/pages/Courses.vue'
 import Blog              from './components/web/pages/Blog.vue'
 import Posts             from './components/web/pages/Posts.vue'
 import Portfolio         from './components/web/pages/Portfolio.vue'
-import LayoutFooter      from './components/web/layouts/LayoutFooter'
-import LayoutInputSearch from './components/web/layouts/LayoutInputSearch'
-import LayoutHistory     from './components/web/layouts/LayoutHistory'
-import Util              from './utility'
-
-Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 new Vue({
   beforeMount () {
@@ -26,12 +27,13 @@ new Vue({
     })
   },
   components: {
+    LoginModal,
+    RegisterModal,
+    InputSearchLayout,
+    FooterLayout,
     Courses,
-    Portfolio,
-    Posts,
     Blog,
-    LayoutFooter,
-    LayoutInputSearch,
-    LayoutHistory,
+    Posts,
+    Portfolio
   },
 }).$mount('#app')
