@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => 'web'], function ($route) {
 
-  $route->group(['middleware' => ['guest']], function ($route) {
+  $route->group(['middleware' => ['guest:api']], function ($route) {
     // Authentication Routes...
     $route->post('login', 'Auth\LoginController@login');
 

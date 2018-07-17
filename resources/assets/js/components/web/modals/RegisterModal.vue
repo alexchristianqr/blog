@@ -36,7 +36,7 @@
                     </div>
                     <div class="modal-footer">
                         <template v-if="loading">
-                            <button type="submit" class="btn btn-dark btn-block" :disabled="true">Creating...</button>
+                            <button type="button" class="btn btn-dark btn-block" disabled>Creating...</button>
                         </template>
                         <template v-else>
                             <button type="submit" class="btn btn-dark btn-block">Create</button>

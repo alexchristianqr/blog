@@ -43,7 +43,7 @@
                     </div>
                     <div class="modal-footer">
                         <template v-if="loading">
-                            <button type="submit" class="btn btn-dark btn-block" :disabled="true">Loading...</button>
+                            <button type="button" class="btn btn-dark btn-block" disabled>Loading...</button>
                         </template>
                         <template v-else>
                             <button type="submit" class="btn btn-dark btn-block">Sign In</button>

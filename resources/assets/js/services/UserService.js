@@ -10,7 +10,7 @@ export default new Vuex.Store({
   actions: {
     doRegister ({commit}, {self}) {
       self.loading = true
-      Axios.post(Env.ApiLaravel + 'register', self.params).then((r) => {
+      Axios.post(Env.ApiLaravel + '/register', self.params).then((r) => {
         if (r.status === 200) {
           window.location.reload(true)
         }

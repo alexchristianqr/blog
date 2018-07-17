@@ -15,4 +15,11 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'cors:api'], function ($route) {
   //implement code here
+//  Route::group(['middleware' => 'web'], function ($route) {
+    // Authentication Routes...
+//    $route->post('login', 'Auth\LoginController@login');
+
+    // Registration Routes...
+//    $route->post('register', 'Auth\RegisterController@register');
+//  });
 });
