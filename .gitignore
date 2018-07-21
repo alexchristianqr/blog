@@ -9,7 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-#.env
+.env
 
 # Configuration Developer
 public/node_modules
@@ -18,3 +18,4 @@ composer.lock
 public/dist
 public/images
 public/assets
+public/mix-manifest.json
