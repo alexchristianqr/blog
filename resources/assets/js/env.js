@@ -1,6 +1,17 @@
+let env = window.localStorage.getItem('enviroment')
 export default {
-  ApiLaravel:'http://blog.acqrdeveloper.com',
-  WebLaravel:'http://blog.acqrdeveloper.com',
-  // ApiLaravel:'http://192.168.43.216/webBlogLaravel/public/api/',
-  // WebLaravel:'http://192.168.43.216/webBlogLaravel/public/'
+  ApiLaravel: () => {
+    if (env == 'local') {
+      return 'http://dev-blog.acqrdeveloper'
+    } else {
+      return 'http://blog.acqrdeveloper'
+    }
+  },
+  WebLaravel: () => {
+    if (env == 'local') {
+      return 'http://dev-blog.acqrdeveloper'
+    } else {
+      return 'http://blog.acqrdeveloper'
+    }
+  },
 }
