@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Http\Services\PostService;
 use App\Post;
 use Illuminate\Http\Request;
@@ -10,12 +11,22 @@ use Exception;
 class PostController extends Controller
 {
 
-  function create(Request $request)
+  function getPosts(Request $request)
+  {
+    try{
+      $dataPosts = (new PostService())->allPosts($request);
+      return response()->json($dataPosts,200);
+    }catch (Exception $e){
+      return response()->json($e->getMessage(),412);
+    }
+  }
+
+  function createPost(PostRequest $request)
   {
     try {
       (new PostService())->create($request);
       if ($request->ajax()) {
-        return response()->json('created post', OK);
+        return response()->json('created post', CREATED);
       } else {
         return 'created post';
       }
@@ -28,7 +39,7 @@ class PostController extends Controller
     }
   }
 
-  function update(Request $request)
+  function updatePost(Request $request)
   {
     try {
       (new PostService())->update($request);
@@ -54,4 +65,5 @@ class PostController extends Controller
       return response()->json($e->getMessage(),PRECONDITION_FAILED);
     }
   }
+
 }

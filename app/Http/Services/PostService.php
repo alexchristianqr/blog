@@ -18,9 +18,11 @@ class PostService
   private function dataModel($request)
   {
     $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
-      ->join('blog', 'blog.id', 'post.blog_id')
       ->join('path', 'path.id', 'post.path_id')
       ->join('users', 'users.id', 'post.user_id');
+    if($request->has('dateFilterStart') && $request->has('dateFilterEnd')) {
+      $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'),[$request->dateFilterStart,$request->dateFilterEnd]);
+    }
     //Validate exist request param year
     if ($request->has('year')) {
       $dataModel = $dataModel->whereYear('post.published', $request->year);
@@ -86,6 +88,8 @@ class PostService
     } else {
       $dataModel = $dataModel->where('post.status', 'A');
     }
+    //Activate Debug
+    //dd($dataModel->toSql(),$dataModel->getBindings());
     //Validate is request by javascript or php
     if ($request->has('isPaginate')) {
       if ($request->ajax()) {
@@ -109,8 +113,16 @@ class PostService
   function getPosts($request)
   {
     $yearNow = Carbon::now()->format('Y');
-    $monthNow = Carbon::now()->addMonth(-6)->format('m');
+    $monthNow = Carbon::now()->format('m');
     $request->request->add(['isPaginate' => true, 'simplePaginate'=>true,'paginate' => isset($request->paginate)?$request->paginate:6,'year' => $yearNow, 'month' => $monthNow]);
+    return $this->dataModel($request);
+  }
+
+  function allPosts($request)
+  {
+//    $yearNow = Carbon::now()->format('Y');
+//    $monthNow = Carbon::now()->format('m');
+    $request->request->add(['isPaginate' => true]);
     return $this->dataModel($request);
   }
 
