@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
     \App\Http\Middleware\TrimStrings::class,
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     \App\Http\Middleware\TrustProxies::class,
+    \App\Http\Middleware\Cors::class,
   ];
 
   /**
@@ -58,5 +59,6 @@ class Kernel extends HttpKernel
     'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     //Agregado Middleware Cors
     'cors' => \App\Http\Middleware\Cors::class,
+    'verify.access.key' => \App\Http\Middleware\VerifyAccessKey::class,
   ];
 }
