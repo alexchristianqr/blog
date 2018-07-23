@@ -19,3 +19,4 @@ public/dist
 public/images
 public/assets
 public/mix-manifest.json
+.env.default

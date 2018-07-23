@@ -35,7 +35,7 @@
 <script src="{{ asset('dist/js/app.js') }}"></script>
 
 <script>
-    window.localStorage.setItem('enviroment','{{config('app')['env']}}')
+    window.localStorage.setItem('hostname','{{config('app')['url']}}')
 </script>
 </body>
 </html>

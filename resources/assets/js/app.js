@@ -1,4 +1,5 @@
 import Vue               from 'vue'
+import Axios               from 'axios'
 import Util              from './utility'
 //Modals
 import LoginModal        from './components/web/modals/LoginModal'
@@ -12,6 +13,8 @@ import Blog              from './components/web/pages/Blog.vue'
 import Posts             from './components/web/pages/Posts.vue'
 import Portfolio         from './components/web/pages/Portfolio.vue'
 
+Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+Axios.defaults.headers.common['Api-Key'] = 'rootApiKeyEncript:uDjr3Tn2t46zpSNVBd461QflEqlZBZ+cHMC9f0o1fUs='
 new Vue({
   beforeMount () {
     Util.removeStorage('data_screen')

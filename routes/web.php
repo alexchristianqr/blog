@@ -13,13 +13,11 @@
 
 Route::group(['middleware' => 'web'], function ($route) {
 
-  $route->group(['middleware' => ['guest:api']], function ($route) {
+  $route->group(['middleware' => ['guest','verify.access.key']], function ($route) {
     // Authentication Routes...
-    $route->post('login', 'Auth\LoginController@login');
-
+    $route->post('api/login', 'Auth\LoginController@login');
     // Registration Routes...
-    $route->post('register', 'Auth\RegisterController@register');
-
+    $route->post('api/register', 'Auth\RegisterController@register');
     // Password Reset Routes...
     $route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -57,4 +55,5 @@ Route::group(['middleware' => 'web'], function ($route) {
 
   // Contact
   $route->get('/contact', 'Controller@viewContact')->name('route.contact');
+
 });

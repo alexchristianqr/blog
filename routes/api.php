@@ -13,13 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => 'cors:api'], function ($route) {
-  //implement code here
-//  Route::group(['middleware' => 'web'], function ($route) {
-    // Authentication Routes...
-//    $route->post('login', 'Auth\LoginController@login');
-
-    // Registration Routes...
-//    $route->post('register', 'Auth\RegisterController@register');
-//  });
+Route::group(['middleware' => ['cors:api','verify.access.key']], function ($route) {
+  $route->get('/get-posts', 'PostController@getPosts');
+  $route->post('/create-post', 'PostController@createPost');
+  $route->put('/update-post', 'PostController@upatePost');
 });

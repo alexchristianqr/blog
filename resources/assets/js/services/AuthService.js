@@ -1,11 +1,11 @@
-import Vue       from 'vue'
-import * as Vuex from 'vuex'
-import Axios     from 'axios'
-import Env       from './../env'
+import Vue   from 'vue'
+import Vuex  from 'vuex'
+import Axios from 'axios'
+import Env   from './../env'
 
 Vue.use(Vuex)
 
-Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+// Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 export default new Vuex.Store({
   actions: {
     doLogin ({commit}, {self}) {
