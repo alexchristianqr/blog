@@ -15,13 +15,15 @@ class PostService
 {
   use Utility;
 
+  private $paginateGlobal = 3;
+
   private function dataModel($request)
   {
     $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
       ->join('path', 'path.id', 'post.path_id')
       ->join('users', 'users.id', 'post.user_id');
-    if($request->has('dateFilterStart') && $request->has('dateFilterEnd')) {
-      $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'),[$request->dateFilterStart,$request->dateFilterEnd]);
+    if ($request->has('dateFilterStart') && $request->has('dateFilterEnd')) {
+      $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$request->dateFilterStart, $request->dateFilterEnd]);
     }
     //Validate exist request param year
     if ($request->has('year')) {
@@ -88,21 +90,27 @@ class PostService
     } else {
       $dataModel = $dataModel->where('post.status', 'A');
     }
+    //Apply order
+    if ($request->has('orderBy')) {
+      $dataModel = $dataModel->orderBy('post.published', 'DESC');
+    }
+    //--------------------------------------------------
     //Activate Debug
     //dd($dataModel->toSql(),$dataModel->getBindings());
-    //Validate is request by javascript or php
-    if ($request->has('isPaginate')) {
-      if ($request->ajax()) {
+    //--------------------------------------------------
+    //Existe en el request el atributo "paginate"
+    if ($request->has('paginate')) {//Aplica paginado
+      if ($request->ajax()) {//Por ajax
         return $dataModel->paginate($request->paginate);
-      } else {
-        if ($request->has('simplePaginate')) {
+      } else {//por Laravel
+        if ($request->has('simplePaginate')) {//Si es un paginado simple
           return $dataModel->simplePaginate($request->paginate);
-        } else {
+        } else {//Si es un paginado enumerado
           return $dataModel->paginate($request->paginate);
         }
       }
     } else {
-      if ($request->has('isFirst')) {
+      if ($request->has('first')) {
         return $dataModel->first();
       } else {
         return $dataModel->get();
@@ -112,31 +120,28 @@ class PostService
 
   function getPosts($request)
   {
-    $yearNow = Carbon::now()->format('Y');
-    $monthNow = Carbon::now()->format('m');
-    $request->request->add(['isPaginate' => true, 'simplePaginate'=>true,'paginate' => isset($request->paginate)?$request->paginate:6,'year' => $yearNow, 'month' => $monthNow]);
+    $request->request->add([
+      'paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal,
+      'simplePaginate' => true,
+      'orderBy' => true
+    ]);
     return $this->dataModel($request);
   }
 
   function allPosts($request)
   {
-//    $yearNow = Carbon::now()->format('Y');
-//    $monthNow = Carbon::now()->format('m');
-    $request->request->add(['isPaginate' => true]);
     return $this->dataModel($request);
   }
 
   function getPortafolios($request)
   {
-    $yearNow = Carbon::now()->format('Y');
-    $monthNow = Carbon::now()->addMonth(-6)->format('m');
-    $request->request->add(['isPaginate' => true, 'paginate' => 6, 'year' => $yearNow, 'month' => $monthNow]);
+    $request->request->add(['paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal]);
     return $this->dataModel($request);
   }
 
   function getPostById($year, $month, $post_id, $request)
   {
-    $request->request->add(['isFirst' => true, 'year' => $year, 'month' => $month, 'post_id' => $post_id]);
+    $request->request->add(['first' => true, 'year' => $year, 'month' => $month, 'post_id' => $post_id]);
     return $this->dataModel($request);
   }
 
@@ -207,7 +212,8 @@ class PostService
 
   function getSearch($request)
   {
-    $request->request->add(['isPaginate' => true, 'paginate' => 6]);
+    $request->request->add(['paginate' => $this->paginateGlobal]);
     return $this->dataModel($request);
   }
+
 }
