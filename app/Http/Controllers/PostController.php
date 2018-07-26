@@ -39,10 +39,10 @@ class PostController extends Controller
     }
   }
 
-  function updatePost(Request $request)
+  function updatePost($post_id, Request $request)
   {
     try {
-      (new PostService())->update($request);
+      (new PostService())->update($post_id, $request);
       if ($request->ajax()) {
         return response()->json('updated post', OK);
       } else {
