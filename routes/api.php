@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => ['cors:api','verify.access.key']], function ($route) {
-  $route->get('/get-posts', 'PostController@getPosts');
-  $route->post('/create-post', 'PostController@createPost');
-  $route->put('/update-post/{post_id}', 'PostController@updatePost');
+Route::group(['middleware' => ['cors:api', 'verify.access.key']], function($route){
+    $route->get('/get-posts', 'PostController@getPosts');
+    $route->post('/create-post', 'PostController@createPost');
+    $route->put('/update-post/{post_id}', 'PostController@updatePost');
 });
