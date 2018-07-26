@@ -91,7 +91,7 @@ class PostService
             $dataModel = $dataModel->where('post.status', 'A');
         }
         //Aplicar orden
-        if ($request->has('orderBy')) {
+        if($request->has('orderBy')){
             $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
         }
         /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
