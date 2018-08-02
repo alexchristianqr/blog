@@ -5,7 +5,6 @@ import Env   from './../env'
 
 Vue.use(Vuex)
 
-// Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 export default new Vuex.Store({
   actions: {
     doRegister ({commit}, {self}) {

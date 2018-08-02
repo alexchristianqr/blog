@@ -15,7 +15,7 @@ class PostService
 {
     use Utility;
 
-    private $paginateGlobal = 3;
+    private $paginateGlobal = 4;
 
     private function dataModel($request)
     {
@@ -153,8 +153,8 @@ class PostService
 
     function update($post_id, $request)
     {
-        $inputs = $request->except(['path_name', 'user_name']);
-        return Post::where('post.id', $post_id)->update($inputs);
+        $request = $request->except(['path_name', 'user_name', 'token']);
+        return Post::where('post.id', $post_id)->update($request);
     }
 
     function getHistory()

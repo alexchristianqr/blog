@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,8 +11,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['middleware' => ['cors:api', 'verify.access.key']], function($route){
-    $route->get('/get-posts', 'PostController@getPosts');
-    $route->post('/create-post', 'PostController@createPost');
-    $route->put('/update-post/{post_id}', 'PostController@updatePost');
+
+Route::group(['middleware' => ['cors:api']], function($route){
+
+    // Auth Login
+    $route->post('auth/login', 'Auth\Api\AuthController@login');
+
+    $route->group(['middleware' => 'verify.authorization'], function($route){
+        $route->group(['middleware' => 'jwt.auth'], function($route){
+
+            // Logout
+            $route->post('auth/logout', 'Auth\Api\AuthController@logout');
+
+            // Post
+            $route->get('/get-posts', 'PostController@getPosts');
+            $route->post('/create-post', 'PostController@createPost');
+            $route->put('/update-post/{post_id}', 'PostController@updatePost');
+
+        });
+    });
 });

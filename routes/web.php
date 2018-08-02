@@ -13,11 +13,12 @@
 
 Route::group(['middleware' => 'web'], function($route){
 
-    $route->group(['middleware' => ['guest', 'verify.access.key']], function($route){
+    $route->group(['middleware' => ['guest']], function($route){
         // Authentication Routes...
-        $route->post('api/login', 'Auth\LoginController@login');
+        $route->post('login', 'Auth\Web\AuthController@login')->name('login');
+        $route->post('refresh', 'Auth\Web\AuthController@refresh');
         // Registration Routes...
-        $route->post('api/register', 'Auth\RegisterController@register');
+        $route->post('register', 'Auth\RegisterController@register');
         // Password Reset Routes...
         $route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
@@ -25,9 +26,8 @@ Route::group(['middleware' => 'web'], function($route){
         $route->post('password/reset', 'Auth\ResetPasswordController@reset');
     });
 
-    $route->group(['middleware' => 'auth'], function($route){
-        $route->get('logout', 'Auth\LoginController@logout')->name('logout');
-    });
+    // Logout
+    $route->get('logout', 'Auth\Web\AuthController@logout')->name('logout');
 
     // Blog
     $route->get('/blog', 'BlogController@viewBlog')->name('route.blog');

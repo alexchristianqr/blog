@@ -1,5 +1,5 @@
 import Vue               from 'vue'
-import Axios               from 'axios'
+import Axios             from 'axios'
 import Util              from './utility'
 //Modals
 import LoginModal        from './components/web/modals/LoginModal'
@@ -14,29 +14,28 @@ import Posts             from './components/web/pages/Posts.vue'
 import Portfolio         from './components/web/pages/Portfolio.vue'
 
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-Axios.defaults.headers.common['Api-Key'] = 'rootApiKeyEncript:uDjr3Tn2t46zpSNVBd461QflEqlZBZ+cHMC9f0o1fUs='
 new Vue({
-  beforeMount () {
-    Util.removeStorage('data_screen')
-    let isLarge = (window.screen.availWidth > 768),
-      isSmall = (window.screen.availWidth <= 768),
-      isTablet = (window.screen.availWidth <= 768 && window.screen.availWidth > 425),
-      isMobile = (window.screen.availWidth <= 425)
-    Util.setStorage('data_screen', {
-      isComputer: isLarge,
-      isSmall: isSmall,
-      isTablet: isTablet,
-      isMobile: isMobile,
-    })
-  },
-  components: {
-    LoginModal,
-    RegisterModal,
-    InputSearchLayout,
-    FooterLayout,
-    Courses,
-    Blog,
-    Posts,
-    Portfolio
-  },
+    beforeMount(){
+        Util.removeStorage('data_screen')
+        let isLarge = (window.screen.availWidth > 768),
+            isSmall = (window.screen.availWidth <= 768),
+            isTablet = (window.screen.availWidth <= 768 && window.screen.availWidth > 425),
+            isMobile = (window.screen.availWidth <= 425)
+        Util.setStorage('data_screen', {
+            isComputer: isLarge,
+            isSmall: isSmall,
+            isTablet: isTablet,
+            isMobile: isMobile,
+        })
+    },
+    components: {
+        LoginModal,
+        RegisterModal,
+        InputSearchLayout,
+        FooterLayout,
+        Courses,
+        Blog,
+        Posts,
+        Portfolio,
+    },
 }).$mount('#app')

@@ -27,7 +27,7 @@
                 <li class="{{ request()->url() == route('route.blog') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.blog') ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
                 </li>
-                @auth()
+                @if(session()->has('dataAuth'))
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i></a>
@@ -36,8 +36,8 @@
                                 <div class="text-left mb-2">
                                     <img class="rounded w-50" src="https://avatars3.githubusercontent.com/u/22840027?s=460&v=4" alt="">
                                 </div>
-                                <b>{{auth()->user()->name}}</b><br>
-                                <span>({{auth()->user()->email}})</span>
+                                <b>{{session('dataAuth')->name}}</b><br>
+                                <span>({{session('dataAuth')->email}})</span>
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Profile</a>
@@ -54,7 +54,7 @@
                         <a class="nav-link btn btn-outline-secondary btn-sm w-100" data-toggle="modal" data-target="#modalRegister" href="#register"><i class="fa fa-user-plus fa-fw"></i>Register</a>
                     </div>
                 </li>
-                @endauth
+                @endif
             </ul>
         </div>
     </div>
@@ -63,6 +63,6 @@
 <login-modal data-token="{{csrf_token()}}"></login-modal>
 <register-modal data-token="{{csrf_token()}}"></register-modal>
 
-@auth()
+@if(session()->has('dataAuth'))
     @include('layouts.nav_auth')
-@endauth
+@endif
