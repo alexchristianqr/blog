@@ -12,7 +12,7 @@
 */
 
 
-Route::group(['middleware' => ['cors:api']], function($route){
+Route::group(['middleware' => 'cors:api'], function($route){
 
     // Auth Login
     $route->post('auth/login', 'Auth\Api\AuthController@login');

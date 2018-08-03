@@ -14,18 +14,21 @@
 Route::group(['middleware' => 'web'], function($route){
 
     // Middleware Guest
-    $route->group(['middleware' => ['guest']], function($route){
+    $route->group(['middleware' => 'guest'], function($route){
+
         // Authentication Routes...
-        $route->post('login', 'Auth\Web\AuthController@login')->name('login');
-        $route->post('refresh', 'Auth\Web\AuthController@refresh');
+        $route->post('api/login', 'Auth\Web\AuthController@login')->name('login');
+        $route->post('api/refresh', 'Auth\Web\AuthController@refresh');
         // Registration Routes...
-        $route->post('register', 'Auth\RegisterController@register');
+        $route->post('api/register', 'Auth\RegisterController@register');
         // Password Reset Routes...
         $route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         $route->post('password/reset', 'Auth\ResetPasswordController@reset');
+
     });
+
     // Logout
     $route->get('logout', 'Auth\Web\AuthController@logout')->name('logout');
     // Blog
