@@ -3,7 +3,7 @@
     <div class="card-body">
         <div class="row">
             @foreach($dataCategory->chunk(6) as $chunk)
-                <div class="col-lg-6">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                     <ul class="list-unstyled mb-0">
                         @foreach($chunk as $v)
                             <li class="mb-2 text-truncate">

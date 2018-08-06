@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\BlogService;
 use App\Http\Services\CategoryService;
 use App\Http\Services\PostService;
+use App\Http\Services\TagService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
@@ -46,12 +47,23 @@ class BlogController extends Controller
             ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
             ['title' => 'Post', 'url' => null, 'status' => false],
         ];
+        $dataTagTemp = (new TagService())->getTags();
         $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
+        $dataTag = [];
+        if(!empty($dataPost->tag_id)){
+            foreach(json_decode($dataPost->tag_id) as $v){
+                foreach($dataTagTemp as $kk => $vv){
+                    if($vv->id == $v){
+                        array_push($dataTag, $vv);
+                    }
+                }
+            }
+        }
         $dataCategory = (new CategoryService())->getCategory($request);
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataMonths = $this->getMonths();
         $dataHistory = (new PostService())->getHistory();
-        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory'));
+        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag','year','month','post_id'));
     }
 
     function viewBlogSearch(Request $request)

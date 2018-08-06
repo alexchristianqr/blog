@@ -19,13 +19,17 @@ class PostService
 
     private function dataModel($request)
     {
-        //Consulta de un select inicializado
+        //Model
         $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
             ->join('path', 'path.id', 'post.path_id')
             ->join('users', 'users.id', 'post.user_id');
         //Filtrar por una fecha_inicio y fecha_fin
         if($request->has('dateFilterStart') && $request->has('dateFilterEnd')){
-            $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$request->dateFilterStart, $request->dateFilterEnd]);
+            if($request->ajax()){//Vue REST
+                $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$request->dateFilterStart, $request->dateFilterEnd]);
+            }else{//Laravel PHP
+                $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$request->dateFilterStart, $request->dateFilterEnd]);
+            }
         }
         //Filtrar por año
         if($request->has('year')){
@@ -94,12 +98,12 @@ class PostService
         if($request->has('orderBy')){
             $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
         }
-        /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+        /*
         //Descomentar para obtener la consulta en SQL o aplicar debug de datos
-        //dd($dataModel->toSql(),$dataModel->getBindings());//Consulta SQL
-        //dd($dataModel->get());//Data en debug
-        /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-        //Existe en el request el atributo "paginate"
+        dd($dataModel->toSql(),$dataModel->getBindings());//Consulta SQL
+        dd($dataModel->get());//Data en debug
+        */
+        //Paginate
         if($request->has('paginate')){//Aplica paginado
             if($request->ajax()){//Por ajax
                 return $dataModel->paginate($request->paginate);
@@ -110,13 +114,12 @@ class PostService
                     return $dataModel->paginate($request->paginate);
                 }
             }
-        }else{
-            if($request->has('first')){
-                return $dataModel->first();
-            }else{
-                return $dataModel->get();
-            }
         }
+        //First
+        if($request->has('first')) return $dataModel->first();
+        //Get
+        else return $dataModel->get();
+
     }
 
     function getPosts($request)
@@ -131,6 +134,9 @@ class PostService
 
     function allPosts($request)
     {
+        $request->request->add([
+            'orderBy' => true,
+        ]);
         return $this->dataModel($request);
     }
 
@@ -153,8 +159,7 @@ class PostService
 
     function update($post_id, $request)
     {
-        $request = $request->except(['path_name', 'user_name', 'token']);
-        return Post::where('post.id', $post_id)->update($request);
+        return Post::find($post_id)->fill($request->all())->save();
     }
 
     function getHistory()

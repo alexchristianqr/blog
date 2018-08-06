@@ -15,9 +15,9 @@ class PostController extends Controller
     {
         try{
             $dataPosts = (new PostService())->allPosts($request);
-            return response()->json($dataPosts, 200);
+            return response()->json($dataPosts, OK);
         }catch(Exception $e){
-            return response()->json($e->getMessage(), 412);
+            return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }
     }
 

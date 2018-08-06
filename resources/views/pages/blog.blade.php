@@ -49,8 +49,8 @@
             <!-- Categories Component -->
             @include('components.categories',[$dataCategory])
 
-            <!-- Widget Component -->
-            @include('components.widget')
+            {{--<!-- Widget Component -->--}}
+            {{--@include('components.widget')--}}
 
             <!-- Posts History Component -->
             @include('components.history',[$dataHistory, $dataMonths])

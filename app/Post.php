@@ -10,9 +10,9 @@ class Post extends Model
     protected $table = 'post';
     protected $fillable = [
         'kind',
-        'blog_id',
         'user_id',
-        'author_id',
+        'tag_id',
+        'path_id',
         'replies_id',
         'name',
         'description',
@@ -23,6 +23,8 @@ class Post extends Model
         'title',
         'content',
         'status',
+        'created_at',
+        'updated_at',
     ];
 
 }

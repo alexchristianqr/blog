@@ -50,11 +50,14 @@
                 <!-- Search Component -->
                 @include('components.search', [$routeSearch])
 
+                <!-- Tags Component-->
+                @include('components.tags',[$dataTag,$year,$month,$post_id])
+
                 <!-- Categories Widget -->
                 @include('components.categories',[$dataCategory])
 
-                <!-- Widget Component -->
-                @include('components.widget')
+                {{--<!-- Widget Component -->--}}
+                {{--@include('components.widget')--}}
 
                 <!-- Posts History Component -->
                 @include('components.history',[$dataHistory, $dataMonths])

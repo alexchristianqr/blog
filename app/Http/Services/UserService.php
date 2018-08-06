@@ -7,22 +7,22 @@
 namespace App\Http\Services;
 
 use App\User;
+use Exception;
 
 class UserService
 {
-    private function dataModel($request, $columns = ['users.*'], $limit = false)
+    private function dataModel($request)
     {
-        $dataModel = User::select($columns);
-        //Validate exist request param user_id
-        if($request->has('user_id')){
-            $dataModel = $dataModel->where('users.id', $request->user_id);
-        }
-        if($limit){
-            $dataModel = $dataModel->first();
-        }else{
-            $dataModel = $dataModel->get();
-        }
-        return $dataModel;
+        //Model
+        $dataModel = User::select(['users.*']);
+        //Filtrar por "user_id"
+        if($request->has('user_id')) $dataModel = $dataModel->where('users.id', $request->user_id);
+        //Paginate
+        if($request->has('paginate')) return $dataModel->paginate($request->paginate);
+        //First
+        if($request->has('first')) return $dataModel->first();
+        //Get
+        else return $dataModel->get();
     }
 
     function getUsers($request)
@@ -42,31 +42,7 @@ class UserService
 
     function update($request)
     {
-        return User::where('users.id', $request->user_id)->update($request->all());
+        return User::find($request->user_id)->fill($request->all())->save();
     }
 
-    function searchUser($request)
-    {
-        $request->request->add([
-            'role_join' => true,
-            'project_join' => true,
-            'status' => 'A',
-        ]);
-        $User = $this->dataModel($request, [
-            'users.id',
-            'users.role_id AS role',
-            'users.project_id AS project',
-            'users.name',
-            'users.username',
-            'users.email',
-            'users.status',
-            'role.name AS role_name',
-            'role.status AS role_status',
-            'project.name AS project_name',
-            'project.status AS project_status'
-        ], true);
-        $User->role = ['id' => $User->role, 'name' => $User->role_name, 'status' => $User->role_status];
-        $User->project = ['id' => $User->project, 'name' => $User->project_name, 'status' => $User->project_status];
-        return $User;
-    }
 }

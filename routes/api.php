@@ -22,10 +22,18 @@ Route::group(['middleware' => 'cors:api'], function($route){
     $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
 
         // Post
-        $route->get('/get-posts', 'PostController@getPosts');
-        $route->post('/create-post', 'PostController@createPost');
-        $route->put('/update-post/{post_id}', 'PostController@updatePost');
+        $route->get('get-posts', 'PostController@getPosts');
+        $route->post('create-post', 'PostController@createPost');
+        $route->put('update-post/{post_id}', 'PostController@updatePost');
 
+        // Tag
+        $route->get('get-tags', 'TagController@getTags');
+
+        // Path
+        $route->get('get-paths', 'PathController@getPaths');
+
+        // User
+        $route->get('get-users', 'UserController@getUsers');
     });
 
 });
