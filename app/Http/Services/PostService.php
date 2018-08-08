@@ -19,11 +19,12 @@ class PostService
 
     private function dataModel($request)
     {
-        //Model
+        //Data Model
         $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
             ->join('path', 'path.id', 'post.path_id')
             ->join('users', 'users.id', 'post.user_id');
-        //Filtrar por una fecha_inicio y fecha_fin
+
+        //Range
         if($request->has('dateFilterStart') && $request->has('dateFilterEnd')){
             if($request->ajax()){//Vue REST
                 $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$request->dateFilterStart, $request->dateFilterEnd]);
@@ -31,15 +32,14 @@ class PostService
                 $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$request->dateFilterStart, $request->dateFilterEnd]);
             }
         }
-        //Filtrar por año
-        if($request->has('year')){
-            $dataModel = $dataModel->whereYear('post.published', $request->year);
-        }
-        //Filtrar por mes
-        if($request->has('month')){
-            $dataModel = $dataModel->whereMonth('post.published', $request->month);
-        }
-        //Filtrar por un parametro de busqueda
+
+        //Year
+        if($request->has('year')) $dataModel = $dataModel->whereYear('post.published', $request->year);
+
+        //Month
+        if($request->has('month')) $dataModel = $dataModel->whereMonth('post.published', $request->month);
+
+        //Search
         if($request->has('param_search')){
             if(strpos($request->param_search, ' ') == true){
                 $simbol = ' ';
@@ -80,24 +80,19 @@ class PostService
                 });
             }
         }
-        //Filtrar por Users.id
-        if($request->has('user_id')){
-            $dataModel = $dataModel->where('users.id', $request->user_id);
-        }
-        //Filtrar por el Post.kind
-        if($request->has('post_id')){
-            $dataModel = $dataModel->where('post.kind', $request->post_id);
-        }
-        //Filtrar por estado
-        if($request->has('status')){
-            $dataModel = $dataModel->where('post.status', $request->status);
-        }else{
-            $dataModel = $dataModel->where('post.status', 'A');
-        }
-        //Aplicar orden
-        if($request->has('orderBy')){
-            $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
-        }
+
+        //User_id
+        if($request->has('user_id')) $dataModel = $dataModel->where('users.id', $request->user_id);
+
+        //Post_id
+        if($request->has('post_id')) $dataModel = $dataModel->where('post.kind', $request->post_id);
+
+        //Status
+        if($request->has('status')) $dataModel = $dataModel->where('post.status', $request->status);
+
+        //OrderField
+        if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
+
         /*
         //Descomentar para obtener la consulta en SQL o aplicar debug de datos
         dd($dataModel->toSql(),$dataModel->getBindings());//Consulta SQL
@@ -115,28 +110,28 @@ class PostService
                 }
             }
         }
+
         //First
         if($request->has('first')) return $dataModel->first();
+
         //Get
         else return $dataModel->get();
-
     }
 
     function getPosts($request)
     {
         $request->request->add([
             'paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal,
+            'status' => 'A',
             'simplePaginate' => true,
-            'orderBy' => true
+            'orderBy' => true,
         ]);
         return $this->dataModel($request);
     }
 
-    function allPosts($request)
+    function all($request)
     {
-        $request->request->add([
-            'orderBy' => true,
-        ]);
+        $request->request->add(['orderBy' => true]);
         return $this->dataModel($request);
     }
 
@@ -148,7 +143,10 @@ class PostService
 
     function getPostById($year, $month, $post_id, $request)
     {
-        $request->request->add(['first' => true, 'year' => $year, 'month' => $month, 'post_id' => $post_id]);
+        $request->request->add(['first' => true,
+            'year' => $year,
+            'month' => $month,
+            'post_id' => $post_id]);
         return $this->dataModel($request);
     }
 

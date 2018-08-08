@@ -110,7 +110,6 @@ trait Utility
         }
     }
 
-
     function util_delete($where)
     {
         try{

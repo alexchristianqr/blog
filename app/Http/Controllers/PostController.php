@@ -14,7 +14,7 @@ class PostController extends Controller
     function getPosts(Request $request)
     {
         try{
-            $dataPosts = (new PostService())->allPosts($request);
+            $dataPosts = (new PostService())->all($request);
             return response()->json($dataPosts, OK);
         }catch(Exception $e){
             return response()->json($e->getMessage(), PRECONDITION_FAILED);
