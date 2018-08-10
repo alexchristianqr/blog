@@ -4,8 +4,8 @@
     <div class="container">
 
         <!-- Page Heading -->
-        @include('components.heading',['title'=>'Contact','subtitle'=>'Me'])
-        <!-- Content Row -->
+    @include('components.heading',['title'=>'Contact','subtitle'=>'Me'])
+    <!-- Content Row -->
         <div class="row">
             <!-- Map Column -->
             <div class="col-lg-8 mb-4">
@@ -18,20 +18,23 @@
             <div class="col-lg-4 mb-4">
                 <h3>Contact Details</h3>
                 <p>
-                    3481 Melrose Place
-                    <br>Beverly Hills, CA 90210
-                    <br>
+                    <span>San Juan de Pariachi</span><br>
+                    <span>Ate, Mz "c" Lt "2" Km 8 Carretera Central</span>
                 </p>
                 <p>
-                    <abbr title="Phone"><i class="fa fa-phone"></i></abbr> (123) 456-7890
+                    <span><i class="fa fa-phone"></i> <span class="text-secondary">(+51)955588297 / (01)7237503</span></span>
                 </p>
                 <p>
-                    <abbr title="Email"><i class="fa fa-envelope-o"></i></abbr>
-                    <a href="mailto:name@example.com">aquispe.developer@gmail.com
-                    </a>
+                    <span><i class="fa fa-envelope-o"></i> <a href="mailto:name@example.com" class="text-secondary  ">aquispe.developer@gmail.com</a></span>
                 </p>
                 <p>
-                    <abbr title="Hours"><i class="fa fa-calendar"></i></abbr> Monday - Friday: 9:00 AM to 5:00 PM
+                    <span><i class="fa fa-github-square"></i> <a href="https://github.com/acqrdeveloper" class="text-secondary" target="_blank">https://github.com/acqrdeveloper</a></span>
+                </p>
+                <p>
+                    <span><i class="fa fa-facebook-square"></i> <a href="https://web.facebook.com/aquisper" class="text-secondary" target="_blank">https://web.facebook.com/aquisper</a></span>
+                </p>
+                <p>
+                    <span><i class="fa fa-calendar"></i> <span class="text-secondary">Lunes a Viernes 09:00am - 18:00pm</span></span>
                 </p>
             </div>
         </div>
@@ -43,27 +46,29 @@
                 <form name="sentMessage" id="contactForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Full Name:</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" id="name" required
+                                   data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Phone Number:</label>
-                            <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required
+                                   data-validation-required-message="Please enter your phone number.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Email Address:</label>
+                            <label>Email Address</label>
                             <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Message:</label>
-                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <label>Message</label>
+                            <textarea rows="4" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
                         </div>
                     </div>
                     <div id="success"></div>

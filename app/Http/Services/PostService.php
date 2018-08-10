@@ -143,10 +143,12 @@ class PostService
 
     function getPostById($year, $month, $post_id, $request)
     {
-        $request->request->add(['first' => true,
+        $request->request->add([
+            'first' => true,
             'year' => $year,
             'month' => $month,
-            'post_id' => $post_id]);
+            'post_id' => $post_id
+        ]);
         return $this->dataModel($request);
     }
 
@@ -167,7 +169,7 @@ class PostService
         $arrayUrls = [];
         $months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         $years = $this->generateYearsRange('2000-01-01', Carbon::now());
-        $dataPostHistory = Post::select([DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name'])
+        $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name')
             ->orderBy('post.published', 'ASC')
             ->get();
         $currentYear = 0;

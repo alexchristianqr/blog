@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3 text-dark">{{$dataPost->name}}<small class="text-dark"> by <a href="#">{{$dataPost->user_name}}</a></small></h1>
+        <h1 class="mt-4 mb-3 text-dark">{{$dataPost->name}}<small class="text-dark"> by <a href="{{$routeSearch.'?param_search='.$dataPost->user_name}}">{{$dataPost->user_name}}</a></small></h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs', $dataBreadcrumb)
@@ -51,17 +51,13 @@
                 @include('components.search', [$routeSearch])
 
                 <!-- Tags Component-->
-                @include('components.tags',[$dataTag,$year,$month,$post_id])
+                @include('components.tags',[$dataTag,$routeSearch])
 
                 <!-- Categories Widget -->
                 @include('components.categories',[$dataCategory])
 
-                {{--<!-- Widget Component -->--}}
-                {{--@include('components.widget')--}}
-
                 <!-- Posts History Component -->
                 @include('components.history',[$dataHistory, $dataMonths])
-
 
             </div>
 

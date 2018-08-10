@@ -47,7 +47,7 @@ class BlogController extends Controller
             ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
             ['title' => 'Post', 'url' => null, 'status' => false],
         ];
-        $dataTagTemp = (new TagService())->getTags();
+        $dataTagTemp = (new TagService())->getTags($request);
         $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
         $dataTag = [];
         if(!empty($dataPost->tag_id)){
@@ -63,7 +63,7 @@ class BlogController extends Controller
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataMonths = $this->getMonths();
         $dataHistory = (new PostService())->getHistory();
-        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag','year','month','post_id'));
+        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag'));
     }
 
     function viewBlogSearch(Request $request)

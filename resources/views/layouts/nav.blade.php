@@ -8,14 +8,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="{{ request()->url() == route('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
+                @if(request()->path() == 'portfolio' || request()->path() == 'contact')
+                <li class="nav-item mt-2 mt-lg-0">
+                    {!! Form::open(['url'=>route('route.blog.search'),'method'=>'GET','class'=>'text-center mr-0 mr-lg-1 ','autocomplete'=>'off']) !!}
+                        <input-search-layout :data-props="{param_request:'{{request('param_search')}}'}" :data-color-first="{color: 'btn-dark'}" :data-color-sec="{color: 'btn-secondary'}"></input-search-layout>
+                    {!! Form::close() !!}
+                </li>
+                @endif
+                {{-- <li hidden class="{{ request()->url() == route('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.about') ? 'text-primary' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>@lang('pages.about')</a>
                 </li>
-                <li  id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                <li class="{{ request()->url() == route('route.service') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
+                <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
+                <li hidden class="{{ request()->url() == route('route.service') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.service') ? 'text-primary' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>
                 </li>
-                <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
+                <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li> --}}
+                {{--<li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>--}}
                 <li class="{{ request()->url() == route('route.contact') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.contact') ? 'text-primary' : ''}}" href="{{route('route.contact')}}"><i class="fa fa-phone fa-fw"></i>@lang('pages.contact')</a>
                 </li>
@@ -29,7 +37,7 @@
                 </li>
                 @if(session()->has('dataAuth'))
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                    <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                             <div class="dropdown-header">

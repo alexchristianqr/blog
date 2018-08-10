@@ -3,15 +3,19 @@
         <template v-if="util.getStorage('data_screen').isComputer">
             <div class="row">
                 <div class="col-sm-3 col-md-4 col-lg-4 my-auto text-center">
-                    <span class="text-muted">Copyright &copy; {{new Date().getFullYear()}}</span>
+                    <span class="text-dark">Copyright &copy; {{new Date().getFullYear()}}</span>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-auto text-center">
-                    <i class="fa fa-github fa-2x text-muted"></i>
-                </div>
-                <div class="col-sm-3 col-md-4 col-lg-4 my-auto text-center">
+                    <i class="fa fa-github-square fa-2x text-muted"></i>
                     <i class="fa fa-facebook-square fa-2x text-muted"></i>
                     <i class="fa fa-twitter-square fa-2x text-muted"></i>
                     <i class="fa fa-youtube-play fa-2x text-muted"></i>
+                </div>
+                <div class="col-sm-3 col-md-4 col-lg-4 my-auto text-center">
+                    <span class="text-muted">Created by <a href="https://github.com/acqrdeveloper" class="text-dark">@Alex Christian</a></span>
+                    <!--<i class="fa fa-facebook-square fa-2x text-muted"></i>-->
+                    <!--<i class="fa fa-twitter-square fa-2x text-muted"></i>-->
+                    <!--<i class="fa fa-youtube-play fa-2x text-muted"></i>-->
                 </div>
             </div>
         </template>

@@ -6,10 +6,10 @@
         <!-- Page Heading -->
         <div class="mt-4 mb-3 mb-lg-0">
             <div class="row">
-                <div class="col-sm-12 col-lg-6 my-auto">
+                <div class="col-sm-12 col-lg-8 my-auto">
                     <h1 class="text-dark">Search <small class="text-dark">in Website</small></h1>
                 </div>
-                <div class="col-sm-12 col-lg-6 my-auto">
+                <div class="col-sm-12 col-lg-4 my-auto">
                     {!! Form::open(['url'=>$routeSearch,'method'=>'GET','autocomplete'=>'off']) !!}
                         <input-search-layout :data-props="{param_request:'{{request('param_search')}}'}"></input-search-layout>
                     {!! Form::close() !!}
