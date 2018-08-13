@@ -27,7 +27,7 @@
                 <hr>
 
                 <!-- Comments Form -->
-                <div class="card my-4">
+                <div class="card my-2">
                     <h5 class="card-header">Add Your Comment</h5>
                     <div class="card-body">
                         <form>

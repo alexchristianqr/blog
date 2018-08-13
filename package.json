@@ -19,6 +19,7 @@
         "dotenv": "^6.0.0",
         "moment": "^2.19.1",
         "popper.js": "^1.12.9",
+        "social-share-kit": "^1.0.15",
         "vue-local-storage": "^0.1.3",
         "vue-multiselect": "^2.0.6",
         "vue-router": "^3.0.1",
@@ -26,10 +27,10 @@
         "vue-axios": "^2.0.2"
     },
     "devDependencies": {
-        "browser-sync": "2.24.3",
-        "gulp": "^3.9.1",
+        "browser-sync": "^2.24.6",
         "cross-env": "^5.1",
-        "laravel-mix": "^1.0",
+        "gulp": "^4.0.0",
+        "laravel-mix": "^2.1.11",
         "lodash": "^4.17.4"
     }
 }

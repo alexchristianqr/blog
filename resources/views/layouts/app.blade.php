@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>acqrdeveloper | {{isset($myTitle) ? $myTitle : ''}}</title>
+    <title>{{isset($myTitle) ? $myTitle : 'App'}} | acqrdeveloper.com</title>
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('node_modules/social-share-kit/dist/css/social-share-kit.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     @elseenv('prod')
@@ -15,13 +16,15 @@
     @endenv
 </head>
 <body>
+    <!-- Component -->
+    @include('components.social-share-kit')
 <div id="app">
     <!-- Navigation -->
-@include('layouts.nav')
+    @include('layouts.nav')
 
-<!-- Page Content -->
-@yield('content')
-<!-- /.container -->
+    <!-- Page Content -->
+    @yield('content')
+    <!-- /.container -->
 
     <!-- Footer -->
     @include('layouts.footer')

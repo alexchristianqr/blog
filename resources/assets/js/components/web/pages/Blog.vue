@@ -204,8 +204,7 @@
     methods: {
       getMonthsPosts () {
         Axios.get('api/get-months-posts').then(r => {
-          this.dataMonthsposts = r.data
-          console.log(this.dataMonthsposts)
+          this.dataMonthsPosts = r.data
         }).catch((e) => {
           console.error(e)
         })
