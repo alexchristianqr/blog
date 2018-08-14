@@ -4,63 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Http\Services\PostService;
-use App\Post;
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-
+    //Funcion para obtener todos los posts
     function getPosts(Request $request)
     {
         try{
-            $dataPosts = (new PostService())->all($request);
+            $dataPosts = (new PostService())->getAll($request);
             return response()->json($dataPosts, OK);
         }catch(Exception $e){
             return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }
     }
 
+    //Funcion para crear post
     function createPost(PostRequest $request)
     {
         try{
             (new PostService())->create($request);
-            if($request->ajax()){
-                return response()->json('created post', CREATED);
-            }else{
-                return 'created post';
-            }
+            return response()->json('created post', CREATED);
         }catch(Exception $e){
-            if($request->ajax()){
-                return response()->json($e->getMessage());
-            }else{
-                return abort(PRECONDITION_FAILED);
-            }
+            return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }
     }
 
+    //Funcion para actualizar post
     function updatePost($post_id, Request $request)
     {
         try{
             (new PostService())->update($post_id, $request);
-            if($request->ajax()){
-                return response()->json('updated post', OK);
-            }else{
-                return 'updated post';
-            }
-        }catch(Exception $e){
-            if($request->ajax()){
-                return response()->json($e->getMessage(), PRECONDITION_FAILED);
-            }else{
-                return abort(PRECONDITION_FAILED);
-            }
-        }
-    }
-
-    function getMonthsPosts()
-    {
-        try{
-            return response()->json((new PostService())->getMonthsPosts(), OK);
+            return response()->json('updated post', OK);
         }catch(Exception $e){
             return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\BlogService;
 use App\Http\Services\CategoryService;
 use App\Http\Services\PostService;
 use App\Http\Services\TagService;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -89,36 +87,5 @@ class BlogController extends Controller
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataSearch = (new PostService())->getSearch($request);
         return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
-    }
-
-    function getBlog(Request $request)
-    {
-        try{
-            if($request->ajax()){
-                return response()->json((new PostService())->getPosts($request), OK);
-            }else{
-                return (new PostService())->getPosts($request);
-            }
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
-    }
-
-    function create(Request $request)
-    {
-        try{
-            return response()->json((new BlogService())->create($request), CREATED);
-        }catch(Exception $e){
-            return response()->json($e->getMessage(), PRECONDITION_FAILED);
-        }
-    }
-
-    function update(Request $request)
-    {
-        try{
-            return response()->json((new BlogService())->update($request), OK);
-        }catch(Exception $e){
-            return response()->json($e->getMessage(), NOT_MODIFIED);
-        }
     }
 }

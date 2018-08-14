@@ -20,15 +20,15 @@ class PostService
     private function dataModel($request)
     {
         //Data Model
-        $dataModel = Post::select(['post.*', 'path.name AS path_name', 'users.name AS user_name'])
+        $dataModel = Post::select('post.*', 'path.name AS path_name', 'users.name AS user_name')
             ->join('path', 'path.id', 'post.path_id')
             ->join('users', 'users.id', 'post.user_id');
 
         //Range
         if($request->has('dateFilterStart') && $request->has('dateFilterEnd')){
-            if($request->ajax()){//Vue REST
+            if($request->ajax()){//Vue
                 $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$request->dateFilterStart, $request->dateFilterEnd]);
-            }else{//Laravel PHP
+            }else{//Laravel
                 $dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$request->dateFilterStart, $request->dateFilterEnd]);
             }
         }
@@ -93,16 +93,14 @@ class PostService
         //OrderField
         if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
 
-        /*
-        //Descomentar para obtener la consulta en SQL o aplicar debug de datos
-        dd($dataModel->toSql(),$dataModel->getBindings());//Consulta SQL
-        dd($dataModel->get());//Data en debug
-        */
+        //Debug Customize
+        //$this->myDebug($dataModel,true);
+
         //Paginate
         if($request->has('paginate')){//Aplica paginado
-            if($request->ajax()){//Por ajax
+            if($request->ajax()){//Javascript
                 return $dataModel->paginate($request->paginate);
-            }else{//por Laravel
+            }else{//Php
                 if($request->has('simplePaginate')){//Si es un paginado simple
                     return $dataModel->simplePaginate($request->paginate);
                 }else{//Si es un paginado enumerado
@@ -129,7 +127,7 @@ class PostService
         return $this->dataModel($request);
     }
 
-    function all($request)
+    function getAll($request)
     {
         $request->request->add(['orderBy' => true]);
         return $this->dataModel($request);

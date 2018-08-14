@@ -39,6 +39,7 @@ class AuthController extends Controller
             session()->remove('dataToken');
             return redirect()->intended('/');
         }catch(JWTException $e){
+            echo $e->getMessage() . "\n";
             return redirect()->intended('/');
         }catch(TokenExpiredException $e){
             echo $e->getMessage() . "\n";

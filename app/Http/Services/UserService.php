@@ -13,14 +13,18 @@ class UserService
 {
     private function dataModel($request)
     {
-        //Model
+        //Data Model
         $dataModel = User::select(['users.*']);
-        //Filtrar por "user_id"
+
+        //User_id
         if($request->has('user_id')) $dataModel = $dataModel->where('users.id', $request->user_id);
+
         //Paginate
         if($request->has('paginate')) return $dataModel->paginate($request->paginate);
+
         //First
         if($request->has('first')) return $dataModel->first();
+
         //Get
         else return $dataModel->get();
     }

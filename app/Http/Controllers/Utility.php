@@ -126,4 +126,14 @@ trait Utility
             echo $e->getMessage();
         }
     }
+
+    //Descomentar para obtener la consulta en SQL o aplicar debug de datos
+    private function myDebug($dataModel,$debug_sql = false)
+    {
+        if($debug_sql){
+            dd($dataModel->toSql(), $dataModel->getBindings());//Consulta SQL
+        }else{
+            dd($dataModel->get());//Data en debug
+        }
+    }
 }

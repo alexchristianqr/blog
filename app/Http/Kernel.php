@@ -57,7 +57,8 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        //Agregado Middleware Cors
+
+        //Middlewares Personlizado
         'cors' => \App\Http\Middleware\Cors::class,
         'verify.authorization' => \App\Http\Middleware\VerifyAuthorization::class,
         'jwt.auth' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,

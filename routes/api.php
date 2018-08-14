@@ -11,29 +11,27 @@
 |
 */
 
-
 Route::group(['middleware' => 'cors:api'], function($route){
-
-    // Auth Login
+    //Auth Login
     $route->post('auth/login', 'Auth\Api\AuthController@login');
-    // Auth Logout
-    $route->post('auth/logout', 'Auth\Api\AuthController@logout');
-    // Auth Jwt
-    $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
 
-        // Post
+    //Auth Logout
+    $route->post('auth/logout', 'Auth\Api\AuthController@logout');
+
+    //Auth Jwt
+    $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
+        //Post
         $route->get('get-posts', 'PostController@getPosts');
         $route->post('create-post', 'PostController@createPost');
         $route->put('update-post/{post_id}', 'PostController@updatePost');
 
-        // Tag
+        //Tag
         $route->get('get-tags', 'TagController@getTags');
 
-        // Path
+        //Path
         $route->get('get-paths', 'PathController@getPaths');
 
-        // User
+        //User
         $route->get('get-users', 'UserController@getUsers');
     });
-
 });

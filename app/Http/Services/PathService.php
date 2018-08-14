@@ -6,7 +6,6 @@
 
 namespace App\Http\Services;
 
-
 use App\Path;
 
 class PathService

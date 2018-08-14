@@ -6,7 +6,6 @@
 
 namespace App\Http\Services;
 
-
 use App\Tag;
 
 class TagService
@@ -32,7 +31,7 @@ class TagService
         return $this->dataModel($request);
     }
 
-    function all($request)
+    function getAll($request)
     {
         return $this->dataModel($request);
     }
