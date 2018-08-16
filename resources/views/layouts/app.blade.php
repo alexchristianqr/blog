@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{isset($myTitle) ? $myTitle : 'App'}} | acqrdeveloper.com</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta property="fb:app_id" content="481663735685291"/>
+    <meta property="og:url"                 content="{{ request()->getUri() }}"/>
+    <meta property="og:type"                content="article"/>
+    <meta property="og:title"               content="When Great Minds Don’t Think Alike" />
+    <meta property="og:description"         content="How much does culture influence creative thinking?" />
+    <meta property="og:image"               content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    {{--<meta property="og:image" content="{{ asset('images/posts/750x300/01.jpg') }}"/>--}}
+    <title>{{isset($myTitle) ? $myTitle : 'Blog'}} | acqrdeveloper.com</title>
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
