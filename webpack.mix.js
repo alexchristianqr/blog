@@ -12,15 +12,9 @@ let mix = require('laravel-mix')
  */
 
 mix.js('resources/assets/js/app.js', 'public/dist/js/app.js')
-//    .sass('resources/assets/sass/app.scss', 'public/css');
-
-// mix.js(['resources/assets/js/app.js'], 'public/dist/js/app.js');
-// mix.sass("public/vendor/scss/sb-admin.scss","public/build/css/sb-admin.css");
-// mix.sass('public/vendor/scss/style.scss',"public/build/css/style.css");
 
 mix.copyDirectory('node_modules/font-awesome/fonts', 'public/dist/fonts')
-// mix.copyDirectory('node_modules/social-share-kit/dist/fonts/', 'public/dist/fonts')
-mix.copy('node_modules/social-share-kit/dist/fonts/social-share-kit.woff', 'public/dist/fonts/social-share-kit.woff')
+mix.copyDirectory('node_modules/social-share-kit/dist/fonts/', 'public/dist/fonts')
 
 mix.styles([
     'node_modules/bootstrap/dist/css/bootstrap.css',
@@ -33,6 +27,4 @@ mix.styles([
 mix.js([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-    // "node_modules/vue/dist/vue.js",
-    // "node_modules/jquery.easing/jquery.easing.js"
 ], 'public/dist/js/main.js')
