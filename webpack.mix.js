@@ -19,7 +19,8 @@ mix.js('resources/assets/js/app.js', 'public/dist/js/app.js')
 // mix.sass('public/vendor/scss/style.scss',"public/build/css/style.css");
 
 mix.copyDirectory('node_modules/font-awesome/fonts', 'public/dist/fonts')
-mix.copyDirectory('node_modules/social-share-kit/dist/fonts', 'public/dist/fonts')
+// mix.copyDirectory('node_modules/social-share-kit/dist/fonts/', 'public/dist/fonts')
+mix.copy('node_modules/social-share-kit/dist/fonts/social-share-kit.woff', 'public/dist/fonts/social-share-kit.woff')
 
 mix.styles([
     'node_modules/bootstrap/dist/css/bootstrap.css',
