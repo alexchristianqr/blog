@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('metas-fb')
+    @include('layouts.metas',[$dataShare])
+@endsection
 @section('content')
     <!-- Page Content -->
     <div class="container">

@@ -9,25 +9,35 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-  use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Utility;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Utility;
 
-  function viewHome()
-  {
-    return view('pages.home');
-  }
+    function viewHome()
+    {
+        return view('pages.home');
+    }
 
-  function viewAbout()
-  {
-    return view('pages.about');
-  }
+    function viewAbout()
+    {
+        return view('pages.about');
+    }
 
-  function viewContact()
-  {
-    return view('pages.contact');
-  }
+    function viewContact()
+    {
+        return view('pages.contact');
+    }
 
-  function viewService()
-  {
-    return view('pages.service');
-  }
+    function viewService()
+    {
+        return view('pages.service');
+    }
+
+    function prepareDataShared($request)
+    {
+        return (object)[
+            'url' => $request->url,
+            'title' => $request->title,
+            'decription' => $request->description,
+            'image' => $request->image,
+        ];
+    }
 }

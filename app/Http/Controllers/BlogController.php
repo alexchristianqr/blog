@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\CategoryService;
 use App\Http\Services\PostService;
+use App\Http\Services\ShareService;
 use App\Http\Services\TagService;
 use Illuminate\Http\Request;
 use Exception;
@@ -47,6 +48,7 @@ class BlogController extends Controller
         ];
         $dataTagTemp = (new TagService())->getTags($request);
         $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
+        $dataShare = (new ShareService())->getDataShare($dataPost);
         $dataTag = [];
         if(!empty($dataPost->tag_id)){
             foreach(json_decode($dataPost->tag_id) as $v){
@@ -61,7 +63,7 @@ class BlogController extends Controller
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataMonths = $this->getMonths();
         $dataHistory = (new PostService())->getHistory();
-        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag'));
+        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag','dataShare'));
     }
 
     function viewBlogSearch(Request $request)

@@ -13,7 +13,7 @@ import Blog                 from './components/web/pages/Blog.vue'
 import Posts                from './components/web/pages/Posts.vue'
 import Portfolio            from './components/web/pages/Portfolio.vue'
 //Plugins
-import 'social-share-kit'
+import SocialShareKitLayout from './components/web/layouts/SocialShareKitLayout'
 
 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
@@ -30,9 +30,7 @@ new Vue({
         Blog,
         Posts,
         Portfolio,
-    },
-    created(){
-      SocialShareKit.init()
+        SocialShareKitLayout,
     },
     methods: {
         getSizeScreen(){
