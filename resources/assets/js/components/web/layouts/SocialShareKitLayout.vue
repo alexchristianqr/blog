@@ -10,6 +10,7 @@
 
 <script>
     import 'social-share-kit'
+    import $ from 'jquery'
 
     export default {
         name: 'SocialShareKitLayout',
