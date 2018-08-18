@@ -9,7 +9,7 @@
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
-    @yield('metas-fb')
+    @yield('content-metas-share')
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
@@ -21,10 +21,10 @@
     @endenv
 </head>
 <body>
-    <!-- Component -->
-{{--    @include('components.social-share-kit')--}}
 <div id="app">
+    <!-- Social Share Kit -->
     <social-share-kit-layout></social-share-kit-layout>
+
     <!-- Navigation -->
     @include('layouts.nav')
 

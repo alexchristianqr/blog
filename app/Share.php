@@ -11,5 +11,6 @@ class Share extends Model
         'post_id',
         'url',
         'status',
+        'locale',
     ];
 }

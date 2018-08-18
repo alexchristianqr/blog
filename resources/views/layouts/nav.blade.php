@@ -24,6 +24,9 @@
                 </li>
                 <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li> --}}
                 {{--<li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a href="" class="nav-link text-white">{{ request()->url()  }}</a>--}}
+                    {{--</li>--}}
                 <li class="{{ request()->url() == route('route.contact') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.contact') ? 'text-primary' : ''}}" href="{{route('route.contact')}}"><i class="fa fa-phone fa-fw"></i>@lang('pages.contact')</a>
                 </li>

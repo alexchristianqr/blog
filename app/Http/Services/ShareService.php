@@ -6,21 +6,31 @@
 
 namespace App\Http\Services;
 
-
 use App\Share;
 
 class ShareService
 {
-    function getDataShare($dataPost)
+    function getDataSharePost($dataPost)
     {
-//        $dataShare = Share::select('post.*', 'share.url AS share_url')
-//            ->join('post', 'post.id', 'share.post_id')
-//            ->where('share.url', $post_id)->first();
+        $dataShare = Share::where('post_id', $dataPost->id)->first();
         $newDataShare = (object)[
             'url' => request()->getUri(),
             'description' => $dataPost->description,
             'title' => $dataPost->name,
-            'image' => $dataPost->image,
+            'image' => $dataPost->path_name . $dataPost->image,
+            'locale' => $dataShare->locale,
+        ];
+        return $newDataShare;
+    }
+
+    function getDataShareHome()
+    {
+        $newDataShare = (object)[
+            'url' => 'https://acqrdeveloper.com/',
+            'description' => 'Lo mejor en cursos, teorias, codigo fuente entre otros.',
+            'title' => 'Portfolio, Posts, Contact',
+            'image' => 'http://acqrdeveloper.com/images/ux_developer.jpg',
+            'locale' => 'es-Es',
         ];
         return $newDataShare;
     }

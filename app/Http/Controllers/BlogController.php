@@ -6,8 +6,8 @@ use App\Http\Services\CategoryService;
 use App\Http\Services\PostService;
 use App\Http\Services\ShareService;
 use App\Http\Services\TagService;
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -22,8 +22,9 @@ class BlogController extends Controller
             $dataPost = (new PostService())->getPosts($request);
             $dataHistory = (new PostService())->getHistory();
             $dataMonths = $this->getMonths();
+            $dataShare = (new ShareService())->getDataShareHome();
             $routeSearch = route('route.blog.search');
-            return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch'));
+            return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch', 'dataShare'));
         }catch(Exception $e){
             return abort(NOT_FOUND);
         }
@@ -36,7 +37,8 @@ class BlogController extends Controller
             ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
             ['title' => 'Category', 'url' => null, 'status' => false],
         ];
-        return view('pages.categories', compact('dataBreadcrumb'));
+        $dataShare = (new ShareService())->getDataShareHome();
+        return view('pages.categories', compact('dataBreadcrumb', 'dataShare'));
     }
 
     function viewBlogPost($year, $month, $post_id, Request $request)
@@ -48,7 +50,6 @@ class BlogController extends Controller
         ];
         $dataTagTemp = (new TagService())->getTags($request);
         $dataPost = (new PostService())->getPostById($year, $month, $post_id, $request);
-        $dataShare = (new ShareService())->getDataShare($dataPost);
         $dataTag = [];
         if(!empty($dataPost->tag_id)){
             foreach(json_decode($dataPost->tag_id) as $v){
@@ -63,7 +64,8 @@ class BlogController extends Controller
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataMonths = $this->getMonths();
         $dataHistory = (new PostService())->getHistory();
-        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory','dataTag','dataShare'));
+        $dataShare = (new ShareService())->getDataSharePost($dataPost);
+        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory', 'dataTag', 'dataShare'));
     }
 
     function viewBlogSearch(Request $request)
@@ -75,7 +77,8 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.search');
         $dataSearch = (new PostService())->getSearch($request);
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
+        $dataShare = (new ShareService())->getDataShareHome();
+        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch', 'dataShare'));
     }
 
     function viewBlogPostSearch($year, $month, $post_id, Request $request)
@@ -88,6 +91,7 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataSearch = (new PostService())->getSearch($request);
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
+        $dataShare = (new ShareService())->getDataShareHome();
+        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch', 'dataShare'));
     }
 }

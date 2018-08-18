@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('metas-fb')
-    @include('layouts.metas',[$dataShare])
+@section('content-metas-share')
+    @include('components.metas-share',[$dataShare])
 @endsection
 @section('content')
     <!-- Page Content -->
@@ -10,7 +10,7 @@
         <h1 class="mt-4 mb-3 text-dark">{{$dataPost->name}}<small class="text-dark"> by <a href="{{$routeSearch.'?param_search='.$dataPost->user_name}}">{{$dataPost->user_name}}</a></small></h1>
 
         <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs', $dataBreadcrumb)
+        @include('components.breadcrumbs',$dataBreadcrumb)
 
         <div class="row">
 

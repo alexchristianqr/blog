@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ShareService;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -13,7 +14,8 @@ class Controller extends BaseController
 
     function viewHome()
     {
-        return view('pages.home');
+        $dataShare = (new ShareService())->getDataShareHome();
+        return view('pages.home',compact('dataShare'));
     }
 
     function viewAbout()
@@ -23,21 +25,12 @@ class Controller extends BaseController
 
     function viewContact()
     {
-        return view('pages.contact');
+        $dataShare = (new ShareService())->getDataShareHome();
+        return view('pages.contact',compact('dataShare'));
     }
 
     function viewService()
     {
         return view('pages.service');
-    }
-
-    function prepareDataShared($request)
-    {
-        return (object)[
-            'url' => $request->url,
-            'title' => $request->title,
-            'decription' => $request->description,
-            'image' => $request->image,
-        ];
     }
 }

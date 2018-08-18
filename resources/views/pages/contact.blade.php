@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('content-metas-share')
+    @include('components.metas-share',[$dataShare])
+@endsection
 @section('content')
     <!-- Page Content -->
     <div class="container">
