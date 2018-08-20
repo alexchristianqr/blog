@@ -14,8 +14,7 @@ class Controller extends BaseController
 
     function viewHome()
     {
-        $dataShare = (new ShareService())->getDataShareHome();
-        return view('pages.home',compact('dataShare'));
+        return view('pages.home');
     }
 
     function viewAbout()
@@ -25,8 +24,7 @@ class Controller extends BaseController
 
     function viewContact()
     {
-        $dataShare = (new ShareService())->getDataShareHome();
-        return view('pages.contact',compact('dataShare'));
+        return view('pages.contact');
     }
 
     function viewService()

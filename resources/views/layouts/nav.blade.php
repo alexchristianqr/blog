@@ -1,42 +1,50 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-bg-default">
     <div class="container">
         <a class="navbar-brand" href="{{route('route.home')}}">
-            <strong class="mr-1">Alex Christian</strong><span class="text-muted small">developer</span>
+            <strong class="mr-1">Alex Christian</strong><span class="text-muted small">(developer)</span>
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="outline: none !important;">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                @if(request()->path() == 'portfolio' || request()->path() == 'contact')
-                <li class="nav-item mt-2 mt-lg-0">
-                    {!! Form::open(['url'=>route('route.blog.search'),'method'=>'GET','class'=>'text-center mr-0 mr-lg-1 ','autocomplete'=>'off']) !!}
-                        <input-search-layout :data-props="{param_request:'{{request('param_search')}}'}" :data-color-first="{color: 'btn-dark'}" :data-color-sec="{color: 'btn-secondary'}"></input-search-layout>
-                    {!! Form::close() !!}
-                </li>
-                @endif
+                {{--@if(request()->path() == 'portfolio' || request()->path() == 'contact')--}}
+                {{--<li class="nav-item mt-2 mt-lg-0">--}}
+                    {{--{!! Form::open(['url'=>route('route.blog.search'),'method'=>'GET','class'=>'text-center mr-0 mr-lg-1 ','autocomplete'=>'off']) !!}--}}
+                        {{--<input-search-layout :data-props="{param_request:'{{request('param_search')}}'}" :data-color-first="{color: 'btn-dark'}" :data-color-sec="{color: 'btn-secondary'}"></input-search-layout>--}}
+                    {{--{!! Form::close() !!}--}}
+                {{--</li>--}}
+                {{--@endif--}}
                 {{-- <li hidden class="{{ request()->url() == route('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-primary' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>@lang('pages.about')</a>
+                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-white' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>@lang('pages.about')</a>
                 </li>
                 <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li hidden class="{{ request()->url() == route('route.service') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.service') ? 'text-primary' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>
+                    <a class="nav-link {{request()->url() == route('route.service') ? 'text-white' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>
                 </li>
                 <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li> --}}
                 {{--<li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>--}}
                     {{--<li class="nav-item">--}}
                         {{--<a href="" class="nav-link text-white">{{ request()->url()  }}</a>--}}
                     {{--</li>--}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa fa-info-circle fa-fw"></i>@lang('pages.about')</a>
+                </li>
+                <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa fa-server fa-fw"></i>@lang('pages.service')</a>
+                </li>
+                <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.contact') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.contact') ? 'text-primary' : ''}}" href="{{route('route.contact')}}"><i class="fa fa-phone fa-fw"></i>@lang('pages.contact')</a>
+                    <a class="nav-link" href="{{route('route.contact')}}"><i class="fa fa-phone-square fa-fw"></i>@lang('pages.contact')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->url() == route('route.portfolio') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.portfolio') ? 'text-primary' : ''}}" href="{{route('route.portfolio')}}"><i class="fa fa-github fa-fw"></i>@lang('pages.portfolio')</a>
+                    <a class="nav-link" href="{{route('route.portfolio')}}"><i class="fa fa-address-book fa-fw"></i>@lang('pages.portfolio')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                <li class="{{ request()->url() == route('route.blog') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.blog') ? 'text-primary' : ''}}" href="{{route('route.blog')}}"><i class="fa fa-slack fa-fw"></i>@lang('pages.blog')</a>
+                <li class="{{ request()->routeIs('route.blog') || request()->routeIs('route.blog.post') || request()->routeIs('route.blog.search') || request()->routeIs('route.blog.post.search') || request()->routeIs('route.blog.category') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
+                    <a class="nav-link" href="{{route('route.blog')}}"><i class="fa fa-book fa-fw"></i>@lang('pages.blog')</a>
                 </li>
                 @if(session()->has('dataAuth'))
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>

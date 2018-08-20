@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: aquispe
- * Date: 10/06/2018
- * Time: 05:59 PM
+ * Created by Alex Christian.
+ * Github: https://github.com/acqrdeveloper
  */
 
 namespace App\Http\Services;

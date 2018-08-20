@@ -1,7 +1,4 @@
-@extends('layouts.app')
-@section('content-metas-share')
-    @include('components.metas-share',[$dataShare])
-@endsection
+@extends('layouts.app',['title'=>'Contact'])
 @section('content')
     <!-- Page Content -->
     <div class="container">
@@ -21,8 +18,8 @@
             <div class="col-lg-4 mb-4">
                 <h3>Contact Details</h3>
                 <p>
-                    <span>San Juan de Pariachi</span><br>
-                    <span>Ate, Mz "c" Lt "2" Km 8 Carretera Central</span>
+                    <span class="text-muted">San Juan de Pariachi</span><br>
+                    <span class="text-muted">Ate, Mz "c" Lt "2" Km 8 Carretera Central</span>
                 </p>
                 <p>
                     <span><i class="fa fa-phone"></i> <span class="text-secondary">(+51)955588297 / (01)7237503</span></span>

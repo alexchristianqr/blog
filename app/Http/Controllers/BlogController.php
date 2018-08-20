@@ -22,9 +22,8 @@ class BlogController extends Controller
             $dataPost = (new PostService())->getPosts($request);
             $dataHistory = (new PostService())->getHistory();
             $dataMonths = $this->getMonths();
-            $dataShare = (new ShareService())->getDataShareHome();
             $routeSearch = route('route.blog.search');
-            return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch', 'dataShare'));
+            return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch'));
         }catch(Exception $e){
             return abort(NOT_FOUND);
         }
@@ -37,8 +36,7 @@ class BlogController extends Controller
             ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
             ['title' => 'Category', 'url' => null, 'status' => false],
         ];
-        $dataShare = (new ShareService())->getDataShareHome();
-        return view('pages.categories', compact('dataBreadcrumb', 'dataShare'));
+        return view('pages.categories', compact('dataBreadcrumb'));
     }
 
     function viewBlogPost($year, $month, $post_id, Request $request)
@@ -77,8 +75,7 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.search');
         $dataSearch = (new PostService())->getSearch($request);
-        $dataShare = (new ShareService())->getDataShareHome();
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch', 'dataShare'));
+        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
     }
 
     function viewBlogPostSearch($year, $month, $post_id, Request $request)
@@ -91,7 +88,6 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataSearch = (new PostService())->getSearch($request);
-        $dataShare = (new ShareService())->getDataShareHome();
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch', 'dataShare'));
+        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
     }
 }

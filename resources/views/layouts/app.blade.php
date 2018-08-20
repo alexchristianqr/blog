@@ -1,14 +1,10 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>{{ (!isset($myTitle) ? 'acqrdeveloper.com' :'acqrdeveloper.com | '.$myTitle) }}</title>
+    <title>{{ !isset($title) ? '@AlexChristian' :'@AlexChristian : '.$title }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Last-Modified" content="0">
-    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
-    <meta http-equiv="Pragma" content="no-cache">
     @yield('content-metas-share')
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
@@ -22,8 +18,10 @@
 </head>
 <body>
 <div id="app">
+    @if(request()->routeIs('route.blog.post'))
     <!-- Social Share Kit -->
     <social-share-kit-layout></social-share-kit-layout>
+    @endif
 
     <!-- Navigation -->
     @include('layouts.nav')

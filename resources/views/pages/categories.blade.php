@@ -1,13 +1,10 @@
-@extends('layouts.app')
-@section('content-metas-share')
-    @include('components.metas-share',[$dataShare])
-@endsection
+@extends('layouts.app',['title'=>'Category'])
 @section('content')
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        @include('components.heading',['title'=>'Category','subtitle'=>'of Blogs'])
+        <h1 class="mt-4 mb-3 text-dark">Category <small class="text-dark">of Blogs</small></h1>
 
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)

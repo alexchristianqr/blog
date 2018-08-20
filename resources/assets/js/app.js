@@ -21,6 +21,9 @@ new Vue({
     beforeMount(){
         this.getSizeScreen()
     },
+    created(){
+        this.initFacebook()
+    },
     components: {
         LoginModal,
         RegisterModal,
@@ -32,31 +35,32 @@ new Vue({
         Portfolio,
         SocialShareKitLayout,
     },
-    created(){
-        window.fbAsyncInit = function(){
-            FB.init({
-                appId: '481663735685291',
-                xfbml: true,
-                version: 'v3.1',
-            })
-            FB.AppEvents.logPageView()
-        };
-
-        (function(d, s, id){
-            let js, fjs = d.getElementsByTagName(s)[0]
-            if(d.getElementById(id)){return}
-            js = d.createElement(s)
-            js.id = id
-            js.src = 'https://connect.facebook.net/en_US/sdk.js'
-            fjs.parentNode.insertBefore(js, fjs)
-        }(document, 'script', 'facebook-jssdk'))
-    },
     methods: {
+        initFacebook(){
+            window.fbAsyncInit = function(){
+                FB.init({
+                    appId: '481663735685291',
+                    xfbml: true,
+                    version: 'v3.1',
+                })
+                FB.AppEvents.logPageView()
+            };
+
+            (function(d, s, id){
+                let js, fjs = d.getElementsByTagName(s)[0]
+                if(d.getElementById(id)){return}
+                js = d.createElement(s)
+                js.id = id
+                js.src = 'https://connect.facebook.net/en_US/sdk.js'
+                fjs.parentNode.insertBefore(js, fjs)
+            }(document, 'script', 'facebook-jssdk'))
+        },
         getSizeScreen(){
             Util.removeStorage('data_screen')
             let isLarge = (window.screen.availWidth > 768),
                 isSmall = (window.screen.availWidth <= 768),
-                isTablet = (window.screen.availWidth <= 768) && (window.screen.availWidth > 425),
+                isTablet = (window.screen.availWidth <= 768) &&
+                    (window.screen.availWidth > 425),
                 isMobile = (window.screen.availWidth <= 425)
             Util.setStorage('data_screen', {
                 isComputer: isLarge,

@@ -1,7 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * Email: aquispe.developer@gmail.com
+ * Created by Alex Christian.
+ * Github: https://github.com/acqrdeveloper
  */
 
 namespace App\Http\Services;

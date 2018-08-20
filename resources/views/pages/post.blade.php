@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>'Blog Post'])
 @section('content-metas-share')
     @include('components.metas-share',[$dataShare])
 @endsection

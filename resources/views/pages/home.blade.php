@@ -1,7 +1,4 @@
-@extends('layouts.app',['myTitle' => 'Home'])
-@section('content-metas-share')
-    @include('components.metas-share',[$dataShare])
-@endsection
+@extends('layouts.app',['title'=>'Home'])
 @section('content')
     <!-- Page Content -->
     <header hidden>
