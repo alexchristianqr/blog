@@ -1,10 +1,14 @@
 <!doctype html>
-<html lang="es">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <title>{{ !isset($title) ? '@AlexChristian' :'@AlexChristian : '.$title }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Expires" content="-1" >
     @yield('content-metas-share')
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
@@ -18,17 +22,17 @@
 </head>
 <body>
 <div id="app">
-    @if(request()->routeIs('route.blog.post'))
+@if(request()->routeIs('route.blog.post'))
     <!-- Social Share Kit -->
-    <social-share-kit-layout></social-share-kit-layout>
-    @endif
+        <social-share-kit-layout></social-share-kit-layout>
+@endif
 
-    <!-- Navigation -->
-    @include('layouts.nav')
+<!-- Navigation -->
+@include('layouts.nav')
 
-    <!-- Page Content -->
-    @yield('content')
-    <!-- /.container -->
+<!-- Page Content -->
+@yield('content')
+<!-- /.container -->
 
     <!-- Footer -->
     @include('layouts.footer')
@@ -40,9 +44,6 @@
 <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script>
 @endenv
 <script src="{{asset('dist/js/app.js').'?cache'.str_limit(time(),6,'')}}"></script>
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <script>
     window.localStorage.setItem('hostname','{{config('app')['url']}}')
