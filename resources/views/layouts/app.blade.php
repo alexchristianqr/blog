@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es">
 <head>
     <title>{{ !isset($title) ? '@AlexChristian' :'@AlexChristian : '.$title }}</title>
     <meta charset="UTF-8">
@@ -40,6 +40,9 @@
 <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script>
 @endenv
 <script src="{{asset('dist/js/app.js').'?cache'.str_limit(time(),6,'')}}"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <script>
     window.localStorage.setItem('hostname','{{config('app')['url']}}')
