@@ -23,11 +23,11 @@
 
                 <!-- Date/Time -->
                 <div class="row">
-                    <div class="col-6 my-auto">
+                    <div class="col-sm-12 text-sm-left col-md-8 text-md-left col-lg-6 my-auto">
                         <span>Posted on </span><span>{{Carbon\Carbon::parse($dataPost->published)->format('F d, Y')}} at {{Carbon\Carbon::parse($dataPost->published)->format(' H:i')}}</span>
                     </div>
-                    <div class="col-6 my-auto text-right">
-                        <div class="ssk-group ssk-sm ssk-count">
+                    <div class="col-sm-12 text-sm-left col-md-4 text-md-right col-lg-6 my-auto">
+                        <div class="ssk-group ssk-md ssk-count">
                             <a href="" class="ssk ssk-facebook"></a>
                             <a href="" class="ssk ssk-google-plus"></a>
                             <a href="" class="ssk ssk-linkedin"></a>
@@ -40,12 +40,6 @@
                 <!-- Post Content -->
                 {!! $dataPost->content !!}
                 <hr>
-                {{--<div class="ssk-group ssk-lg text-center ssk-count">--}}
-                    {{--<a href="" class="ssk ssk-facebook"></a>--}}
-                    {{--<a href="" class="ssk ssk-google-plus"></a>--}}
-                    {{--<a href="" class="ssk ssk-linkedin"></a>--}}
-                    {{--<a href="" class="ssk ssk-twitter"></a>--}}
-                {{--</div>--}}
                 <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                 <hr>
 
