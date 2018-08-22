@@ -12,23 +12,70 @@
         <!-- Breadcrumb Component -->
         @include('components.breadcrumbs',$dataBreadcrumb)
 
-    <!-- Portfolio Item Row -->
         <div class="row">
 
-            <div class="col-md-8">
-                <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+            <!-- Post Content Column -->
+            <div class="col-sm-12 col-md-8 col-lg-8">
+
+                <!-- Preview Image -->
+                <img class="img-fluid rounded" src="{{asset($dataPost->path_name.$dataPost->image)}}" alt="Image Post">
+                <hr>
+
+                <!-- Date/Time -->
+                <div class="row">
+                    <div class="col-sm-12 text-sm-left col-md-7 text-md-left col-lg-6 my-auto">
+                        <span>Posted on </span><span>{{Carbon\Carbon::parse($dataPost->published)->format('F d, Y')}} at {{Carbon\Carbon::parse($dataPost->published)->format(' H:i')}}</span>
+                    </div>
+                    <div class="col-sm-12 text-sm-left col-md-5 text-md-right col-lg-6 my-auto">
+                        <div class="ssk-group ssk-md ssk-count">
+                            <a href="" class="ssk ssk-facebook"></a>
+                            <a href="" class="ssk ssk-google-plus"></a>
+                            <a href="" class="ssk ssk-linkedin"></a>
+                            <a href="" class="ssk ssk-twitter"></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- Post Content -->
+                {!! $dataPost->content !!}
+                <hr>
+                <div data-height="auto" data-width="275" class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                <hr>
+
+                <!-- Comments Form -->
+                <div class="card my-2">
+                    <h5 class="card-header">Add Your Comment</h5>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" title=""></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Comment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Coments Component -->
+                @include('components.coments')
+
             </div>
 
-            <div class="col-md-4">
-                <h3 class="my-3">Project Description</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3 class="my-3">Project Details</h3>
-                <ul>
-                    <li>Lorem Ipsum</li>
-                    <li>Dolor Sit Amet</li>
-                    <li>Consectetur</li>
-                    <li>Adipiscing Elit</li>
-                </ul>
+            <!-- Sidebar Widgets Column -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                <!-- Search Component -->
+            @include('components.search', [$routeSearch])
+
+            <!-- Tags Component-->
+            @include('components.tags',[$dataTag,$routeSearch])
+
+            <!-- Categories Widget -->
+            @include('components.categories',[$dataCategory])
+
+            <!-- Posts History Component -->
+                @include('components.history',[$dataHistory, $dataMonths])
+
             </div>
 
         </div>
