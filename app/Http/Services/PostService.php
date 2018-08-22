@@ -97,7 +97,7 @@ class PostService
         //$this->myDebug($dataModel,true);
 
         //Paginate
-        if($request->has('paginate')){//Aplica paginado
+        if($request->has('paginate')){
             if($request->ajax()){//Javascript
                 return $dataModel->paginate($request->paginate);
             }else{//Php
@@ -130,12 +130,6 @@ class PostService
     function getAll($request)
     {
         $request->request->add(['orderBy' => true]);
-        return $this->dataModel($request);
-    }
-
-    function getPortafolios($request)
-    {
-        $request->request->add(['paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal]);
         return $this->dataModel($request);
     }
 
@@ -212,6 +206,12 @@ class PostService
     function getSearch($request)
     {
         $request->request->add(['paginate' => $this->paginateGlobal]);
+        return $this->dataModel($request);
+    }
+
+    function getPortfolios($request)
+    {
+        $request->request->add(['paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal]);
         return $this->dataModel($request);
     }
 }

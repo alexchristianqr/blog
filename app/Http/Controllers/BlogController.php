@@ -23,7 +23,7 @@ class BlogController extends Controller
             $dataHistory = (new PostService())->getHistory();
             $dataMonths = $this->getMonths();
             $routeSearch = route('route.blog.search');
-            return view('pages.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch'));
+            return view('pages.blog.blog', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'dataHistory', 'dataMonths', 'routeSearch'));
         }catch(Exception $e){
             return abort(NOT_FOUND);
         }
@@ -36,7 +36,7 @@ class BlogController extends Controller
             ['title' => 'Blog', 'url' => route('route.blog'), 'status' => true],
             ['title' => 'Category', 'url' => null, 'status' => false],
         ];
-        return view('pages.categories', compact('dataBreadcrumb'));
+        return view('pages.blog.categories', compact('dataBreadcrumb'));
     }
 
     function viewBlogPost($year, $month, $post_id, Request $request)
@@ -63,7 +63,7 @@ class BlogController extends Controller
         $dataMonths = $this->getMonths();
         $dataHistory = (new PostService())->getHistory();
         $dataShare = (new ShareService())->getDataSharePost($dataPost);
-        return view('pages.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory', 'dataTag', 'dataShare'));
+        return view('pages.blog.post', compact('dataBreadcrumb', 'dataCategory', 'dataPost', 'routeSearch', 'dataMonths', 'dataHistory', 'dataTag', 'dataShare'));
     }
 
     function viewBlogSearch(Request $request)
@@ -75,7 +75,7 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.search');
         $dataSearch = (new PostService())->getSearch($request);
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
+        return view('pages.blog.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
     }
 
     function viewBlogPostSearch($year, $month, $post_id, Request $request)
@@ -88,6 +88,6 @@ class BlogController extends Controller
         ];
         $routeSearch = route('route.blog.post.search', [$year, $month, $post_id]);
         $dataSearch = (new PostService())->getSearch($request);
-        return view('pages.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
+        return view('pages.blog.search', compact('dataBreadcrumb', 'routeSearch', 'dataSearch'));
     }
 }

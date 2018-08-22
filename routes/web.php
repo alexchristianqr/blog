@@ -48,6 +48,7 @@ Route::group(['middleware' => 'web'], function($route){
 
     // Portfolio
     $route->get('/portfolio', 'PortfolioController@viewPortfolio')->name('route.portfolio');
+    $route->get('/portfolio/project/{portfolio_kind}', 'PortfolioController@viewPorfolioItem')->name('route.portfolio.item');
 
     // About
     $route->get('/about', 'Controller@viewAbout')->name('route.about');

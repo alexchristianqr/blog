@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\PortfolioService;
 use App\Http\Services\PostService;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,18 @@ class PortfolioController extends Controller
             ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
             ['title' => 'Portfolio', 'url' => null, 'status' => false],
         ];
-        $dataPortfolio = (new PostService())->getPortafolios($request);
-        return view('pages.portfolio', compact('dataPortfolio', 'dataBreadcrumb'));
+        $dataPortfolio = (new PortfolioService())->getPortfolios($request);
+        return view('pages.portfolio.portfolio', compact('dataPortfolio', 'dataBreadcrumb'));
+    }
+
+    function viewPorfolioItem($portfolio_kind,Request $request)
+    {
+        $dataBreadcrumb = [
+            ['title' => 'Home', 'url' => route('route.home'), 'status' => true],
+            ['title' => 'Portfolio', 'url' => route('route.portfolio'), 'status' => true],
+            ['title' => 'Project', 'url' => null, 'status' => false],
+        ];
+        $dataPortfolioProject = (new PortfolioService())->getPortfolioProject($portfolio_kind,$request);
+        return view('pages.portfolio.portfolio-item', compact('dataPortfolioProject', 'dataBreadcrumb'));
     }
 }
