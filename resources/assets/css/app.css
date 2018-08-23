@@ -1,7 +1,62 @@
+/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    #lineSeparate {
+        display: none;
+    }
+}
+
+.carousel-item {
+    height: calc(100vh - 55px);
+    /*min-height: 500px;*/
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.relative-top {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
 .btn-facebook {
     color: #fff;
     background-color: #3b5998;
     border-color: #3b5998;
+}
+
+.text-facebook {
+    color: #3b5998;
 }
 
 .btn-facebook:hover {
@@ -66,13 +121,15 @@
     box-shadow: 0 0 0 0.2rem rgba(59, 89, 152, 0.5);
 }
 
-.form-control{
+.form-control {
     box-shadow: inherit !important;
 }
-.nav-bg-default{
+
+.nav-bg-default {
     background-color: #24292e !important;
-    color:rgba(255,255,255,0.75) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
 }
+
 pre {
     color: #646464 !important;
     padding: 1rem !important;
@@ -82,7 +139,174 @@ pre {
     border-left: 5px solid #646464 !important;
 }
 
-.dropdown-item:hover, .dropdown-item:focus{
+.dropdown-item:hover, .dropdown-item:focus {
     color: #ffffff !important;
     background-color: #007bff !important;
+}
+
+.w-1 {
+    width: 1% !important;
+}
+
+.w-2 {
+    width: 2% !important;
+}
+
+.w-3 {
+    width: 3% !important;
+}
+
+.w-4 {
+    width: 4% !important;
+}
+
+.w-5 {
+    width: 5% !important;
+}
+
+.w-6 {
+    width: 6% !important;
+}
+
+.w-7 {
+    width: 7% !important;
+}
+
+.w-8 {
+    width: 8% !important;
+}
+
+.w-9 {
+    width: 9% !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+/*w-25*/
+
+.w-35 {
+    width: 35% !important;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.w-45 {
+    width: 45% !important;
+}
+
+/*w-50*/
+
+.w-55 {
+    width: 55% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.w-65 {
+    width: 65% !important;
+}
+
+.w-70 {
+    width: 70% !important;
+}
+
+/*w-75*/
+.w-80 {
+    width: 80% !important;
+}
+
+.w-85 {
+    width: 85% !important;
+}
+
+.w-90 {
+    width: 90% !important;
+}
+
+.w-95 {
+    width: 95% !important;
+}
+
+/*w-100*/
+.border-1 {
+    border: 1px solid;
+}
+
+.border-top-1 {
+    border-top: 1px solid;
+}
+
+.text-app {
+    color: #6c757d;
+}
+
+.bg-app {
+    background: #6c757d;
+}
+
+.border-default {
+    color: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px !important;
+    }
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #898989;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(55, 55, 55, 0.25);
+}
+
+.mh-25 {
+    max-height: 25vh;
+}
+
+.mh-50 {
+    max-height: 50vh;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 0px;
+    }
+
+    .fixed-top {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    #isDefault {
+        display: none;
+    }
+}
+
+.py-sm-5 {
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+}
+
+.py-lg-5 {
+    padding-top: 3rem;
 }

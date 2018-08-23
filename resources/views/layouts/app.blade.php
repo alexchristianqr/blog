@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{asset('node_modules/social-share-kit/dist/css/social-share-kit.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}"><!-- file develop -->
     @elseenv('prod')
     <link rel="stylesheet" href="{{asset("dist/css/main.css").'?cache'.str_limit(time(),6,'')}}">
     @endenv

@@ -39,12 +39,16 @@
 
                 <!-- Post Content -->
                 {!! $dataPost->content !!}
-                <hr>
-                <div data-height="auto" data-width="275" class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                <hr>
+
+                <div class="card my-4">
+                    <h5 class="card-header">I Like and Share in <span class="text-facebook">Facebook</span></h5>
+                    <div class="card-body">
+                        <div data-height="auto" data-width="275" class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                    </div>
+                </div>
 
                 <!-- Comments Form -->
-                <div class="card my-2">
+                <div class="card my-4">
                     <h5 class="card-header">Add Your Comment</h5>
                     <div class="card-body">
                         <form>
@@ -74,7 +78,7 @@
             @include('components.categories',[$dataCategory])
 
             <!-- Posts History Component -->
-                @include('components.history',[$dataHistory, $dataMonths])
+            @include('components.history',[$dataHistory, $dataMonths])
 
             </div>
 
