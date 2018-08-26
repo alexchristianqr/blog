@@ -22,7 +22,7 @@ new Vue({
         this.getSizeScreen()
     },
     created(){
-        this.initFacebook()
+        // this.initFacebook()
     },
     components: {
         LoginModal,
@@ -37,23 +37,22 @@ new Vue({
     },
     methods: {
         initFacebook(){
-            window.fbAsyncInit = function(){
+            window.fbAsyncInit = function() {
                 FB.init({
-                    appId: '481663735685291',
-                    xfbml: true,
-                    version: 'v3.1',
-                })
-                FB.AppEvents.logPageView()
+                    appId      : '481663735685291',
+                    xfbml      : true,
+                    version    : 'v3.1'
+                });
+                FB.AppEvents.logPageView();
             };
 
             (function(d, s, id){
-                let js, fjs = d.getElementsByTagName(s)[0]
-                if(d.getElementById(id)){return}
-                js = d.createElement(s)
-                js.id = id
-                js.src = 'https://connect.facebook.net/en_US/sdk.js'
-                fjs.parentNode.insertBefore(js, fjs)
-            }(document, 'script', 'facebook-jssdk'))
+                let js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         },
         getSizeScreen(){
             Util.removeStorage('data_screen')

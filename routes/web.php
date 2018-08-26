@@ -12,50 +12,50 @@
 */
 
 Route::group(['middleware' => 'web'], function($route){
-    // Middleware Guest
+    //Middleware Guest
     $route->group(['middleware' => 'guest'], function($route){
-        // Authentication Routes...
-        $route->post('api/login', 'Auth\Web\AuthController@login')->name('login');
-        $route->post('api/refresh', 'Auth\Web\AuthController@refresh');
+        //Authentication Routes...
+        $route->post('web/login', 'Auth\Web\AuthController@login');
+        $route->post('web/refresh', 'Auth\Web\AuthController@refresh');
 
-        // Registration Routes...
-        $route->post('api/register', 'Auth\RegisterController@register');
+        //Registration Routes...
+        $route->post('web/register', 'Auth\RegisterController@register');
 
-        // Password Reset Routes...
-        $route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        //Password Reset Routes...
+        /*$route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
         $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-        $route->post('password/reset', 'Auth\ResetPasswordController@reset');
+        $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
     });
 
-    // Logout
-    $route->get('logout', 'Auth\Web\AuthController@logout')->name('logout');
+    //Logout
+    $route->get('/logout', 'Auth\Web\AuthController@logout')->name('logout');
 
-    // Blog
+    //Blog
     $route->get('/blog', 'BlogController@viewBlog')->name('route.blog');
     $route->get('/blog/search', 'BlogController@viewBlogSearch')->name('route.blog.search');
     $route->get('/get-blog', 'BlogController@getBlog');
 
-    // Blog Category
+    //Blog Category
     $route->get('/blog/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
 
-    // Blog Post
+    //Blog Post
     $route->get('/blog/post/{year}/{month}/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
     $route->get('/blog/post/{year}/{month}/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
-    // Home
+    //Home
     $route->get('/', 'Controller@viewHome')->name('route.home');
 
-    // Portfolio
+    //Portfolio
     $route->get('/portfolio', 'PortfolioController@viewPortfolio')->name('route.portfolio');
     $route->get('/portfolio/project/{portfolio_kind}', 'PortfolioController@viewPorfolioItem')->name('route.portfolio.item');
 
-    // About
+    //About
     $route->get('/about', 'Controller@viewAbout')->name('route.about');
 
-    // Service
+    //Service
     $route->get('/service', 'Controller@viewService')->name('route.service');
 
-    // Contact
+    //Contact
     $route->get('/contact', 'Controller@viewContact')->name('route.contact');
 });

@@ -20,6 +20,9 @@ Route::group(['middleware' => 'cors:api'], function($route){
 
     //Auth Jwt
     $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
+        //User
+        $route->get('get-auth-me', 'Auth\Api\AuthController@me');
+
         //Post
         $route->get('get-posts', 'PostController@getPosts');
         $route->post('create-post', 'PostController@createPost');
@@ -33,5 +36,8 @@ Route::group(['middleware' => 'cors:api'], function($route){
 
         //User
         $route->get('get-users', 'UserController@getUsers');
+
+        //Portfolio
+        $route->get('get-portfolios', 'PortfolioController@getPortfolios');
     });
 });

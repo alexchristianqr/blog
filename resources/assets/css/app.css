@@ -89,8 +89,7 @@ body {
 
 .btn-outline-facebook {
     color: #3b5998;
-    background-color: transparent;
-    background-image: none;
+    background: transparent none;
     border-color: #3b5998;
 }
 
@@ -194,6 +193,10 @@ pre {
 
 /*w-25*/
 
+.w-30 {
+    width: 30% !important;
+}
+
 .w-35 {
     width: 35% !important;
 }
@@ -225,6 +228,7 @@ pre {
 }
 
 /*w-75*/
+
 .w-80 {
     width: 80% !important;
 }
@@ -242,6 +246,7 @@ pre {
 }
 
 /*w-100*/
+
 .border-1 {
     border: 1px solid;
 }
@@ -300,13 +305,4 @@ pre {
     #isDefault {
         display: none;
     }
-}
-
-.py-sm-5 {
-    padding-bottom: 6rem;
-    padding-top: 6rem;
-}
-
-.py-lg-5 {
-    padding-top: 3rem;
 }

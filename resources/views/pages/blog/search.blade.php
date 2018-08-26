@@ -40,7 +40,9 @@
         </div>
         @empty
         <div class="col-lg-12 mb-5 mt-5 text-center">
-            <span class="text-dark">No se han encontrado registros, basado en tu busqueda</span>
+            <i class="fa fa-search fa-2x w-100 text-dark"></i>
+            <div class="w-100"><p></p></div>
+            <span class="text-dark">No se han encontrado registros con <b><mark class="bg-light rounded">{{request('param_search')}}</mark></b> como parámetro de búsqueda</span>
         </div>
         @endforelse
         </div>

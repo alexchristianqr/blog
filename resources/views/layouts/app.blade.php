@@ -9,6 +9,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Expires" content="-1" >
+    <link rel="icon" href="{{asset('favicon.png')}}">
     @yield('content-metas-share')
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
@@ -20,21 +21,39 @@
     @endenv
 </head>
 <body>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '481663735685291',
+            xfbml      : true,
+            version    : 'v3.1'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        let js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/es_LA/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id="app">
-@if(request()->routeIs('route.blog.post'))
-    <!-- Social Share Kit -->
-        <social-share-kit-layout></social-share-kit-layout>
-@endif
+    @if(request()->routeIs('route.blog.post'))
+        <!-- Social Share Kit -->
+            <social-share-kit-layout></social-share-kit-layout>
+    @endif
 
-<!-- Navigation -->
-@include('layouts.nav')
+    <!-- Navigation -->
+    @include('layouts.nav')
 
-<!-- Page Content -->
-@yield('content')
-<!-- /.container -->
+    <!-- Page Content -->
+    @yield('content')
+    <!-- /.container -->
 
     <!-- Footer -->
-    @include('layouts.footer')
+    <footer-layout :data="{isRoutePost:'{{request()->routeIs('route.blog.post')}}'}"></footer-layout>
 </div>
 @env('local')
 <script src="{{asset('node_modules/jquery/dist/jquery.js')}}"></script>

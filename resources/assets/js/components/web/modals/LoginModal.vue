@@ -23,7 +23,7 @@
                         </div>
                         <hr>
                         <div class="form-group has-error">
-                            <input v-model="params.email" ref="inputEmail" class="form-control" type="text" placeholder="Email" title="Registrar" required>
+                            <input v-model="params.email" ref="inputEmail" class="form-control" type="text" placeholder="Email" required>
                             <span v-if="errors.email != undefined" class="help-block text-muted"><strong>{{errors.email[0]}}</strong></span>
                         </div>
                         <div class="form-group">

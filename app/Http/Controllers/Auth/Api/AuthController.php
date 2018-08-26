@@ -38,7 +38,15 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        try{
+            $dataAuth=auth()->user();
+//            dd(auth());
+//            $dataAuth->token = auth()->token;
+
+            return response()->json($dataAuth,OK);
+        }catch(TokenExpiredException $e){
+            return response()->json($e->getMessage(), UNAUTHORIZED);
+        }
     }
 
     /**
@@ -51,7 +59,7 @@ class AuthController extends Controller
             auth()->logout();
             return response()->json('Successfully logged out', 200);
         }catch(TokenExpiredException $e){
-            echo $e->getMessage(). "\n";
+            echo $e->getMessage() . "\n";
             $newToken = auth()->refresh();
             request()->request->set('token', $newToken);
             return $this->logout();

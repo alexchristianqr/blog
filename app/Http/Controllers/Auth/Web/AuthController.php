@@ -10,6 +10,10 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 
 class AuthController extends Controller
 {
+//    public function __construct()
+//    {
+//        $this->middleware('cors:web', ['except' => ['login']]);
+//    }
     /**
      * Get a JWT via given credentials.
      * @param Request $request

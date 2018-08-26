@@ -55,6 +55,12 @@ class PortfolioService
         return $this->dataModel($request);
     }
 
+    function getAll($request)
+    {
+        $request->request->add(['orderBy' => true]);
+        return $this->dataModel($request);
+    }
+
     function getPortfolioProject($portfolio_kind, $request)
     {
         $request->request->add([

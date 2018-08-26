@@ -119,7 +119,7 @@ class PostService
     function getPosts($request)
     {
         $request->request->add([
-            'paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal,
+            'paginate' => $this->paginateGlobal,
             'status' => 'A',
             'simplePaginate' => true,
             'orderBy' => true,

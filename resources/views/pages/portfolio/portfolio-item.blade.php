@@ -4,8 +4,8 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3 text-dark">Project
-            <small class="text-dark">{{$dataPortfolioProject->name}}</small>
+        <h1 class="mt-4 mb-3 text-dark">{{$dataPortfolioProject->name}}
+            {{--<small class="text-dark"> by <a href="">{{$dataPortfolioProject->name}}</a></small>--}}
         </h1>
 
         <!-- Breadcrumb Component -->
@@ -123,7 +123,7 @@
             <div class="col-12">
                 <h3 class="my-3">Table Information</h3>
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-bordered rounded">
                         <thead>
                         {{--<tr>--}}
                             {{--<th colspan="4" class="h3">Tabla de Información</th>--}}
