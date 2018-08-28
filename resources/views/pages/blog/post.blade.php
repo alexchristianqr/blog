@@ -43,7 +43,6 @@
                 <div class="card my-4">
                     <h5 class="card-header">I Like and Share in <span class="text-facebook">Facebook</span></h5>
                     <div class="card-body">
-                        {{--<div data-height="auto" data-width="270" class="fb-like" data-href="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>--}}
                         <div class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
                     </div>
                 </div>
