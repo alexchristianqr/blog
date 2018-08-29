@@ -19,7 +19,32 @@ class Controller extends BaseController
 
     function viewAbout()
     {
-        return view('pages.about');
+        $dataTecnologies = [
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+           ['lang' => 'java'],
+//            'vue',
+//            'javascript',
+//            'typescript',
+//            'ionic',
+//            'react',
+//            'webpack',
+//            'bootstrap',
+//            'materialize',
+//            'css3',
+//            '.net',
+//            'nginx',
+//            'apache',
+//            'xampp',
+//            'es6',
+        ];
+        return view('pages.about',compact('dataTecnologies'));
     }
 
     function viewContact()

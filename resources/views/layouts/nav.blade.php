@@ -8,27 +8,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                {{--@if(request()->path() == 'portfolio' || request()->path() == 'contact')--}}
-                {{--<li class="nav-item mt-2 mt-lg-0">--}}
-                    {{--{!! Form::open(['url'=>route('route.blog.search'),'method'=>'GET','class'=>'text-center mr-0 mr-lg-1 ','autocomplete'=>'off']) !!}--}}
-                        {{--<input-search-layout :data-props="{param_request:'{{request('param_search')}}'}" :data-color-first="{color: 'btn-dark'}" :data-color-sec="{color: 'btn-secondary'}"></input-search-layout>--}}
-                    {{--{!! Form::close() !!}--}}
-                {{--</li>--}}
-                {{--@endif--}}
-                {{-- <li hidden class="{{ request()->url() == route('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-white' : ''}}" href="{{route('route.about')}}"><i class="fa fa-exclamation-circle fa-fw"></i>@lang('pages.about')</a>
-                </li>
-                <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                <li hidden class="{{ request()->url() == route('route.service') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link {{request()->url() == route('route.service') ? 'text-white' : ''}}" href="{{route('route.service')}}"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>
-                </li>
-                <li hidden id="lineSeparate" class="mx-1 my-auto text-muted">|</li> --}}
-                {{--<li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>--}}
-                    {{--<li class="nav-item">--}}
-                        {{--<a href="" class="nav-link text-white">{{ request()->url()  }}</a>--}}
-                    {{--</li>--}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-info-circle fa-fw"></i>@lang('pages.about')</a>
+                <li class="{{ request()->routeIs('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
+                    <a class="nav-link {{request()->url() == route('route.about') ? 'text-white' : ''}}" href="{{route('route.about')}}"><i class="fa fa-info-circle fa-fw"></i>@lang('pages.about')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="nav-item">
