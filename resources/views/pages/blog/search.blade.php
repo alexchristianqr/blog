@@ -43,6 +43,10 @@
             <i class="fa fa-search fa-2x w-100 text-dark"></i>
             <div class="w-100"><p></p></div>
             <span class="text-dark">No se han encontrado registros con <b><mark class="bg-light rounded">{{request('param_search')}}</mark></b> como parámetro de búsqueda</span>
+            <div class="w-100 text-white">
+                <p>.</p>
+                <p>.</p>
+            </div>
         </div>
         @endforelse
         </div>
