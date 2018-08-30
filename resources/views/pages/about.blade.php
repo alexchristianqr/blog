@@ -30,7 +30,7 @@
                             temporibus reprehenderit dolorum!</p>
                     </div>
                     <div class="col-12">
-                        <h2>¿Como inicie la carrera de Programador?</h2>
+                        <h2>¿Pasión por programar?</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur
                             similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem
                             perferendis dicta dolorem non blanditiis ex fugiat.</p>
@@ -42,28 +42,38 @@
             </div>
         </div>
         <!-- /.row -->
+        <h2>Experiencias y Conocimientos</h2>
+        {{--<p><span class="mark bg-light rounded font-weight-bold">Experiencia</span> una palabra muy fuerte y la que muchos desarrolladores principiantes quieren lograr para independientemente de tener mas posición en el mercado, es por una pasión de ser mejor cada día.Y es que es una carrera tan competitiva y es dificl de explicar.</p>--}}
+        <p>Con el paso de los años poniendo a mucha muchísimas horas en práctica todos nuestros <span class="mark bg-light rounded font-weight-bold">Conocimientos</span>, se logra muchos resultados sobre todo la <span class="mark bg-light rounded font-weight-bold">Experiencia</span> un valor de alta importancia para nosotros en esta carrera del desarrollo de software.</p>
+        <p>Y estas son las tecnologías que son parte de mi experiencia:</p>
         <div class="row">
-            <div class="col-12 mb-4">
-                <h3 class="mb-4">Conocimiento y Experiencia</h3>
-                <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-2">
-                        @foreach($dataTecnologies as $v)
-                            @foreach($v as $vv)
-                            <div class="card">
-                                <div class="m-sm-3 m-md-3 m-lg-3">
-                                    <img class="text-center" src="{{asset('/images/400x400/vue.png')}}" alt="image" width="200">
-                                </div>
-                                <div class="card-footer text-center">
-                                    <span>{{$vv}}</span>
+            @foreach($dataTecnologies->chunk(4) as $v)
+                <div class="col-6 col-md-12 col-lg-12 mb-sm-0">
+                    <div class="row">
+                        @foreach($v as $vv)
+                            <div class="col-sm-6 col-md-3 col-lg-3">
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <div class="m-3 m-md-4 m-lg-5">
+                                            <img class="card-img-top text-center" src="{{asset('/images/400x400/'.$vv->image)}}" alt="image">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <span class="text-capitalize">{{$vv->name}}</span>
+                                    </div>
                                 </div>
                             </div>
-                            @endforeach
                         @endforeach
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
         <!-- /.row -->
+        <h2>La paciencia es una virtud</h2>
+        <blockquote class="blockquote">
+            <p class="mb-0">Es una virtud que no se puede perder</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
     </div>
     <!-- /.container -->
 @endsection

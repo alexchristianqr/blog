@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\ShareService;
+use App\Technologies;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,31 +20,7 @@ class Controller extends BaseController
 
     function viewAbout()
     {
-        $dataTecnologies = [
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-           ['lang' => 'java'],
-//            'vue',
-//            'javascript',
-//            'typescript',
-//            'ionic',
-//            'react',
-//            'webpack',
-//            'bootstrap',
-//            'materialize',
-//            'css3',
-//            '.net',
-//            'nginx',
-//            'apache',
-//            'xampp',
-//            'es6',
-        ];
+        $dataTecnologies  = Technologies::select('name','image')->where('status','A')->get();
         return view('pages.about',compact('dataTecnologies'));
     }
 
