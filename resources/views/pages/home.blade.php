@@ -1,7 +1,7 @@
 @extends('layouts.app',['title'=>'Home'])
 @section('content')
     <!-- Page Content -->
-    <header hidden>
+    <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -10,21 +10,21 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('images/ux_developer_2.jpg')">
+                <div class="carousel-item active" style="background-image: url('{{asset('/images/1920x1080/digitalocean.png')}}')">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First Slide</h3>
-                        <p>This is a description for the first slide.</p>
+                        <h3>Digital Ocean</h3>
+                        <p>Lo mejor de Digital Ocean 2018 nuevas actualizaciones en su pagina.</p>
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('images/ux_developer_2.jpg')">
+                <div class="carousel-item" style="background-image: url('{{asset('/images/750x300/ionic.png')}}')">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Second Slide</h3>
                         <p>This is a description for the second slide.</p>
                     </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('images/ux_developer_2.jpg')">
+                <div class="carousel-item" style="background-image: url('{{asset('/images/1920x1080/vuejs.jpeg')}}')">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Third Slide</h3>
                         <p>This is a description for the third slide.</p>
@@ -41,6 +41,8 @@
             </a>
         </div>
     </header>
+
+
     <div class="container">
 
         <!-- Page Heading -->

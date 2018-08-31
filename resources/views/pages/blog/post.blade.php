@@ -18,7 +18,7 @@
             <div class="col-sm-12 col-md-8 col-lg-8">
 
                 <!-- Preview Image -->
-                <img class="img-fluid rounded" src="{{asset($dataPost->path_name.$dataPost->image)}}" alt="Image Post">
+                <img class="img-fluid rounded" src="{{asset('/images/750x300/'.$dataPost->image)}}" alt="Image Post">
                 <hr>
 
                 <!-- Date/Time -->

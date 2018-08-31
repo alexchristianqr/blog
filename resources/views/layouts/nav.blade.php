@@ -11,13 +11,13 @@
                 <li class="{{ request()->routeIs('route.about') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link {{request()->url() == route('route.about') ? 'text-white' : ''}}" href="{{route('route.about')}}"><i class="fa fa-info-circle fa-fw"></i>@lang('pages.about')</a>
                 </li>
-                <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-server fa-fw"></i>@lang('pages.service')</a>
-                </li>
+                {{--<li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a href="#" class="nav-link"><i class="fa fa-tags fa-fw"></i>@lang('pages.service')</a>--}}
+                {{--</li>--}}
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->routeIs('route.contact') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
-                    <a class="nav-link" href="{{route('route.contact')}}"><i class="fa fa-phone-square fa-fw"></i>@lang('pages.contact')</a>
+                    <a class="nav-link" href="{{route('route.contact')}}"><i class="fa fa-map-marker fa-fw"></i>@lang('pages.contact')</a>
                 </li>
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="{{ request()->routeIs('route.portfolio') || request()->routeIs('route.portfolio.item') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
