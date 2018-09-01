@@ -15,7 +15,7 @@
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-7 col-lg-8">
+            <div class="col-lg-8">
 
                 <!-- Blog Post -->
                 @foreach($dataPost as $k => $v)
@@ -40,7 +40,7 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            <div class="col-md-5 col-lg-4">
+            <div class="col-lg-4">
 
                 <!-- Search Component -->
                 @include('components.search',[$routeSearch])

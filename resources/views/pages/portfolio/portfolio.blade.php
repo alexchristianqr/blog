@@ -11,12 +11,12 @@
         <!-- Project One -->
         @foreach($dataPortfolio as $k => $v)
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-lg-7">
                 <a href="{{route('route.portfolio.item',[$v->kind])}}">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{asset($v->path_name.$v->image)}}" alt="">
+                    <img class="img-thumbnail img-fluid rounded mb-3 p-0 mb-lg-0" src="{{asset($v->path_name.$v->image)}}" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <h3>{{$v->name}}</h3>
                 <div class="card-text">{!! $v->description !!}</div>
                 <a href="{{route('route.portfolio.item',[$v->kind])}}" class="btn btn-primary my-auto">View Project <i class="fa fa-angle-right ml-1"></i></a>

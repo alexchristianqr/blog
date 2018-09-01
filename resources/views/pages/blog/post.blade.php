@@ -15,7 +15,7 @@
         <div class="row">
 
             <!-- Post Content Column -->
-            <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="col-lg-8">
 
                 <!-- Preview Image -->
                 <img class="img-fluid rounded" src="{{asset('/images/750x300/'.$dataPost->image)}}" alt="Image Post">
@@ -66,19 +66,19 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="col-lg-4">
 
                 <!-- Search Component -->
-            @include('components.search', [$routeSearch])
+                @include('components.search', [$routeSearch])
 
-            <!-- Tags Component-->
-            @include('components.tags',[$dataTag,$routeSearch])
+                <!-- Tags Component-->
+                @include('components.tags',[$dataTag,$routeSearch])
 
-            <!-- Categories Widget -->
-            @include('components.categories',[$dataCategory])
+                <!-- Categories Widget -->
+                @include('components.categories',[$dataCategory])
 
-            <!-- Posts History Component -->
-            @include('components.history',[$dataHistory, $dataMonths])
+                <!-- Posts History Component -->
+                @include('components.history',[$dataHistory, $dataMonths])
 
             </div>
 
