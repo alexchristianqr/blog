@@ -1,4 +1,4 @@
-@extends('layouts.app',['title'=>'Home'])
+@extends('layouts.app')
 @section('content')
     <!-- Page Content -->
     <header>

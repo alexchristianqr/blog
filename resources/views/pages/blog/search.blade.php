@@ -25,8 +25,8 @@
         @forelse($dataSearch->chunk(1) as $k =>$chunk)
         <div class="col-lg-6 mb-4">
             @foreach($chunk as $v)
-            <div class="card">
-                <img class="card-img-top" src="{{asset($v->path_name.$v->image)}}" alt="Card image cap">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{asset($v->path_name.$v->image)}}" alt="Image Search"/>
                 <div class="card-body">
                     <h2 class="card-title text-dark">{{$v->name}}</h2>
                     <p class="card-text">{{$v->description}}</p>

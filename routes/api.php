@@ -39,5 +39,7 @@ Route::group(['middleware' => 'cors:api'], function($route){
 
         //Portfolio
         $route->get('get-portfolios', 'PortfolioController@getPortfolios');
+        $route->post('create-portfolio', 'PortfolioController@createPortfolio');
+        $route->put('update-portfolio/{portfolio_id}', 'PortfolioController@updatePortfolio');
     });
 });

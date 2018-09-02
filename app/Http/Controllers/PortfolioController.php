@@ -38,4 +38,26 @@ class PortfolioController extends Controller
             return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }
     }
+
+    //Funcion para crear portfolio
+    function createPortfolio(Request $request)
+    {
+        try{
+            (new PortfolioService())->create($request);
+            return response()->json('created portfolio', CREATED);
+        }catch(Exception $e){
+            return response()->json($e->getMessage(), PRECONDITION_FAILED);
+        }
+    }
+
+    //Funcion para actualizar portfolio
+    function updatePortfolio($post_id, Request $request)
+    {
+        try{
+            (new PortfolioService())->update($post_id, $request);
+            return response()->json('updated portfolio', OK);
+        }catch(Exception $e){
+            return response()->json($e->getMessage(), PRECONDITION_FAILED);
+        }
+    }
 }

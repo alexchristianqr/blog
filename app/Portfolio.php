@@ -8,9 +8,11 @@ class Portfolio extends Model
 {
     protected $table = 'portfolio';
     protected $fillable = [
-        'post_id',
-        'url',
+        'name',
+        'kind',
+        'image',
+        'galery',
+        'description',
         'status',
-        'locale',
     ];
 }

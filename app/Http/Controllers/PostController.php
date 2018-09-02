@@ -41,5 +41,4 @@ class PostController extends Controller
             return response()->json($e->getMessage(), PRECONDITION_FAILED);
         }
     }
-
 }

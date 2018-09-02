@@ -69,4 +69,14 @@ class PortfolioService
         ]);
         return $this->dataModel($request);
     }
+
+    function update($portfolio_id,$request)
+    {
+       return Portfolio::find($portfolio_id)->fill($request->all())->save();
+    }
+
+    function create($request)
+    {
+        return (new Portfolio())->fill($request->all())->save();
+    }
 }

@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
         switch($this->method()){
             case 'POST':
                 $rule = [
-                    'title' => 'required',
+                    'name' => 'required',
                     'content' => 'required'
                 ];
                 break;

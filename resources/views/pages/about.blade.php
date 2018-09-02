@@ -1,17 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>'About'])
 @section('content')
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading -->
         @include('components.heading',['title'=>'About','subtitle'=>'Me'])
-
-        {{--<ol class="breadcrumb">--}}
-            {{--<li class="breadcrumb-item">--}}
-                {{--<a href="index.html">Home</a>--}}
-            {{--</li>--}}
-            {{--<li class="breadcrumb-item active">About</li>--}}
-        {{--</ol>--}}
 
         <!-- Intro Content -->
         <div class="row">
@@ -50,7 +43,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="m-3">
-                                <img class="card-img-top text-center" src="{{asset('/images/400x400/'.$vv->image)}}" alt="Image Technology">
+                                <img class="card-img-top text-center" src="{{asset($vv->path_name.$vv->image)}}" alt="Image Technology">
                             </div>
                         </div>
                         <div class="card-footer text-center">

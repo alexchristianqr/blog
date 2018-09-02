@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\ShareService;
-use App\Technologies;
+use App\Http\Services\TechnologyService;
+use App\Technology;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -18,9 +20,9 @@ class Controller extends BaseController
         return view('pages.home');
     }
 
-    function viewAbout()
+    function viewAbout(Request $request)
     {
-        $dataTecnologies  = Technologies::select('name','image')->where('status','A')->get();
+        $dataTecnologies  = (new TechnologyService())->getAll($request);
         return view('pages.about',compact('dataTecnologies'));
     }
 
