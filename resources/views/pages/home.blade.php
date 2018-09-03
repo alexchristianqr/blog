@@ -9,27 +9,37 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('{{asset('/images/1920x1080/digitalocean.png')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Digital Ocean</h3>
-                        <p>Lo mejor de Digital Ocean 2018 nuevas actualizaciones en su pagina.</p>
-                    </div>
-                </div>
+                @foreach($dataLatestPosts as $k => $v)
+                    @if($k == 0)
+                        <div class="carousel-item active" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>{{$v->title}}</h3>
+                                <p>{{$v->description}}</p>
+                            </div>
+                        </div>
+                        @else
+                        <div class="carousel-item" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h3>{{$v->title}}</h3>
+                                <p>{{$v->description}}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('/images/750x300/ionic.png')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Second Slide</h3>
-                        <p>This is a description for the second slide.</p>
-                    </div>
-                </div>
-                <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('/images/1920x1080/vuejs.jpeg')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Third Slide</h3>
-                        <p>This is a description for the third slide.</p>
-                    </div>
-                </div>
+                {{--<div class="carousel-item" style="background-image: url('{{asset('/images/750x300/ionic.png')}}')">--}}
+                    {{--<div class="carousel-caption d-none d-md-block">--}}
+                        {{--<h3>Second Slide</h3>--}}
+                        {{--<p>This is a description for the second slide.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<!-- Slide Three - Set the background image for this slide in the line below -->--}}
+                {{--<div class="carousel-item" style="background-image: url('{{asset('/images/1920x1080/vuejs.jpeg')}}')">--}}
+                    {{--<div class="carousel-caption d-none d-md-block">--}}
+                        {{--<h3>Third Slide</h3>--}}
+                        {{--<p>This is a description for the third slide.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

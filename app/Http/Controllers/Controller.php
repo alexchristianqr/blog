@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\PostService;
 use App\Http\Services\ShareService;
 use App\Http\Services\TechnologyService;
 use App\Technology;
@@ -15,9 +16,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Utility;
 
-    function viewHome()
+    function viewHome(Request $request)
     {
-        return view('pages.home');
+//        $dataLatestPosts = (new PostService())->getLatestPosts($request);
+        $dataLatestPosts = \DB::table('home')->join('path','path.id','home.path_id')->select('home.*','path.name AS path_name')->get();
+//        dd($dataLatestPosts);
+        return view('pages.home', compact('dataLatestPosts'));
     }
 
     function viewAbout(Request $request)

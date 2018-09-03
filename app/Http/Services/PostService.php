@@ -20,8 +20,13 @@ class PostService
     private function dataModel($request)
     {
         //Data Model
-        $dataModel = Post::select('post.*', 'path.name AS path_name', 'users.name AS user_name')
-            ->join('path', 'path.id', 'post.path_id')
+        if($request->has('fields')){
+            $dataModel = Post::select($request->fields);
+        }else{
+            $dataModel = Post::select('post.*', 'path.name AS path_name', 'users.name AS user_name');
+        }
+
+        $dataModel = $dataModel->join('path', 'path.id', 'post.path_id')
             ->join('users', 'users.id', 'post.user_id');
 
         //Range
@@ -209,9 +214,9 @@ class PostService
         return $this->dataModel($request);
     }
 
-    function getPortfolios($request)
+    function getLatestPosts($request)
     {
-        $request->request->add(['paginate' => $request->has('paginate') ? $request->paginate : $this->paginateGlobal]);
+        $request->request->add(['fields' => ['image','path.name AS path_name']]);
         return $this->dataModel($request);
     }
 }
