@@ -3,43 +3,33 @@
     <!-- Page Content -->
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <ol class="carousel-indicators d-none d-md-flex">
+                @foreach($dataLatestPosts as $k => $v)
+                    @if($k == 0)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$k}}" class="active"></li>
+                    @else
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$k}}"></li>
+                    @endif
+                @endforeach
             </ol>
             <div class="carousel-inner" role="listbox">
                 @foreach($dataLatestPosts as $k => $v)
                     @if($k == 0)
                         <div class="carousel-item active" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>{{$v->title}}</h3>
-                                <p>{{$v->description}}</p>
+                            <div class="carousel-caption">
+                                <h2>{{$v->title}}</h2>
+                                <p class="d-none d-md-block">{{$v->description}}</p>
                             </div>
                         </div>
                         @else
                         <div class="carousel-item" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>{{$v->title}}</h3>
-                                <p>{{$v->description}}</p>
+                            <div class="carousel-caption">
+                                <h2>{{$v->title}}</h2>
+                                <p class="d-none d-md-block">{{$v->description}}</p>
                             </div>
                         </div>
                     @endif
                 @endforeach
-                <!-- Slide Two - Set the background image for this slide in the line below -->
-                {{--<div class="carousel-item" style="background-image: url('{{asset('/images/750x300/ionic.png')}}')">--}}
-                    {{--<div class="carousel-caption d-none d-md-block">--}}
-                        {{--<h3>Second Slide</h3>--}}
-                        {{--<p>This is a description for the second slide.</p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<!-- Slide Three - Set the background image for this slide in the line below -->--}}
-                {{--<div class="carousel-item" style="background-image: url('{{asset('/images/1920x1080/vuejs.jpeg')}}')">--}}
-                    {{--<div class="carousel-caption d-none d-md-block">--}}
-                        {{--<h3>Third Slide</h3>--}}
-                        {{--<p>This is a description for the third slide.</p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

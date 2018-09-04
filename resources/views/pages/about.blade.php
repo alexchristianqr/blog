@@ -31,6 +31,33 @@
             </div>
         </div>
         <!-- /.row -->
+        <h2 class="mb-3">Get Curriculum Vitae</h2>
+        <div class="row mb-3">
+            <div class="col-4">
+                <div class="text-center">
+                    <a href="#" class="text-success">
+                        <i class="fa fa-file-excel-o fa-4x"></i>
+                        <p class="pt-2 mb-0">Excel</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="text-center">
+                    <a href="{{asset('cv.docx')}}" class="text-primary">
+                        <i class="fa fa-file-word-o fa-4x"></i>
+                        <p class="pt-2 mb-0">Word</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="text-center">
+                    <a href="#" class="text-danger">
+                        <i class="fa fa-file-pdf-o fa-4x"></i>
+                        <p class="pt-2 mb-0">Pdf</p>
+                    </a>
+                </div>
+            </div>
+        </div>
         <h2>Experiences and Knowledge</h2>
         <p>Con el paso de los años poniendo a mucha muchísimas horas en práctica todos nuestros <span
                     class="mark bg-light rounded font-weight-bold">Conocimientos</span>, se logra muchos resultados
