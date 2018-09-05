@@ -15,13 +15,14 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($dataLatestPosts as $k => $v)
                     @if($k == 0)
-                        <div class="carousel-item active" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
+                        <div class="carousel-item active"
+                             style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
                                 <h2>{{$v->title}}</h2>
                                 <p class="d-none d-md-block">{{$v->description}}</p>
                             </div>
                         </div>
-                        @else
+                    @else
                         <div class="carousel-item" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
                                 <h2>{{$v->title}}</h2>
@@ -46,23 +47,28 @@
     <div class="container">
 
         <!-- Page Heading -->
-        @include('components.heading',['title'=>'Community','subtitle'=>'for All'])
+    @include('components.heading',['title'=>'Community','subtitle'=>'for All'])
 
-        <!-- Posts Section -->
+    <!-- Posts Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam, atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam,
+            atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
         <!-- Posts Component -->
         <posts></posts>
 
         <!-- Course Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.favorites_courses')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus
+            ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae
+            totam velit, veniam?</p>
         <!-- Courses Component -->
         <courses></courses>
 
         <!-- Portfolio Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.updated_portfolio')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae totam velit, veniam?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus
+            ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae
+            totam velit, veniam?</p>
         <!-- Portfolio component -->
         <portfolio></portfolio>
 
@@ -70,7 +76,8 @@
         <div class="row mt-4">
             <div class="col-lg-6">
                 <h2 class="text-dark">@lang('home.description')</h2>
-                <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que sientan una atracción por la tecnología.</p>
+                <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que
+                    sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
@@ -83,14 +90,14 @@
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                    <ul>
-                        <li>React</li>
-                        <li>Laravel Framework</li>
-                        <li>Lumen Micro Framework</li>
-                        <li>Node</li>
-                        <li>Sails Framework</li>
-                    </ul>
-                </div>
+                        <ul>
+                            <li>React</li>
+                            <li>Laravel Framework</li>
+                            <li>Lumen Micro Framework</li>
+                            <li>Node</li>
+                            <li>Sails Framework</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -101,17 +108,20 @@
         <!-- Call to Action Section -->
         <div class="row mt-4 mb-4">
             <div class="col-md-6">
-                <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
+                <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información,
+                    suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
             <div class="col-md-6 my-auto">
-                <form action="">
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">Subscribe</button>
-                        </div>
+                {{--<form action="">--}}
+                {!! Form::open(['url'=>route('route.mail.subscribe'),'method'=>'post']) !!}
+                <div class="input-group mb-3">
+                    <input name="email" type="email" class="form-control" placeholder="Your email" required>
+                    <div class="input-group-append">
+                        {{--<a href="{{route('route.mail.subscribe')}}" class="btn btn-primary">Subscribe</a>--}}
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
                     </div>
-                </form>
+                </div>
+                {!! Form::close() !!}
             </div>
         </div>
 

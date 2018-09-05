@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Services\EmailService;
+use App\Http\Services\MailService;
 use App\Http\Services\PostService;
 use App\Http\Services\ShareService;
 use App\Http\Services\TechnologyService;
@@ -19,7 +19,7 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        return (new EmailService())->mailByUser($request);
+//        return (new EmailService())->mailByUser($request);
     }
 
     function viewHome(Request $request)

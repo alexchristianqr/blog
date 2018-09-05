@@ -58,4 +58,8 @@ Route::group(['middleware' => 'web'], function($route){
 
     //Contact
     $route->get('/contact', 'Controller@viewContact')->name('route.contact');
+
+    //Email
+    $route->post('/subscribe', 'MailController@sendMailSubscribe')->name('route.mail.subscribe');
+
 });
