@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\EmailService;
 use App\Http\Services\PostService;
 use App\Http\Services\ShareService;
 use App\Http\Services\TechnologyService;
@@ -15,6 +16,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Utility;
+
+    public function __construct(Request $request)
+    {
+        return (new EmailService())->mailByUser($request);
+    }
 
     function viewHome(Request $request)
     {
