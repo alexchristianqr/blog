@@ -11,9 +11,10 @@ class MailController extends Controller
     function sendMailSubscribe(MailRequest $request)
     {
         try{
-            return (new MailService())->sendMailSubscribe($request);
+            (new MailService())->sendMailSubscribe($request);
+            return redirect()->intended()->with('mail_send', 'Tu mensaje se envió con éxito');
         }catch(Exception $e){
-            return response()->json($e->getMessage(),PRECONDITION_FAILED);
+            return redirect()->back()->withErrors(['mail_failed' => ['Tu mensaje no fue enviado']]);
         }
     }
 }

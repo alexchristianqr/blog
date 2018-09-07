@@ -27,7 +27,7 @@
                 <li class="{{ request()->routeIs('route.blog') || request()->routeIs('route.blog.post') || request()->routeIs('route.blog.search') || request()->routeIs('route.blog.post.search') || request()->routeIs('route.blog.category') ? 'nav-item active font-weight-bold' : 'nav-item' }}">
                     <a class="nav-link" href="{{route('route.blog')}}"><i class="fa fa-book fa-fw"></i>@lang('pages.blog')</a>
                 </li>
-                @if(session()->has('dataAuth'))
+                @auth()
                 <li id="lineSeparate" class="mx-1 my-auto text-muted">|</li>
                 <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i></a>
@@ -36,8 +36,8 @@
                                 <div class="text-left mb-2">
                                     <img class="rounded w-50" src="https://avatars3.githubusercontent.com/u/22840027?s=460&v=4" alt="">
                                 </div>
-                                <b>{{session('dataAuth')->name}}</b><br>
-                                <span>({{session('dataAuth')->email}})</span>
+                                {{--<b>{{session('dataAuth')->name}}</b><br>--}}
+                                {{--<span>({{session('dataAuth')->email}})</span>--}}
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Profile</a>
@@ -46,15 +46,17 @@
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>
                     </li>
-                @else
+                @endauth
+                @guest
                 <li id="lineSeparate" class="mx-1 my-auto text-muted"></li>
                 <li class="nav-item">
                     <div class="btn-group w-100" role="group">
-                        <a class="nav-link btn btn-outline-secondary btn-sm w-100" data-toggle="modal" data-target="#modalLogin" href="#login"><i class="fa fa-user-o fa-fw"></i>Login</a>
+                        {{--<a class="nav-link btn btn-outline-secondary btn-sm w-100" data-toggle="modal" data-target="#modalLogin" href="#login"><i class="fa fa-user-o fa-fw"></i>Login</a>--}}
+                        <a class="nav-link btn btn-outline-secondary btn-sm w-100" href="{{route('web.login')}}"><i class="fa fa-user-o fa-fw"></i>Login</a>
                         <a class="nav-link btn btn-outline-secondary btn-sm w-100" data-toggle="modal" data-target="#modalRegister" href="#register"><i class="fa fa-user-plus fa-fw"></i>Register</a>
                     </div>
                 </li>
-                @endif
+                @endguest
             </ul>
         </div>
     </div>
@@ -63,6 +65,44 @@
 <login-modal data-token="{{csrf_token()}}"></login-modal>
 <register-modal data-token="{{csrf_token()}}"></register-modal>
 
-@if(session()->has('dataAuth'))
+@if(session()->has('logged_id'))
     @include('layouts.nav_auth')
+@endif
+@if(session()->has('mail_send'))
+    <nav class="my-auto alert-light">
+        <div class="container">
+            <div class="alert alert-light fade show border-0 pl-0 pr-0 mb-0" role="alert" style="border-radius: 0">
+                <div class="row">
+                    <div class="col-11 my-auto">
+                        <span class="my-auto">{{session()->get('mail_send')}}</span>
+                    </div>
+                    <div class="col-1 my-auto">
+                        <button type="button" class="close mb-1" data-dismiss="alert" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+@endif
+@if($errors->any())
+    @if($errors->first('mail_failed'))
+        <nav class="my-auto alert-danger">
+            <div class="container">
+                <div class="alert alert-danger fade show border-0 pl-0 pr-0 mb-0" role="alert" style="border-radius: 0">
+                    <div class="row">
+                        <div class="col-11 my-auto">
+                            <span class="my-auto">{{$errors->first('mail_failed')}}</span>
+                        </div>
+                        <div class="col-1 my-auto">
+                            <button type="button" class="close mb-1" data-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    @endif
 @endif

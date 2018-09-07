@@ -21,13 +21,14 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $this->validate($request, ['email' => 'required|string|email', 'password' => 'required|string|min:8']);
-        $credentials = $request->only(['email', 'password']);
-        $token = auth()->attempt($credentials);
-        if(!$token){
-            throw ValidationException::withMessages(['email' => [trans('auth.failed')],]);
-        }
-        return $this->respondWithToken($token);
+//        $this->validate($request, ['email' => 'required|string|email', 'password' => 'required|string|min:8']);
+//        $credentials = $request->only(['email', 'password']);
+//        $token = auth()->attempt($credentials);
+//        if(!$token){
+//            throw ValidationException::withMessages(['email' => [trans('auth.failed')],]);
+//        }
+//        return $this->respondWithToken($token);
+        return view('auth.login');
     }
 
     /**
@@ -62,10 +63,11 @@ class AuthController extends Controller
     {
         session(['dataAuth' => (object)auth()->user()]);
         session(['dataToken' => $token]);
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ], 200);
+        return redirect()->back()->with('is_login', 'Tu mensaje se envió con éxito');
+//        return response()->json([
+//            'access_token' => $token,
+//            'token_type' => 'bearer',
+//            'expires_in' => auth()->factory()->getTTL() * 60
+//        ], 200);
     }
 }

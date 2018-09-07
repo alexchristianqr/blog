@@ -15,7 +15,9 @@ Route::group(['middleware' => 'web'], function($route){
     //Middleware Guest
     $route->group(['middleware' => 'guest'], function($route){
         //Authentication Routes...
-        $route->post('web/login', 'Auth\Web\AuthController@login');
+//        $route->post('web/login', 'Auth\Web\AuthController@login');
+        $route->get('login', 'Auth\Web\AuthController@login')->name('web.login');
+        $route->post('login', 'Auth\LoginController@login')->name('post.login');
         $route->post('web/refresh', 'Auth\Web\AuthController@refresh');
 
         //Registration Routes...
@@ -28,8 +30,10 @@ Route::group(['middleware' => 'web'], function($route){
         $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
     });
 
-    //Logout
-    $route->get('/logout', 'Auth\Web\AuthController@logout')->name('logout');
+    $route->group(['middleware' => 'auth'], function($route){
+        //Logout
+        $route->get('/logout', 'Auth\Web\AuthController@logout')->name('logout');
+    });
 
     //Blog
     $route->get('/blog', 'BlogController@viewBlog')->name('route.blog');

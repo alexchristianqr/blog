@@ -8,26 +8,20 @@ namespace App\Http\Services;
 
 use Exception;
 use Illuminate\Support\Facades\Mail;
-use PharIo\Manifest\InvalidEmailException;
 
 class MailService
 {
     private function sendMail($request)
     {
-//        dd($request->all());
-        try{
-            Mail::send($request->view, $request->data, function($message) use ($request){
-                $message->subject($request->subject);
-                $message->from($request->from);
-                $message->to($request->to);
-            });
-            if (count(Mail::failures()) > 0) {
-                throw new Exception("my exception");
-            }else{
-                return redirect()->route('route.home');
-            }
-        }catch(Exception $e){
-            return abort(404);
+        Mail::send($request->view, $request->data, function($message) use ($request){
+            $message->subject($request->subject);
+            $message->from($request->from);
+            $message->to($request->to);
+        });
+        if(count(Mail::failures()) > 0){
+            return false;
+        }else{
+            return true;
         }
     }
 

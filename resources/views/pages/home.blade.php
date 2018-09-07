@@ -43,13 +43,12 @@
         </div>
     </header>
 
-
     <div class="container">
 
         <!-- Page Heading -->
-    @include('components.heading',['title'=>'Community','subtitle'=>'for All'])
+        @include('components.heading',['title'=>'Community','subtitle'=>'for All'])
 
-    <!-- Posts Section -->
+        <!-- Posts Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam,
             atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
