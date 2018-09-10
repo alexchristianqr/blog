@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\TechnologyService;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    function downloadWord()
+    function viewAbout(Request $request)
     {
-        header('Content-Type: application/csv');
-        header('Content-Disposition: attachment; filename=example.csv');
-        header('Pragma: no-cache');
-        readfile("/path/to/yourfile.csv");
+        $dataTecnologies  = (new TechnologyService())->getAll($request);
+        return view('pages.about',compact('dataTecnologies'));
     }
 }

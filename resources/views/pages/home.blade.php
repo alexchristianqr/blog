@@ -4,7 +4,7 @@
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                @foreach($dataLatestPosts as $k => $v)
+                @foreach($dataImages as $k => $v)
                     @if($k == 0)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{$k}}" class="active"></li>
                     @else
@@ -13,10 +13,9 @@
                 @endforeach
             </ol>
             <div class="carousel-inner" role="listbox">
-                @foreach($dataLatestPosts as $k => $v)
+                @foreach($dataImages as $k => $v)
                     @if($k == 0)
-                        <div class="carousel-item active"
-                             style="background-image: url('{{asset($v->path_name.$v->image)}}')">
+                        <div class="carousel-item active" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
                                 <h2 class="d-none d-lg-block">{{$v->title}}</h2>
                                 <h3 class="d-lg-none d-sm-block">{{$v->title}}</h3>
@@ -45,31 +44,35 @@
 
     <div class="container">
 
-        <!-- Page Heading -->
-        @include('includes.heading',['title'=>'Community','subtitle'=>'for All'])
-
         <!-- Posts Section -->
-        <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi ipsam sed? Accusantium adipisci aperiam,
-            atque corporis deserunt earum est fugiat itaque magni maxime nobis ratione repellat, sint ullam vitae.</p>
+        <h2 class="mt-4 mb-3 text-dark">Los Mejores</h2>
+        <p>Encuentra mucha información sobre las últimas tecnologías que se utilizan hoy en dia, saber como usarlas y obtener un gran concepto.</p>
+
         <!-- Posts Component -->
-        <posts></posts>
-
-        <!-- Course Section -->
-        <h2 class="mt-4 mb-3 text-dark">@lang('home.favorites_courses')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus
-            ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae
-            totam velit, veniam?</p>
-        <!-- Courses Component -->
-        <courses></courses>
-
-        <!-- Portfolio Section -->
-        <h2 class="mt-4 mb-3 text-dark">@lang('home.updated_portfolio')</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta ducimus necessitatibus possimus
-            ratione sed soluta suscipit temporibus. Accusamus architecto consequuntur error ex ipsum modi nihil quae
-            totam velit, veniam?</p>
-        <!-- Portfolio component -->
-        <portfolio></portfolio>
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex;overflow: hidden;overflow-x: scroll">
+                    @foreach($dataCourses as $k => $v)
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                            <div style="position: relative;margin: 0.5rem;display: flex;">
+                                <strong class="my-auto mr-1 text-dark">{{$v->ranking}}</strong>
+                                <span class="my-auto" style="display: flex;">
+                                    <i class="fa fa-star text-warning" style="position: relative;display: block;"></i>
+                                </span>
+                                <span class="text-dark" style="display: block;
+                                bottom: -650%;
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                text-align: center;
+                                font-weight: 600;
+                                font-size: 2rem;">{{$v->name}}</span>
+                        </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
 
         <!-- Features Section -->
         <div class="row mt-4">

@@ -167,6 +167,7 @@ class PostService
         $months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         $years = $this->generateYearsRange('2000-01-01', Carbon::now());
         $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name')
+            ->where('post.status','A')
             ->orderBy('post.published', 'ASC')
             ->get();
         $currentYear = 0;
@@ -216,7 +217,7 @@ class PostService
 
     function getLatestPosts($request)
     {
-        $request->request->add(['fields' => ['image','path.name AS path_name']]);
+        $request->request->add(['fields' => ['image','path.name AS path_name','post.name'],'status'=>'A']);
         return $this->dataModel($request);
     }
 }

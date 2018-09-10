@@ -48,14 +48,14 @@ Route::group(['middleware' => 'web'], function($route){
     $route->get('/blog/post/{year}/{month}/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
     //Home
-    $route->get('/', 'Controller@viewHome')->name('route.home');
+    $route->get('/', 'HomeController@viewHome')->name('route.home');
 
     //Portfolio
     $route->get('/portfolio', 'PortfolioController@viewPortfolio')->name('route.portfolio');
     $route->get('/portfolio/project/{portfolio_kind}', 'PortfolioController@viewPorfolioItem')->name('route.portfolio.item');
 
     //About
-    $route->get('/about', 'Controller@viewAbout')->name('route.about');
+    $route->get('/about', 'AboutController@viewAbout')->name('route.about');
 
     //Service
     $route->get('/service', 'Controller@viewService')->name('route.service');
