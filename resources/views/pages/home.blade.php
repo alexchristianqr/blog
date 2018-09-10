@@ -66,7 +66,7 @@
                                 right: 0;
                                 text-align: center;
                                 font-weight: 600;
-                                font-size: 2rem;">{{$v->name}}</span>
+                                font-size: 1.5rem;">{{$v->name}}</span>
                         </div>
                         </a>
                     @endforeach

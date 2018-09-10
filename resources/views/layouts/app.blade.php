@@ -28,6 +28,7 @@
     <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script><!-- node_modules -->
     @elseenv('prod')
     <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
+    <script src="{{asset('dist/js/vue.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
     @endenv
 </head>
 <body>

@@ -26,5 +26,6 @@ mix.js([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/social-share-kit/dist/js/social-share-kit.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-    'node_modules/vue/dist/vue.js',
 ], 'public/dist/js/main.js')
+
+mix.copy('node_modules/vue/dist/vue.js', 'public/dist/js/vue.js')
