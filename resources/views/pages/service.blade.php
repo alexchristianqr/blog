@@ -3,7 +3,7 @@
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        @include('components.heading',['title'=>'Service','subtitle'=>'of Develop'])
+        @include('includes.heading',['title'=>'Service','subtitle'=>'of Develop'])
     </div>
     <!-- /.container -->
 @endsection

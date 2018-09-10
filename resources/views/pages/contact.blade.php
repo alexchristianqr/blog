@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-    @include('components.heading',['title'=>'Contact','subtitle'=>'Me'])
+    @include('includes.heading',['title'=>'Contact','subtitle'=>'Me'])
     <!-- Content Row -->
         <div class="row">
             <!-- Map Column -->

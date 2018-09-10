@@ -39,7 +39,12 @@ class LoginController extends Controller
         $this->middleware(['guest', 'web'])->except('logout');
     }
 
-    public function login(LoginRequest $request)
+    public function getLogin()
+    {
+        return view('pages.auth.login');
+    }
+
+    public function postLogin(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);
         $rememberme = $request->has('remember') ? true : false;
@@ -54,22 +59,20 @@ class LoginController extends Controller
                     default:
                         $request->session()->regenerate();
                         $this->clearLoginAttempts($request);
-                        // create role session
-//                        session(['role_superadmin' => ["name" => "Alex Christian", "email" => "aquispe.developer@gmail.com", "role" => "superadmin"]]);
-                        // redirect false
+                        //Redirect
                         return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('logged_id','Usted se ha logeado');
                         break;
                 }
             }
         }
-        return redirect()->route('web.login')->withInput($credentials)->withErrors(['error_login'=>'Las credenciales ingresadas, no son válidas']);
+        return redirect()->route('get.login')->withInput($credentials)->withErrors(['error_login'=>'Las credenciales ingresadas, no son válidas']);
     }
 
     public function logout(Request $request)
     {
         $this->guard()->logout();
         $request->session()->invalidate();
-        return redirect()->route('web.login');
+        return redirect()->route('get.login');
     }
 
 }

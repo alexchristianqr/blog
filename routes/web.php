@@ -12,16 +12,15 @@
 */
 
 Route::group(['middleware' => 'web'], function($route){
+
     //Middleware Guest
     $route->group(['middleware' => 'guest'], function($route){
         //Authentication Routes...
-//        $route->post('web/login', 'Auth\Web\AuthController@login');
-        $route->get('login', 'Auth\Web\AuthController@login')->name('web.login');
-        $route->post('login', 'Auth\LoginController@login')->name('post.login');
-        $route->post('web/refresh', 'Auth\Web\AuthController@refresh');
+        $route->get('login', 'Auth\LoginController@getLogin')->name('get.login');
+        $route->post('login', 'Auth\LoginController@postLogin')->name('post.login');
 
         //Registration Routes...
-        $route->post('web/register', 'Auth\RegisterController@register');
+        $route->get('register', 'Auth\RegisterController@getRegister')->name('get.register');
 
         //Password Reset Routes...
         /*$route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -30,9 +29,10 @@ Route::group(['middleware' => 'web'], function($route){
         $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
     });
 
+    //Middleware Auth
     $route->group(['middleware' => 'auth'], function($route){
         //Logout
-        $route->get('/logout', 'Auth\Web\AuthController@logout')->name('logout');
+        $route->get('/logout', 'Auth\LoginController@logout')->name('logout');
     });
 
     //Blog

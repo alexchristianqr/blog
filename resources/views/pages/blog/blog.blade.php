@@ -9,7 +9,7 @@
         </h1>
 
         <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs', $dataBreadcrumb)
+        @include('includes.breadcrumbs', $dataBreadcrumb)
 
         <!-- Content Row -->
         <div class="row">
@@ -43,19 +43,17 @@
             <div class="col-lg-4">
 
                 <!-- Search Component -->
-                @include('components.search',[$routeSearch])
+                @include('includes.search',[$routeSearch])
 
                 <!-- Categories Component -->
-                @include('components.categories',[$dataCategory])
+                @include('includes.categories',[$dataCategory])
 
                 <!-- Posts History Component -->
-                @include('components.history',[$dataHistory, $dataMonths])
+                @include('includes.history',[$dataHistory, $dataMonths])
 
             </div>
 
         </div>
-        <!-- /.row -->
 
     </div>
-    <!-- /.container -->
 @endsection

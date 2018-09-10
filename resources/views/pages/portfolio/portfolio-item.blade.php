@@ -9,7 +9,7 @@
         </h1>
 
         <!-- Breadcrumb Component -->
-    @include('components.breadcrumbs',$dataBreadcrumb)
+    @include('includes.breadcrumbs',$dataBreadcrumb)
 
     <!-- Portfolio Item Row -->
         <div class="row mb-4">

@@ -3,7 +3,7 @@
     <!-- Page Content -->
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators d-none d-md-flex">
+            <ol class="carousel-indicators">
                 @foreach($dataLatestPosts as $k => $v)
                     @if($k == 0)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{$k}}" class="active"></li>
@@ -18,15 +18,15 @@
                         <div class="carousel-item active"
                              style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
-                                <h2>{{$v->title}}</h2>
-                                <p class="d-none d-md-block">{{$v->description}}</p>
+                                <h2 class="d-none d-lg-block">{{$v->title}}</h2>
+                                <h3 class="d-lg-none d-sm-block">{{$v->title}}</h3>
                             </div>
                         </div>
                     @else
                         <div class="carousel-item" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
-                                <h2>{{$v->title}}</h2>
-                                <p class="d-none d-md-block">{{$v->description}}</p>
+                                <h2 class="d-none d-lg-block">{{$v->title}}</h2>
+                                <h3 class="d-lg-none d-sm-block">{{$v->title}}</h3>
                             </div>
                         </div>
                     @endif
@@ -46,7 +46,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        @include('components.heading',['title'=>'Community','subtitle'=>'for All'])
+        @include('includes.heading',['title'=>'Community','subtitle'=>'for All'])
 
         <!-- Posts Section -->
         <h2 class="mt-4 mb-3 text-dark">@lang('home.latest_posts')</h2>

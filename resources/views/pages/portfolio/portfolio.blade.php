@@ -3,10 +3,10 @@
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        @include('components.heading',['title'=>'Portfolio','subtitle'=>'of Projects'])
+        @include('includes.heading',['title'=>'Portfolio','subtitle'=>'of Projects'])
 
         <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs', $dataBreadcrumb)
+        @include('includes.breadcrumbs', $dataBreadcrumb)
 
         <!-- Project One -->
         @foreach($dataPortfolio as $k => $v)

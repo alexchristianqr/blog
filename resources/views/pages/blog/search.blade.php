@@ -11,16 +11,16 @@
                 </div>
                 <div class="col-sm-12 col-lg-4 my-auto">
                     {!! Form::open(['url'=>$routeSearch,'method'=>'GET','autocomplete'=>'off']) !!}
-                        <input-search-layout :data-props="{param_request:'{{request('param_search')}}'}"></input-search-layout>
+                        @include('includes.input-search')
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
 
-        <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs', $dataBreadcrumb)
+        <!-- Breadcrumb -->
+        @include('includes.breadcrumbs', $dataBreadcrumb)
 
-        <!-- Blog Post -->
+        <!-- Elements Searched -->
         <div class="row">
         @forelse($dataSearch->chunk(1) as $k =>$chunk)
         <div class="col-lg-6 mb-4">

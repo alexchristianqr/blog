@@ -3,11 +3,11 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
+        <!-- Page Heading -->
         <h1 class="mt-4 mb-3 text-dark">Category <small class="text-dark">of Blogs</small></h1>
 
-        <!-- Breadcrumb Component -->
-        @include('components.breadcrumbs',$dataBreadcrumb)
+        <!-- Breadcrumb -->
+        @include('includes.breadcrumbs',$dataBreadcrumb)
 
         <!-- Content Row -->
         <div class="row">
@@ -15,7 +15,7 @@
             <!-- Content Column -->
             <div class="col-md-8 col-lg-8">
 
-                <!-- Blog Post -->
+                <!-- Post -->
                 @for($i=0; $i<2; $i++)
                     <div class="card mb-4">
                         <img class="card-img-top" src="{{asset('images/750x300/01.jpg')}}" alt="Card image cap">
@@ -27,10 +27,7 @@
                             <a href="{{route('route.blog.post',[2018,6,'param-title-post'])}}" class="btn btn-primary my-auto">Read
                                 More <i class="fa fa-long-arrow-right"></i></a>
                         </div>
-                        <div class="card-footer text-muted">
-                            Posted on January 1, 2017 by
-                            <a href="#">Alex Christian</a>
-                        </div>
+                        <div class="card-footer text-muted">Posted on January 1, 2017 by<a href="#">Alex Christian</a></div>
                     </div>
                 @endfor
 
@@ -57,8 +54,6 @@
             </div>
 
         </div>
-        <!-- /.row -->
 
     </div>
-    <!-- /.container -->
 @endsection
