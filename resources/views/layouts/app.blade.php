@@ -68,7 +68,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1">
+    <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default">
         @include('layouts.footer')
     </footer>
 

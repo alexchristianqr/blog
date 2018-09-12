@@ -33,7 +33,7 @@
                     <a href="{{route('route.blog.post',[Carbon\Carbon::parse($v->published)->format('Y'),Carbon\Carbon::parse($v->published)->format('m'),$v->kind])}}" class="btn btn-primary my-auto">Read More <i class="fa fa-long-arrow-right"></i></a>
                 </div>
                 <div class="card-footer text-muted">
-                    <span>Posted on </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="#">{{$v->user_name}}</a>
+                    <span>Posted on </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="{{$routeSearch.'?param_search='.$v->user_name}}">{{$v->user_name}}</a>
                 </div>
             </div>
             @endforeach

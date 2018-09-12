@@ -2,7 +2,7 @@
     <div id="hrefYears">
         <ul class="list-group">
             <!-- Years -->
-            <li class="list-group-item bg-light">
+            <li class="list-group-item bg-default">
                 <h5 class="text-dark my-auto">History</h5>
             </li>
             @foreach($dataHistory as $k => $v)

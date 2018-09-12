@@ -51,23 +51,26 @@
         <!-- Posts Component -->
         <div class="row">
             <div class="col-12">
-                <div style="display: flex;overflow: hidden;overflow-x: scroll">
+                <div style="
+                display: flex;
+                overflow: hidden;
+                border: 1px solid #007bff;
+                overflow-x: scroll">
                     @foreach($dataCourses as $k => $v)
                         <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
-                            <div style="position: relative;margin: 0.5rem;display: flex;">
-                                <strong class="my-auto mr-1 text-dark">{{$v->ranking}}</strong>
-                                <span class="my-auto" style="display: flex;">
-                                    <i class="fa fa-star text-warning" style="position: relative;display: block;"></i>
-                                </span>
-                                <span class="text-dark" style="display: block;
-                                bottom: -650%;
+                            <div style="
+                            position: relative;
+                            margin: 0.5rem;
+                            display: flex">
+                                <span class="text-dark" style="
                                 position: absolute;
                                 left: 0;
                                 right: 0;
                                 text-align: center;
-                                font-weight: 600;
-                                font-size: 1.5rem;">{{$v->name}}</span>
-                        </div>
+                                font-weight: 400;
+                                top: 9rem;
+                                font-size: 1.5rem">{{$v->name}}</span>
+                            </div>
                         </a>
                     @endforeach
                 </div>
