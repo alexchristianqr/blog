@@ -54,7 +54,7 @@
                 <div style="
                 display: flex;
                 overflow: hidden;
-                border: 1px solid #007bff;
+                border: 1px solid #dee2e6;
                 overflow-x: scroll">
                     @foreach($dataCourses as $k => $v)
                         <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
@@ -111,7 +111,7 @@
         </div>
 
         <!-- Call to Action Section -->
-        <div class="row mt-4 mb-4">
+        <div class="row mt-4">
             <div class="col-md-6">
                 <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información,
                     suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>

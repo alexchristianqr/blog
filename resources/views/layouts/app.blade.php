@@ -29,29 +29,11 @@
     @elseenv('prod')
     <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
     <script src="{{asset('dist/js/vue.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
+{{--    <script src="{{asset('dist/js/app.js')}}"></script><!-- produccion -->--}}
     @endenv
 </head>
 <body>
-    <!-- Init Facebook -->
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '481663735685291',
-                xfbml      : true,
-                version    : 'v3.1'
-            });
-            FB.AppEvents.logPageView();
-        };
-
-        (function(d, s, id){
-            let js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/es_LA/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
+<div id="app">
     <!-- Social Share Kit -->
     @if(request()->routeIs('route.blog.post'))
         @include('includes.social-share-kit')
@@ -71,7 +53,7 @@
     <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default">
         @include('layouts.footer')
     </footer>
-
+</div>
     <!-- Scripts new Vue -->
     @yield('script-vue')
 

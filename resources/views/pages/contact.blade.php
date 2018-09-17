@@ -85,19 +85,19 @@
             <div class="col-md-6 col-lg-3">
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input type="tel" class="form-control bg-light" required>
+                    <input type="tel" class="form-control bg-default" required>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control bg-light" required>
+                    <input type="email" class="form-control bg-default" required>
                 </div>
             </div>
             <div class="col-lg-12 mb-4">
                 <div class="form-group">
                     <label>Message</label>
-                    <textarea rows="4" cols="100" class="form-control bg-light" required maxlength="999" style="resize:none"></textarea>
+                    <textarea rows="4" cols="100" class="form-control bg-default" required maxlength="999" style="resize:none"></textarea>
                 </div>
                 <!-- For success/fail messages -->
                 <button type="submit" class="btn btn-primary">Send Message</button>

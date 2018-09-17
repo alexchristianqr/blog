@@ -5,6 +5,7 @@
             <div class="pt-0 pb-0 w-100">
                 <div class="col-sm-12 col-md-7 col-lg-5 mx-sm-auto mx-md-auto mx-auto">
                     {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
+                    {{csrf_field()}}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
                             <h4 class="modal-title">Sign In</h4>
@@ -29,10 +30,10 @@
                                 <label class="d-none d-lg-inline-block">Password</label>
                                 <div class="input-group">
                                     <template v-if="viewPwd">
-                                        <input title="contraseña" name="password" type="text" class="form-control" placeholder="Password" maxlength="16" required>
+                                        {!! Form::text('password','',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required']) !!}
                                     </template>
                                     <template v-else>
-                                        <input title="contraseña" name="password" type="password" class="form-control" placeholder="Password" maxlength="16" required>
+                                        {!! Form::password('password',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required']) !!}
                                     </template>
                                     <div class="input-group-append">
                                         <template v-if="!viewPwd">
