@@ -22,10 +22,11 @@
     <link rel="stylesheet" href="{{asset("dist/css/main.css")}}"><!-- produccion -->
     @endenv
     @env('local')
-    <script src="{{asset('node_modules/jquery/dist/jquery.js')}}"></script><!-- node_modules -->
-    <script src="{{asset('node_modules/social-share-kit/dist/js/social-share-kit.js')}}"></script><!-- node_modules -->
-    <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script><!-- node_modules -->
-    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script><!-- node_modules -->
+    {{--<script src="{{asset('node_modules/jquery/dist/jquery.js')}}"></script><!-- node_modules -->--}}
+    {{--<script src="{{asset('node_modules/social-share-kit/dist/js/social-share-kit.js')}}"></script><!-- node_modules -->--}}
+    {{--<script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script><!-- node_modules -->--}}
+    <script src="{{asset('dist/js/main.js')}}"></script><!-- local -->
+    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script><!-- local -->
     @elseenv('prod')
     <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
     <script src="{{asset('dist/js/vue.min.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
