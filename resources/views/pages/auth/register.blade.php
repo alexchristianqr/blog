@@ -112,7 +112,7 @@
         </div>
     </div>
 @endsection
-@section('script-vue')
+@section('script-js')
     <script type="text/javascript">
        new Vue({
             el:'#app-container-register',

@@ -5,7 +5,6 @@
             <div class="pt-0 pb-0 w-100">
                 <div class="col-sm-12 col-md-7 col-lg-5 mx-sm-auto mx-md-auto mx-auto">
                     {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
-                    {{csrf_field()}}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
                             <h4 class="modal-title">Sign In</h4>
@@ -92,7 +91,7 @@
         </div>
     </div>
 @endsection
-@section('script-vue')
+@section('script-js')
     <script type="text/javascript">
        new Vue({
             el:'#app-container-login',

@@ -1,6 +1,6 @@
 <!-- Comment with nested comments -->
 <div class="media mb-4">
-    <img class="d-flex mr-3 rounded-circle" src="{{asset('images/400x400/vue.png')}}" width="50" alt="">
+    <img class="d-flex mr-3 rounded-circle" src="{{asset('images/profile.jpg')}}" width="50" alt="">
     <div class="media-body">
         <h5 class="mt-0">Commenter Name</h5>
         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
@@ -8,7 +8,7 @@
         vulputate fringilla. Donec lacinia congue felis in faucibus.
 
         <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="{{asset('images/400x400/vue.png')}}" width="50" alt="">
+            <img class="d-flex mr-3 rounded-circle" src="{{asset('images/profile.jpg')}}" width="50" alt="">
             <div class="media-body">
                 <h5 class="mt-0">Commenter Name</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
@@ -18,7 +18,7 @@
         </div>
 
         <div class="media mt-4">
-            <img class="d-flex mr-3 rounded-circle" src="{{asset('images/400x400/vue.png')}}" width="50" alt="">
+            <img class="d-flex mr-3 rounded-circle" src="{{asset('images/profile.jpg')}}" width="50" alt="">
             <div class="media-body">
                 <h5 class="mt-0">Commenter Name</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante

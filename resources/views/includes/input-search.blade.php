@@ -18,7 +18,7 @@
         </template>
     </div>
 </div>
-@section('script-vue')
+@section('script-js')
     <script type="text/javascript">
         new Vue({
             el:'#app-container-search',

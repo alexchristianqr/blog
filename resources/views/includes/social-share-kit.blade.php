@@ -5,8 +5,3 @@
     <a href="https://github.com/acqrdeveloper" target="_blank" class="ssk ssk-github"></a>
     <a href="https://wa.me/51955588297?text=Hola @AlexChristian" target="_blank" class="ssk ssk-whatsapp"></a>
 </div>
-<script type="text/javascript">
-    $(document).ready(() =>{
-        SocialShareKit.init()
-    })
-</script>

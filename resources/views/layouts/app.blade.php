@@ -9,8 +9,8 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Last-Modified" content="0">
     <meta http-equiv="Expires" content="-1" >
-    <link rel="icon" href="{{asset('favicon.png')}}">
     @yield('content-metas-share')
+    <link rel="icon" href="{{asset('favicon.png')}}">
     @env('local')
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}"><!-- node_modules -->
     <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}"><!-- node_modules -->
@@ -22,14 +22,13 @@
     <link rel="stylesheet" href="{{asset("dist/css/main.css")}}"><!-- produccion -->
     @endenv
     @env('local')
-    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script><!-- node_modules -->
     <script src="{{asset('node_modules/jquery/dist/jquery.js')}}"></script><!-- node_modules -->
     <script src="{{asset('node_modules/social-share-kit/dist/js/social-share-kit.js')}}"></script><!-- node_modules -->
     <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script><!-- node_modules -->
+    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script><!-- node_modules -->
     @elseenv('prod')
     <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
-    <script src="{{asset('dist/js/vue.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
-{{--    <script src="{{asset('dist/js/app.js')}}"></script><!-- produccion -->--}}
+    <script src="{{asset('dist/js/vue.min.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
     @endenv
 </head>
 <body>
@@ -53,9 +52,10 @@
     <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default">
         @include('layouts.footer')
     </footer>
-</div>
-    <!-- Scripts new Vue -->
-    @yield('script-vue')
 
+    <!-- Build Scripts -->
+    @yield('script-js')
+
+</div>
 </body>
 </html>
