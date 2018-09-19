@@ -79,35 +79,44 @@
 
         <!-- Features Section -->
         <div class="row mt-4">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <h2 class="text-dark">@lang('home.description')</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que
                     sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <ul>
-                            <li>Bootstrap v4</li>
-                            <li>JQuery</li>
-                            <li>Font Awesome</li>
-                            <li>Vue 2</li>
-                            <li>Angular 6</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <ul>
-                            <li>React</li>
-                            <li>Laravel Framework</li>
-                            <li>Lumen Micro Framework</li>
-                            <li>Node</li>
-                            <li>Sails Framework</li>
-                        </ul>
-                    </div>
+                    @foreach($dataTecnologies->chunk(5) as $chunk)
+                        @foreach($chunk as $v)
+                            <div class="col-sm-3 col-md-4 col-lg-3">
+                                <ul>
+                                    <li class="text-capitalize">{{$v->name}}</li>
+                                </ul>
+                            </div>
+                        @endforeach
+                    @endforeach
+                    {{--<div class="col-sm-12 col-md-6">--}}
+                        {{--<ul>--}}
+                            {{--<li>Bootstrap v4</li>--}}
+                            {{--<li>JQuery</li>--}}
+                            {{--<li>Font Awesome</li>--}}
+                            {{--<li>Vue 2</li>--}}
+                            {{--<li>Angular 6</li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-sm-12 col-md-6">--}}
+                        {{--<ul>--}}
+                            {{--<li>React</li>--}}
+                            {{--<li>Laravel Framework</li>--}}
+                            {{--<li>Lumen Micro Framework</li>--}}
+                            {{--<li>Node</li>--}}
+                            {{--<li>Sails Framework</li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
                 </div>
             </div>
-            <div class="col-lg-6">
-                <img class="img-fluid rounded img-thumbnail" src="{{asset('images/dia.png')}}" alt="">
-            </div>
+            {{--<div class="col-lg-6">--}}
+                {{--<img class="img-fluid rounded img-thumbnail" src="{{asset('images/dia.png')}}" alt="">--}}
+            {{--</div>--}}
         </div>
 
         <!-- Call to Action Section -->

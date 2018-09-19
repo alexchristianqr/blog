@@ -11,5 +11,5 @@ return [
   'portfolio'=>'Portafolio',
   'contact'=>'Contacto',
   'service'=>'Servicio',
-  'about'=>'Acerca de',
+  'about'=>'Sobre mi',
 ];

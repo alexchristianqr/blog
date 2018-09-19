@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\TechnologyService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,6 +12,8 @@ class HomeController extends Controller
     {
         $dataCourses = DB::table('courses')->join('path','path.id','courses.path_id')->select('courses.*','path.name AS path_name')->get();
         $dataImages = DB::table('home')->join('path','path.id','home.path_id')->select('home.*','path.name AS path_name')->get();
-        return view('pages.home', compact('dataImages','dataCourses'));
+        $dataTecnologies  = (new TechnologyService())->getAll($request);
+//        return view('pages.about',compact('dataTecnologies'));
+        return view('pages.home', compact('dataImages','dataCourses', 'dataTecnologies'));
     }
 }
