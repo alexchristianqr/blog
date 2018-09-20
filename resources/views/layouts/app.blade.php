@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('node_modules/social-share-kit/dist/css/social-share-kit.css')}}"><!-- node_modules -->
     <link rel="stylesheet" href="{{asset('assets/css/sticky-footer-navbar.css')}}"><!-- dev -->
     <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}"><!-- dev -->
-    <link rel="stylesheet" href="{{asset('assets/css/dev.css')}}"><!-- dev -->
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}"><!-- dev -->
     @elseenv('prod')
     <link rel="stylesheet" href="{{asset("dist/css/main.css")}}"><!-- produccion -->
     @endenv

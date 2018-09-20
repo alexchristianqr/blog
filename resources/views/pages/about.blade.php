@@ -14,7 +14,7 @@
             <div class="col-lg-6">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Who I'm?</h2>
+                        <h2>Quien Soy?</h2>
                         <p>Hola soy Alex Christian especialista en el desarrollo full-stack de <span class="mark bg-light font-weight-bold rounded">Aplicaciones Web y Moviles Híbridos</span>, me tome
                             el tiempo de actualizar mi plataforma personal para poder compartir con la comunidad de
                             desarrolladores mis experiencias, pasos y orígenes para iniciar y ser persistente.</p>
@@ -23,7 +23,7 @@
                             mas experiencia y aprendamos más y ser contínuo en ese punto.</p>
                     </div>
                     <div class="col-12">
-                        <h2>Passion for Programming?</h2>
+                        <h2>Pasión por Programar?</h2>
                         <p>Como pienso yó es importante hacer las cosas por pasión, debe nacer de manera natural el sér bueno, el sér investigador, el sér un pregunton sólido porque solo exigiéndose uno mismo logrará el objetivo.</p>
                         <p>Y uno de mis objetivos es tener éxito en la vida haciendo lo que mas me gusta y amo, y és el de <span class="mark bg-light font-weight-bold rounded">Programar</span> y es que yo cuando trabajo lo disfruto al 100%.</p>
                     </div>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <!-- /.row -->
-        <h2 class="mb-3">Get Curriculum Vitae</h2>
+        <h2 class="mb-3">Curriculum Vitae</h2>
         <div class="row mb-3">
             <div class="col-4">
                 <div class="text-center">
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <h2>Experiences and Knowledge</h2>
+        <h2>Experiencias y Conocimientos</h2>
         <p>Con el paso de los años poniendo a mucha muchísimas horas en práctica todos nuestros <span
                     class="mark bg-light rounded font-weight-bold">Conocimientos</span>, se logra muchos resultados
             sobre todo la <span class="mark bg-light rounded font-weight-bold">Experiencia</span> un valor de alta

@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="card my-4">
-                    <h5 class="card-header">Add Your Comment</h5>
+                    <h5 class="card-header">Add Comment</h5>
                     <div class="card-body">
                         <form>
                             <div class="form-group">

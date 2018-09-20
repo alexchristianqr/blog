@@ -20,9 +20,9 @@ mix.styles([
     'node_modules/bootstrap/dist/css/bootstrap.css',
     'node_modules/font-awesome/css/font-awesome.css',
     'node_modules/social-share-kit/dist/css/social-share-kit.css',
-    'resources/assets/css/sticky-footer-navbar.css',//dev
-    'resources/assets/css/modern-business.css',//dev
-    'resources/assets/css/dev.css',//dev
+    'resources/assets/css/sticky-footer-navbar.css',
+    'resources/assets/css/modern-business.css',
+    'resources/assets/css/app.css',
 ], 'public/dist/css/main.css')
 
 mix.js(['resources/assets/js/app.js'], 'public/dist/js/main.js')

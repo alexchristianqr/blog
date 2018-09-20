@@ -1,6 +1,6 @@
 <div id="app-container-search" class="input-group">
     <input v-model="vm_search" name="param_search" ref="text_search" type="text" class="form-control"
-           placeholder="Search" required>
+           placeholder="Search in all" required>
     <div v-show="vm_search != ''" class="input-group-append">
         <template v-if="dataColorSec != undefined">
             <button :class="'btn '+dataColorSec.color" type="button" @click="clean"><i class="fa fa-remove"></i></button>
