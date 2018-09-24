@@ -296,3 +296,15 @@ pre {
 .border-color-default{
     color: #6c757d !important;
 }
+
+.custom-control-input:focus ~ .custom-control-label::before{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(91, 95, 103, 0.25) !important;
+}
+
+.custom-control-input:active ~ .custom-control-label::before{
+    background-color: rgba(52, 58, 64, 0.27058823529411763) !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+    background-color: #343a40 !important;
+}

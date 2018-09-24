@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['title'=>'Sign In'])
 @section('content')
     <div id="app-container-login" class="container">
         <div class="row">
@@ -12,8 +12,7 @@
                         <div class="modal-body">
                             <div class="form-group has-error">
                                 <label class="d-none d-lg-inline-block">Email</label>
-                                <input title="email" name="email" type="email" class="form-control" placeholder="Email"
-                                       required value="{{ old('email') }}">
+                                <input v-model="vmusername" title="email" name="email" type="email" class="form-control" placeholder="Email" required value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -29,10 +28,10 @@
                                 <label class="d-none d-lg-inline-block">Password</label>
                                 <div class="input-group">
                                     <template v-if="viewPwd">
-                                        {!! Form::text('password','',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required']) !!}
+                                        {!! Form::text('password','',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
                                     </template>
                                     <template v-else>
-                                        {!! Form::password('password',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required']) !!}
+                                        {!! Form::password('password',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
                                     </template>
                                     <div class="input-group-append">
                                         <template v-if="!viewPwd">
@@ -56,11 +55,9 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-7 col-lg-7">
                                     <div class="form-group">
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input name="rememberme" class="form-check-input" type="checkbox">
-                                                <span class="text-muted">Remember Password</span>
-                                            </label>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="chk1">
+                                            <label class="custom-control-label" for="chk1">Remember me</label>
                                         </div>
                                     </div>
                                 </div>
@@ -93,17 +90,27 @@
 @endsection
 @section('script-js')
     <script type="text/javascript">
-       new Vue({
+       new  Vue({
             el:'#app-container-login',
             data:()=>({
+                vmusername:'{{old('email')}}',
+                vmpassword:'{{old('password')}}',
                 viewPwd: false//ver password
             }),
             methods:{
                 change(){
-                   this.viewPwd = !this.viewPwd
+                    if(this.vmpassword.length) {
+                        return this.viewPwd = !this.viewPwd
+                    }else{
+                        if(this.viewPwd){
+                            return this.viewPwd = !this.viewPwd
+                        }else{
+                            return false
+                        }
+                    }
                 }
             }
-        });
+        })
     </script>
 @endsection
 
