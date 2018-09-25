@@ -7,9 +7,12 @@
  */
 
 return [
-  'title'=>'Home',
-  'latest_posts'=>'Latest Posts',
-  'favorites_courses'=>'Favorite Courses',
-  'updated_portfolio'=>'Updated Portfolio',
-  'description'=>'Hello, Welcome to my web site'
+    'title' => 'Home',
+    'latest_posts' => 'Latest Posts',
+    'favorites_courses' => 'Favorite Courses',
+    'updated_portfolio' => 'Updated Portfolio',
+    'description' => 'Hello, Welcome to my web site',
+    'nav' => [
+        'account' => 'My Account',
+    ],
 ];
