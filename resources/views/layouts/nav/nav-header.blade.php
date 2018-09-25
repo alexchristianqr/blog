@@ -33,7 +33,7 @@
                         <div class="dropdown-menu dropdown-menu-right mb-2" aria-labelledby="x1">
                             <div class="dropdown-header">
                                 <div class="text-center mb-2">
-                                    <i class="fa fa-image fa-5x"></i>
+                                    <i class="fa fa-picture-o fa-5x"></i>
                                     {{--<img class="rounded w-50" src="https://avatars3.githubusercontent.com/u/22840027?s=460&v=4" alt="">--}}
                                 </div>
                                 <div class="text-center">
@@ -42,10 +42,10 @@
                                 </div>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="fa fa-calendar-plus-o fa-fw"></i>@lang('nav.courses')</a>
-                            <a class="dropdown-item" href="#"><i class="fa fa-gift fa-fw"></i>@lang('nav.promotions')</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-archive fa-fw"></i>@lang('nav.courses')</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-cubes fa-fw"></i>@lang('nav.promotions')</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}">@lang('nav.logout')</a>
+                            <a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i>@lang('nav.logout')</a>
                         </div>
                     </li>
                 @endauth

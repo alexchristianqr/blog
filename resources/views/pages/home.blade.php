@@ -80,7 +80,7 @@
         <!-- Features Section -->
         <div class="row mt-4">
             <div class="col-lg-12">
-                <h2 class="text-dark">@lang('home.description')</h2>
+                <h2 class="text-dark">Bienvenido a mi sitio web personal</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que
                     sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
