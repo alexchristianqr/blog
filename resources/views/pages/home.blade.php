@@ -45,11 +45,75 @@
     <div class="container">
 
         <!-- Posts Section -->
-        <h2 class="mt-4 mb-3 text-dark">Los Mejores</h2>
+        <h2 class="mt-4 text-dark">Descubre lo mejor</h2>
         <p>Encuentra mucha información sobre las últimas tecnologías que se utilizan hoy en dia, saber como usarlas y obtener un gran concepto.</p>
 
-        <!-- Posts Component -->
-        <div class="row">
+        <!-- Carrousel -->
+        <h3 class="text-dark">Frameworks Front-End</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias cum, deserunt dolore eius eos harum maiores modi nesciunt non quis recusandae reiciendis rerum saepe sequi similique soluta totam voluptas.</p>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div style="
+                display: flex;
+                overflow: hidden;
+                border: 1px solid #dee2e6;
+                overflow-x: scroll">
+                    @foreach($dataCourses as $k => $v)
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                            <div style="
+                            position: relative;
+                            margin: 0.5rem;
+                            display: flex">
+                                <span class="text-dark" style="
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                text-align: center;
+                                font-weight: 400;
+                                top: 9rem;
+                                font-size: 1.5rem">{{$v->name}}</span>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrousel -->
+        <h3 class="text-dark">Frameworks Back-End</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias cum, deserunt dolore eius eos harum maiores modi nesciunt non quis recusandae reiciendis rerum saepe sequi similique soluta totam voluptas.</p>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div style="
+                display: flex;
+                overflow: hidden;
+                border: 1px solid #dee2e6;
+                overflow-x: scroll">
+                    @foreach($dataCourses as $k => $v)
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                            <div style="
+                            position: relative;
+                            margin: 0.5rem;
+                            display: flex">
+                                <span class="text-dark" style="
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                text-align: center;
+                                font-weight: 400;
+                                top: 9rem;
+                                font-size: 1.5rem">{{$v->name}}</span>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <!-- Carrousel -->
+        <h3 class="text-dark">Frameworks Mobile</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias cum, deserunt dolore eius eos harum maiores modi nesciunt non quis recusandae reiciendis rerum saepe sequi similique soluta totam voluptas.</p>
+        <div class="row mb-3">
             <div class="col-12">
                 <div style="
                 display: flex;
@@ -78,7 +142,7 @@
         </div>
 
         <!-- Features Section -->
-        <div class="row mt-4">
+        <div hidden class="row mt-4">
             <div class="col-lg-12">
                 <h2 class="text-dark">Bienvenido a mi sitio web personal</h2>
                 <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que
