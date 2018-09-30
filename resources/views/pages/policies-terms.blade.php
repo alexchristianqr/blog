@@ -5,7 +5,7 @@
         <!-- Page Heading -->
         @include('includes.heading',['title'=>'Terms and conditions','subtitle'=>'of use'])
 
-        <p><u><b>Primeramente gradecido</b></u> por tomarte el tiempo de leer esta sección de fundamental importancia.</p>
+        <p><b>Primeramente agradecido</b> por tomarte el tiempo de leer esta sección de fundamental importancia.</p>
         <p>Estas Condiciones rigen el uso de nuestro sitio web y los productos, las funciones, las aplicaciones, los
             servicios,
             las tecnologías y el software que ofrecemos, excepto cuando
