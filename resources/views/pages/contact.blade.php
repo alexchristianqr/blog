@@ -3,8 +3,9 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading -->
+    <!-- Page Heading -->
     @include('includes.heading',['title'=>'Contact','subtitle'=>'Me'])
+
     <!-- Content Row -->
         <div class="row">
             <!-- Map Column -->

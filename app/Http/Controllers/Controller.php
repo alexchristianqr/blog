@@ -20,4 +20,9 @@ class Controller extends BaseController
     {
         return view('pages.service');
     }
+
+    function viewPolicies()
+    {
+        return view('pages.policies-terms');
+    }
 }

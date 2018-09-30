@@ -14,7 +14,7 @@ class MailController extends Controller
             (new MailService())->sendMailSubscribe($request);
             return redirect()->intended()->with('mail_send', 'Tu mensaje se envió con éxito');
         }catch(Exception $e){
-            return redirect()->back()->withErrors(['mail_failed' => ['Tu mensaje no fue enviado']]);
+            return redirect()->back()->withErrors(['message_failed' => ['Tu mensaje no fue enviado']]);
         }
     }
 }

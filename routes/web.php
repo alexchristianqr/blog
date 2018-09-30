@@ -69,4 +69,7 @@ Route::group(['middleware' => 'web'], function($route){
     //Email
     $route->post('/subscribe', 'MailController@sendMailSubscribe')->name('route.mail.subscribe');
 
+    //Policies and Privacy
+    $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');
+
 });

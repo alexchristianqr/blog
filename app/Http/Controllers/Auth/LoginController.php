@@ -58,13 +58,13 @@ class LoginController extends Controller
                     case 'I':
                         $this->guard()->logout();
                         $request->session()->invalidate();
-                        return redirect()->back()->withInput()->withErrors('Your session has expired because your account is deactivated.');
+                        return redirect()->back()->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated.']]);
                         break;
                     default:
                         $request->session()->regenerate();
                         $this->clearLoginAttempts($request);
                         //Redirect
-                        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('logged_id','Usted se ha logeado');
+                        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('message_auth','Usted se ha logeado');
                         break;
                 }
             }
@@ -84,47 +84,58 @@ class LoginController extends Controller
         return Socialite::driver($driver)->redirect();
     }
 
-    public function handleProviderCallback($driver)
+    public function handleProviderCallback($driver, Request $request)
     {
         try {
             $user = Socialite::driver($driver)->user();
-            if(User::where('email', $user->getEmail())->where('provider_id', $user->getId())->first()){
-                $data_auth = User::where('email', $user->getEmail())->where('status', 'A')->first();
+            $data_auth = User::where('email', $user->getEmail())->where('provider_id', $user->getId())->first();
+            if($data_auth){
+                $isLogged = true;
             } else {
-                User::create([
-                    'name'=>$user->getName(),
-                    'email'=>$user->getEmail(),
-                    'username'=>$user->getNickname(),
-                    'provider_id'=>$user->getId(),
-                    'provider_avatar'=>$user->getAvatar(),
-                ]);
-                $data_auth = User::where('email', $user->getEmail())->where('provider_id', $user->getId())->where('status', 'A')->first();
+                if($this->storeUser($user)){
+                    $isLogged = true;
+                }else{
+                    $isLogged  = false;
+                }
             }
-            if ($data_auth){
-                Auth::login($data_auth);
-                return redirect()->to('/');
-            }else{
-                return redirect()->route('get.login')->with(['message' => 'este usuario no esta habilitado!, contacte con el ADMINISTRADOR.']);
+            if ($isLogged ){
+                Auth::login(User::where('role_id',2)->where('email', $user->getEmail())->where('provider_id', $user->getId())->first());
+                switch(auth()->user()->status){
+                    case 'I':
+                        $this->guard()->logout();
+                        $request->session()->invalidate();
+                        return redirect()->route('get.login')->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated.']]);
+                        break;
+                    default:
+                        $request->session()->regenerate();
+                        $this->clearLoginAttempts($request);
+                        //Redirect
+                        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('message_auth','Welcome to my website');
+                        break;
+                }
+//                $request->session()->regenerate();
+//                $this->clearLoginAttempts($request);
+//                //Redirect
+//                return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('logged_id','Usted se ha logeado');
             }
-
+//            else{
+//                return redirect()->route('get.login')->withInput()->withErrors('Your session has expired because your account is deactivated.');
+////                return redirect()->route('get.login')->with(['message' => 'este usuario no esta habilitado!, contacte con el ADMINISTRADOR.']);
+//            }
+            return redirect()->route('get.login')->withErrors(['error_login'=>'Las credenciales ingresadas, no son válidas']);
         } catch (Exception $e) {
             return redirect()->route('get.login')->with(['message' => $e->getMessage()]);
         }
-//        dd($user,auth()->user());
-        // OAuth Two Providers
-//        $token = $user->token;
-//        $refreshToken = $user->refreshToken; // not always provided
-//        $expiresIn = $user->expiresIn;
-//
-//        // OAuth One Providers
-//        $token = $user->token;
-//        $tokenSecret = $user->tokenSecret;
-//
-//        // All Providers
-//        $user->getId();
-//        $user->getNickname();
-//        $user->getName();
-//        $user->getEmail();
-//        $user->getAvatar();
+    }
+
+    function storeUser($user)
+    {
+        return User::create([
+            'name'=>$user->getName(),
+            'email'=>$user->getEmail(),
+            'username'=>$user->getNickname(),
+            'provider_id'=>$user->getId(),
+            'provider_avatar'=>$user->getAvatar(),
+        ]);
     }
 }

@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h2>¿Quién Soy?</h2>
-                        <p>Hola soy Alex Christian especialista en el desarrollo full-stack de <span class="mark bg-dark font-weight-light text-white rounded">Aplicaciones Web y Móviles Híbrido,</span> me tome
+                        <p>Hola soy Alex Christian especialista en el desarrollo full-stack de <span class="mark bg-light font-weight-light rounded">Aplicaciones Web y Móviles Híbrido,</span> me tome
                             el tiempo de actualizar mi plataforma personal para poder compartir con la comunidad de
                             desarrolladores mis experiencias, pasos y orígenes para iniciar y ser persistente.</p>
                         <p class="d-sm-block d-lg-none">Asi es ser persistente ante los miles de fracasos, inquietudes, desconocimiento de los
@@ -25,15 +25,15 @@
                     <div class="col-12">
                         <h2>Pasión por Programar</h2>
                         <p>Es importante hacer las cosas por pasión, debe nacer y fluir de manera natural el sér bueno, el sér investigador, el sér un pregunton sólido porque solo exigiéndose uno mismo se logrará el objetivo.</p>
-                        <p>Mi mayor objetivo es tener éxito en la vida haciendo lo que mas me gusta y amo y es <span class="mark bg-dark font-weight-light text-white rounded">Programar</span> y es que escribir cada codigo es un disfrúte al 100%.</p>
+                        <p>Mi mayor objetivo es tener éxito en la vida haciendo lo que mas me gusta y amo y es <span class="mark bg-light font-weight-light rounded">Programar</span> y es que escribir cada codigo es un disfrúte al 100%.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <h2>Experiencias y Conocimientos</h2>
-        <p>Con el paso de los años poniendo a mucha muchísimas horas en práctica todos nuestros <span class="mark bg-dark rounded font-weight-light text-white">Conocimientos,</span> se logra muchos resultados
-            sobre todo la <span class="mark bg-dark rounded font-weight-light text-white">Experiencia</span> un valor de alta
+        <p>Con el paso de los años poniendo a mucha muchísimas horas en práctica todos nuestros <span class="mark bg-light rounded font-weight-light">Conocimientos,</span> se logra muchos resultados
+            sobre todo la <span class="mark bg-light rounded font-weight-light">Experiencia</span> un valor de alta
             importancia para nosotros en esta carrera del desarrollo de software.</p>
         <p>Y estas son las tecnologías que son parte de mi experiencia:</p>
         <div class="row">

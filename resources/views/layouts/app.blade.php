@@ -50,7 +50,7 @@
     </header>
 
     <!-- Page Content -->
-    <main role="main" class="mb-5 pb-5">
+    <main role="main" class="mb-5" style="padding-bottom: 5rem">
         @yield('content')
     </main>
 

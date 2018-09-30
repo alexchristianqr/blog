@@ -69,21 +69,23 @@
 </nav>
 
 {{--Mode Beta--}}
+@if(env('LEVEL') === 'beta')
 @include('layouts.nav.nav-beta')
+@endif
 
 {{--Login--}}
-@if(session()->has('logged_id'))
+@if(session()->has('message_auth'))
     @include('layouts.nav.nav-auth')
 @endif
 
 {{--Suscripcion--}}
-@if(session()->has('mail_send'))
-    @include('layouts.nav.nav-mail-send')
+@if(session()->has('message_success'))
+    @include('layouts.nav.nav-success-laravel')
 @endif
 
 {{--Error mail--}}
 @if($errors->any())
-    @if($errors->first('mail_failed'))
-        @include('layouts.nav.nav-mail-error')
+    @if($errors->first('message_failed'))
+        @include('layouts.nav.nav-error-laravel')
     @endif
 @endif
