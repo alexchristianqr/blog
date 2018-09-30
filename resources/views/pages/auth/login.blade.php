@@ -75,10 +75,9 @@
                             <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
                         </div>
                         <div class="form-group text-center">
-                                <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="text-facebook"><i class="fa fa-facebook-square fa-3x"></i></a>
-                                <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="btn btn-outline-danger btn-lg border-0 rounded"><i class="fa fa-google-plus-square fa-2x"></i></a>
-                                <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="text-dark"><i class="fa fa-github-square fa-3x"></i></a>
-                            {{--</div>--}}
+                            <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="text-facebook"><i class="fa fa-facebook-square fa-3x"></i></a>
+                            <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="text-danger"><i class="fa fa-google-plus-square fa-3x"></i></a>
+                            <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="text-dark"><i class="fa fa-github-square fa-3x"></i></a>
                         </div>
                     </div>
                     {!! Form::close() !!}
