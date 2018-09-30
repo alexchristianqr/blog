@@ -46,7 +46,7 @@
                 @include('includes.search',[$routeSearch])
 
                 <!-- Categories Component -->
-                @include('includes.categories',[$dataCategory])
+                {{--@include('includes.categories',[$dataCategory])--}}
 
                 <!-- Posts History Component -->
                 @include('includes.history',[$dataHistory, $dataMonths])

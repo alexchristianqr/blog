@@ -33,8 +33,12 @@
                         <div class="dropdown-menu dropdown-menu-right mb-2" aria-labelledby="x1">
                             <div class="dropdown-header">
                                 <div class="text-center mb-2">
-                                    <i class="fa fa-picture-o fa-5x"></i>
-                                    {{--<img class="rounded w-50" src="https://avatars3.githubusercontent.com/u/22840027?s=460&v=4" alt="">--}}
+                                    {{--<i class="fa fa-picture-o fa-5x"></i>--}}
+                                    @if(auth()->user()->provider_avatar != '')
+                                    <img class="rounded w-50" src="{{auth()->user()->provider_avatar}}" alt="">
+                                        @else
+                                    <img class="rounded w-50" src="{{auth()->user()->image}}" alt="">
+                                    @endif
                                 </div>
                                 <div class="text-center">
                                     <span class="w-100 font-weight-bold">{{auth()->user()->name}}</span><br>

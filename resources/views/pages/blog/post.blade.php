@@ -56,7 +56,7 @@
                 @include('includes.tags',[$dataTag,$routeSearch])
 
                 <!-- Categories -->
-                @include('includes.categories',[$dataCategory])
+{{--                @include('includes.categories',[$dataCategory])--}}
 
                 <!-- Posts History -->
                 @include('includes.history',[$dataHistory, $dataMonths])

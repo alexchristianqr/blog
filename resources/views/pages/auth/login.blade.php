@@ -76,9 +76,10 @@
                         </div>
                         <div class="form-group text-center">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button title="Start with Facebook" type="submit" class="btn btn-outline-facebook btn-lg border-0 rounded"><i class="fa fa-facebook-square fa-2x"></i></button>
-                                <button title="Start with Google" type="submit" class="btn btn-outline-danger btn-lg border-0 rounded"><i class="fa fa-google-plus-square fa-2x"></i></button>
-                                <button title="Start with Github" type="submit" class="btn btn-outline-dark btn-lg border-0 rounded"><i class="fa fa-github-square fa-2x"></i></button>
+                                <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="btn btn-lg btn-facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                <a href="#" title="Start with Google" class="btn btn-lg btn-danger"><i class="fa fa-google-plus-square fa-2x"></i></a>
+{{--                                <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="btn btn-outline-danger btn-lg border-0 rounded"><i class="fa fa-google-plus-square fa-2x"></i></a>--}}
+                                <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="btn btn-lg btn-dark"><i class="fa fa-github-square fa-2x"></i></a>
                             </div>
                         </div>
                     </div>

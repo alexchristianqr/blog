@@ -27,6 +27,9 @@ Route::group(['middleware' => 'web'], function($route){
         $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
         $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
+
+        $route->get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('route.socialite.login');
+        $route->get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('route.callback.login');
     });
 
     //Middleware Auth
