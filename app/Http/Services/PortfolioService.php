@@ -21,7 +21,7 @@ class PortfolioService
         if($request->has('portfolio_kind')) $dataModel = $dataModel->where('portfolio.kind', $request->portfolio_kind);
 
         //Status
-        if($request->has('status')) $dataModel = $dataModel->where('status', $request->status);
+        if($request->has('status')) $dataModel = $dataModel->where('portfolio.status', $request->status);
 
         //OrderField
         if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'portfolio.updated_at', 'DESC');
@@ -50,6 +50,7 @@ class PortfolioService
     {
         $request->request->add([
             'paginate' => $request->has('paginate') ? $request->paginate : 3,
+            'status' => 'A',
             'orderBy' => true,
         ]);
         return $this->dataModel($request);

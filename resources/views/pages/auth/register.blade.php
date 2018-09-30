@@ -7,7 +7,7 @@
                     {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
-                            <h4 class="modal-title">Register Account</h4>
+                            <h4 class="modal-title">Sign Up</h4>
                         </div>
                         <div class="modal-body">
                             <div class="row">
@@ -96,9 +96,9 @@
                             </div>
                         </div>
                         <div class="modal-footer border-top-0">
-                            <button type="submit" class="btn btn-dark btn-block btn-lg">Register</button>
+                            <button type="submit" class="btn btn-dark btn-block btn-lg">Create</button>
                         </div>
-                        <div class="form-group text-center">
+                        <div hidden class="form-group text-center">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button title="Start with Facebook" type="submit" class="btn btn-outline-facebook btn-lg"><i class="fa fa-facebook-square fa-2x"></i></button>
                                 <button title="Start with Google" type="submit" class="btn btn-outline-danger btn-lg"><i class="fa fa-google-plus-square fa-2x"></i></button>

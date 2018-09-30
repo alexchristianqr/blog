@@ -16,7 +16,7 @@
             </div>
             <!-- Contact Details Column -->
             <div class="col-lg-5">
-                <h2>Contact Details</h2>
+                <h2>Information of Contact</h2>
                 <table class="table table-sm border-0">
                     <tbody>
                     <tr>
@@ -73,7 +73,7 @@
         </div>
         <!-- /.row -->
         <!-- Contact Form -->
-        <h2>Send Message</h2>
+        <h2>Message</h2>
         <form>
             <div class="row">
             <div class="col-md-6 col-lg-4">

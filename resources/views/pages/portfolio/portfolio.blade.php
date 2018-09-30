@@ -19,7 +19,22 @@
             <div class="col-lg-5">
                 <h3>{{$v->name}}</h3>
                 <div class="card-text">{!! $v->description !!}</div>
-                <a href="{{route('route.portfolio.item',[$v->kind])}}" class="btn btn-primary my-auto">View Project <i class="fa fa-angle-right ml-1"></i></a>
+                <div class="row">
+                    <div class="col-md-6 col-lg-12 my-auto">
+                        <a href="{{route('route.portfolio.item',[$v->kind])}}" class="btn btn-primary">View Project <i class="fa fa-angle-right ml-1"></i></a>
+                    </div>
+                    <div class="col-md-6 col-lg-12 mt-3 mt-md-0 mt-lg-3">
+                        @if($v->repository_github || $v->repository_codepen)
+                            <span class="text-secondary d-block d-md-inline d-lg-block mr-1">This project allows you </span>
+                        @endif
+                        @isset($v->repository_github)
+                            <a href="{{$v->repository_github}}" target="_blank" class="text-dark" title="View repository in github"><i class="fa fa-github-square fa-2x"></i></a>
+                        @endisset
+                        @isset($v->repository_codepen)
+                            <a href="{{$v->repository_codepen}}" target="_blank" class="text-dark" title="View repository in codepen"><i class="fa fa-codepen fa-2x"></i></a>
+                        @endisset
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.row -->

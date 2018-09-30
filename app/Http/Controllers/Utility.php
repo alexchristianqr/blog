@@ -32,12 +32,6 @@ define('SERVICE_UNAVAILABLE', 503);
 trait Utility
 {
 
-    function getStrTruncate($string)
-    {
-
-        return $string;
-    }
-
     function generateYearsRange($start_year = 'Y-m-d', $end_year = 'Y-m-d')
     {
         $years = [];
@@ -82,82 +76,8 @@ trait Utility
         return ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     }
 
-    function connect()
-    {
-        try{
-            return new PDO('mysql:host=127.0.0.1:3306;dbname=acfarma', 'root', '');
-        }catch(\PDOException $e){
-            die($e->getMessage());
-        }
-
-    }
-
-    function util_create($value)
-    {
-        try{
-            $pdo = $this->connect();
-            $query = "insert into test (name) values(?)";
-            $pdo->prepare($query)->execute([$value]);
-        }catch(\Exception $e){
-            echo $e->getMessage();
-        }
-    }
-
-    function util_select()
-    {
-        try{
-            $pdo = $this->connect();
-            $query = "select * from test";
-            $data = $pdo->query($query)->fetchAll(PDO::FETCH_CLASS);
-            echo json_encode($data);
-        }catch(\Exception $e){
-            echo $e->getMessage();
-        }
-    }
-
-    function util_find()
-    {
-        try{
-            $pdo = $this->connect();
-            $query = "select * from test where id = ?";
-            $data = $pdo->prepare($query)->execute([19]);
-            $newdata = $data->fetchAll();
-            echo json_encode($data);
-        }catch(\Exception $e){
-            echo $e->getMessage();
-        }
-    }
-
-    function util_edit($set, $where)
-    {
-        try{
-            $pdo = $this->connect();
-            $query = "update test set name = ? where id = ?";
-            $pdo->prepare($query)->execute([$set, $where]);
-        }catch(\Exception $e){
-            echo $e->getMessage();
-        }
-    }
-
-    function util_delete($where)
-    {
-        try{
-            $pdo = $this->connect();
-            $query = "delete from test where id = ?";
-            if(is_array($where)){
-                foreach($where as $v){
-                    $pdo->prepare($query)->execute([$v]);
-                }
-            }else{
-                $pdo->prepare($query)->execute([$where]);
-            }
-        }catch(\Exception $e){
-            echo $e->getMessage();
-        }
-    }
-
     //Descomentar para obtener la consulta en SQL o aplicar debug de datos
-    private function myDebug($dataModel,$debug_sql = false)
+    function myDebug($dataModel,$debug_sql = false)
     {
         if($debug_sql){
             dd($dataModel->toSql(), $dataModel->getBindings());//Consulta SQL

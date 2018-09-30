@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="col-5 col-md-4 col-lg-4 my-auto text-center">
-                    <span class="text-secondary">by Alex Christian</span>
+                    <a href="{{route('route.home')}}" class="text-secondary" style="text-decoration: none">by Alex Christian</a>
                 </div>
         </div>
     </div>

@@ -49,7 +49,7 @@
         <p>Encuentra mucha información sobre las últimas tecnologías que se utilizan hoy en dia, saber como usarlas y obtener un gran concepto.</p>
         <p>Ahora te presentamos en bloques los frameworks que podrias aprender</p>
         <!-- Carrousel -->
-        <h3 class="text-dark">Frameworks Front-End</h3>
+        <h3 class="text-dark">Front-End</h3>
         <p>Son librerias escritas en un lenguaje que se ejecuta en el lado del cliente. Contienen un patron de trabajo organizado y funciones optimizadas, es necesario y util en la actualidad para la UIX del usuario.</p>
         <div class="row mb-3">
             <div class="col-12">
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Carrousel -->
-        <h3 class="text-dark">Frameworks Back-End</h3>
+        <h3 class="text-dark">Back-End</h3>
         <p>Son librerias escritas en un lenguaje que se ejecuta en el lado del servidor. Contienen un patron de trabajo organizado y funciones optimizadas, son muy utiles para la creacion servicios y micro-servicios apis rest.</p>
         <div class="row mb-3">
             <div class="col-12">
@@ -111,7 +111,7 @@
         </div>
 
         <!-- Carrousel -->
-        <h3 class="text-dark">Frameworks Mobile</h3>
+        <h3 class="text-dark">Mobile</h3>
         <p>Podemos aplicar frameworks escrito en javascript y mediante una optimizacion de codigo lograr ejecutar en android.</p>
         <div class="row mb-3">
             <div class="col-12">
@@ -158,29 +158,8 @@
                             </div>
                         @endforeach
                     @endforeach
-                    {{--<div class="col-sm-12 col-md-6">--}}
-                        {{--<ul>--}}
-                            {{--<li>Bootstrap v4</li>--}}
-                            {{--<li>JQuery</li>--}}
-                            {{--<li>Font Awesome</li>--}}
-                            {{--<li>Vue 2</li>--}}
-                            {{--<li>Angular 6</li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-sm-12 col-md-6">--}}
-                        {{--<ul>--}}
-                            {{--<li>React</li>--}}
-                            {{--<li>Laravel Framework</li>--}}
-                            {{--<li>Lumen Micro Framework</li>--}}
-                            {{--<li>Node</li>--}}
-                            {{--<li>Sails Framework</li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
                 </div>
             </div>
-            {{--<div class="col-lg-6">--}}
-                {{--<img class="img-fluid rounded img-thumbnail" src="{{asset('images/dia.png')}}" alt="">--}}
-            {{--</div>--}}
         </div>
 
         <!-- Call to Action Section -->
@@ -193,16 +172,14 @@
                 {{--<form action="">--}}
                 {!! Form::open(['url'=>route('route.mail.subscribe'),'method'=>'post']) !!}
                 <div class="input-group mb-3">
-                    <input name="email" type="email" class="form-control" placeholder="Your email" required>
+                    <input name="email" type="email" class="form-control" placeholder="Email" required>
                     <div class="input-group-append">
-                        {{--<a href="{{route('route.mail.subscribe')}}" class="btn btn-primary">Subscribe</a>--}}
-                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                        <button class="btn btn-primary" type="submit">Subscribe<span class="d-none d-md-inline d-lg-inline"> to my List</span></button>
                     </div>
                 </div>
                 {!! Form::close() !!}
             </div>
         </div>
-
     </div>
     <!-- /.container -->
 @endsection

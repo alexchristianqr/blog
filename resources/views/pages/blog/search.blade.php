@@ -34,9 +34,21 @@
                 </div>
                 <div class="card-footer text-muted">
                     <span class="d-none d-md-inline d-lg-inline">Posted </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="{{$routeSearch.'?param_search='.$v->user_name}}">{{$v->user_name}}</a>
-                    {{--<span>Posted on </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="{{$routeSearch.'?param_search='.$v->user_name}}">{{$v->user_name}}</a>--}}
                 </div>
             </div>
+            {{--<div class="card h-100">--}}
+                {{--<img class="card-img-top" src="{{asset($v->path_name.$v->image)}}" alt="Image Search"/>--}}
+                {{--<div class="card-body">--}}
+                    {{--<h2 class="card-title text-dark">{{$v->name}}</h2>--}}
+                    {{--<p class="card-text">{{$v->description}}</p>--}}
+                {{--</div>--}}
+                {{--<div class="card-footer text-muted">--}}
+                    {{--<span class="d-none d-md-inline d-lg-inline">Posted </span><span>{{Carbon\Carbon::parse($v->published)->format('F d, Y')}}</span><span> by </span><a href="{{$routeSearch.'?param_search='.$v->user_name}}">{{$v->user_name}}</a>--}}
+                {{--</div>--}}
+                {{--<div class="card-footer p-0">--}}
+                    {{--<a href="#" class="my-btn-link btn-block pt-3 pb-3 border-0" style="text-decoration: none">Get Course by <i class="fa fa-dollar"></i><b>10</b></a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             @endforeach
         </div>
         @empty

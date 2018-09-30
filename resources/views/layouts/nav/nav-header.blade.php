@@ -42,10 +42,11 @@
                                 </div>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="fa fa-archive fa-fw"></i>@lang('nav.courses')</a>
-                            <a class="dropdown-item" href="#"><i class="fa fa-cubes fa-fw"></i>@lang('nav.promotions')</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-archive mr-1"></i>@lang('nav.courses')</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-cubes mr-1"></i>@lang('nav.promotions')</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-star mr-1"></i>News</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i>@lang('nav.logout')</a>
+                            <a class="dropdown-item" href="{{route('logout')}}"><i class="fa fa-sign-out mr-1"></i>@lang('nav.logout')</a>
                         </div>
                     </li>
                 @endauth
@@ -53,8 +54,8 @@
                 <li class="mx-1 my-auto text-muted"></li>
                 <li class="nav-item mt-0 mt-3 mt-lg-0">
                     <div class="btn-group w-100" role="group">
-                        <a class="nav-link btn btn-outline-secondary btn-sm w-100" href="{{route('get.login')}}"><i class="fa fa-user-o fa-fw"></i>@lang('nav.login')</a>
-                        <a class="nav-link btn btn-outline-secondary btn-sm w-100" href="{{route('get.register')}}"><i class="fa fa-user-plus fa-fw"></i>@lang('nav.register')</a>
+                        <a class="nav-link btn btn-outline-secondary btn-sm w-100 {{request()->routeIs('get.login') ? 'active' : ''}}" href="{{route('get.login')}}"><i class="fa fa-user fa-fw"></i>Log In</a>
+                        <a class="nav-link btn btn-outline-secondary btn-sm w-100 {{request()->routeIs('get.register') ? 'active' : ''}}" href="{{route('get.register')}}"><i class="fa fa-user-plus fa-fw"></i>Sign Up</a>
                     </div>
                 </li>
                 @endguest
@@ -62,6 +63,9 @@
         </div>
     </div>
 </nav>
+
+{{--Mode Beta--}}
+@include('layouts.nav.nav-beta')
 
 {{--Login--}}
 @if(session()->has('logged_id'))

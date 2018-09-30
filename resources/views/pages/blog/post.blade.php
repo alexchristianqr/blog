@@ -42,17 +42,6 @@
                         <div class="fb-like" data-href="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
                     </div>
                 </div>
-                <div class="card my-4">
-                    <h5 class="card-header">Add Comment</h5>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" title=""></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Comment</button>
-                        </form>
-                    </div>
-                </div>
 
                 <!-- Coments -->
                 @include('includes.coments')

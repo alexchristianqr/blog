@@ -7,7 +7,7 @@
                     {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
-                            <h4 class="modal-title">Sign In</h4>
+                            <h4 class="modal-title">Log In</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group has-error">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="modal-footer border-top-0">
-                            <button type="submit" class="btn btn-dark btn-block btn-lg">Sign In</button>
+                            <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
                         </div>
                         <div class="form-group text-center">
                             <div class="btn-group" role="group" aria-label="Basic example">

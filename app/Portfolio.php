@@ -14,5 +14,7 @@ class Portfolio extends Model
         'galery',
         'description',
         'status',
+        'repository_github',
+        'repository_codepen',
     ];
 }

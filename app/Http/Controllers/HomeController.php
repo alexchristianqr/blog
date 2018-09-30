@@ -16,12 +16,6 @@ class HomeController extends Controller
         $dataImagesBackend = DB::table('courses')->join('path', 'path.id', 'courses.path_id')->select('courses.*', 'path.name AS path_name')->where('type', 'backend')->get();
         $dataImagesCss = DB::table('courses')->join('path', 'path.id', 'courses.path_id')->select('courses.*', 'path.name AS path_name')->where('type', 'css')->get();
         $dataImagesMobile = DB::table('courses')->join('path', 'path.id', 'courses.path_id')->select('courses.*', 'path.name AS path_name')->where('type', 'mobile')->get();
-
-
-        //        $dataImagesFrontend = DB::table('home')->join('path', 'path.id', 'home.path_id')->select('home.*', 'path.name AS path_name')->where('type', 'frontend')->get();
-//        $dataImagesBackend = DB::table('home')->join('path', 'path.id', 'home.path_id')->select('home.*', 'path.name AS path_name')->where('type', 'backend')->get();
-//        $dataImagesCss = DB::table('home')->join('path', 'path.id', 'home.path_id')->select('home.*', 'path.name AS path_name')->where('type', 'css')->get();
-//        $dataImagesMobile = DB::table('home')->join('path', 'path.id', 'home.path_id')->select('home.*', 'path.name AS path_name')->where('type', 'mobile')->get();
         $dataTecnologies = (new TechnologyService())->getAll($request);
         return view('pages.home', compact('dataImages', 'dataCourses', 'dataTecnologies', 'dataImagesFrontend', 'dataImagesBackend', 'dataImagesCss', 'dataImagesMobile'));
     }
