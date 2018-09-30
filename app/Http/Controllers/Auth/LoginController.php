@@ -92,7 +92,7 @@ class LoginController extends Controller
             if($data_auth){
                 $isLogged = true;
             } else {
-                if($this->storeUser($user)){
+                if($this->storeUser($user,$driver)){
                     $isLogged = true;
                 }else{
                     $isLogged  = false;
@@ -113,29 +113,21 @@ class LoginController extends Controller
                         return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('message_auth','Welcome to my website');
                         break;
                 }
-//                $request->session()->regenerate();
-//                $this->clearLoginAttempts($request);
-//                //Redirect
-//                return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('logged_id','Usted se ha logeado');
             }
-//            else{
-//                return redirect()->route('get.login')->withInput()->withErrors('Your session has expired because your account is deactivated.');
-////                return redirect()->route('get.login')->with(['message' => 'este usuario no esta habilitado!, contacte con el ADMINISTRADOR.']);
-//            }
-            return redirect()->route('get.login')->withErrors(['error_login'=>'Las credenciales ingresadas, no son válidas']);
+//            return redirect()->route('get.login')->withErrors(['message_failed'=>['Las credenciales ingresadas, no son válidas']]);
         } catch (Exception $e) {
-            return redirect()->route('get.login')->with(['message' => $e->getMessage()]);
+            return redirect()->route('get.login')->withErrors(['message_failed' => [$e->getMessage()]]);
         }
     }
 
-    function storeUser($user)
+    function storeUser($user,$driver)
     {
         return User::create([
             'name'=>$user->getName(),
             'email'=>$user->getEmail(),
             'username'=>$user->getNickname(),
             'provider_id'=>$user->getId(),
-            'provider_avatar'=>$user->getAvatar(),
+            'provider_avatar'=> ($driver == 'google') ? $user->avatar_original : $user->getAvatar(),
         ]);
     }
 }

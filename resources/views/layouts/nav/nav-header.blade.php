@@ -78,12 +78,12 @@
     @include('layouts.nav.nav-auth')
 @endif
 
-{{--Suscripcion--}}
+{{--Success--}}
 @if(session()->has('message_success'))
     @include('layouts.nav.nav-success-laravel')
 @endif
 
-{{--Error mail--}}
+{{--Error--}}
 @if($errors->any())
     @if($errors->first('message_failed'))
         @include('layouts.nav.nav-error-laravel')
