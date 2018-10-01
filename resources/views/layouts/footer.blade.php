@@ -2,7 +2,7 @@
     <div class="bg-default {{request()->routeIs('route.blog.post')?'py-md-3 py-lg-4':'py-2 py-md-3 py-lg-4'}}" style="{{request()->routeIs('route.blog.post')?'padding-bottom: 3.65rem;padding-top: 0.75rem;':''}}">
         <div class="row">
             <div class="col-12 h-100 text-center text-md-left text-lg-left">
-                <ul class="list-inline">
+                <ul class="list-inline mb-1 mt-2 mt-md-0 mt-lg-0">
                     <li class="list-inline-item"><a href="{{route('route.policies.terms')}}">Terms of Use</a></li>
                     <li class="list-inline-item"><a href="#privacy">Privacy Policy</a></li>
                     <li class="list-inline-item"><a href="#publicity">Publicity</a></li>
