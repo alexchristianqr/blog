@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Exception;
 
 class RegisterController extends Controller
 {
@@ -42,7 +44,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -51,22 +53,34 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'confirm_password' => 'required|string|min:6|confirmed',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param Request $request
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function postRegister(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        try{
+            if($request->password === $request->confirm_password){
+                User::create([
+                    'name' => $request->full_mame,
+                    'email' => $request->email,
+                    'pwd_decrypted' => $request->password,
+                    'password' => bcrypt($request->password),
+                ]);
+                return redirect()->route('get.login')->withInput(['email' => $request->email])->with(['message_success'=>'User created successfully']);
+            }else{
+                return redirect()->back()->withInput($request->all())->withErrors(['message_failed' => ['Failed validation fields password']]);
+            }
+
+        }catch(Exception $e){
+            return redirect()->back()->withErrors(['message_failed' => ['Failed in moment of create user']]);
+        }
     }
 
     public function getRegister()

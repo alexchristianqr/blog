@@ -62,10 +62,9 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-5 col-lg-5">
-                                    <div class="form-group-sm">
+                                    <div hidden class="form-group-sm">
                                         <div class="text-sm-left text-md-right text-lg-right">
-                                            <a class="text-muted" href="http://blog.acqrdeveloper.com/password/reset">
-                                                <i class="fa fa-unlock-alt fa-fw d-lg-none"></i>Forgot Password</a>
+                                            <a class="text-muted" href="http://blog.acqrdeveloper.com/password/reset"><i class="fa fa-unlock-alt fa-fw d-lg-none"></i>Forgot Password</a>
                                         </div>
                                     </div>
                                 </div>

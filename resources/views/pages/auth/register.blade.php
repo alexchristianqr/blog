@@ -4,7 +4,7 @@
         <div class="row">
             <div class="pt-0 pb-0 w-100">
                 <div class="col-sm-12 col-md-7 col-lg-6 mx-sm-auto mx-md-auto mx-auto">
-                    {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
+                    {!! Form::open(['url'=>route('post.register'),'method'=>'post']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
                             <h4 class="modal-title">Sign Up</h4>
@@ -68,10 +68,10 @@
                                         <label class="d-none d-lg-inline-block">Confirm Password</label>
                                         <div class="input-group">
                                             <template v-if="viewPwdTwo">
-                                                <input title="contraseña" name="password" type="text" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="confirm_password" type="text" class="form-control" placeholder="Password" maxlength="16" required>
                                             </template>
                                             <template v-else>
-                                                <input title="contraseña" name="password" type="password" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="confirm_password" type="password" class="form-control" placeholder="Password" maxlength="16" required>
                                             </template>
                                             <div class="input-group-append">
                                                 <template v-if="!viewPwdTwo">

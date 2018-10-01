@@ -21,6 +21,7 @@ Route::group(['middleware' => 'web'], function($route){
 
         //Registration Routes...
         $route->get('register', 'Auth\RegisterController@getRegister')->name('get.register');
+        $route->post('register', 'Auth\RegisterController@postRegister')->name('post.register');
 
         //Password Reset Routes...
         /*$route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

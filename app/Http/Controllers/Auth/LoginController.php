@@ -58,13 +58,13 @@ class LoginController extends Controller
                     case 'I':
                         $this->guard()->logout();
                         $request->session()->invalidate();
-                        return redirect()->back()->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated.']]);
+                        return redirect()->back()->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated']]);
                         break;
                     default:
                         $request->session()->regenerate();
                         $this->clearLoginAttempts($request);
                         //Redirect
-                        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('message_auth','Usted se ha logeado');
+                        return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with(['message_auth'=>'']);
                         break;
                 }
             }

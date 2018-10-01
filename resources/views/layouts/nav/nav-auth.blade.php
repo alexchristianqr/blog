@@ -1,6 +1,6 @@
-<nav class="my-auto alert-light">
+<nav class="my-auto alert-secondary">
     <div class="container">
-        <div class="alert alert-light fade show border-0 pl-0 pr-0 mb-0 text-dark" role="alert" style="border-radius: 0">
+        <div class="alert alert-secondary fade show border-0 pl-0 pr-0 mb-0" role="alert" style="border-radius: 0">
             <div class="row">
                 <div class="col-11 my-auto">
                     <span class="my-auto">Hello <strong>{{auth()->user()->name}}</strong>, you have logged in correctly</span>
