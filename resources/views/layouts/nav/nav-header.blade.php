@@ -41,7 +41,7 @@
                                     @endif
                                 </div>
                                 <div class="text-center">
-                                    <span class="w-100 font-weight-bold">{{auth()->user()->name}}</span><br>
+                                    <span class="w-100 font-weight-bold text-capitalize">{{auth()->user()->name}}</span><br>
                                     <span class="text-center w-100">( {{auth()->user()->email}} )</span>
                                 </div>
                             </div>
