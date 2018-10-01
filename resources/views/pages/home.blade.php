@@ -15,7 +15,8 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($dataImages as $k => $v)
                     @if($k == 0)
-                        <div class="carousel-item active" style="background-image: url('{{asset($v->path_name.$v->image)}}')">
+                        <div class="carousel-item active"
+                             style="background-image: url('{{asset($v->path_name.$v->image)}}')">
                             <div class="carousel-caption">
                                 <h2 class="d-none d-lg-block">{{$v->title}}</h2>
                                 <h3 class="d-lg-none d-sm-block">{{$v->title}}</h3>
@@ -46,11 +47,17 @@
 
         <!-- Posts Section -->
         <h2 class="mt-4 text-dark">Descubre lo mejor</h2>
-        <p>Encuentra mucha información sobre las últimas tecnologías que se utilizan hoy en dia, saber como usarlas y obtener un gran concepto.</p>
-        <p>Ahora te presentamos en bloques los frameworks que podrias aprender</p>
+        <p>Aqui encontraras mucha información sobre las últimas tecnologías que se utilizan hoy en dia, obtener un gran
+            concepto y aprender a usarlas. Por ejemplo frameworks, librerias, plugins, etc. y cientos de materiales que
+            nos facilitan en el desarrollo de aplicaciones web.</p>
         <!-- Carrousel -->
-        <h3 class="text-dark">Front-End</h3>
-        <p>Son librerias escritas en un lenguaje que se ejecuta en el lado del cliente. Contienen un patron de trabajo organizado y funciones optimizadas, es necesario y util en la actualidad para la UIX del usuario.</p>
+        <h3 class="text-dark">Tecnologías Frontend</h3>
+        <p>Son las tecnologías que se ejecutan del lado del cliente, es decir tecnologías ejecutadas en el
+            navegador o browser. En contexto tres lenguajes principales que hacen al frontend son <span class="mark bg-light font-weight-light rounded">Html, Css y
+                Javascript</span>.</p>
+        <p>Es importante recalcar que el frontend de hoy en dia es mas popular por el gran paso de rendimiento que
+            aportan los frameworks de javascript.</p>
+        {{--<p>Son librerias escritas en un lenguaje que se ejecuta en el lado del cliente. Contienen un patron de trabajo organizado y funciones optimizadas, es necesario y util en la actualidad para la UIX del usuario.</p>--}}
         <div class="row mb-3">
             <div class="col-12">
                 <div style="
@@ -59,7 +66,9 @@
                 border: 1px solid #dee2e6;
                 overflow-x: scroll">
                     @foreach($dataImagesFrontend as $k => $v)
-                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
+                           class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
+                           style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
                             <div style="
                             position: relative;
                             margin: 0.5rem;
@@ -80,8 +89,13 @@
         </div>
 
         <!-- Carrousel -->
-        <h3 class="text-dark">Back-End</h3>
-        <p>Son librerias escritas en un lenguaje que se ejecuta en el lado del servidor. Contienen un patron de trabajo organizado y funciones optimizadas, son muy utiles para la creacion servicios y micro-servicios apis rest.</p>
+        <h3 class="text-dark">Tecnologías Backend</h3>
+        <p>Son las tecnologías que se ejecutan del lado del servidor, la interacción con las bases de datos y todo el
+            proceso de manipulación y control que provee al Frontend. En contexto los lenguajes mas populares son Java, Php, Python</p>
+        <p>Entre los frameworks mas populares están <span class="mark bg-light font-weight-light rounded">Laravel, Slim, Lumen, Nodejs</span>.</p>
+        {{--<p>Son librerias escritas en un lenguaje que se ejecuta en el lado del servidor. Contienen un patron de trabajo--}}
+            {{--organizado y funciones optimizadas, son muy utiles para la creacion servicios y micro-servicios apis--}}
+            {{--rest.</p>--}}
         <div class="row mb-3">
             <div class="col-12">
                 <div style="
@@ -90,7 +104,9 @@
                 border: 1px solid #dee2e6;
                 overflow-x: scroll">
                     @foreach($dataImagesBackend as $k => $v)
-                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
+                           class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
+                           style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
                             <div style="
                             position: relative;
                             margin: 0.5rem;
@@ -111,8 +127,9 @@
         </div>
 
         <!-- Carrousel -->
-        <h3 class="text-dark">Mobile</h3>
-        <p>Podemos aplicar frameworks escrito en javascript y mediante una optimizacion de codigo lograr ejecutar en android.</p>
+        <h3 class="text-dark">Tecnologías Móviles</h3>
+        <p>Para lograr el desarrollo de aplicaciones móviles, es necesario tener el conocimiento de Java, Kotlin, C#, Swift etc.</p>
+        <p>Hoy en dia javascript hace posible esto con el uso de sus frameworks como Ionic.</p>
         <div class="row mb-3">
             <div class="col-12">
                 <div style="
@@ -121,7 +138,9 @@
                 border: 1px solid #dee2e6;
                 overflow-x: scroll">
                     @foreach($dataImagesMobile as $k => $v)
-                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}" class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}" style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                        <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
+                           class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
+                           style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
                             <div style="
                             position: relative;
                             margin: 0.5rem;
@@ -174,7 +193,8 @@
                 <div class="input-group mb-3">
                     <input name="email" type="email" class="form-control" placeholder="Email" required>
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Subscribe<span class="d-none d-md-inline d-lg-inline"> to my List</span></button>
+                        <button class="btn btn-primary" type="submit">Subscribe<span
+                                    class="d-none d-md-inline d-lg-inline"> to my List</span></button>
                     </div>
                 </div>
                 {!! Form::close() !!}
