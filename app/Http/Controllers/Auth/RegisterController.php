@@ -68,7 +68,7 @@ class RegisterController extends Controller
         try{
             if($request->password === $request->confirm_password){
                 User::create([
-                    'name' => $request->full_mame,
+                    'name' => $request->full_name,
                     'email' => $request->email,
                     'pwd_decrypted' => $request->password,
                     'password' => bcrypt($request->password),
