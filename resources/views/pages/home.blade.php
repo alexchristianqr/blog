@@ -48,16 +48,15 @@
         <!-- Posts Section -->
         <h2 class="mt-4 text-dark">Descubre lo mejor</h2>
         <p>Aqui encontraras mucha información sobre las últimas tecnologías que se utilizan hoy en dia, obtener un gran
-            concepto y aprender a usarlas. Por ejemplo frameworks, librerias, plugins, etc. y cientos de materiales que
+            concepto y aprender a usarlas. Por ejemplo frameworks, librerias, plugins y cientos de materiales que
             nos facilitan en el desarrollo de aplicaciones web.</p>
         <!-- Carrousel -->
         <h3 class="text-dark">Tecnologías Frontend</h3>
         <p>Son las tecnologías que se ejecutan del lado del cliente, es decir tecnologías ejecutadas en el
             navegador o browser. En contexto tres lenguajes principales que hacen al frontend son <span class="mark bg-light font-weight-light rounded">Html, Css y
-                Javascript</span>.</p>
+                Javascript.</span></p>
         <p>Es importante recalcar que el frontend de hoy en dia es mas popular por el gran paso de rendimiento que
             aportan los frameworks de javascript.</p>
-        {{--<p>Son librerias escritas en un lenguaje que se ejecuta en el lado del cliente. Contienen un patron de trabajo organizado y funciones optimizadas, es necesario y util en la actualidad para la UIX del usuario.</p>--}}
         <div class="row mb-3">
             <div class="col-12">
                 <div style="
@@ -91,11 +90,8 @@
         <!-- Carrousel -->
         <h3 class="text-dark">Tecnologías Backend</h3>
         <p>Son las tecnologías que se ejecutan del lado del servidor, la interacción con las bases de datos y todo el
-            proceso de manipulación y control que provee al Frontend. En contexto los lenguajes mas populares son Java, Php, Python</p>
-        <p>Entre los frameworks mas populares están <span class="mark bg-light font-weight-light rounded">Laravel, Slim, Lumen, Nodejs</span>.</p>
-        {{--<p>Son librerias escritas en un lenguaje que se ejecuta en el lado del servidor. Contienen un patron de trabajo--}}
-            {{--organizado y funciones optimizadas, son muy utiles para la creacion servicios y micro-servicios apis--}}
-            {{--rest.</p>--}}
+            proceso de manipulación y control que provee al Frontend. En contexto los lenguajes mas populares son <span class="mark bg-light font-weight-light rounded">Java, Php, Python, etc.</span></p>
+        <p>Entre los frameworks mas populares están <span class="mark bg-light font-weight-light rounded">Laravel, Slim, Lumen, Nodejs, etc.</span></p>
         <div class="row mb-3">
             <div class="col-12">
                 <div style="
@@ -128,8 +124,8 @@
 
         <!-- Carrousel -->
         <h3 class="text-dark">Tecnologías Móviles</h3>
-        <p>Para lograr el desarrollo de aplicaciones móviles, es necesario tener el conocimiento de Java, Kotlin, C#, Swift etc.</p>
-        <p>Hoy en dia javascript hace posible esto con el uso de sus frameworks como Ionic.</p>
+        <p>Para lograr el desarrollo de aplicaciones móviles, es necesario tener el conocimiento de <span class="mark bg-light font-weight-light rounded">Java, Kotlin, C#, Swift, etc.</span></p>
+        <p>Hoy en dia javascript hace posible esto con el uso de sus frameworks como <span class="mark bg-light font-weight-light rounded">Ionic, Native Script, React Native, etc.</span></p>
         <div class="row mb-3">
             <div class="col-12">
                 <div style="

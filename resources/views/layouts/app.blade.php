@@ -44,7 +44,7 @@
         @include('includes.social-share-kit')
     @endif
 
-    <!-- Fixed navbar -->
+    <!-- Fixed Navbar -->
     <header>
         @include('layouts.nav.nav-header')
     </header>
@@ -54,10 +54,16 @@
         @yield('content')
     </main>
 
-    <!-- Fo oter -->
-    <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default">
-        @include('layouts.footer')
-    </footer>
+    <!-- Footer -->
+    @if(request()->routeIs('route.blog.post'))
+        <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default" style="bottom: -3rem !important;">
+            @include('layouts.footer')
+        </footer>
+    @else
+        <footer class="footer border-left-0 border-right-0 border-bottom-0 border-1 border-color-default">
+            @include('layouts.footer')
+        </footer>
+    @endif
 
     <!-- Build Scripts -->
     @yield('script-js')
