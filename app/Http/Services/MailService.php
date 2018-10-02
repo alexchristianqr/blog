@@ -6,7 +6,7 @@
 
 namespace App\Http\Services;
 
-use Exception;
+use App\Subscribed;
 use Illuminate\Support\Facades\Mail;
 
 class MailService
@@ -15,7 +15,6 @@ class MailService
     {
         Mail::send($request->view, $request->data, function($message) use ($request){
             $message->subject($request->subject);
-            $message->from($request->from);
             $message->to($request->to);
         });
         if(count(Mail::failures()) > 0){
@@ -27,20 +26,23 @@ class MailService
 
     function mailByUser($request)
     {
-//        $isSend = false;
-//        $Users = (new UserService())->getUsers($request);
-//        foreach($Users as $user){
-        $request->request->add([
-            'view' => 'templates.template-subscribe',
-            'data' => 'Hello Alex Christian!',
-            'from' => 'new.lex16@gmail.com',
-            'to' => 'aquispe.developer@gmail.com',
-            'subject' => 'Subscribed Successfully',
-        ]);
-        return $this->sendMail($request);
-//            $isSend = true;
-//        }
-//        return $isSend;
+        $isSend = false;
+        $dataUsers = Subscribed::groupBy('email')->get();
+        foreach($dataUsers as $user){
+            $request->request->add([
+                'view' => 'templates.template-subscribe',
+                'data' => [],
+                'to' => $user->email,
+                'subject' => 'Subscription Successful',
+            ]);
+            if($this->sendMail($request)){
+                $isSend = true;
+            }else{
+                $isSend = false;
+                break;
+            }
+        }
+        return $isSend;
     }
 
     function sendMailSubscribe($request)
@@ -48,10 +50,14 @@ class MailService
         $request->request->add([
             'view' => 'templates.template-subscribe',
             'data' => [],
-            'from' => 'new.lex16@gmail.com',
             'to' => $request->email,
-            'subject' => 'Alex Christian | Subscribed Successfully',
+            'subject' => 'Subscription Successful',
         ]);
         return $this->sendMail($request);
+    }
+
+    function create($request)
+    {
+        return Subscribed::create($request->all());
     }
 }

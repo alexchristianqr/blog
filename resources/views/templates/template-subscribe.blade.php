@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alex Christian | Subscribe</title>
     <style>
-
         p {
             margin-top: 0;
             margin-bottom: 1rem;
@@ -1152,13 +1151,13 @@
         <div class="alert alert-primary" role="alert">
             <h2>Suscripción Correcta!</h2>
             <p>Gracias por suscribirte a nuestro boletin de información, por este medio te mantendremos actualizado con lo ultimo de nuestros posts.</p>
-            <hr>
+            {{--<hr>--}}
             <small class="mb-0">¿Quieres cambiar tu suscripción?</small>
-            <br>
-            <br>
-            <a href="" class="btn btn-success">Confirm Message</a>
-            <a href="" class="btn btn-outline-success">Confirm Message</a>
-            <a href="" class="btn btn-block btn-primary">Confirm Message</a>
+            {{--<br>--}}
+            {{--<br>--}}
+            {{--<a href="" class="btn btn-success">Confirm Message</a>--}}
+            {{--<a href="" class="btn btn-outline-success">Confirm Message</a>--}}
+            {{--<a href="" class="btn btn-block btn-primary">Confirm Message</a>--}}
         </div>
     </div>
 </body>
