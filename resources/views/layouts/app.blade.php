@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{app()->getLocale()}}">
 <head>
-    <title>{{ !isset($title) ? 'Alex Christian (dvlopr) - Programador Full-Stack de Aplicaciones Web y Moviles Híbridos' : 'Alex Christian | '.$title }}</title>
+    <title>{{ !isset($title) ? 'Alex Christian :: Programador Full Stack de Aplicaciones Web(Spa, Pwa) y Moviles(Android, Ios) Hibridos | Developer | Desarrollador' : 'Alex Christian :: '.$title }}</title>
     <meta charset="UTF-8">
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#343a40">
