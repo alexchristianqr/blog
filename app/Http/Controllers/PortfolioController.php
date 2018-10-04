@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PortfolioRequest;
 use App\Http\Services\PortfolioService;
 use Exception;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class PortfolioController extends Controller
     }
 
     //Funcion para crear portfolio
-    function createPortfolio(Request $request)
+    function createPortfolio(PortfolioRequest $request)
     {
         try{
             (new PortfolioService())->create($request);
@@ -51,7 +52,7 @@ class PortfolioController extends Controller
     }
 
     //Funcion para actualizar portfolio
-    function updatePortfolio($post_id, Request $request)
+    function updatePortfolio($post_id, PortfolioRequest $request)
     {
         try{
             (new PortfolioService())->update($post_id, $request);
