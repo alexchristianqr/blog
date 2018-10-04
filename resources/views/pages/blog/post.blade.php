@@ -44,7 +44,7 @@
                 </div>
 
                 <!-- Coments -->
-                @include('includes.coments')
+                @include('includes.coments',[$dataPost])
 
             </div>
             <div class="col-lg-4">
