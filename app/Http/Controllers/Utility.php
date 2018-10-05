@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use PDO;
 
 //Notificaciones
 define('OK', 200);
@@ -31,7 +30,6 @@ define('SERVICE_UNAVAILABLE', 503);
 
 trait Utility
 {
-
     function generateYearsRange($start_year = 'Y-m-d', $end_year = 'Y-m-d')
     {
         $years = [];
