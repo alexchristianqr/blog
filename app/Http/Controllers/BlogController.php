@@ -53,7 +53,7 @@ class BlogController extends Controller
             foreach(json_decode($dataPost->tag_id) as $v){
                 foreach($dataTagTemp as $kk => $vv){
                     if($vv->id == $v){
-                        array_push($dataTag, $vv);
+                        $dataTag[] = $vv;
                     }
                 }
             }

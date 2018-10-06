@@ -169,7 +169,7 @@ class PostService
         $years = $this->generateYearsRange('2000-01-01', Carbon::now());
         $dataPostHistory = Post::select(DB::raw('YEAR(post.published) AS year, MONTH(post.published) AS month'), 'post.kind', 'post.name')
             ->where('post.status', 'A')
-            ->orderBy('post.published', 'ASC')
+            ->orderBy('post.published', 'DESC')
             ->get();
         $currentYear = 0;
         $currentMonth = 0;
@@ -206,6 +206,7 @@ class PostService
                 }
             }
             $newDataPostHistory[$item->year] = $arrayMonths;
+            ksort($newDataPostHistory[$item->year]);
         }
         return $newDataPostHistory;
     }
