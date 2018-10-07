@@ -12,15 +12,12 @@ Vue.config.silent = true
 
 new Vue({
     created(){
-        this.load()
+        this.initFacebook()
+        this.initShareKit()
     },
     methods: {
-        load(){
-            this.initFacebook()
-            this.initShareKit()
-        },
         initFacebook(){
-            window.fbAsyncInit = () =>{
+            window.fbAsyncInit = () => {
                 FB.init({
                     appId: '481663735685291',
                     xfbml: true,
@@ -29,13 +26,13 @@ new Vue({
                 FB.AppEvents.logPageView()
             };
             (function(d, s, id){
-                let js, fjs = d.getElementsByTagName(s)[0]
-                if(d.getElementById(id)){return}
-                js = d.createElement(s)
-                js.id = id
-                js.src = 'https://connect.facebook.net/en_US/sdk.js'
-                fjs.parentNode.insertBefore(js, fjs)
-            }(document, 'script', 'facebook-jssdk'))
+                    var js, fjs = d.getElementsByTagName(s)[0]
+                    if(d.getElementById(id)){return}
+                    js = d.createElement(s)
+                    js.id = id
+                    js.src = 'https://connect.facebook.net/en_US/sdk.js'
+                    fjs.parentNode.insertBefore(js, fjs)
+                }(document, 'script', 'facebook-jssdk'))
         },
         initShareKit(){
             $(document).ready(() =>{

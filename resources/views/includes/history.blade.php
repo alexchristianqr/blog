@@ -14,8 +14,8 @@
                         @foreach($v as $kk => $vv)
                         <li class="list-group-item p-0">
                             <a href="#hrefMonth-{{$kk.'-'.$k}}" class="btn btn-link w-100 h-100 text-left" data-toggle="collapse" aria-expanded="true">{{$dataMonths[$kk-1]}}</a>
-                            <div class="collapse" id="hrefMonth-{{$kk.'-'.$k}}" data-parent="#hrefMonths{{$k}}">
-                                <ul class="list-group list-group-flush pl-4">
+                            <div class="collapse" id="hrefMonth-{{$kk.'-'.$k}}">
+                                <ul class="list-group list-group-flush pl-3">
                                     <!-- Links -->
                                     @foreach($vv as $kkk => $vvv)
                                     <li class="list-group-item p-0 text-truncate">
@@ -28,7 +28,7 @@
                         @endforeach
                     </ul>
                 </div>
-            </li>
+                </li>
             @endforeach
         </ul>
     </div>
