@@ -12,8 +12,11 @@ Vue.config.silent = true
 
 new Vue({
     created(){
-        this.initFacebook()
-        this.initShareKit()
+        let doc = document.location.pathname.replace('/','').split('/')
+        if(doc.length == 5 && doc[0] == 'blog' && doc[1] == 'post'){
+            this.initFacebook()
+            this.initShareKit()
+        }
     },
     methods: {
         initFacebook(){

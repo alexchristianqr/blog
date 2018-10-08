@@ -19,21 +19,26 @@
     @yield('content-metas-share')
     <link rel="icon" href="{{asset('favicon.png')}}">
     @env('local')
-    <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}"><!-- node_modules -->
-    <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}"><!-- node_modules -->
-    <link rel="stylesheet" href="{{asset('node_modules/social-share-kit/dist/css/social-share-kit.css')}}"><!-- node_modules -->
-    <link rel="stylesheet" href="{{asset('assets/css/sticky-footer-navbar.css')}}"><!-- dev -->
-    <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}"><!-- dev -->
-    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}"><!-- dev -->
+    <!-- node_modules -->
+    <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('node_modules/font-awesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('node_modules/social-share-kit/dist/css/social-share-kit.css')}}">
+    <!-- local -->
+    <link rel="stylesheet" href="{{asset('assets/css/sticky-footer-navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/modern-business.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     @elseenv('prod')
-    <link rel="stylesheet" href="{{asset("dist/css/main.css")}}"><!-- produccion -->
+    <!-- produccion -->
+    <link rel="stylesheet" href="{{asset("dist/css/main.css")}}">
     @endenv
+    <!-- local-produccion -->
+    <script src="{{asset('dist/js/main.js').'?cache='.str_limit(time(),6,'')}}"></script>
     @env('local')
-    <script src="{{asset('dist/js/main.js')}}"></script><!-- local -->
-    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script><!-- local -->
+    <!-- local -->
+    <script src="{{asset('node_modules/vue/dist/vue.js')}}"></script>
     @elseenv('prod')
-    <script src="{{asset('dist/js/main.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
-    <script src="{{asset('dist/js/vue.min.js').'?cache'.str_limit(time(),6,'')}}"></script><!-- produccion -->
+    <!-- produccion -->
+    <script src="{{asset('dist/js/vue.min.js').'?cache='.str_limit(time(),6,'')}}"></script>
     @endenv
 </head>
 <body>
