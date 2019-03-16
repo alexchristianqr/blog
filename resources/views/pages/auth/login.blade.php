@@ -73,10 +73,19 @@
                         <div class="modal-footer border-top-0">
                             <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
                         </div>
-                        <div class="form-group text-center">
-                            <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="text-facebook"><i class="fa fa-facebook-square fa-3x"></i></a>
-                            <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="text-danger"><i class="fa fa-google-plus-square fa-3x"></i></a>
-                            <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="text-dark"><i class="fa fa-github-square fa-3x"></i></a>
+                        <div class="col-12 my-auto text-center">
+                            <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="btn btn-outline-facebook" style="min-width: 100px">
+                                <i class="fa fa-facebook"></i>
+                                <span class="text-center small">Facebook</span>
+                            </a>
+                            <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="btn btn-outline-danger" style="min-width: 100px">
+                                <i class="fa fa-google"></i>
+                                <span class="text-center small">Google</span>
+                            </a>
+                            <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="btn btn-outline-dark" style="min-width: 100px">
+                                <i class="fa fa-github"></i>
+                                <span class="text-center small">Github</span>
+                            </a>
                         </div>
                     </div>
                     {!! Form::close() !!}

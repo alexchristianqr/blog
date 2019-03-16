@@ -19,7 +19,7 @@ Route::group(['middleware' => 'cors:api'], function($route){
     $route->post('auth/logout', 'Auth\Api\AuthController@logout');
 
     //Auth Jwt
-    $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
+//    $route->group(['middleware' => ['verify.authorization', 'jwt.auth']], function($route){
         //User
         $route->get('get-auth-me', 'Auth\Api\AuthController@me');
 
@@ -41,5 +41,5 @@ Route::group(['middleware' => 'cors:api'], function($route){
         $route->get('get-portfolios', 'PortfolioController@getPortfolios');
         $route->post('create-portfolio', 'PortfolioController@createPortfolio');
         $route->put('update-portfolio/{portfolio_id}', 'PortfolioController@updatePortfolio');
-    });
+//    });
 });

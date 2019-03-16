@@ -59,27 +59,13 @@
             aportan los frameworks de javascript.</p>
         <div class="row mb-3">
             <div class="col-12">
-                <div style="
-                display: flex;
-                overflow: hidden;
-                border: 1px solid #dee2e6;
-                overflow-x: scroll">
+                <div style="display: flex;overflow: hidden;border: 1px solid #dee2e6;overflow-x: scroll">
                     @foreach($dataImagesFrontend as $k => $v)
                         <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
                            class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
                            style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
-                            <div style="
-                            position: relative;
-                            margin: 0.5rem;
-                            display: flex">
-                                <span class="{{$v->color}}" style="
-                                position: absolute;
-                                left: 0;
-                                right: 0;
-                                text-align: center;
-                                font-weight: 400;
-                                top: 9rem;
-                                font-size: 1.5rem">{{$v->name}}</span>
+                            <div style="position: relative;margin: 0.5rem;display: flex">
+                                <span class="{{$v->color}}" style="position: absolute;left: 0;right: 0;text-align: center;font-weight: 400;top: 9rem;font-size: 1.5rem">{{$v->name}}</span>
                             </div>
                         </a>
                     @endforeach
@@ -94,27 +80,13 @@
         <p>Entre los frameworks mas populares están <span class="mark bg-light font-weight-light rounded">Laravel, Slim, Lumen, Nodejs, etc.</span></p>
         <div class="row mb-3">
             <div class="col-12">
-                <div style="
-                display: flex;
-                overflow: hidden;
-                border: 1px solid #dee2e6;
-                overflow-x: scroll">
+                <div class="d-flex" style="overflow: hidden;border: 1px solid #dee2e6;overflow-x: scroll">
                     @foreach($dataImagesBackend as $k => $v)
                         <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
                            class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
                            style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
-                            <div style="
-                            position: relative;
-                            margin: 0.5rem;
-                            display: flex">
-                                <span class="{{$v->color}}" style="
-                                position: absolute;
-                                left: 0;
-                                right: 0;
-                                text-align: center;
-                                font-weight: 400;
-                                top: 9rem;
-                                font-size: 1.5rem">{{$v->name}}</span>
+                            <div class="position-relative d-flex m-1 ">
+                                <span class="{{$v->color}}" style="position: absolute;left: 0;right: 0;text-align: center;font-weight: 400;top: 9rem;font-size: 1.5rem">{{$v->name}}</span>
                             </div>
                         </a>
                     @endforeach
@@ -128,27 +100,13 @@
         <p>Hoy en dia javascript hace posible esto con el uso de sus frameworks como <span class="mark bg-light font-weight-light rounded">Ionic, Native Script, React Native, etc.</span></p>
         <div class="row mb-3">
             <div class="col-12">
-                <div style="
-                display: flex;
-                overflow: hidden;
-                border: 1px solid #dee2e6;
-                overflow-x: scroll">
+                <div class="d-flex border-1 border-light" style="overflow: hidden;overflow-x: scroll">
                     @foreach($dataImagesMobile as $k => $v)
                         <a href="{{route('route.blog.search').'?param_search='.$v->name}}"
-                           class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
-                           style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
-                            <div style="
-                            position: relative;
-                            margin: 0.5rem;
-                            display: flex">
-                                <span class="{{$v->color}}" style="
-                                position: absolute;
-                                left: 0;
-                                right: 0;
-                                text-align: center;
-                                font-weight: 400;
-                                top: 9rem;
-                                font-size: 1.5rem">{{$v->name}}</span>
+                            class="w-100 {{$dataCourses->count() == $k+1 ? '' : 'border-right'}}"
+                            style="background: url('{{asset($v->path_name.$v->image)}}') no-repeat center center scroll;background-size: cover;height: 200px;min-width: 57.5%;text-decoration: none">
+                            <div class="position-relative m-1 d-flex">
+                                <span class="{{$v->color}}" style="position: absolute;left: 0;right: 0;text-align: center;font-weight: 400;top: 9rem;font-size: 1.5rem">{{$v->name}}</span>
                             </div>
                         </a>
                     @endforeach
@@ -160,8 +118,7 @@
         <div hidden class="row mt-4">
             <div class="col-lg-12">
                 <h2 class="text-dark">Bienvenido a mi sitio web personal</h2>
-                <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que
-                    sientan una atracción por la tecnología.</p>
+                <p>En este sitio web encontrarás mucha información tecnológica para desarrolladores y para pesonas que sientan una atracción por la tecnología.</p>
                 <p>Tecnologías como pueden ser:</p>
                 <div class="row">
                     @foreach($dataTecnologies->chunk(5) as $chunk)
@@ -180,17 +137,14 @@
         <!-- Call to Action Section -->
         <div class="row mt-4">
             <div class="col-md-6">
-                <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información,
-                    suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
+                <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
             <div class="col-md-6 my-auto">
-                {{--<form action="">--}}
                 {!! Form::open(['url'=>route('route.mail.subscribe'),'method'=>'post']) !!}
                 <div class="input-group mb-3">
                     <input name="email" type="email" class="form-control" placeholder="Email" required>
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Subscribe<span
-                                    class="d-none d-md-inline d-lg-inline"> to my List</span></button>
+                        <button class="btn btn-primary" type="submit">Subscribe<span class="d-none d-md-inline d-lg-inline"> to my List</span></button>
                     </div>
                 </div>
                 {!! Form::close() !!}
