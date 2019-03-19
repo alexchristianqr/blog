@@ -74,15 +74,15 @@
                             <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
                         </div>
                         <div class="col-12 my-auto text-center">
-                            <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="btn btn-outline-facebook" style="min-width: 100px">
+                            <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="btn btn-link text-facebook" style="min-width: 100px">
                                 <i class="fa fa-facebook"></i>
                                 <span class="text-center small">Facebook</span>
                             </a>
-                            <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="btn btn-outline-danger" style="min-width: 100px">
+                            <a href="{{route('route.socialite.login',['google'])}}" title="Start with Google" class="btn btn-link text-danger" style="min-width: 100px">
                                 <i class="fa fa-google"></i>
                                 <span class="text-center small">Google</span>
                             </a>
-                            <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="btn btn-outline-dark" style="min-width: 100px">
+                            <a href="{{route('route.socialite.login',['github'])}}" title="Start with Github" class="btn btn-link text-dark" style="min-width: 100px">
                                 <i class="fa fa-github"></i>
                                 <span class="text-center small">Github</span>
                             </a>
@@ -96,27 +96,27 @@
 @endsection
 @section('script-js')
     <script type="text/javascript">
-       new  Vue({
-            el:'#app-container-login',
-            data:()=>({
-                vmusername:'{{old('email')}}',
-                vmpassword:'{{old('password')}}',
-                viewPwd: false//ver password
-            }),
-            methods:{
-                change(){
-                    if(this.vmpassword.length) {
-                        return this.viewPwd = !this.viewPwd
-                    }else{
-                        if(this.viewPwd){
-                            return this.viewPwd = !this.viewPwd
-                        }else{
-                            return false
-                        }
-                    }
-                }
-            }
-        })
+		new Vue({
+			el:'#app-container-login',
+			data:()=>({
+				vmusername:'{{old('email')}}',
+				vmpassword:'{{old('password')}}',
+				viewPwd:false,//ver password
+			}),
+			methods:{
+				change(){
+					if(this.vmpassword.length){
+						return this.viewPwd = !this.viewPwd
+					}else{
+						if(this.viewPwd){
+							return this.viewPwd = !this.viewPwd
+						}else{
+							return false
+						}
+					}
+				},
+			},
+		})
     </script>
 @endsection
 
