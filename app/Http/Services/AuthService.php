@@ -66,7 +66,7 @@ class AuthService
          'token' => $token,
          'session_id' => $session,
          'date_session_start' => Carbon::now(),
-         'time_session_expired' => (env('JWT_TTL_HOUR') * env('JWT_TTL_MINUTE')),
+         'time_session_expired' => (60 * 60),
          'date_session_end' => null,
       ]);
       return [$token, $session];
