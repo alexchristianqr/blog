@@ -17,36 +17,23 @@ class AuthService
    //Validar la sesion actual del usuario
    function validateCurrentUserSession($request)
    {
-      $user = User::with('client')->where('email', $request->request->get('email'))->orWhere('username', $request->request->get('email'))->first();
+      $user = User::where('email', $request->request->get('email'))->orWhere('username', $request->request->get('email'))->first();
       //Si el usuario no existe en la BD
       throw_if(is_null($user), new Exception('El usuario no esta registrado', 401));
-      switch($user->client->client_status_id){//Validar estado del cliente
-         case 2:
-            throw new Exception('El cliente no esta autorizado, su estado actual es <b>INACTIVO</b>', 401);
-            break;
-         case 3:
-            throw new Exception('El cliente no esta autorizado, su estado actual es <b>SUSPENDIDO</b>', 401);
-            break;
-         case 4:
-            throw new Exception('El cliente no esta autorizado, su estado actual es <b>ELIMINADO</b>', 401);
-            break;
-         default://ACTIVO
-            if($user->status === 'I'){//Si el usuario esta con estado "INACTIVO"
-               throw new Exception('El usuario no esta activo', 401);
-            }elseif($user->status === 'A'){//Si el usuario esta con estado "ACTIVO"
-               if($request->request->has('single')){//Si el $request consulta despues de estar autenticado
-                  //Excepcion si el usuario tiene una session activa en otra computadora
-                  throw_if($user->token === null, new Exception('Existe una sesion activa', 401));
-                  return true;
-               }else{//Si el $request consulta antes de estar autenticado
-                  //Excepcion si el usuario tiene una session activa en otra computadora
-                  throw_if($user->token !== null, new Exception('Existe una sesion activa', 401));
-                  return true;
-               }
-            }else{
-               throw new Exception('Error en request');
-            }
-            break;
+      if($user->status === 'I'){//Si el usuario esta con estado "INACTIVO"
+         throw new Exception('El usuario no esta activo', 401);
+      }elseif($user->status === 'A'){//Si el usuario esta con estado "ACTIVO"
+         if($request->request->has('single')){//Si el $request consulta despues de estar autenticado
+            //Excepcion si el usuario tiene una session activa en otra computadora
+            throw_if($user->token === null, new Exception('Existe una sesion activa', 401));
+            return true;
+         }else{//Si el $request consulta antes de estar autenticado
+            //Excepcion si el usuario tiene una session activa en otra computadora
+            throw_if($user->token !== null, new Exception('Existe una sesion activa', 401));
+            return true;
+         }
+      }else{
+         throw new Exception('Error en request');
       }
    }
 
@@ -85,37 +72,37 @@ class AuthService
       return [$token, $session];
    }
 
-    function getUserById($request)
-    {
-        return User::where('id', $request->user_id)->first();
-    }
+   function getUserById($request)
+   {
+      return User::where('id', $request->user_id)->first();
+   }
 
-    function verifyRole($request)
-    {
-        return User::whereExists(function($query) use ($request){
+   function verifyRole($request)
+   {
+      return User::whereExists(function($query) use ($request){
+         $query->where('id', $request->user_id);
+      })->first(['role_id'])->role_id;
+   }
+
+   /**
+    * @param $request
+    * @return bool: True (1) or False (0)
+    */
+   function getStatusSession($request)
+   {
+      return (bool)User::whereExists(
+         function($query) use ($request){
             $query->where('id', $request->user_id);
-        })->first(['role_id'])->role_id;
-    }
+            $query->where('remember_token', null);
+         })->first();
+   }
 
-    /**
-     * @param $request
-     * @return bool: True (1) or False (0)
-     */
-    function getStatusSession($request)
-    {
-        return (bool)User::whereExists(
-            function($query) use ($request){
-                $query->where('id', $request->user_id);
-                $query->where('remember_token', null);
-            })->first();
-    }
-
-    /**
-     * @param $request
-     * @return mixed: Activo (A) o Inactivo (I)
-     */
-    function getStatusUser($request)
-    {
-        return User::where('id', $request->user_id)->first(['status'])->status;
-    }
+   /**
+    * @param $request
+    * @return mixed: Activo (A) o Inactivo (I)
+    */
+   function getStatusUser($request)
+   {
+      return User::where('id', $request->user_id)->first(['status'])->status;
+   }
 }
