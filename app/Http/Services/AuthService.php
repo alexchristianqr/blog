@@ -7,9 +7,84 @@
 namespace App\Http\Services;
 
 use App\User;
+use Carbon\Carbon;
+use Exception;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthService
 {
+
+   //Validar la sesion actual del usuario
+   function validateCurrentUserSession($request)
+   {
+      $user = User::with('client')->where('email', $request->request->get('email'))->orWhere('username', $request->request->get('email'))->first();
+      //Si el usuario no existe en la BD
+      throw_if(is_null($user), new Exception('El usuario no esta registrado', 401));
+      switch($user->client->client_status_id){//Validar estado del cliente
+         case 2:
+            throw new Exception('El cliente no esta autorizado, su estado actual es <b>INACTIVO</b>', 401);
+            break;
+         case 3:
+            throw new Exception('El cliente no esta autorizado, su estado actual es <b>SUSPENDIDO</b>', 401);
+            break;
+         case 4:
+            throw new Exception('El cliente no esta autorizado, su estado actual es <b>ELIMINADO</b>', 401);
+            break;
+         default://ACTIVO
+            if($user->status === 'I'){//Si el usuario esta con estado "INACTIVO"
+               throw new Exception('El usuario no esta activo', 401);
+            }elseif($user->status === 'A'){//Si el usuario esta con estado "ACTIVO"
+               if($request->request->has('single')){//Si el $request consulta despues de estar autenticado
+                  //Excepcion si el usuario tiene una session activa en otra computadora
+                  throw_if($user->token === null, new Exception('Existe una sesion activa', 401));
+                  return true;
+               }else{//Si el $request consulta antes de estar autenticado
+                  //Excepcion si el usuario tiene una session activa en otra computadora
+                  throw_if($user->token !== null, new Exception('Existe una sesion activa', 401));
+                  return true;
+               }
+            }else{
+               throw new Exception('Error en request');
+            }
+            break;
+      }
+   }
+
+   //Validar si las credenciales sera por email o username
+   function isEmailOrUsername($request)
+   {
+      if(strpos($request->get('email'), '@') !== false){
+         return [
+            'email' => $request->get('email'),
+            'password' => $request->get('password')
+         ];
+      }else{
+         return [
+            'username' => $request->get('email'),
+            'password' => $request->get('password')
+         ];
+      }
+   }
+
+   //Iniciar Sesion con JWT
+   function login($request)
+   {
+      //Validar la sesion del usuario a autenticarse
+      (new AuthService())->validateCurrentUserSession($request);
+      //Obtener token de seguridad
+      $token = JWTAuth::attempt($this->isEmailOrUsername($request));
+      throw_if(!$token, new Exception('El usuario o contraseña no son correctos', 401));
+      $session = session()->getId();
+      User::where('id', auth()->user()->id)->update([
+         'token' => $token,
+         'session_id' => $session,
+         'date_session_start' => Carbon::now(),
+         'time_session_expired' => (env('JWT_TTL_HOUR') * env('JWT_TTL_MINUTE')),
+         'date_session_end' => null,
+      ]);
+      return [$token, $session];
+   }
+
     function getUserById($request)
     {
         return User::where('id', $request->user_id)->first();
