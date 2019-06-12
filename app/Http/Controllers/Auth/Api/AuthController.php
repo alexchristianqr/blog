@@ -80,12 +80,14 @@ class AuthController extends Controller
    /**
     * Get the token array structure.
     * @param  string $token
+    * @param null $session
     * @return \Illuminate\Http\JsonResponse
     */
-   protected function respondWithToken($token)
+   protected function respondWithToken($token, $session = null)
    {
       return response()->json([
          'auth' => JWTAuth::user(),
+         'session' => $session,
          'access_token' => $token,
          'token_type' => 'bearer',
          'expires_in' => JWTAuth::factory()->getTTL() * 60
