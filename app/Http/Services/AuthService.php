@@ -22,7 +22,7 @@ class AuthService
       throw_if(is_null($user), new Exception('El usuario no esta registrado', 401));
       if($user->status === 'I'){//Si el usuario esta con estado "INACTIVO"
          throw new Exception('El usuario no esta activo', 401);
-      }elseif($user->status === 'A'){//Si el usuario esta con estado "ACTIVO"
+      }elseif($user->status === 'A' && $user->role_id === 1){//Si el usuario esta con estado "ACTIVO"
          if($request->request->has('single')){//Si el $request consulta despues de estar autenticado
             //Excepcion si el usuario tiene una session activa en otra computadora
             throw_if($user->token === null, new Exception('Existe una sesion activa', 401));
