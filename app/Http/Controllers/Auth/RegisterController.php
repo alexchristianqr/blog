@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -64,7 +65,7 @@ class RegisterController extends Controller
      * @param Request $request
      * @return \App\User
      */
-    protected function postRegister(Request $request)
+    protected function postRegister(RegisterRequest $request)
     {
         try{
             if($request->password === $request->confirm_password){
