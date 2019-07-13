@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscribed extends Model
 {
-    protected $table='subscribed';
-    protected $fillable=[
-        'email'
-    ];
+   protected $table = 'subscribed';
+   protected $fillable = [
+      'email'
+   ];
 }
