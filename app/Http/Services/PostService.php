@@ -167,19 +167,25 @@ class PostService
 		$currentYear = 0;
 		$currentMonth = 0;
 		//Ciclo Year
+//		dd($dataPostHistory->toArray());
 		foreach($dataPostHistory as $item){
+			//Al cambiar de año
 			if($item->year != $currentYear){
 				$currentYear = 0;//Reinicializar la variable del año
 				$arrayMonths = [];//Reinicializar el arreglo de meses que se encuentra en el año
+				$arrayUrls = [];//Reinicializar las url de ese año
 			}
 			for($k = 0; $k < count($years); $k++){
 				if($item->year == $years[$k]){
 					$currentYear = $item->year;
+					//Al cambiar de mes
 					if($item->month != $currentMonth){
 						$currentMonth = 0;//Reinicializar la variable del mes
+						$arrayUrls = [];//Reinicializar las url de ese mes
 					}
 					for($i = 0; $i < count($months); $i++){
 						if($item->month == $months[$i]){
+							$currentMonth = $item->month;
 							$arrayUrlsTemp = $arrayUrls;//Cargar arreglo de links-temporales del arreglo de links
 							$arrayUrls = [];//Reinicializar el arreglo de links qu se encuentra en el mes
 							if($currentMonth == $months[$i]){
