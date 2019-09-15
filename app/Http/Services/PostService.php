@@ -91,7 +91,7 @@ class PostService
 		if($request->has('status')) $dataModel = $dataModel->where('post.status', $request->status);
 
 		//OrderField
-		if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.updated_at', 'DESC');
+		if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.published', 'DESC');
 
 		//Debug Customize
 		//$this->myDebug($dataModel,true);
@@ -212,7 +212,7 @@ class PostService
 
 	function getSearch($request)
 	{
-		$request->request->add(['paginate' => $this->paginateGlobal, 'status' => 'A']);
+		$request->request->add(['paginate' => $this->paginateGlobal, 'status' => 'A','orderBy' => true,]);
 		return $this->dataModel($request);
 	}
 

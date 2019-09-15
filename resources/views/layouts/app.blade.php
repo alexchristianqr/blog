@@ -40,6 +40,7 @@
     <!-- produccion -->
     <script src="{{asset('dist/js/vue.min.js').'?cache='.str_limit(time(),6,'')}}"></script>
     @endenv
+    @yield('content-ads')
 </head>
 <body>
 <div id="app">
