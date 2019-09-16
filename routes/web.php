@@ -66,11 +66,20 @@ Route::group(['middleware' => 'web'], function($route){
 
     //Contact
     $route->get('/contact', 'Controller@viewContact')->name('route.contact');
+    $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
 
     //Email
     $route->post('/subscribe', 'MailController@sendMailSubscribe')->name('route.mail.subscribe');
 
     //Policies and Privacy
     $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');
+
+    //Testear vista laravel blade PHP
+    $route->get('/view', function(){
+       $data = ['fullname'=>'rocio durcal','message'=>'Hola te invitamos a degustar de nuestros platicos en huaral'];
+       return view('templates.contactme.template-contactme',compact('data'));
+    });
+
+
 
 });

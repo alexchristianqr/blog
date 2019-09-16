@@ -3,10 +3,10 @@
     <!-- Page Content -->
     <div class="container">
 
+        {{--<!-- Page Heading -->--}}
+        {{--<h1 class="mt-4 mb-3 text-dark">{{$dataPortfolioProject->name}}</h1>--}}
         <!-- Page Heading -->
-        <h1 class="mt-4 mb-3 text-dark">{{$dataPortfolioProject->name}}
-            {{--<small class="text-dark"> by <a href="">{{$dataPortfolioProject->name}}</a></small>--}}
-        </h1>
+    @include('includes.heading',['title'=>$dataPortfolioProject->name,'subtitle'=>null])
 
         <!-- Breadcrumb Component -->
     @include('includes.breadcrumbs',$dataBreadcrumb)

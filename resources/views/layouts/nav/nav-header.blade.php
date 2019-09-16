@@ -69,9 +69,9 @@
 </nav>
 
 {{--Mode Beta--}}
-@if(env('LEVEL') === 'beta')
+{{--@if(env('LEVEL') === 'beta')--}}
 @include('layouts.nav.nav-beta')
-@endif
+{{--@endif--}}
 
 {{--Login--}}
 @if(session()->has('message_auth'))
@@ -81,6 +81,9 @@
 {{--Success--}}
 @if(session()->has('message_success'))
     @include('layouts.nav.nav-success-laravel')
+@endif
+@if(session()->has('message_secondary'))
+    @include('layouts.nav.nav-success-secondary')
 @endif
 
 {{--Error--}}
