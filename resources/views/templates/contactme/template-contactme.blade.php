@@ -242,7 +242,7 @@
                                         <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
 
                                             <!--Mensaje de Contacto-->
-                                            <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;text-transform: capitalize"><b>{{$data['fullname']}}</b> quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span></p>
+                                            <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;"><b style="text-transform: capitalize;">{{$data['fullname']}}</b> quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span></p>
                                             <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
                                             <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;">{{$data['message']}}</span></p>
                                             <!---->
