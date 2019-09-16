@@ -12,10 +12,7 @@
          <div class="col-lg-7">
             <!-- Embedded Google Map -->
             <div class="img-thumbnail mb-4">
-               <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11037.937429190797!2d-76.87214814438667!3d-12.009040248544826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1531198887708"
-                  width="100%" height="275" frameborder="0" style="border:0" allowfullscreen></iframe>
-               {{--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.3635295895451!2d-77.04005707082787!3d-12.081032888062337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f6af58045f%3A0xc8181b9694aedc55!2sJir%C3%B3n%20Almte.%20Martin%20Guisse%201564%2C%20Lince%2015073!5e0!3m2!1ses!2spe!4v1568524287311!5m2!1ses!2spe" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>--}}
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.3635295895451!2d-77.04005707082787!3d-12.081032888062337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8f6af58045f%3A0xc8181b9694aedc55!2sJir%C3%B3n%20Almte.%20Martin%20Guisse%201564%2C%20Lince%2015073!5e0!3m2!1ses!2spe!4v1568524287311!5m2!1ses!2spe" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
          </div>
          <!-- Contact Details Column -->
