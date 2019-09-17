@@ -68,19 +68,17 @@ class RegisterController extends Controller
    protected function postRegister(RegisterRequest $request)
    {
       try{
-         if($request->password === $request->confirm_password){
-            User::create([
-               'name' => $request->full_name,
-               'email' => $request->email,
-               'pwd_decrypted' => $request->password,
-               'password' => Hash::make($request->password),
-            ]);
-            return redirect()->route('get.login')->withInput(['email' => $request->email])->with(['message_success' => 'User created successfully']);
-         }else{
-            return redirect()->back()->withInput($request->all())->withErrors(['message_failed' => ['Failed validation fields password']]);
-         }
+         User::create([
+            'name' => $request->request->get('fullname'),
+            'role_id' => 2,
+            'username' => strtolower($request->request->get('fullname')),
+            'email' => $request->request->get('email'),
+            'pwd_decrypted' => $request->request->get('password'),
+            'password' => Hash::make($request->request->get('password')),
+         ]);
+         return redirect()->route('get.login')->withInput(['email' => $request->request->get('email')])->with(['message_success' => 'User created successfully']);
       }catch(Exception $e){
-         return redirect()->back()->withErrors(['message_failed' => ['Failed in moment of create user']]);
+         return redirect()->back()->withInput($request->request->all())->withErrors(['message_failed' => ['Failed in moment of create user']]);
       }
    }
 
