@@ -4,7 +4,7 @@
         <div class="row">
             <div class="pt-0 pb-0 w-100">
                 <div class="col-sm-12 col-md-7 col-lg-5 mx-sm-auto mx-md-auto mx-auto">
-                    {!! Form::open(['url'=>route('post.login'),'method'=>'post']) !!}
+                    {!! Form::open(['url'=>route('post.login'),'method'=>'post','@submit'=>'doLogin()']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
                             <h4 class="modal-title">Log In</h4>
@@ -15,13 +15,13 @@
                                 <input v-model="vmusername" title="email" name="email" type="email" class="form-control" placeholder="Email" required value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                        <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                                    </span>
                                 @endif
                                 @if ($errors->has('error_login'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('error_login') }}</strong>
-                                        </span>
+                                        <strong class="text-danger">{{ $errors->first('error_login') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -48,7 +48,7 @@
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong class="text-danger">{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -71,7 +71,12 @@
                             </div>
                         </div>
                         <div class="modal-footer border-top-0">
-                            <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
+                            <template v-if="button.disabled">
+                                <button type="button" :disabled="button.disabled" class="btn btn-dark btn-block btn-lg">Entering...</button>
+                            </template>
+                            <template v-else>
+                                <button type="submit" class="btn btn-dark btn-block btn-lg">Enter</button>
+                            </template>
                         </div>
                         <div class="col-12 my-auto text-center">
                             <a href="{{route('route.socialite.login',['facebook'])}}" title="Start with Facebook" class="btn btn-link text-facebook" style="min-width: 100px">
@@ -96,27 +101,36 @@
 @endsection
 @section('script-js')
     <script type="text/javascript">
-		new Vue({
-			el:'#app-container-login',
-			data:()=>({
-				vmusername:'{{old('email')}}',
-				vmpassword:'{{old('password')}}',
-				viewPwd:false,//ver password
-			}),
-			methods:{
-				change(){
-					if(this.vmpassword.length){
-						return this.viewPwd = !this.viewPwd
-					}else{
-						if(this.viewPwd){
-							return this.viewPwd = !this.viewPwd
-						}else{
-							return false
-						}
-					}
-				},
-			},
-		})
+      new Vue({
+        el: '#app-container-login',
+        data: () => ({
+          vmusername: '{{old('email')}}',
+          vmpassword: '{{old('password')}}',
+          viewPwd: false,//ver password
+          button: {
+            disabled: false,
+          },
+        }),
+        mounted(){
+          this.button.disabled = false
+        },
+        methods: {
+          change(){
+            if(this.vmpassword.length){
+              return this.viewPwd = !this.viewPwd
+            }else{
+              if(this.viewPwd){
+                return this.viewPwd = !this.viewPwd
+              }else{
+                return false
+              }
+            }
+          },
+          doLogin(){
+            this.button.disabled = true
+          },
+        },
+      })
     </script>
 @endsection
 
