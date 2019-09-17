@@ -19,9 +19,9 @@ class MailService
          'fullname' => $request->request->get('fullname'),
          'message' => $request->request->get('message')
       ];
-      Mail::send($request->view, compact('data'), function($message) use ($request){
-         $message->subject($request->subject);
-         $message->to($request->to);
+      Mail::send($request->request->get('view'), compact('data'), function($message) use ($request){
+         $message->subject($request->request->get('subject'));
+         $message->to($request->request->get('to'));
       });
       if(count(Mail::failures()) > 0){
          return false;
@@ -73,7 +73,7 @@ class MailService
       $newContactMe = (new ContactMe())->fill($request->request->all());
       $request->request->add([
          'view' => 'templates.contactme.template-contactme',
-         'to' => $request->request->get('email'),
+         'to' => "acqrdeveloper@gmail.com",
          'subject' => 'Alguien te quiere contactar!',
       ]);
       $validateSentMail = $this->sendMail($request);
