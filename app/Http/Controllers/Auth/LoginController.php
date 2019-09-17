@@ -58,7 +58,7 @@ class LoginController extends Controller
                case 'I':
                   $this->guard()->logout();
                   $request->session()->invalidate();
-                  return redirect()->back()->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated']]);
+                  return redirect()->back()->withInput()->exceptInput('password')->withErrors(['message_failed' => ['Your session has expired because your account is deactivated']]);
                   break;
                default:
                   $request->session()->regenerate();
@@ -69,7 +69,7 @@ class LoginController extends Controller
             }
          }
       }
-      return redirect()->route('get.login')->withInput($credentials)->withErrors(['error_login' => 'Las credenciales ingresadas, no son válidas']);
+      return redirect()->route('get.login')->withInput($credentials)->exceptInput('password')->withErrors(['error_login' => 'Las credenciales ingresadas, no son válidas']);
    }
 
    public function logout(Request $request)
@@ -104,17 +104,15 @@ class LoginController extends Controller
                case 'I':
                   $this->guard()->logout();
                   $request->session()->invalidate();
+                  //Redirect
                   return redirect()->route('get.login')->withInput()->withErrors(['message_failed' => ['Your session has expired because your account is deactivated.']]);
-                  break;
                default:
                   $request->session()->regenerate();
                   $this->clearLoginAttempts($request);
                   //Redirect
                   return $this->authenticated($request, $this->guard()->user()) ?: redirect()->intended($this->redirectPath())->with('message_auth', 'Welcome to my website');
-                  break;
             }
          }
-//            return redirect()->route('get.login')->withErrors(['message_failed'=>['Las credenciales ingresadas, no son válidas']]);
       }catch(Exception $e){
          return redirect()->route('get.login')->withErrors(['message_failed' => [$e->getMessage()]]);
       }

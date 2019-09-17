@@ -3,7 +3,7 @@
     <div id="app-container-login" class="container">
         <div class="row">
             <div class="pt-0 pb-0 w-100">
-                <div class="col-sm-12 col-md-7 col-lg-5 mx-sm-auto mx-md-auto mx-auto">
+                <div class="col-sm-12 col-md-7 col-lg-5 mx-sm-auto mx-md-auto mx-auto pl-0 pr-0">
                     {!! Form::open(['url'=>route('post.login'),'method'=>'post','@submit'=>'doLogin()']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
@@ -15,12 +15,12 @@
                                 <input v-model="vmusername" title="email" name="email" type="email" class="form-control" placeholder="Email" required value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                                        <span class="text-danger">{!! $errors->first('email') !!}</span>
                                     </span>
                                 @endif
                                 @if ($errors->has('error_login'))
                                     <span class="help-block">
-                                        <strong class="text-danger">{{ $errors->first('error_login') }}</strong>
+                                        <span class="text-danger">{!! $errors->first('error_login') !!}</span>
                                     </span>
                                 @endif
                             </div>
@@ -28,10 +28,10 @@
                                 <label class="d-none d-lg-inline-block">Password</label>
                                 <div class="input-group">
                                     <template v-if="viewPwd">
-                                        {!! Form::text('password','',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
+                                        {!! Form::text('password','',['class'=>'form-control','placeholder'=>'Contraseña','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
                                     </template>
                                     <template v-else>
-                                        {!! Form::password('password',['class'=>'form-control','placeholder'=>'Password','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
+                                        {!! Form::password('password',['class'=>'form-control','placeholder'=>'Contraseña','maxlength'=>'16','required','v-model'=>'vmpassword']) !!}
                                     </template>
                                     <div class="input-group-append">
                                         <template v-if="!viewPwd">
@@ -48,26 +48,30 @@
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                                        <span class="text-danger">{!! $errors->first('password') !!}</span>
                                     </span>
                                 @endif
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-7 col-lg-7">
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="chk1">
-                                            <label class="custom-control-label" for="chk1">Remember me</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-5 col-lg-5">
-                                    <div hidden class="form-group-sm">
-                                        <div class="text-sm-left text-md-right text-lg-right">
-                                            <a class="text-muted" href="http://blog.acqrdeveloper.com/password/reset"><i class="fa fa-unlock-alt fa-fw d-lg-none"></i>Forgot Password</a>
-                                        </div>
-                                    </div>
-                                </div>
+                           <div class="col-12">
+                              <div class="row">
+                                  <div class="row w-100">
+                                      <div class="col-sm-12 col-md-7 col-lg-7">
+                                          <div class="form-group">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input type="checkbox" class="custom-control-input" id="chk1">
+                                                  <label class="custom-control-label" for="chk1">Remember me</label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-5 col-lg-5">
+                                          <div hidden class="form-group-sm">
+                                              <div class="text-sm-left text-md-right text-lg-right">
+                                                  <a class="text-muted" href="http://blog.acqrdeveloper.com/password/reset"><i class="fa fa-unlock-alt fa-fw d-lg-none"></i>Forgot Password</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                               </div>
                             </div>
                         </div>
                         <div class="modal-footer border-top-0">

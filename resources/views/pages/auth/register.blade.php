@@ -3,7 +3,7 @@
     <div id="app-container-register" class="container">
         <div class="row">
             <div class="pt-0 pb-0 w-100">
-                <div class="col-sm-12 col-md-7 col-lg-6 mx-sm-auto mx-md-auto mx-auto">
+                <div class="col-sm-12 col-md-7 col-lg-6 mx-sm-auto mx-md-auto mx-auto pl-0 pr-0">
                     {!! Form::open(['url'=>route('post.register'),'method'=>'post','@submit'=>'doRegister()']) !!}
                     <div class="modal-content border-0">
                         <div class="modal-header border-0">
@@ -13,11 +13,11 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="d-none d-lg-inline-block">Nombre</label>
-                                        <input title="name" name="fullname" type="text" class="form-control" placeholder="Full name" required value="{{ old('fullname') }}">
+                                        <label class="d-none d-lg-inline-block">Name Complete</label>
+                                        <input title="name" name="fullname" type="text" class="form-control" placeholder="Nombre" required value="{{ old('fullname') }}">
                                         @if ($errors->has('fullname'))
                                             <span class="help-block">
-                                            <strong class="text-danger">{{ $errors->first('fullname') }}</strong>
+                                            <strong class="text-danger">{!! $errors->first('fullname') !!}</strong>
                                         </span>
                                         @endif
                                     </div>
@@ -28,7 +28,7 @@
                                         <input title="email" name="email" type="email" class="form-control" placeholder="Email" required value="{{ old('email') }}">
                                         @if ($errors->has('email'))
                                             <span class="help-block">
-                                                <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                                                <span class="text-danger">{!! $errors->first('email') !!}</span>
                                             </span>
                                         @endif
                                     </div>
@@ -38,10 +38,10 @@
                                         <label class="d-none d-lg-inline-block">Password</label>
                                         <div class="input-group">
                                             <template v-if="viewPwd">
-                                                <input title="contraseña" name="password" type="text" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="password" type="text" class="form-control" placeholder="Contraseña" maxlength="16" required>
                                             </template>
                                             <template v-else>
-                                                <input title="contraseña" name="password" type="password" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="password" type="password" class="form-control" placeholder="Contraseña" maxlength="16" required>
                                             </template>
                                             <div class="input-group-append">
                                                 <template v-if="!viewPwd">
@@ -58,7 +58,7 @@
                                         </div>
                                         @if ($errors->has('password'))
                                             <span class="help-block">
-                                            <strong class="text-danger">{!! $errors->first('password') !!}</strong>
+                                            <span class="text-danger">{!! $errors->first('password') !!}</span>
                                         </span>
                                         @endif
                                     </div>
@@ -68,10 +68,10 @@
                                         <label class="d-none d-lg-inline-block">Confirm Password</label>
                                         <div class="input-group">
                                             <template v-if="viewPwdTwo">
-                                                <input title="contraseña" name="password_confirmation" type="text" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="password_confirmation" type="text" class="form-control" placeholder="Contraseña" maxlength="16" required>
                                             </template>
                                             <template v-else>
-                                                <input title="contraseña" name="password_confirmation" type="password" class="form-control" placeholder="Password" maxlength="16" required>
+                                                <input title="contraseña" name="password_confirmation" type="password" class="form-control" placeholder="Contraseña" maxlength="16" required>
                                             </template>
                                             <div class="input-group-append">
                                                 <template v-if="!viewPwdTwo">
@@ -88,7 +88,7 @@
                                         </div>
                                         @if ($errors->has('password'))
                                             <span class="help-block">
-                                            <strong class="text-danger">{!! $errors->first('password') !!}</strong>
+                                            <span class="text-danger">{!! $errors->first('password') !!}</span>
                                         </span>
                                         @endif
                                     </div>
