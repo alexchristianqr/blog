@@ -43,7 +43,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div id="app-container-home" class="container">
 
         <!-- Posts Section -->
         <h2 class="mt-4 text-dark">Descubre lo mejor</h2>
@@ -140,13 +140,13 @@
                 <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
             <div class="col-md-7 my-auto">
-                {!! Form::open(['url'=>route('route.subscription.sendmessage'),'method'=>'post']) !!}
+                {!! Form::open(['url'=>route('route.subscription.sendmessage'),'method'=>'post','@submit'=>'sendMailSubscription()']) !!}
                 <div class="input-group mb-3">
-                    <input name="fullname" type="text" class="form-control" placeholder="Nombre" >
-                    <input name="email" type="text" class="form-control" placeholder="Email" >
+                    <input name="fullname" :readonly="button.disabled" required type="text" class="form-control" placeholder="Nombre" value="{{old('fullname')}}">
+                    <input name="email" :readonly="button.disabled" required type="email" class="form-control" placeholder="Email" value="{{old('email')}}">
                     <div class="input-group-append">
-                        <button title="Enviar mensaje de suscripción" class="btn btn-primary d-block d-lg-none" type="submit"><i class="fa fa-send"></i></button>
-                        <button title="Enviar mensaje de suscripción" class="btn btn-primary d-none d-lg-block" type="submit">Subscribe</button>
+                        <button :disabled="button.disabled" title="Enviar mensaje de suscripción" class="btn btn-primary d-block d-lg-none" type="submit"><i class="fa fa-send"></i></button>
+                        <button :disabled="button.disabled" title="Enviar mensaje de suscripción" class="btn btn-primary d-none d-lg-block" type="submit">@{{ (button.disabled) ? 'Sending...' : 'Subscribe' }}</button>
                     </div>
                 </div>
                 {!! Form::close() !!}
@@ -154,4 +154,24 @@
         </div>
     </div>
     <!-- /.container -->
+@endsection
+@section('script-js')
+    <script type="text/javascript">
+      new Vue({
+        el:'#app-container-home',
+        data:()=>({
+          button:{
+            disabled:false
+          }
+        }),
+        mounted(){
+          this.button.disabled = false
+        },
+        methods:{
+          sendMailSubscription(){
+            this.button.disabled = true
+          },
+        },
+      })
+    </script>
 @endsection
