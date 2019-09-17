@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class SubscriptionRequest extends FormRequest
+{
+   /**
+    * Determine if the user is authorized to make this request.
+    *
+    * @return bool
+    */
+   public function authorize()
+   {
+      return true;
+   }
+
+   /**
+    * Get the validation rules that apply to the request.
+    *
+    * @return array
+    */
+   public function rules()
+   {
+      return [
+         'fullname' => 'required',
+         'email' => 'required|email',
+      ];
+   }
+
+   public function messages()
+   {
+      return [
+         'fullname.required' => 'El campo <b>Nombre</b> es necesario',
+         'email.required' => 'El campo <b>Email</b> es necesario',
+         'email.email' => 'El campo <b>Email</b> debe ser un email válido',
+      ];
+   }
+}

@@ -64,12 +64,12 @@ Route::group(['middleware' => 'web'], function($route){
     //Service
     $route->get('/service', 'Controller@viewService')->name('route.service');
 
-    //Contact
+    //Contacto
     $route->get('/contact', 'Controller@viewContact')->name('route.contact');
     $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
 
-    //Email
-    $route->post('/subscribe', 'MailController@sendMailSubscribe')->name('route.mail.subscribe');
+    //Suscripcion
+    $route->post('/subscribe', 'SubscriptionController@sendMessage')->name('route.subscription.sendmessage');
 
     //Policies and Privacy
     $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');

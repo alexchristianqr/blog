@@ -136,15 +136,17 @@
 
         <!-- Call to Action Section -->
         <div class="row mt-4">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <p class="text-secondary">Si estás interesado en nuestros articulos y quieres obtener mas información, suscríbete a nuestro boletin de servicio informativo y entérate de más.</p>
             </div>
-            <div class="col-md-6 my-auto">
-                {!! Form::open(['url'=>route('route.mail.subscribe'),'method'=>'post']) !!}
+            <div class="col-md-7 my-auto">
+                {!! Form::open(['url'=>route('route.subscription.sendmessage'),'method'=>'post']) !!}
                 <div class="input-group mb-3">
-                    <input name="email" type="email" class="form-control" placeholder="Email" required>
+                    <input name="fullname" type="text" class="form-control" placeholder="Nombre" >
+                    <input name="email" type="text" class="form-control" placeholder="Email" >
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Subscribe<span class="d-none d-md-inline d-lg-inline"> to my List</span></button>
+                        <button title="Enviar mensaje de suscripción" class="btn btn-primary d-block d-lg-none" type="submit"><i class="fa fa-send"></i></button>
+                        <button title="Enviar mensaje de suscripción" class="btn btn-primary d-none d-lg-block" type="submit">Subscribe</button>
                     </div>
                 </div>
                 {!! Form::close() !!}

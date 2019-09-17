@@ -8,6 +8,9 @@ class Subscription extends Model
 {
    protected $table = 'subscriptions';
    protected $fillable = [
-      'email'
+      'fullname',
+      'email',
+      'sent',
+      'status',
    ];
 }

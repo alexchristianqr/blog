@@ -70,7 +70,7 @@
 
 {{--Mode Beta--}}
 {{--@if(env('LEVEL') === 'beta')--}}
-@include('layouts.nav.nav-beta')
+{{--@include('layouts.nav.nav-beta')--}}
 {{--@endif--}}
 
 {{--Login--}}
@@ -82,6 +82,8 @@
 @if(session()->has('message_success'))
     @include('layouts.nav.nav-success-laravel')
 @endif
+
+{{--Secondary--}}
 @if(session()->has('message_secondary'))
     @include('layouts.nav.nav-success-secondary')
 @endif
@@ -89,6 +91,8 @@
 {{--Error--}}
 @if($errors->any())
     @if($errors->first('message_failed'))
-        @include('layouts.nav.nav-error-laravel')
+        @include('layouts.nav.nav-danger-laravel')
+    @else
+        @include('layouts.nav.nav-errors-laravel')
     @endif
 @endif
