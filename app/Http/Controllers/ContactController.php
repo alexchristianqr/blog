@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Http\Services\MailService;
 use Exception;
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
-   function sendMessage(Request $request)
+   function sendMessage(ContactRequest $request)
    {
       DB::beginTransaction();
       try{

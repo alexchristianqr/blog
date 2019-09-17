@@ -1,7 +1,7 @@
 @extends('layouts.app',['title'=>'Contact'])
 @section('content')
    <!-- Page Content -->
-   <div class="container">
+   <div id="app-container-contact" class="container">
 
       <!-- Page Heading -->
    @include('includes.heading',['title'=>'Contact','subtitle'=>'Me'])
@@ -77,38 +77,38 @@
       <!-- /.row -->
       <!-- Contact Form -->
       <h2>Message</h2>
-      {!! Form::open(['url'=>route('route.contact.sendmessage'),'method'=>'post']) !!}
+      {!! Form::open(['url'=>route('route.contact.sendmessage'),'method'=>'post','@submit'=>'sendMailContact()']) !!}
       <div class="row">
          <div class="col-md-7 col-lg-4">
             <div class="form-group">
                <label>Full Name</label>
                <input title="Ingrese su nombre completo" name="fullname" type="text" class="form-control bg-light"
-                      placeholder="Nombre completo" required value="{{ old('fullname') }}">
+                      placeholder="Nombre completo" required value="{{ old('fullname') }}" :readonly="button.disabled">
             </div>
          </div>
          <div class="col-md-5 col-lg-3">
             <div class="form-group">
                <label>Phone Number</label>
                <input title="Ingrese su numero de telefono" name="phone" type="tel" class="form-control bg-light"
-                      placeholder="Telefono" required value="{{ old('phone') }}">
+                      placeholder="Telefono" required value="{{ old('phone') }}" :readonly="button.disabled">
             </div>
          </div>
          <div class="col-lg-5">
             <div class="form-group">
                <label>Email</label>
                <input title="Ingrese su correo electronico" name="email" type="email" class="form-control bg-light"
-                      placeholder="Correo electronico" required value="{{ old('email') }}">
+                      placeholder="Correo electronico" required value="{{ old('email') }}" :readonly="button.disabled">
             </div>
          </div>
          <div class="col-lg-12 mb-4">
             <div class="form-group">
                <label>Message</label>
-               <textarea title="Ingrese contenido del mensaje" placeholder="Mensaje" name="message" rows="4" cols="100"
+               <textarea title="Ingrese contenido del mensaje" placeholder="Contenido del mensaje" name="message" rows="4" cols="100"
                          class="form-control bg-light" required maxlength="999" style="resize:none"
-                         value="{{ old('message') }}"></textarea>
+                         :readonly="button.disabled">{{ old('message') }}</textarea>
             </div>
             <!-- For success/fail messages -->
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button :disabled="button.disabled" title="Enviar mensaje de contacto" type="submit" class="btn btn-primary">@{{ (button.disabled) ? 'Sending...' : 'Send Message' }}</button>
          </div>
       </div>
    {!! Form::close() !!}
@@ -116,4 +116,24 @@
 
    </div>
    <!-- /.container -->
+@endsection
+@section('script-js')
+   <script type="text/javascript">
+     new Vue({
+       el:'#app-container-contact',
+       data:()=>({
+         button:{
+           disabled:false
+         }
+       }),
+       mounted(){
+         this.button.disabled = false
+       },
+       methods:{
+         sendMailContact(){
+           this.button.disabled = true
+         },
+       },
+     })
+   </script>
 @endsection
