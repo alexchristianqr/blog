@@ -250,7 +250,7 @@
 </p>
 <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
 <div style="font-size: 14px; line-height: 25px; text-align: left;width: 100%">
-<span style="mso-ansi-font-size: 18px; line-height: 25px; font: 17px 'Comic Sans MS', cursive;">{{$data['message']}}</span>
+<span style="mso-ansi-font-size: 18px; line-height: 25px; font: 15.5px 'Comic Sans MS', cursive;">&ldquo;{{$data['message']}}&rdquo;</span>
 </div>
 <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
 </div>
