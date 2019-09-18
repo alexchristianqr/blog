@@ -176,7 +176,7 @@
                                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
                                         <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                             <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                                <p style="font-size: 14px; line-height: 60px; margin: 0;"><span style="font-size: 50px;"><span style="line-height: 60px; font-size: 50px;">Te han contactádo..!</span></span></p>
+                                                <p style="font-size: 14px; line-height: 60px; margin: 0;"><span style="font-size: 50px;"><span style="line-height: 60px; font-size: 50px;">Te han contactádo en el blog responde...!</span></span></p>
                                             </div>
                                         </div>
                                         <!--[if mso]></td></tr></table><![endif]-->
@@ -186,7 +186,7 @@
                                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
                                         <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                             <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                                <p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 24px;"><span style="line-height: 28px; font-size: 24px;">Te han contactádo..!</span></span></p>
+                                                <p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 24px;"><span style="line-height: 28px; font-size: 24px;">Te han contactádo en el blog responde...!</span></span></p>
                                             </div>
                                         </div>
                                         <!--[if mso]></td></tr></table><![endif]-->
@@ -237,19 +237,27 @@
                                 <!--[if (!mso)&(!IE)]><!-->
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:35px; padding-bottom:5px; padding-right: 50px; padding-left: 50px;">
                                     <!--<![endif]-->
-                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-                                    <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                        <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
 
-                                            <!--Mensaje de Contacto-->
-                                            <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;"><b style="text-transform: capitalize;">{{$data['fullname']}}</b> quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span></p>
-                                            <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
-                                            <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;"><span style="font-size: 17px; mso-ansi-font-size: 18px;">{{$data['message']}}</span></p>
-                                            <!---->
+<!--Mensaje de Contacto-->
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
+<div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+<div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
+<p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
+<span style="font-size: 17px; mso-ansi-font-size: 18px;">
+<strong style="text-transform: capitalize;">{{$data['fullname']}}</strong>
+<span>quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span>
+</span>
+</p>
+<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
+<div style="font-size: 14px; line-height: 25px; text-align: left;width: 100%">
+<span style="mso-ansi-font-size: 18px; line-height: 25px; font: 17px 'Comic Sans MS', cursive;">{{$data['message']}}</span>
+</div>
+<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
+</div>
+</div>
+<!--[if mso]></td></tr></table><![endif]-->
+<!--Mensaje de Contacto-->
 
-                                        </div>
-                                    </div>
-                                    <!--[if mso]></td></tr></table><![endif]-->
                                     <!--[if (!mso)&(!IE)]><!-->
                                 </div>
                                 <!--<![endif]-->
@@ -261,8 +269,8 @@
                 </div>
             </div>
             <div style="background-color:transparent;">
-                <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #E3FAFF;">
-                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#fafafa;">
+                <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #f1f3f3;">
+                    <div style="border-collapse: collapse;display: table;width: 100%;background-color:#f1f3f3;">
                         <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:650px"><tr class="layout-full-width" style="background-color:#E3FAFF"><![endif]-->
                         <!--[if (mso)|(IE)]><td align="center" width="650" style="background-color:#E3FAFF;width:650px; border-top: 0px solid transparent; border-left: 8px solid #F1F3F3; border-bottom: 0px solid transparent; border-right: 8px solid #F1F3F3;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:30px; padding-bottom:25px;"><![endif]-->
                         <div class="col num12" style="min-width: 320px; max-width: 650px; display: table-cell; vertical-align: top; width: 634px;">
@@ -270,10 +278,14 @@
                                 <!--[if (!mso)&(!IE)]><!-->
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:30px; padding-bottom:25px; padding-right: 0px; padding-left: 0px;">
                                     <!--<![endif]-->
-                                    <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="{{asset('images/contactme/face.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 158px; display: block;" title="Image" width="158"/>
-                                        <!--[if mso]></td></tr></table><![endif]-->
-                                    </div>
+
+<!--Imagen de Contacto-->
+<div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="{{asset('images/contactme/face.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 158px; display: block;" title="Image" width="158"/>
+<!--[if mso]></td></tr></table><![endif]-->
+</div>
+<!--Imagen de Contacto-->
+
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
                                     <div style="color:#353535;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
                                         <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #353535;">
@@ -321,8 +333,8 @@
                                     <!--<![endif]-->
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
                                     <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                        <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-                                            <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><i class="fa fa-phone"></i>(51) 955588297 / <a href="http://www.example.com/" rel="noopener" style="text-decoration: underline; color: #a1aab0;" target="_blank">aquispe.developer@gmail.com</a></p>
+                                        <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #86919b;">
+                                            <div style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">Telf: <strong>(+51) 955588297</strong> Email: <a href="https://www.acqrdeveloper.com/" rel="noopener" style="text-decoration: underline; color:#86919b;" target="_blank"><strong>acqrdeveloper@gmail.com</strong></a></div>
                                         </div>
                                     </div>
                                     <!--[if mso]></td></tr></table><![endif]-->

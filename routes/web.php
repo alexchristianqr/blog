@@ -76,7 +76,7 @@ Route::group(['middleware' => 'web'], function($route){
 
     //Testear vista laravel blade PHP
     $route->get('/view', function(){
-       $data = ['fullname'=>'rocio durcal','message'=>'Hola te invitamos a degustar de nuestros platicos en huaral'];
+       $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
        return view('templates.contactme.template-contactme',compact('data'));
     });
 
