@@ -1,3 +1,10 @@
+// const BootstrapEmail = require('bootstrap-email');
+// import BootstrapEmail from 'bootstrap-email'
+// const template = new BootstrapEmail({
+//   template: './resources/views/templates/subscription/file.html'
+// });
+// template.compileAndSave('./public/dist/plantilla.html');
+
 import Vue from 'vue'
 import $   from 'jquery'
 import 'social-share-kit'
