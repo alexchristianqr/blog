@@ -165,46 +165,9 @@
                                 <!--[if (!mso)&(!IE)]><!-->
 
 
-
-
-
                                 <!--Header Email-->
-                                <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:50px; padding-bottom:5px; padding-right: 50px; padding-left: 50px;">
-                                    <!--<![endif]-->
-                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-                                    <div style="color:#86919b;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                        <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #86919b;">
-                                            <p style="font-size: 14px; line-height: 16px; text-align: left; margin: 0;">Hola <b>Alex Christian</b>,</p>
-                                        </div>
-                                    </div>
-                                    <!--[if mso]></td></tr></table><![endif]-->
-                                    <div class="mobile_hide">
-                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-                                        <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                            <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                                <p style="font-size: 14px; line-height: 60px; margin: 0;"><span style="font-size: 50px;"><span style="line-height: 60px; font-size: 50px;">Te han contactádo en el blog responde...!</span></span></p>
-                                            </div>
-                                        </div>
-                                        <!--[if mso]></td></tr></table><![endif]-->
-                                    </div>
-                                    <!--[if !mso]><!-->
-                                    <div class="desktop_hide" style="mso-hide: all; display: none; max-height: 0px; overflow: hidden;">
-                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-                                        <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                            <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                                <p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 24px;"><span style="line-height: 28px; font-size: 24px;">Te han contactádo en el blog responde...!</span></span></p>
-                                            </div>
-                                        </div>
-                                        <!--[if mso]></td></tr></table><![endif]-->
-                                    </div>
-                                    <!--<![endif]-->
-                                    <!--[if (!mso)&(!IE)]><!-->
-                                </div>
+                                @include('templates.includes.header_email',['data'=>$data,'user'=>"Alex Christian",'title'=>"Te han contactádo en el blog responde..!"])
                                 <!--Header Email-->
-
-
-
-
 
 
                                 <!--<![endif]-->
@@ -300,57 +263,13 @@
                         <!--[if (mso)|(IE)]><td align="center" width="650" style="background-color:#E3FAFF;width:650px; border-top: 0px solid transparent; border-left: 8px solid #F1F3F3; border-bottom: 0px solid transparent; border-right: 8px solid #F1F3F3;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:30px; padding-bottom:25px;"><![endif]-->
                         <div class="col num12" style="min-width: 320px; max-width: 650px; display: table-cell; vertical-align: top; width: 634px;">
                             <div style="width:100% !important;">
-                                <!--[if (!mso)&(!IE)]><!-->
-                                <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:30px; padding-bottom:25px; padding-right: 0px; padding-left: 0px;">
-                                    <!--<![endif]-->
 
 
+                                <!--Profile Email-->
+                                @include('templates.includes.profile_email')
+                                <!--Profile Email-->
 
 
-
-
-                                    <!--Imagen Email-->
-                                    <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="{{asset('images/contactme/face.jpeg')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 158px; display: block;-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;" title="Image" width="158"/>
-                                        <!--[if mso]></td></tr></table><![endif]-->
-                                    </div>
-                                    <!--Imagen Email-->
-
-
-
-
-
-
-
-
-                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
-                                    <div style="color:#353535;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
-                                        <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #353535;">
-                                            <p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;"><strong>Compartir en</strong></p>
-                                        </div>
-                                    </div>
-                                    <!--[if mso]></td></tr></table><![endif]-->
-                                    <table cellpadding="0" cellspacing="0" class="social_icons" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
-                                        <tbody>
-                                        <tr style="vertical-align: top;" valign="top">
-                                            <td style="word-break: break-word; vertical-align: top; padding-top: 5px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" valign="top">
-                                                <table activate="activate" align="center" alignment="alignment" cellpadding="0" cellspacing="0" class="social_table" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: inherit; mso-table-tspace: 0; mso-table-rspace: 0; mso-table-bspace: 0; mso-table-lspace: 0;" to="to" valign="top">
-                                                    <tbody>
-                                                    <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;" valign="top">
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;" valign="top"><a href="https://web.facebook.com/alexchristianqr" target="_blank"><img alt="Facebook" height="32" src="{{asset('images/contactme/003-facebook.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; display: block;" title="Facebook" width="35"/></a></td>
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;" valign="top"><a href="https://api.whatsapp.com/send?phone=51955588297&text=Hola *Alex Christian*, estoy intentando pornerme en contacto contigo.&source=&data=" target="_blank"><img alt="Whatsapp" height="32" src="{{asset('images/contactme/001-whatsapp.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; display: block;" title="Whatsapp" width="35"/></a></td>
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;" valign="top"><a href="https://www.youtube.com.pe/" target="_blank"><img alt="Whatsapp" height="32" src="{{asset('images/contactme/002-youtube.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; display: block;" title="Youtube" width="35"/></a></td>
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;" valign="top"><a href="https://www.facebook.com/messages/t/alexchristianqr" target="_blank"><img alt="Twitter" height="32" src="{{asset('images/contactme/004-mensajero.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; display: block;" title="Facebook Messenger" width="35"/></a></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--[if (!mso)&(!IE)]><!-->
-                                </div>
-                                <!--<![endif]-->
                             </div>
                         </div>
                         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
@@ -371,28 +290,9 @@
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 
 
-
-
-
-
-
                                     <!--Footer Email-->
-                                    <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                        <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #86919b;">
-                                            <div style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">
-                                                <div>Telefono: <strong>(+51) 955588297</strong></div>
-                                                <div>Email: <strong>acqrdeveloper@gmail.com</strong></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @include('templates.includes.footer_email')
                                     <!--Footer Email-->
-
-
-
-
-
-
-
 
 
                                     <!--[if mso]></td></tr></table><![endif]-->
