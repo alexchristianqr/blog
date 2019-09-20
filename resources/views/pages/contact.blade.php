@@ -42,7 +42,7 @@
                         <i class="fa fa-envelope"></i>
                      </td>
                      <td width="auto">
-                        <a href="mailto:name@example.com">aquispe.developer@gmail.com</a>
+                        <a href="mailto:acqrdeveloper@gmail.com">acqrdeveloper@gmail.com</a>
                      </td>
                   </tr>
                   <tr>
