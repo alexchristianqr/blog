@@ -34,7 +34,7 @@
                         <i class="fa fa-phone"></i>
                      </td>
                      <td width="auto">
-                        <span><span class="text-secondary">(51) </span>955588297</span>
+                        <span>(+51)955588297</span>
                      </td>
                   </tr>
                   <tr>
