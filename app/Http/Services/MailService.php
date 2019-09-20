@@ -57,7 +57,7 @@ class MailService
    {
       $newSubscription = (new Subscription())->fill($request->request->all());
       $request->request->add([
-         'view' => 'templates.subscription.template-subscription',
+         'view' => 'templates.subscription.template-subscription-confirm',
          'to' => $request->request->get('email'),
          'subject' => 'Suscripción completada!',
       ]);

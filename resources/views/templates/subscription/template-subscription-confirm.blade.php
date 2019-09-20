@@ -181,7 +181,7 @@
                                      <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
                                      <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                         <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                           <p style="font-size: 14px; line-height: 60px; margin: 0;"><span style="font-size: 50px;"><span style="line-height: 60px; font-size: 50px;">Te haz suscrito al blog con éxito..!</span></span></p>
+                                           <p style="font-size: 14px; line-height: 60px; margin: 0;"><span style="font-size: 50px;"><span style="line-height: 60px; font-size: 50px;">Dale click y confirma tu suscripción..!</span></span></p>
                                         </div>
                                      </div>
                                      <!--[if mso]></td></tr></table><![endif]-->
@@ -191,7 +191,7 @@
                                      <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
                                      <div style="color:#86919b;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                         <div style="font-size: 12px; line-height: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #86919b;">
-                                           <p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 24px;"><span style="line-height: 28px; font-size: 24px;">Te haz suscrito al blog con éxito..!</span></span></p>
+                                           <p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 24px;"><span style="line-height: 28px; font-size: 24px;">Dale click y confirma tu suscripción..!!</span></span></p>
                                         </div>
                                      </div>
                                      <!--[if mso]></td></tr></table><![endif]-->
@@ -259,11 +259,19 @@
                                       <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
                                          <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
                                           <span style="font-size: 17px; mso-ansi-font-size: 18px;">
-                                             <span>Felicidades, ya estás suscrito a mi sitio web Alex Christian (<a href="https://www.acqrdeveloper.com" target="_blank">https://www.acqrdeveloper.com</a>), recibirás un email cuando se publique una nueva entrada </span>
+                                             <span>Te has suscrito recientemente a las entradas de mi blog. Esto significa que recibirás cada nueva entrada por correo electrónico.</span>
+                                             <br>
+                                             <br>
+                                             <span>Para activar, dale click en confirmar suscripción más abajo. Si crees que esto es un error, ignora este mensaje y no te molestaremos de nuevo.</span>
+                                             <br>
+                                             <br>
+                                             <a href="#" style="border-radius: 3px;background-color: #86919b;padding: 8px;color: #FFFFFF;text-decoration: none">Confirmar Suscripción</a>
+                                             <br>
+                                             <br>
                                           </span>
-                                          <br>
-                                          <br>
                                          </p>
+                                         {{--<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>--}}
+                                         {{--<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>--}}
                                       </div>
                                    </div>
                                    <!--[if mso]></td></tr></table><![endif]-->

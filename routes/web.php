@@ -85,6 +85,11 @@ Route::group(['middleware' => 'web'], function($route){
       return view('templates.subscription.template-subscription',compact('data'));
    });
 
+   $route->get('/view-3', function(){
+      $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
+      return view('templates.subscription.template-subscription-confirm',compact('data'));
+   });
+
 
 
 });

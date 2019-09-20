@@ -263,15 +263,15 @@
                                         <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
                                             <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
                                                 <span style="font-size: 17px; mso-ansi-font-size: 18px;">
-                                                <strong style="text-transform: capitalize;">{{$data['fullname']}}</strong>
-                                                <span>quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span>
+                                                    <strong style="text-transform: capitalize;">{{$data['fullname']}}</strong>
+                                                    <span>quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span>
+                                                    <br>
+                                                    <br>
+                                                    <span style="mso-ansi-font-size: 18px; line-height: 25px; font: 15.5px 'Comic Sans MS', cursive;">&ldquo;{{$data['message']}}&rdquo;</span>
+                                                    <br>
+                                                    <br>
                                                 </span>
                                             </p>
-                                            <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
-                                            <div style="font-size: 14px; line-height: 25px; text-align: left;width: 100%">
-                                                <span style="mso-ansi-font-size: 18px; line-height: 25px; font: 15.5px 'Comic Sans MS', cursive;">&ldquo;{{$data['message']}}&rdquo;</span>
-                                            </div>
-                                            <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
                                         </div>
                                     </div>
                                     <!--[if mso]></td></tr></table><![endif]-->
