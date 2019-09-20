@@ -75,10 +75,15 @@ Route::group(['middleware' => 'web'], function($route){
     $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');
 
     //Testear vista laravel blade PHP
-    $route->get('/view', function(){
+    $route->get('/view-1', function(){
        $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
        return view('templates.contactme.template-contactme',compact('data'));
     });
+
+   $route->get('/view-2', function(){
+      $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
+      return view('templates.subscription.template-subscription',compact('data'));
+   });
 
 
 

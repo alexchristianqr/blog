@@ -163,6 +163,12 @@
                         <div class="col num12" style="min-width: 320px; max-width: 650px; display: table-cell; vertical-align: top; width: 634px;">
                             <div style="background-color:#FFFFFF;width:100% !important;">
                                 <!--[if (!mso)&(!IE)]><!-->
+
+
+
+
+
+                                <!--Header Email-->
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:50px; padding-bottom:5px; padding-right: 50px; padding-left: 50px;">
                                     <!--<![endif]-->
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
@@ -194,6 +200,13 @@
                                     <!--<![endif]-->
                                     <!--[if (!mso)&(!IE)]><!-->
                                 </div>
+                                <!--Header Email-->
+
+
+
+
+
+
                                 <!--<![endif]-->
                             </div>
                         </div>
@@ -238,25 +251,37 @@
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:35px; padding-bottom:5px; padding-right: 50px; padding-left: 50px;">
                                     <!--<![endif]-->
 
-<!--Mensaje de Contacto-->
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
-<div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-<div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
-<span style="font-size: 17px; mso-ansi-font-size: 18px;">
-<strong style="text-transform: capitalize;">{{$data['fullname']}}</strong>
-<span>quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span>
-</span>
-</p>
-<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
-<div style="font-size: 14px; line-height: 25px; text-align: left;width: 100%">
-<span style="mso-ansi-font-size: 18px; line-height: 25px; font: 15.5px 'Comic Sans MS', cursive;">&ldquo;{{$data['message']}}&rdquo;</span>
-</div>
-<p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
-</div>
-</div>
-<!--[if mso]></td></tr></table><![endif]-->
-<!--Mensaje de Contacto-->
+
+
+
+
+
+
+                                    <!--Body Email-->
+                                    <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 15px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
+                                    <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                        <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
+                                            <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
+                                                <span style="font-size: 17px; mso-ansi-font-size: 18px;">
+                                                <strong style="text-transform: capitalize;">{{$data['fullname']}}</strong>
+                                                <span>quiere contactárse contigo y te ha enviado un mensaje que dice lo siguiente:</span>
+                                                </span>
+                                            </p>
+                                            <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
+                                            <div style="font-size: 14px; line-height: 25px; text-align: left;width: 100%">
+                                                <span style="mso-ansi-font-size: 18px; line-height: 25px; font: 15.5px 'Comic Sans MS', cursive;">&ldquo;{{$data['message']}}&rdquo;</span>
+                                            </div>
+                                            <p style="font-size: 14px; line-height: 21px; text-align: left; margin: 0;"> </p>
+                                        </div>
+                                    </div>
+                                    <!--[if mso]></td></tr></table><![endif]-->
+                                    <!--Body Email-->
+
+
+
+
+
+
 
                                     <!--[if (!mso)&(!IE)]><!-->
                                 </div>
@@ -279,12 +304,24 @@
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:30px; padding-bottom:25px; padding-right: 0px; padding-left: 0px;">
                                     <!--<![endif]-->
 
-<!--Imagen de Contacto-->
-<div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="{{asset('images/contactme/face.jpeg')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 158px; display: block;-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;" title="Image" width="158"/>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
-<!--Imagen de Contacto-->
+
+
+
+
+
+                                    <!--Imagen Email-->
+                                    <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
+                                        <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="{{asset('images/contactme/face.jpeg')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 158px; display: block;-webkit-border-radius: 100%;-moz-border-radius: 100%;border-radius: 100%;" title="Image" width="158"/>
+                                        <!--[if mso]></td></tr></table><![endif]-->
+                                    </div>
+                                    <!--Imagen Email-->
+
+
+
+
+
+
+
 
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
                                     <div style="color:#353535;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
@@ -332,11 +369,32 @@
                                 <div style="border-top:0px solid transparent; border-left:8px solid #F1F3F3; border-bottom:0px solid transparent; border-right:8px solid #F1F3F3; padding-top:30px; padding-bottom:30px; padding-right: 50px; padding-left: 50px;">
                                     <!--<![endif]-->
                                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
+
+
+
+
+
+
+
+                                    <!--Footer Email-->
                                     <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                         <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #86919b;">
-                                            <div style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">Telf: <strong>(+51) 955588297</strong> Email: <a href="https://www.acqrdeveloper.com/" rel="noopener" style="text-decoration: underline; color:#86919b;" target="_blank"><strong>acqrdeveloper@gmail.com</strong></a></div>
+                                            <div style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">
+                                                <div>Telefono: <strong>(+51) 955588297</strong></div>
+                                                <div>Email: <strong>acqrdeveloper@gmail.com</strong></div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!--Footer Email-->
+
+
+
+
+
+
+
+
+
                                     <!--[if mso]></td></tr></table><![endif]-->
                                     <!--[if (!mso)&(!IE)]><!-->
                                 </div>
