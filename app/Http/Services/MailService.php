@@ -59,7 +59,7 @@ class MailService
       $request->request->add([
          'view' => 'templates.subscription.template-subscription-confirm',
          'to' => $request->request->get('email'),
-         'subject' => 'Suscripción completada!',
+         'subject' => 'Confirmar Suscripción',
       ]);
       $validateSentMail = $this->sendMail($request);
       throw_if(!$validateSentMail, new Exception("Error al enviar el mensaje", 412));
