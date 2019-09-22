@@ -16,6 +16,18 @@ class SubscriptionController extends Controller
       try{
          (new MailService())->sendSubscriptionMail($request);
          DB::commit();
+         return redirect()->back()->with('message_success', "Te hemos enviado un email de confirmación a <b>".$request->request->get('email')."</b>");
+      }catch(Exception $e){
+         DB::rollback();
+         return redirect()->back()->withErrors(['message_failed' => ['Lo sentimos, pero no podemos procesar su solicitud. Inténtelo de nuevo o más tarde.']])->withInput($request->request->all());
+      }
+   }
+   function confirmSubscription(SubscriptionRequest $request)
+   {
+      DB::beginTransaction();
+      try{
+         (new MailService())->sendSubscriptionMail($request);
+         DB::commit();
          return redirect()->back()->with('message_success', 'Tu suscripción se ha realizado con éxito');
       }catch(Exception $e){
          DB::rollback();
