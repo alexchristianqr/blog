@@ -85,7 +85,7 @@
 
 {{--Secondary--}}
 @if(session()->has('message_secondary'))
-    @include('layouts.nav.nav-success-secondary')
+    @include('layouts.nav.nav-secondary-laravel')
 @endif
 
 {{--Error--}}
