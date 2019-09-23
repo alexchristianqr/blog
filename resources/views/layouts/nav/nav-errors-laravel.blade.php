@@ -5,7 +5,7 @@
                 <div class="col-sm-8 col-md-9 col-lg-10 col-10 my-auto">
                     <div>
                     @foreach ($errors->all() as $error)
-                        <li>{!! $error !!}</li>
+                        <li class="my-auto">{!! $error !!}</li>
                     @endforeach
                     </div>
                 </div>

@@ -10,6 +10,10 @@ class Subscription extends Model
    protected $fillable = [
       'fullname',
       'email',
+      'date_sent',
+      'date_expired',
+      'token',
+      'confirmed',
       'sent',
       'status',
    ];

@@ -17,7 +17,7 @@
                    <br>
                 </span>
                 <span style="font-size: 17px; mso-ansi-font-size: 18px;">
-                   <a href="#" style="border-radius: 3px;background-color: #86919b;padding: 8px;color: #FFFFFF;text-decoration: none">Confirmar Suscripción</a>
+                   <a href="{{route('route.subscription.token',['token'=>$data['token']])}}" style="border-radius: 3px;background-color: #86919b;padding: 8px;color: #FFFFFF;text-decoration: none">Confirmar Suscripción</a>
                    <br>
                    <br>
                 </span>

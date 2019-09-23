@@ -13,83 +13,94 @@
 
 Route::group(['middleware' => 'web'], function($route){
 
-    //Middleware Guest
-    $route->group(['middleware' => 'guest'], function($route){
-        //Authentication Routes...
-        $route->get('login', 'Auth\LoginController@getLogin')->name('get.login');
-        $route->post('login', 'Auth\LoginController@postLogin')->name('post.login');
+   //Password
+   Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+   Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+   Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-        //Registration Routes...
-        $route->get('register', 'Auth\RegisterController@getRegister')->name('get.register');
-        $route->post('register', 'Auth\RegisterController@postRegister')->name('post.register');
+   //Middleware Guest
+   $route->group(['middleware' => 'guest'], function($route){
+      //Authentication Routes...
+      $route->get('login', 'Auth\LoginController@getLogin')->name('get.login');
+      $route->post('login', 'Auth\LoginController@postLogin')->name('post.login');
 
-        //Password Reset Routes...
-        /*$route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-        $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-        $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-        $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
+      //Registration Routes...
+      $route->get('register', 'Auth\RegisterController@getRegister')->name('get.register');
+      $route->post('register', 'Auth\RegisterController@postRegister')->name('post.register');
 
-        $route->get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('route.socialite.login');
-        $route->get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('route.callback.login');
-    });
+      //Password Reset Routes...
+      /*$route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+      $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+      $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+      $route->post('password/reset', 'Auth\ResetPasswordController@reset');*/
 
-    //Middleware Auth
-    $route->group(['middleware' => 'auth'], function($route){
-        //Logout
-        $route->get('/logout', 'Auth\LoginController@logout')->name('logout');
-    });
+      $route->get('login/{driver}', 'Auth\LoginController@redirectToProvider')->name('route.socialite.login');
+      $route->get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('route.callback.login');
+   });
 
-    //Blog
-    $route->get('/blog', 'BlogController@viewBlog')->name('route.blog');
-    $route->get('/blog/search', 'BlogController@viewBlogSearch')->name('route.blog.search');
-    $route->get('/get-blog', 'BlogController@getBlog');
+   //Middleware Auth
+   $route->group(['middleware' => 'auth'], function($route){
+      //Logout
+      $route->get('/logout', 'Auth\LoginController@logout')->name('logout');
+   });
 
-    //Blog Category
-    $route->get('/blog/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
+   //Blog
+   $route->get('/blog', 'BlogController@viewBlog')->name('route.blog');
+   $route->get('/blog/search', 'BlogController@viewBlogSearch')->name('route.blog.search');
+   $route->get('/get-blog', 'BlogController@getBlog');
 
-    //Blog Post
-    $route->get('/blog/post/{year}/{month}/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
-    $route->get('/blog/post/{year}/{month}/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
+   //Blog Category
+   $route->get('/blog/category/{category_id}', 'BlogController@viewBlogCategory')->name('route.blog.category');
 
-    //Home
-    $route->get('/', 'HomeController@viewHome')->name('route.home');
+   //Blog Post
+   $route->get('/blog/post/{year}/{month}/{post_id}', 'BlogController@viewBlogPost')->name('route.blog.post');
+   $route->get('/blog/post/{year}/{month}/{post_id}/search', 'BlogController@viewBlogPostSearch')->name('route.blog.post.search');
 
-    //Portfolio
-    $route->get('/portfolio', 'PortfolioController@viewPortfolio')->name('route.portfolio');
-    $route->get('/portfolio/project/{portfolio_kind}', 'PortfolioController@viewPorfolioItem')->name('route.portfolio.item');
+   //Home
+   $route->get('/', 'HomeController@viewHome')->name('route.home');
+   $route->get('/confirm-subscription/{token}', 'SubscriptionController@confirmSubscription')->name('route.subscription.token');
+   //Password
+//   Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+//   Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+//   Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+//   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-    //About
-    $route->get('/about', 'AboutController@viewAbout')->name('route.about');
+   //Portfolio
+   $route->get('/portfolio', 'PortfolioController@viewPortfolio')->name('route.portfolio');
+   $route->get('/portfolio/project/{portfolio_kind}', 'PortfolioController@viewPorfolioItem')->name('route.portfolio.item');
 
-    //Service
-    $route->get('/service', 'Controller@viewService')->name('route.service');
+   //About
+   $route->get('/about', 'AboutController@viewAbout')->name('route.about');
 
-    //Contacto
-    $route->get('/contact', 'Controller@viewContact')->name('route.contact');
-    $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
+   //Service
+   $route->get('/service', 'Controller@viewService')->name('route.service');
 
-    //Suscripcion
-    $route->post('/subscribe', 'SubscriptionController@sendMessage')->name('route.subscription.sendmessage');
+   //Contacto
+   $route->get('/contact', 'Controller@viewContact')->name('route.contact');
+   $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
 
-    //Policies and Privacy
-    $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');
+   //Suscripcion
+   $route->post('/subscribe', 'SubscriptionController@sendMessage')->name('route.subscription.sendmessage');
 
-    //Testear vista laravel blade PHP
-    $route->get('/view-1', function(){
-       $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
-       return view('templates.contactme.template-contactme',compact('data'));
-    });
+   //Policies and Privacy
+   $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');
+
+   //Testear vista laravel blade PHP
+   $route->get('/view-1', function(){
+      $data = ['fullname' => 'rocio durcal', 'message' => 'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
+      return view('templates.contactme.template-contactme', compact('data'));
+   });
 
    $route->get('/view-2', function(){
-      $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
-      return view('templates.subscription.template-subscription',compact('data'));
+      $data = ['fullname' => 'rocio durcal', 'message' => 'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
+      return view('templates.subscription.template-subscription', compact('data'));
    });
 
    $route->get('/view-3', function(){
-      $data = ['fullname'=>'rocio durcal','message'=>'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
-      return view('templates.subscription.template-subscription-confirm',compact('data'));
+      $data = ['fullname' => 'rocio durcal', 'message' => 'Hola, tengo un proyecto en laravel php que quisiera comentarte y ver si puedes brindarme alguna asesoria personal, espero puedas contactme lo mas antes posible gracias.'];
+      return view('templates.subscription.template-subscription-confirm', compact('data'));
    });
-
 
 
 });
