@@ -7,12 +7,12 @@
         <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
             <p style="font-size: 14px; line-height: 25px; text-align: left; margin: 0;">
                 <span style="font-size: 17px; mso-ansi-font-size: 18px;">
-                   <span>Para activar, dale click en confirmar suscripción más abajo. Si crees que esto es un error, ignora este mensaje y no te molestaremos de nuevo.</span>
+                   <span>Te has suscrito recientemente a las entradas de mi blog. Esto significa que recibirás cada nueva entrada por correo electrónico.</span>
                    <br>
                    <br>
                 </span>
                 <span style="font-size: 17px; mso-ansi-font-size: 18px;">
-                   <span>Te has suscrito recientemente a las entradas de mi blog. Esto significa que recibirás cada nueva entrada por correo electrónico.</span>
+                   <span>Para activar, dale click en confirmar suscripción más abajo. Si crees que esto es un error, ignora este mensaje y no te molestaremos de nuevo.</span>
                    <br>
                    <br>
                 </span>
