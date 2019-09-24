@@ -41,8 +41,8 @@ class RegisterRequest extends FormRequest
          'password.required' => 'El campo <b>Contraseña</b> es necesario',
          'password_confirmation.required' => 'El campo <b>Confirmar Contraseña</b> es necesario',
          'password.confirmed' => 'El campo <b>Contraseña</b> no ha sido confirmado',
-         'password.min' =>  'El campo <b>Contraseña</b> debe tener un min:8 y max:16 cracteres',
-         'password.max' =>  'El campo <b>Contraseña</b> debe tener un min:8 y max:16 cracteres',
+         'password.min' =>  'El campo <b>Contraseña</b> debe tener un min:8 y max:16 caractéres',
+         'password.max' =>  'El campo <b>Contraseña</b> debe tener un min:8 y max:16 caractéres',
       ];
    }
 }
