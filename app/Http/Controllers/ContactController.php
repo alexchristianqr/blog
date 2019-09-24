@@ -6,7 +6,6 @@ use App\Http\Requests\ContactRequest;
 use App\Http\Services\MailService;
 use Exception;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller

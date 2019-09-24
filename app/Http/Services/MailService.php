@@ -54,6 +54,9 @@ class MailService
    //Enviar correo electronico de suscripcion
    function sendSubscriptionMail($request)
    {
+      $existSusbscription = Subscription::where('email', $request->request->get('email'))->first();
+      throw_if($existSusbscription->confirmed == 0, new Exception("Este correo electronico necesita ser confirmado", 412));
+      throw_if($existSusbscription, new Exception("Este correo electronico ya se encuentra suscrito a nuestro boletin informativo", 412));
       $newSubscription = (new Subscription())->fill($request->request->all());
       $secret_token = Str::random(255);
       $params_mail = [
@@ -86,7 +89,10 @@ class MailService
          'message' => $request->request->get('message'),
       ];
       $validateSentMail = $this->sendMail($params_mail);
-      if($validateSentMail) $newContactMe->sent = 1;
+      if($validateSentMail) {
+         $newContactMe->sent = 1;
+         $newContactMe->date_sent = Carbon::now();
+      }
       return $newContactMe->save();
    }
 

@@ -12,6 +12,7 @@ class ContactMe extends Model
       'phone',
       'email',
       'message',
+      'date_sent',
       'sent',
       'status',
    ];
