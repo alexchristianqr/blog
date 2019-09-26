@@ -45,7 +45,6 @@
 <body>
 
 <div id="app">
-    @yield('content-ads-web')
     <!-- Social Share Kit -->
     @if(request()->routeIs('route.blog.post'))
         @include('includes.social-share-kit')

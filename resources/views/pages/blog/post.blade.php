@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <hr>
-                @section('content-ads-web') @include('includes.bloq-ads-web') @endsection
+                @include('includes.bloq-ads-web')
                 {!! $dataPost->content !!}
                 <div class="card my-4">
                     <h5 class="card-header">I Like and Share in <span class="text-facebook">Facebook</span></h5>
