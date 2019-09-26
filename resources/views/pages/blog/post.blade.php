@@ -2,6 +2,7 @@
 @section('content-metas-share')
     @include('includes.metas-share',[$dataShare])
 @endsection
+@section('content-ads-movil') @include('includes.bloq-ads-movil') @endsection
 @section('content')
     <!-- Page Content -->
     <div class="container">
@@ -35,6 +36,7 @@
                     </div>
                 </div>
                 <hr>
+                @section('content-ads-web') @include('includes.bloq-ads-web') @endsection
                 {!! $dataPost->content !!}
                 <div class="card my-4">
                     <h5 class="card-header">I Like and Share in <span class="text-facebook">Facebook</span></h5>

@@ -40,22 +40,12 @@
     <!-- produccion -->
     <script src="{{asset('dist/js/vue.min.js').'?cache='.str_limit(time(),6,'')}}"></script>
     @endenv
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-3673802025441541",
-        enable_page_level_ads: true
-      });
-    </script>
+    @yield('content-ads-movil')
 </head>
 <body>
-<!-- bloque_1 -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3673802025441541" data-ad-slot="5332221143" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<div id="app">
 
+<div id="app">
+    @yield('content-ads-web')
     <!-- Social Share Kit -->
     @if(request()->routeIs('route.blog.post'))
         @include('includes.social-share-kit')
