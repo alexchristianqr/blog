@@ -40,6 +40,7 @@
     <!-- produccion -->
     <script src="{{asset('dist/js/vue.min.js').'?cache='.str_limit(time(),6,'')}}"></script>
     @endenv
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     @yield('content-ads-movil')
 </head>
 <body>
