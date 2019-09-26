@@ -64,6 +64,8 @@
                 <!-- Posts History -->
                 @include('includes.history',[$dataHistory, $dataMonths])
 
+                @include('includes.bloq-ads-web')
+
             </div>
 
         </div>
