@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <hr>
-                @include('includes.bloq-ads-web')
+                @include('includes.ads-1-horizontal')
                 <p></p>
                 {!! $dataPost->content !!}
                 <div class="card my-4">
@@ -64,7 +64,7 @@
                 <!-- Posts History -->
                 @include('includes.history',[$dataHistory, $dataMonths])
 
-                @include('includes.bloq-ads-web')
+                @include('includes.ads-1-vertical')
 
             </div>
 
