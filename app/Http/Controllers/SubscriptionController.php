@@ -24,7 +24,6 @@ class SubscriptionController extends Controller
       }catch(Exception $e){
          DB::rollback();
          return redirect()->back()->withErrors(['message_failed' => $e->getMessage()])->withInput($request->request->all());
-
       }
    }
 

@@ -104,7 +104,7 @@
             <div class="form-group">
                <label>Message</label>
                <textarea title="Ingrese contenido del mensaje" placeholder="Contenido del mensaje" name="message" rows="4" cols="100"
-                         class="form-control bg-light" required maxlength="999" style="resize:none"
+                         class="form-control bg-light" required maxlength="300" style="resize:none"
                          :readonly="button.disabled">{{ old('message') }}</textarea>
             </div>
             <!-- For success/fail messages -->

@@ -78,10 +78,10 @@ Route::group(['middleware' => 'web'], function($route){
 
    //Contacto
    $route->get('/contact', 'Controller@viewContact')->name('route.contact');
-//   $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
+   $route->post('/contact/send-message', 'ContactController@sendMessage')->name('route.contact.sendmessage');
 
    //Suscripcion
-//   $route->post('/subscribe', 'SubscriptionController@sendMessage')->name('route.subscription.sendmessage');
+   $route->post('/subscribe', 'SubscriptionController@sendMessage')->name('route.subscription.sendmessage');
 
    //Policies and Privacy
    $route->get('/policies/terms-conditions', 'Controller@viewPolicies')->name('route.policies.terms');

@@ -85,7 +85,7 @@ class MailService
       $newContactMe = (new ContactMe())->fill($request->request->all());
       $params_mail = [
          'view' => 'templates.contactme.template-contactme',
-         'to' => "acqrdeveloper@gmail.com",
+         'to' => $request->request->get('email'),
          'subject' => 'Alguien te quiere contactar!',
          'fullname' => $request->request->get('fullname'),
          'message' => $request->request->get('message'),
