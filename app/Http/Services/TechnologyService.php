@@ -18,7 +18,7 @@ class TechnologyService
             ->join('path', 'path.id', 'technologies.path_id');
 
         //Status
-        if($request->has('status')) $dataModel = $dataModel->where('status', $request->status);
+        if($request->has('status')) $dataModel = $dataModel->where('technologies.status', $request->status);
 
         //OrderField
         if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'technologies.updated_at', 'DESC');
@@ -32,7 +32,7 @@ class TechnologyService
 
     function getAll($request)
     {
-        $request->request->add(['orderBy' => true]);
+        $request->request->add(['orderBy' => true, 'status' => 'A']);
         return $this->dataModel($request);
     }
 }
