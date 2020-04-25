@@ -9,7 +9,7 @@
         <!-- Intro Content -->
         <div class="row">
             <div class="col-lg-6">
-                <img class="img-fluid rounded mb-4" src="{{asset('/images/profile.jpg')}}" alt="">
+                <img class="img-fluid rounded mb-4" src="{{asset('/images/about/me.jpeg')}}" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="row">
