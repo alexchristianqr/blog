@@ -14,10 +14,10 @@
 Route::group(['middleware' => 'web'], function($route){
 
    //Password
-   Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-   Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
-   Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-   Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+   $route->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+   $route->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+   $route->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+   $route->post('password/reset', 'Auth\ResetPasswordController@reset');
 
    //Middleware Guest
    $route->group(['middleware' => 'guest'], function($route){
