@@ -16,11 +16,6 @@ class UserService
 	{
 		//Data Model
 		$dataModel = User::select(['users.*']);
-		//Rango de Fecha
-		if($request->request->has('date_range')){
-			$dateExplode = explode('/', $request->request->get('date_range'));
-			$dataModel = $dataModel->whereBetween(DB::raw('DATE(users.updated_at)'), [$dateExplode[0], $dateExplode[1]]);
-		}
 		//User_id
 		if($request->has('user_id')) $dataModel = $dataModel->where('users.id', $request->user_id);
 		//Paginate

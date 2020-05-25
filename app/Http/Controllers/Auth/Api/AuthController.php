@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
 use App\Http\Services\AuthService;
+use App\User;
 use Exception;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
@@ -18,7 +18,6 @@ class AuthController extends Controller
     */
    public function __construct()
    {
-//      $this->middleware('cors:api', ['except' => ['login']]);
       $this->middleware(['verify.authorization', 'jwt.auth'], ['except' => ['login']]);
    }
 
@@ -58,6 +57,7 @@ class AuthController extends Controller
    public function logout()
    {
       try{
+         User::where('id', auth()->user()->id)->update(['token' => null, 'session_id' => null]);
          auth()->logout();
          return response()->json('Successfully logged out', 200);
       }catch(TokenExpiredException $e){

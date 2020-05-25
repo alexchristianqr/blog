@@ -27,14 +27,14 @@ class PostService
 		}
 		$dataModel = $dataModel->join('path', 'path.id', 'post.path_id')->join('users', 'users.id', 'post.user_id');
 		//Rango de Fecha
-		if($request->request->has('date_range')){
-			$dateExplode = explode('/', $request->request->get('date_range'));
-			if($request->ajax()){//Vue
-				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$dateExplode[0], $dateExplode[1]]);
-			}else{//Laravel
-				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$dateExplode[0], $dateExplode[1]]);
-			}
-		}
+//		if($request->request->has('date_range')){
+//			$dateExplode = explode('/', $request->request->get('date_range'));
+//			if($request->ajax()){//Vue
+//				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$dateExplode[0], $dateExplode[1]]);
+//			}else{//Laravel
+//				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$dateExplode[0], $dateExplode[1]]);
+//			}
+//		}
 		//Year
 		if($request->request->has('year')) $dataModel = $dataModel->whereYear('post.published', $request->year);
 		//Month
@@ -91,7 +91,9 @@ class PostService
 		if($request->has('status')) $dataModel = $dataModel->where('post.status', $request->status);
 
 		//OrderField
-		if($request->has('orderBy')) $dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.published', 'DESC');
+		$dataModel = $dataModel->orderBy('id', 'DESC');
+		$dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.published', 'DESC');
+//		if($request->has('orderBy')) $dataModel = $dataModel->orderBy('id', 'DESC');
 
 		//Debug Customize
 		//$this->myDebug($dataModel,true);
