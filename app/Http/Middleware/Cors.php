@@ -15,23 +15,11 @@ class Cors
      */
     public function handle($request, Closure $next)
     {
-        if(config('app')['env'] === 'local'){
-            return $next($request)
-                ->header('Access-Control-Allow-Origin', '*')
-                ->header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
-                ->header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, X-Requested-With, Authorization, Type-Project');
-        }else{
-            if($request->ajax() || $request->method() === 'OPTIONS'){
-                return $next($request)
-                    ->header('Access-Control-Allow-Origin', '*')
-                    ->header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
-                    ->header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, X-Requested-With, Authorization, Type-Project');
-            }else if(!$request->ajax()){
-                return $next($request);
-            }else{
-                return abort(404);
-            }
-        }
+       $response = $next($request);
+       $response->headers->set('Access-Control-Allow-Origin', '*');
+       $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+       $response->headers->set('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, X-Requested-With, Authorization, Application');
+       return $response;
     }
 
 }

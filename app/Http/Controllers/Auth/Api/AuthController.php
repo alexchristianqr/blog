@@ -7,6 +7,7 @@ use App\Http\Services\AuthService;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -42,10 +43,15 @@ class AuthController extends Controller
     */
    public function me()
    {
+      $id = auth()->user()->id;
       try{
          $dataAuth = auth()->user();
          return response()->json($dataAuth, OK);
+      } catch(UnauthorizedHttpException $e){
+         User::where('id', $id)->update(['token' => null, 'session_id' => null]);
+         return response()->json($e->getMessage(), UNAUTHORIZED);
       }catch(TokenExpiredException $e){
+         User::where('id', $id)->update(['token' => null, 'session_id' => null]);
          return response()->json($e->getMessage(), UNAUTHORIZED);
       }
    }
