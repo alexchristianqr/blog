@@ -20,7 +20,9 @@
                 <!-- Blog Post -->
                 @foreach($dataPost as $k => $v)
                     <div class="card mb-4">
-                        <img class="card-img-top" src="{{asset($v->path_name.$v->image)}}" alt="Image Blog"/>
+                        <div class="text-center">
+                            <img class="card-img-top" src="{{asset($v->path.$v->image)}}"/>
+                        </div>
                         <div class="card-body">
                             <h2 class="card-title text-dark">{{$v->name}}</h2>
                             <p class="card-text">{{$v->description}}</p>

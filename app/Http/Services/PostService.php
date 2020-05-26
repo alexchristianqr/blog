@@ -26,15 +26,7 @@ class PostService
 			$dataModel = Post::select('post.*', 'path.name AS path_name', 'users.name AS user_name');
 		}
 		$dataModel = $dataModel->join('path', 'path.id', 'post.path_id')->join('users', 'users.id', 'post.user_id');
-		//Rango de Fecha
-//		if($request->request->has('date_range')){
-//			$dateExplode = explode('/', $request->request->get('date_range'));
-//			if($request->ajax()){//Vue
-//				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.updated_at)'), [$dateExplode[0], $dateExplode[1]]);
-//			}else{//Laravel
-//				$dataModel = $dataModel->whereBetween(DB::raw('DATE(post.published)'), [$dateExplode[0], $dateExplode[1]]);
-//			}
-//		}
+
 		//Year
 		if($request->request->has('year')) $dataModel = $dataModel->whereYear('post.published', $request->year);
 		//Month
@@ -88,12 +80,15 @@ class PostService
 		if($request->has('post_id')) $dataModel = $dataModel->where('post.kind', $request->post_id);
 
 		//Status
-		if($request->has('status')) $dataModel = $dataModel->where('post.status', $request->status);
+      if($request->has('status')){
+         if($request->get('status') != '') $dataModel = $dataModel->where('post.status', $request->get('status'));
+      }
 
 		//OrderField
-		$dataModel = $dataModel->orderBy('id', 'DESC');
-		$dataModel = $dataModel->orderBy(($request->has('orderField')) ? $request->orderField : 'post.published', 'DESC');
-//		if($request->has('orderBy')) $dataModel = $dataModel->orderBy('id', 'DESC');
+      if($request->has('orderBy')){
+         if($request->get('orderBy') == "blog") $dataModel = $dataModel->orderBy('id', 'DESC')->orderBy(($request->has('orderField')) ? $request->orderField : 'post.published', 'DESC');
+         if($request->get('orderBy') == "cms") $dataModel = $dataModel->orderBy('post.id', 'DESC');
+      }
 
 		//Debug Customize
 		//$this->myDebug($dataModel,true);
@@ -122,14 +117,14 @@ class PostService
 			'paginate' => $this->paginateGlobal,
 			'status' => 'A',
 			'simplePaginate' => true,
-			'orderBy' => true,
+			'orderBy' => "blog",
 		]);
 		return $this->dataModel($request);
 	}
 
 	function getAll($request)
 	{
-		$request->request->add(['orderBy' => true]);
+		$request->request->add(['orderBy' => "cms"]);
 		return $this->dataModel($request);
 	}
 
@@ -150,9 +145,30 @@ class PostService
 		return (new Post())->fill($request->all())->save();
 	}
 
-	function update($post_id, $request)
+	function update($id, $request)
 	{
-		return Post::find($post_id)->fill($request->all())->save();
+      $dataModel = Post::find($id);
+      if($request->hasFile('file_image')){
+         //Eliminar imagen anterior
+         if($dataModel->image != "post.default.jpg"){
+            $path = public_path() . '/img/avatars/' . $dataModel->image;
+            if(file_exists($path)) unlink($path);
+         }
+         //Crear nueva imagen
+         $file_image = $request->file('file_image');
+         $destinationPath = public_path('images/post');
+         $date_and_time = date('Ymd') . "_" . date('His');
+         $extension = $file_image->getClientOriginalExtension();
+         $filename_image =  "$date_and_time.$extension";
+         $file_image->move($destinationPath, $filename_image);
+         //Set nueva imagen
+         $dataModel->image = $filename_image;
+      }
+		$dataModel->fill($request->all());
+      $dataModel->path = 'images/post/';
+      $dataModel->save();
+
+
 	}
 
 	function getHistory()

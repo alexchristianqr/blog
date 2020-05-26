@@ -12,6 +12,7 @@ class Post extends Model
         'user_id',
         'tag_id',
         'path_id',
+        'path',
         'replies_id',
         'name',
         'description',

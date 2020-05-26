@@ -20,7 +20,7 @@
             <div class="col-lg-8">
 
                 <!-- Post -->
-                <img class="img-fluid rounded" src="{{asset($dataPost->path_name.$dataPost->image)}}" alt="Image Blog Post"/>
+                <img class="img-fluid rounded" src="{{asset($dataPost->path.$dataPost->image)}}" alt="Image Blog Post"/>
                 <hr>
                 <div class="row">
                     <div class="col-sm-12 text-sm-left col-md-7 text-md-left col-lg-6 my-auto">
